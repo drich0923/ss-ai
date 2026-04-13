@@ -1,5 +1,6 @@
 import Link from "next/link"
 import MarketingShell from "@/components/MarketingShell"
+import { PlatformShowcase } from "@/components/ProductMockups"
 import { ecosystemModules } from "@/lib/site-data"
 
 export default function MarketingPlatformPage() {
@@ -12,6 +13,8 @@ export default function MarketingPlatformPage() {
           Start with the app solving the biggest problem today, then add the rest as your stack matures.
         </p>
       </section>
+
+      <PlatformShowcase />
 
       <section className="section">
         <div className="section-header">

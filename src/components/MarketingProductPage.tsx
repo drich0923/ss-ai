@@ -1,5 +1,6 @@
 import Link from "next/link"
 import MarketingShell from "@/components/MarketingShell"
+import { ProductMockup } from "@/components/ProductMockups"
 import { productModules, type ProductModule } from "@/lib/site-data"
 
 type MarketingProductPageProps = {
@@ -40,6 +41,17 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
             <p>{product.leadValue}</p>
           </div>
         </aside>
+      </section>
+
+      <section className="section section-tight">
+        <div className="section-header visual-section-header">
+          <span className="section-kicker">Product preview</span>
+          <h2>See how {product.name} looks in the platform.</h2>
+          <p>Preview shown with anonymized client, rep, and prospect names.</p>
+        </div>
+        <div className="product-visual-frame">
+          <ProductMockup slug={product.slug} />
+        </div>
       </section>
 
       <section className="section">

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import MarketingShell from "@/components/MarketingShell"
+import { PlatformShowcase } from "@/components/ProductMockups"
 import { ecosystemModules, productModules, siteStats } from "@/lib/site-data"
 
 export default function MarketingHome() {
@@ -38,6 +39,8 @@ export default function MarketingHome() {
           </div>
         </div>
       </section>
+
+      <PlatformShowcase />
 
       <section className="section section-tight highlight-band">
         <div className="section-header">
