@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
-import MarketingProductPage from "@/components/MarketingProductPage"
+import ProductPageLayout from "@/components/ProductPageLayout"
 import { getProductModule, productModules } from "@/lib/site-data"
 
 type ProductPageProps = {
@@ -30,5 +30,5 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   if (!product) notFound()
 
-  return <MarketingProductPage product={product} />
+  return <ProductPageLayout product={product} />
 }

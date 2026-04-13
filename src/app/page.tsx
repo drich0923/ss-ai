@@ -1,5 +1,5 @@
-import MarketingHome from "@/components/MarketingHome"
+import SSLanding from "@/components/SSLanding"
 
 export default function HomePage() {
-  return <MarketingHome />
+  return <SSLanding />
 }
