@@ -45,9 +45,9 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
 
       <section className="section section-tight">
         <div className="section-header visual-section-header">
-          <span className="section-kicker">Product preview</span>
-          <h2>See how {product.name} looks in the platform.</h2>
-          <p>Preview shown with anonymized client, rep, and prospect names.</p>
+          <span className="section-kicker">Inside the product</span>
+          <h2>See how {product.name} works in practice.</h2>
+          <p>A closer look at the workflow your team would actually use.</p>
         </div>
         <div className="product-visual-frame">
           <ProductMockup slug={product.slug} />

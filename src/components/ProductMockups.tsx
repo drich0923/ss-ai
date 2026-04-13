@@ -297,9 +297,9 @@ export function PlatformShowcase() {
   return (
     <section className="section section-tight">
       <div className="section-header visual-section-header">
-        <span className="section-kicker">Product visuals</span>
-        <h2>See the platform before you book the walkthrough.</h2>
-        <p>These are anonymized product previews built from the live workflows inside the system.</p>
+        <span className="section-kicker">Inside the platform</span>
+        <h2>See how the system works in practice.</h2>
+        <p>From call review to manager action, each app is built to reduce drag and sharpen execution.</p>
       </div>
       <div className="visual-showcase-grid">
         <div className="visual-showcase-feature">
