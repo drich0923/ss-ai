@@ -6,7 +6,7 @@ type MarketingShellProps = {
 
 const navLinks = [
   { href: "/platform", label: "Platform" },
-  { href: "/products", label: "Products" },
+  { href: "/products", label: "Apps" },
   { href: "/products/ai-call-coaching", label: "AI Call Coaching" },
 ] as const
 
@@ -21,7 +21,7 @@ export default function MarketingShell({ children }: MarketingShellProps) {
             <img src="/ss-logo.svg" alt="" className="brand-logo" />
             <div>
               <div className="brand-title">Systemized Sales AI</div>
-              <div className="brand-subtitle">Sales operating system</div>
+              <div className="brand-subtitle">App store for your sales team</div>
             </div>
           </Link>
           <nav className="site-nav">
@@ -44,7 +44,7 @@ export default function MarketingShell({ children }: MarketingShellProps) {
           <div>
             <div className="footer-brand">Systemized Sales AI</div>
             <p className="footer-copy">
-              Productized software and operating systems for high-ticket sales teams that need tighter coaching, cleaner management, and better revenue visibility.
+              A platform of connected operating apps for high-ticket sales teams that need better coaching, cleaner management, stronger client visibility, and tighter revenue execution.
             </p>
           </div>
           <div className="footer-links">

@@ -6,10 +6,10 @@ export default function MarketingProductsIndex() {
   return (
     <MarketingShell>
       <section className="page-hero">
-        <span className="eyebrow">Product lineup</span>
-        <h1>Choose the product that solves the most expensive problem in your sales operation.</h1>
+        <span className="eyebrow">App store</span>
+        <h1>Explore the individual apps inside Systemized Sales AI.</h1>
         <p className="page-summary">
-          Start with the workflow slowing revenue down today. Add the rest of the platform after the first system is already working for your team.
+          Each app solves a specific operating problem for your sales team. Start with the workflow creating the most drag now, then expand into the rest over time.
         </p>
       </section>
 
