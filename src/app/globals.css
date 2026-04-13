@@ -248,12 +248,17 @@ img {
 }
 
 .page-hero {
-  max-width: 860px;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .product-hero {
-  grid-template-columns: minmax(0, 1.16fr) minmax(320px, 0.84fr);
+  grid-template-columns: 1fr;
   align-items: start;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero h1,
@@ -282,7 +287,8 @@ img {
 
 .page-hero h1,
 .product-hero h1 {
-  max-width: 10.8ch;
+  max-width: 12ch;
+  margin-inline: auto;
 }
 
 .hero-summary,
@@ -293,6 +299,10 @@ img {
 }
 
 .hero-summary {
+  margin-inline: auto;
+}
+
+.page-summary {
   margin-inline: auto;
 }
 
@@ -461,6 +471,9 @@ img {
   gap: 1rem;
   padding: 1.2rem;
   background: var(--surface-strong);
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .product-fact {
