@@ -1,0 +1,475 @@
+:root {
+  --bg: #f4efe5;
+  --bg-strong: #f9f6ef;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --border: rgba(18, 24, 22, 0.1);
+  --ink: #171d19;
+  --muted: #58635b;
+  --lime: #8ceb4c;
+  --forest: #112419;
+  --blue: #265ef5;
+  --shadow: 0 28px 80px rgba(17, 36, 25, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(38, 94, 245, 0.08), transparent 30%), var(--bg);
+  color: var(--ink);
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.site-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-glow {
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(30px);
+}
+
+.site-glow-one {
+  width: 28rem;
+  height: 28rem;
+  top: -8rem;
+  right: -8rem;
+  background: rgba(140, 235, 76, 0.18);
+}
+
+.site-glow-two {
+  width: 24rem;
+  height: 24rem;
+  bottom: 12rem;
+  left: -10rem;
+  background: rgba(38, 94, 245, 0.12);
+}
+
+.site-header,
+.site-footer,
+.hero,
+.page-hero,
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  padding: 1.2rem 1.5rem 0;
+}
+
+.site-header-inner,
+.site-footer-inner,
+.hero,
+.page-hero,
+.section {
+  width: min(1180px, calc(100vw - 2rem));
+  margin: 0 auto;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(249, 246, 239, 0.82);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 35px rgba(17, 36, 25, 0.05);
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-logo {
+  width: 104px;
+  height: auto;
+}
+
+.brand-title,
+.footer-brand {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-weight: 700;
+}
+
+.brand-subtitle,
+.footer-copy,
+.metric-label,
+.section-kicker,
+.eyebrow,
+.pill,
+.panel-label,
+.timeline-step {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+}
+
+.brand-subtitle,
+.footer-copy,
+.metric-label,
+.section-kicker,
+.panel-label,
+.page-summary,
+.hero-summary,
+.module-card p,
+.detail-card p,
+.timeline-card p,
+.bullet-list,
+.product-meta {
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  color: #314138;
+}
+
+.site-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+}
+
+.button-primary {
+  background: var(--forest);
+  color: #f5f9ef;
+  box-shadow: var(--shadow);
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.hero,
+.page-hero {
+  display: grid;
+  gap: 2rem;
+  padding: 4.5rem 0 2rem;
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  align-items: center;
+}
+
+.hero h1,
+.page-hero h1,
+.section h2,
+.module-card h2,
+.detail-card h3,
+.timeline-card h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 0.96;
+  margin: 0;
+}
+
+.hero h1,
+.page-hero h1 {
+  font-size: clamp(3.6rem, 7vw, 6.4rem);
+  max-width: 11ch;
+}
+
+.hero-summary,
+.page-summary {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.hero-proof-grid,
+.module-grid,
+.two-column-grid,
+.three-column-grid,
+.timeline-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-proof-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.metric-card,
+.hero-panel-card,
+.module-card,
+.detail-card,
+.timeline-card {
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.metric-card {
+  padding: 1.25rem;
+}
+
+.metric-value {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 2.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.hero-panel-card {
+  padding: 2rem;
+  background:
+    linear-gradient(135deg, rgba(17, 36, 25, 0.96), rgba(36, 65, 44, 0.9)),
+    var(--forest);
+  color: #f4f7f0;
+}
+
+.hero-panel-card p,
+.hero-panel-card .bullet-list,
+.hero-panel-card .panel-label,
+.hero-panel-card .mini-roadmap span {
+  color: rgba(244, 247, 240, 0.74);
+}
+
+.mini-roadmap {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+
+.mini-roadmap div {
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(244, 247, 240, 0.12);
+}
+
+.mini-roadmap strong {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+}
+
+.section {
+  padding: 2rem 0 4.25rem;
+}
+
+.section-header {
+  max-width: 54rem;
+  margin-bottom: 1.5rem;
+}
+
+.section h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.module-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.module-card,
+.detail-card,
+.timeline-card {
+  padding: 1.5rem;
+}
+
+.module-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  background: rgba(17, 36, 25, 0.08);
+  color: #2a382f;
+}
+
+.inline-link {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.highlight-band {
+  position: relative;
+}
+
+.highlight-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  background: linear-gradient(135deg, rgba(140, 235, 76, 0.1), rgba(38, 94, 245, 0.06));
+  z-index: -1;
+}
+
+.two-column-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three-column-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.timeline-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.timeline-step {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--blue);
+}
+
+.detail-card h3,
+.timeline-card h3,
+.module-card h2 {
+  font-size: 1.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.65rem;
+  line-height: 1.65;
+}
+
+.product-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-meta {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.site-footer {
+  padding: 0 1rem 2rem;
+}
+
+.site-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.6rem 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-copy {
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+@media (max-width: 980px) {
+  .site-header-inner,
+  .site-footer-inner,
+  .hero,
+  .page-hero,
+  .section {
+    width: min(1180px, calc(100vw - 1.2rem));
+  }
+
+  .site-header-inner,
+  .site-footer-inner,
+  .hero,
+  .two-column-grid,
+  .three-column-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .hero-proof-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    padding-top: 0.9rem;
+  }
+
+  .site-header-inner {
+    border-radius: 24px;
+  }
+
+  .brand-logo {
+    width: 82px;
+  }
+
+  .hero,
+  .page-hero {
+    padding-top: 3rem;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    max-width: 100%;
+  }
+
+  .hero-summary,
+  .page-summary {
+    font-size: 1rem;
+  }
+}
