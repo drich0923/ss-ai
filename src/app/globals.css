@@ -227,8 +227,16 @@ img {
 .page-hero h1,
 .product-hero h1 {
   font-size: clamp(2.85rem, 4.7vw, 4.65rem);
-  max-width: 11.5ch;
   letter-spacing: -0.03em;
+}
+
+.hero h1 {
+  max-width: 8.6ch;
+}
+
+.page-hero h1,
+.product-hero h1 {
+  max-width: 11.5ch;
 }
 
 .hero-summary,
@@ -243,6 +251,15 @@ img {
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 1.35rem;
+}
+
+.hero-value-list {
+  margin: 1.1rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.55rem;
+  color: #304036;
+  line-height: 1.6;
 }
 
 .hero-notes {
@@ -306,6 +323,82 @@ img {
     linear-gradient(135deg, rgba(17, 36, 25, 0.96), rgba(36, 65, 44, 0.9)),
     var(--forest);
   color: #f4f7f0;
+}
+
+.hero-store-card {
+  border: 1px solid rgba(17, 36, 25, 0.1);
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 241, 232, 0.94));
+  box-shadow: 0 26px 70px rgba(17, 36, 25, 0.1);
+  padding: 1.35rem;
+}
+
+.hero-store-header {
+  display: grid;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-store-header strong {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 1.55rem;
+  line-height: 1.04;
+}
+
+.hero-store-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.store-app-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(17, 36, 25, 0.08);
+}
+
+.store-app-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.store-app-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.store-feature-flag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.32rem 0.58rem;
+  background: rgba(38, 94, 245, 0.08);
+  color: #234fbf;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.store-app-card-featured {
+  background: linear-gradient(180deg, rgba(17, 36, 25, 0.96), rgba(30, 55, 37, 0.92));
+  border-color: rgba(17, 36, 25, 0.18);
+}
+
+.store-app-card-featured p,
+.store-app-card-featured .inline-link {
+  color: rgba(244, 247, 240, 0.86);
+}
+
+.store-app-card-featured .pill {
+  background: rgba(140, 235, 76, 0.14);
+  color: #dff7cb;
 }
 
 .product-hero-panel {
@@ -540,6 +633,10 @@ img {
   .product-hero h1 {
     max-width: 100%;
     font-size: clamp(2.45rem, 13vw, 3.6rem);
+  }
+
+  .hero-store-header strong {
+    font-size: 1.35rem;
   }
 
   .hero-summary,

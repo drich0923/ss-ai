@@ -9,25 +9,29 @@ export default function MarketingHome() {
     <MarketingShell>
       <section className="hero">
         <div className="hero-copy">
-          <span className="eyebrow">For high-ticket sales teams</span>
-          <h1>Review every sales call, catch weak conversations early, and coach the reps that need it most.</h1>
+          <span className="eyebrow">Sales operating system for high-ticket teams</span>
+          <h1>The app store for your sales team.</h1>
           <p className="hero-summary">
-            Systemized Sales AI turns transcripts and sales activity into a coaching system for setters, closers, and managers. Your team gets flagged calls, scorecards, and a cleaner operating rhythm instead of random call reviews and gut-feel coaching.
+            Systemized Sales AI gives you one platform for AI Call Coaching, Manager OS, Client Health, Revenue Visibility, and Sales Onboarding. Start with the workflow costing you the most money now, then expand into the rest as your team grows.
           </p>
+          <ul className="hero-value-list">
+            <li>Replace random call reviews with a real coaching system.</li>
+            <li>Give managers, operators, and leadership one connected operating layer.</li>
+            <li>Keep client health, rep execution, and revenue ownership in the same system.</li>
+          </ul>
           <div className="hero-actions">
             <a href="mailto:dylan.rich@systemizedsales.com?subject=Systemized%20Sales%20AI%20Demo" className="button button-primary">
-              Request demo
+              Request a walkthrough
             </a>
-            <Link href={`/products/${flagship.slug}`} className="button button-secondary">
-              Explore {flagship.name}
+            <Link href="/products" className="button button-secondary">
+              Explore the apps
             </Link>
           </div>
           <div className="hero-notes">
-            <span>AI Call Coaching</span>
-            <span>Manager OS</span>
-            <span>Client Health</span>
-            <span>Revenue Visibility</span>
-            <span>Sales Onboarding</span>
+            <span>Setter teams</span>
+            <span>Closer teams</span>
+            <span>Agencies</span>
+            <span>Portfolio operators</span>
           </div>
           <div className="hero-proof-grid">
             {siteStats.map(stat => (
@@ -40,28 +44,24 @@ export default function MarketingHome() {
         </div>
 
         <div className="hero-panel">
-          <div className="hero-panel-card">
-            <span className="panel-label">Where teams start</span>
-            <h2>{flagship.name}</h2>
-            <p>{flagship.heroSummary}</p>
-            <ul className="bullet-list">
-              <li>Stop relying on random call sampling.</li>
-              <li>See which reps, accounts, and call types need attention.</li>
-              <li>Give managers one place to coach, track, and follow up.</li>
-            </ul>
-            <div className="mini-roadmap">
-              <div>
-                <span>First win</span>
-                <strong>Fix call quality and coaching visibility</strong>
-              </div>
-              <div>
-                <span>Next layer</span>
-                <strong>Add management rhythm and account health</strong>
-              </div>
-              <div>
-                <span>Full platform</span>
-                <strong>Connect revenue visibility and onboarding systems</strong>
-              </div>
+          <div className="hero-store-card">
+            <div className="hero-store-header">
+              <span className="panel-label">Inside the platform</span>
+              <strong>Five connected operating apps</strong>
+            </div>
+            <div className="hero-store-grid">
+              {ecosystemModules.map(module => (
+                <article key={module.slug} className={`store-app-card ${module.slug === flagship.slug ? "store-app-card-featured" : ""}`}>
+                  <div className="store-app-topline">
+                    <span className="pill">{module.title}</span>
+                    {module.slug === flagship.slug ? <span className="store-feature-flag">Most teams start here</span> : null}
+                  </div>
+                  <p>{module.summary}</p>
+                  <Link href={`/products/${module.slug}`} className="inline-link">
+                    View app
+                  </Link>
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -69,10 +69,37 @@ export default function MarketingHome() {
 
       <section className="section">
         <div className="section-header">
-          <span className="section-kicker">What the platform does</span>
-          <h2>One place to improve call quality, manager execution, client visibility, and revenue follow-through.</h2>
+          <span className="section-kicker">Why buyers come looking</span>
+          <h2>The pain usually shows up in one department first. The root problem is that the operating system is fragmented.</h2>
           <p>
-            Most teams already have recordings, dashboards, and spreadsheets. What they do not have is an operating layer that turns those inputs into clear action for managers and leadership.
+            Teams end up with call recordings in one tool, coaching in Slack, client health in someone’s head, and payment visibility in spreadsheets. Systemized Sales AI pulls those operating layers into one place.
+          </p>
+        </div>
+        <div className="three-column-grid">
+          <article className="detail-card">
+            <span className="section-kicker">Coaching breaks first</span>
+            <h3>Managers are coaching blind.</h3>
+            <p>Only a fraction of calls get reviewed, weak conversations slip through, and reps repeat the same mistakes for weeks.</p>
+          </article>
+          <article className="detail-card">
+            <span className="section-kicker">Visibility breaks next</span>
+            <h3>Leadership cannot see what is actually drifting.</h3>
+            <p>Account health, rep execution, and revenue follow-through live in different places, so every decision takes too much stitching.</p>
+          </article>
+          <article className="detail-card">
+            <span className="section-kicker">Operations absorb the mess</span>
+            <h3>Growth creates more exceptions than systems.</h3>
+            <p>Onboarding, team accountability, and ownership get harder to maintain as more reps, managers, and brands get added.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="section highlight-band">
+        <div className="section-header">
+          <span className="section-kicker">Explore the app store</span>
+          <h2>Each app solves a specific operational problem. Together they run the team.</h2>
+          <p>
+            You do not need to buy everything at once. Most teams start with one urgent workflow, prove value fast, and expand into the rest as the system takes hold.
           </p>
         </div>
         <div className="module-grid">
@@ -90,29 +117,26 @@ export default function MarketingHome() {
         </div>
       </section>
 
-      <section className="section highlight-band">
+      <section className="section">
         <div className="section-header">
-          <span className="section-kicker">How teams usually buy</span>
-          <h2>Start with the problem hurting revenue now. Add the rest once the first workflow is working.</h2>
-          <p>
-            For most teams, that first win is AI Call Coaching. It is urgent, measurable, and easy to prove quickly. Once managers trust that workflow, the rest of the platform becomes easier to roll out.
-          </p>
+          <span className="section-kicker">How teams typically buy</span>
+          <h2>Start with one app. Expand into the rest once the first workflow is already working.</h2>
         </div>
         <div className="timeline-grid">
           <article className="timeline-card">
             <span className="timeline-step">01</span>
-            <h3>Improve call quality</h3>
-            <p>Score calls, catch failures quickly, and coach the reps who need help most.</p>
+            <h3>Start with {flagship.name}</h3>
+            <p>{flagship.heroSummary}</p>
           </article>
           <article className="timeline-card">
             <span className="timeline-step">02</span>
-            <h3>Strengthen management</h3>
-            <p>Turn rep trends and flagged calls into a weekly operating rhythm for leaders.</p>
+            <h3>Add Manager OS and Client Health</h3>
+            <p>Turn call intelligence into a weekly operating rhythm and cleaner leadership visibility.</p>
           </article>
           <article className="timeline-card">
             <span className="timeline-step">03</span>
-            <h3>Expand visibility</h3>
-            <p>Layer in client health, revenue ownership, and onboarding once the first workflow is already working.</p>
+            <h3>Layer in revenue and onboarding systems</h3>
+            <p>Connect deal ownership, collections, launch quality, and operational execution inside the same platform.</p>
           </article>
         </div>
       </section>
@@ -120,24 +144,24 @@ export default function MarketingHome() {
       <section className="section">
         <div className="section-header">
           <span className="section-kicker">What launch looks like</span>
-          <h2>Fast to stand up. Structured enough to stick.</h2>
+          <h2>Fast enough to stand up quickly. Structured enough to become part of how the team runs.</h2>
         </div>
         <div className="two-column-grid">
           <article className="detail-card">
             <h3>What launch includes</h3>
             <ul className="bullet-list">
-              <li>One transcript source connected at launch</li>
-              <li>Rep mapping by team and role</li>
-              <li>Default scorecard plus custom focus areas</li>
-              <li>Backfill of recent calls and sample QA</li>
+              <li>One workflow selected as the first system to roll out.</li>
+              <li>Data connection, team mapping, and operating setup.</li>
+              <li>Configuration aligned to your sales motion and manager structure.</li>
+              <li>Sample QA, launch support, and first operating-cycle refinement.</li>
             </ul>
           </article>
           <article className="detail-card">
-            <h3>What changes for your team</h3>
+            <h3>What buyers are really getting</h3>
             <ul className="bullet-list">
-              <li>Managers stop hunting randomly for calls to review</li>
-              <li>Leadership gets a cleaner view of what is slipping</li>
-              <li>Coaching becomes more consistent across reps and brands</li>
+              <li>A clearer system for how reps, managers, and operators work.</li>
+              <li>Less time lost to random reviews, spreadsheet stitching, and reactive triage.</li>
+              <li>A platform that can expand as the team adds more complexity.</li>
             </ul>
           </article>
         </div>
