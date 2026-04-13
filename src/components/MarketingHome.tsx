@@ -44,28 +44,28 @@ export default function MarketingHome() {
             ))}
           </div>
         </div>
+      </section>
 
-        <div className="hero-panel">
-          <div className="hero-store-card">
-            <div className="hero-store-header">
-              <span className="panel-label">Inside the platform</span>
-              <strong>Five connected operating apps</strong>
-            </div>
-            <div className="hero-store-grid">
-              {ecosystemModules.map(module => (
-                <article key={module.slug} className={`store-app-card ${module.slug === flagship.slug ? "store-app-card-featured" : ""}`}>
-                  <div className="store-app-topline">
-                    <span className="pill">{module.title}</span>
-                    {module.slug === flagship.slug ? <span className="store-feature-flag">Most teams start here</span> : null}
-                  </div>
-                  <p>{module.summary}</p>
-                  <Link href={`/products/${module.slug}`} className="inline-link">
-                    View app
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
+      <section className="section section-tight highlight-band">
+        <div className="section-header">
+          <span className="section-kicker">Explore the app store</span>
+          <h2>Start with the app solving the most expensive problem in your sales operation.</h2>
+          <p>
+            Each app solves a specific operational bottleneck. Most teams start with one, prove value quickly, and then layer in the rest.
+          </p>
+        </div>
+        <div className="module-grid">
+          {ecosystemModules.map(module => (
+            <article key={module.slug} className="module-card">
+              <div className="module-card-header">
+                <span className="pill">{module.title}</span>
+              </div>
+              <p>{module.summary}</p>
+              <Link href={`/products/${module.slug}`} className="inline-link">
+                View product
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -94,30 +94,6 @@ export default function MarketingHome() {
             <h3>Growth creates more exceptions than systems.</h3>
             <p>Onboarding, ownership, and team accountability get harder to maintain as more reps, managers, and brands get added.</p>
           </article>
-        </div>
-      </section>
-
-      <section className="section highlight-band">
-        <div className="section-header">
-          <span className="section-kicker">Explore the app store</span>
-          <h2>Each app solves a specific operational problem. Together they run the team.</h2>
-          <p>
-            You do not need to buy everything at once. Most teams start with one urgent workflow, prove value fast, and expand
-            into the rest as the system takes hold.
-          </p>
-        </div>
-        <div className="module-grid">
-          {ecosystemModules.map(module => (
-            <article key={module.slug} className="module-card">
-              <div className="module-card-header">
-                <span className="pill">{module.title}</span>
-              </div>
-              <p>{module.summary}</p>
-              <Link href={`/products/${module.slug}`} className="inline-link">
-                View product
-              </Link>
-            </article>
-          ))}
         </div>
       </section>
 
