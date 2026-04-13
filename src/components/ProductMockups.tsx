@@ -133,10 +133,16 @@ function HubMockup() {
   const apps = [
     { title: "AI Call Coaching", color: "#8cb2ff" },
     { title: "Manager OS", color: T.green },
+    { title: "Commission Tracker", color: "#a78bfa" },
+    { title: "Setter EOD", color: "#f472b6" },
     { title: "Client Health", color: "#f4c24a" },
     { title: "Revenue Visibility", color: "#ff8f4d" },
+    { title: "Owner Radar", color: "#EF4444" },
+    { title: "Rep Onboarding", color: "#38bdf8" },
+    { title: "Closer Playbook", color: "#818cf8" },
+    { title: "QC Dashboard", color: "#fb923c" },
     { title: "Sales Onboarding", color: T.green },
-    { title: "Commission Admin", color: "#8cb2ff" },
+    { title: "More coming", color: "rgba(255,255,255,0.2)" },
   ] as const
 
   return (
@@ -149,15 +155,11 @@ function HubMockup() {
           </div>
           <span style={mock.chip}>Client Atlas</span>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
           {apps.map((a) => (
-            <div key={a.title} style={{ ...mock.metricCard, minHeight: 100, color: a.color }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <span style={{ width: 28, height: 28, borderRadius: 10, border: `1px solid ${a.color}`, opacity: 0.9 }} />
-                <span style={{ ...mock.chip, fontSize: 10 }}>Live</span>
-              </div>
-              <strong style={{ fontSize: 14, color: "#fff", lineHeight: 1.2 }}>{a.title}</strong>
-              <span style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, marginTop: "auto" }}>Launch</span>
+            <div key={a.title} style={{ ...mock.metricCard, minHeight: 64, color: a.color, padding: 8 }}>
+              <span style={{ width: 20, height: 20, borderRadius: 7, border: `1px solid ${a.color}`, opacity: 0.9, display: "block" }} />
+              <strong style={{ fontSize: 11, color: "#fff", lineHeight: 1.2 }}>{a.title}</strong>
             </div>
           ))}
         </div>
@@ -366,13 +368,266 @@ function SalesOnboardingMockup() {
   )
 }
 
+function CommissionTrackerMockup() {
+  return (
+    <MockWindow app="Commission Tracker" label="Payout period">
+      <div style={{ display: "grid", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+          {[
+            { label: "Cash collected", val: "$18,400" },
+            { label: "Commission", val: "$2,760" },
+            { label: "Bonus", val: "$500" },
+            { label: "Total payout", val: "$3,260" },
+          ].map((m) => (
+            <div key={m.label} style={mock.metricCard}>
+              <span style={mock.metricLabel}>{m.label}</span>
+              <strong style={mock.metricValue}>{m.val}</strong>
+            </div>
+          ))}
+        </div>
+        <div style={mock.panel}>
+          <div style={mock.panelHeader}>
+            <strong style={mock.panelTitle}>Submissions</strong>
+            <span style={mock.chip}>Apr 1 \u2013 15</span>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            {[
+              { rep: "Rep J. Carter", cash: "$8,200", status: "Approved" },
+              { rep: "Rep N. Blake", cash: "$6,400", status: "Pending" },
+              { rep: "Rep A. Cole", cash: "$3,800", status: "Approved" },
+            ].map((r) => (
+              <div key={r.rep} style={{ ...mock.row, gridTemplateColumns: "1.2fr 0.8fr 0.8fr" }}>
+                <span style={mock.rowLabel}>{r.rep}</span>
+                <span style={mock.rowValue}>{r.cash}</span>
+                <span style={{ fontSize: 12, color: r.status === "Approved" ? T.green : "#ffbb3c", fontWeight: 600 }}>{r.status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockWindow>
+  )
+}
+
+function SetterEODMockup() {
+  return (
+    <MockWindow app="Setter EOD" label="Team analytics">
+      <div style={{ display: "grid", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+          {[
+            { label: "Dials today", val: "347" },
+            { label: "Pickup rate", val: "28%" },
+            { label: "Sets booked", val: "12" },
+            { label: "Show rate", val: "72%" },
+          ].map((m) => (
+            <div key={m.label} style={mock.metricCard}>
+              <span style={mock.metricLabel}>{m.label}</span>
+              <strong style={mock.metricValue}>{m.val}</strong>
+            </div>
+          ))}
+        </div>
+        <div style={mock.panel}>
+          <div style={mock.panelHeader}>
+            <strong style={mock.panelTitle}>Rep Breakdown</strong>
+            <span style={mock.chip}>Today</span>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ ...mock.row, gridTemplateColumns: "1.2fr 0.6fr 0.6fr 0.6fr" }}>
+              <span style={mock.tableHead}>Rep</span>
+              <span style={mock.tableHead}>Dials</span>
+              <span style={mock.tableHead}>Sets</span>
+              <span style={mock.tableHead}>Cash</span>
+            </div>
+            {[
+              { rep: "Rep M. Torres", dials: "124", sets: "5", cash: "$4,200" },
+              { rep: "Rep K. Lin", dials: "108", sets: "4", cash: "$3,600" },
+              { rep: "Rep D. Foster", dials: "115", sets: "3", cash: "$2,100" },
+            ].map((r) => (
+              <div key={r.rep} style={{ ...mock.row, gridTemplateColumns: "1.2fr 0.6fr 0.6fr 0.6fr" }}>
+                <span style={mock.rowLabel}>{r.rep}</span>
+                <span style={mock.rowValue}>{r.dials}</span>
+                <span style={mock.rowValue}>{r.sets}</span>
+                <span style={mock.rowValue}>{r.cash}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockWindow>
+  )
+}
+
+function OwnerRadarMockup() {
+  return (
+    <MockWindow app="Owner Radar" label="Portfolio alerts">
+      <div style={{ display: "grid", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+          {[
+            { label: "Tracked clients", val: "8" },
+            { label: "Avg health", val: "74%" },
+            { label: "At risk", val: "2" },
+          ].map((m) => (
+            <div key={m.label} style={mock.metricCard}>
+              <span style={mock.metricLabel}>{m.label}</span>
+              <strong style={{ ...mock.metricValue, color: m.label === "At risk" ? "#EF4444" : "#fff" }}>{m.val}</strong>
+            </div>
+          ))}
+        </div>
+        <div style={mock.panel}>
+          <div style={mock.panelHeader}>
+            <strong style={mock.panelTitle}>Active Alerts</strong>
+            <span style={{ ...mock.chip, color: "#EF4444", background: "rgba(239,68,68,0.16)", border: "1px solid rgba(239,68,68,0.2)" }}>3 high</span>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            {[
+              { alert: "Client North: 5 days no setter submissions", severity: "High" },
+              { alert: "Client Summit: $12k past due, 3 plans overdue", severity: "High" },
+              { alert: "Client Atlas: QC score dropped below 60%", severity: "Medium" },
+            ].map((a) => (
+              <div key={a.alert} style={{ ...mock.row, gridTemplateColumns: "1fr auto" }}>
+                <span style={{ ...mock.rowLabel, fontSize: 12 }}>{a.alert}</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: a.severity === "High" ? "#EF4444" : "#F59E0B" }}>{a.severity}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockWindow>
+  )
+}
+
+function RepOnboardingMockup() {
+  return (
+    <MockWindow app="Rep Onboarding" label="Training portal">
+      <div style={{ display: "grid", gap: 14 }}>
+        <div style={mock.panel}>
+          <div style={mock.panelHeader}>
+            <strong style={mock.panelTitle}>Day-by-Day Progress</strong>
+            <span style={mock.chip}>Week 1</span>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            {[
+              { day: "Day 1: Company Overview", status: "Complete", test: "Passed" },
+              { day: "Day 2: CRM Training", status: "Complete", test: "Passed" },
+              { day: "Day 3: Sales Process", status: "In progress", test: "\u2014" },
+              { day: "Day 4: Objection Handling", status: "Locked", test: "\u2014" },
+            ].map((d) => (
+              <div key={d.day} style={{ ...mock.row, gridTemplateColumns: "1.4fr 0.6fr 0.5fr" }}>
+                <span style={mock.rowLabel}>{d.day}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: d.status === "Complete" ? T.green : d.status === "In progress" ? "#ffbb3c" : "rgba(255,255,255,0.3)" }}>{d.status}</span>
+                <span style={{ fontSize: 12, color: d.test === "Passed" ? T.green : "rgba(255,255,255,0.3)" }}>{d.test}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockWindow>
+  )
+}
+
+function CloserPlaybookMockup() {
+  return (
+    <MockWindow app="Closer Playbook" label="SOP library">
+      <div style={{ display: "grid", gridTemplateColumns: "0.35fr 1fr", gap: 14 }}>
+        {/* Nav sidebar */}
+        <div style={{ display: "grid", gap: 6, alignContent: "start" }}>
+          {["Sales Calls", "Pre-call", "During-call", "Post-call", "Admin", "Tech Stack", "Training"].map((item, i) => (
+            <div
+              key={item}
+              style={{
+                padding: "6px 10px", borderRadius: 8, fontSize: 12,
+                color: i === 0 ? T.green : "rgba(255,255,255,0.5)",
+                background: i === 0 ? "rgba(16,185,129,0.12)" : "transparent",
+                fontWeight: i === 0 ? 600 : 400,
+              }}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+        {/* Content */}
+        <div style={mock.panel}>
+          <div style={mock.panelHeader}>
+            <strong style={mock.panelTitle}>Sales Calls</strong>
+            <span style={{ ...mock.chip, fontSize: 10 }}>5 pages</span>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            {[
+              { title: "Discovery Framework", type: "Loom" },
+              { title: "Objection Matrix", type: "Sheet" },
+              { title: "Close Script v3", type: "Doc" },
+              { title: "Payment Agreement Flow", type: "Page" },
+            ].map((p) => (
+              <div key={p.title} style={{ ...mock.row, gridTemplateColumns: "1fr auto" }}>
+                <span style={mock.rowLabel}>{p.title}</span>
+                <span style={{ ...mock.chip, fontSize: 10 }}>{p.type}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockWindow>
+  )
+}
+
+function QCDashboardMockup() {
+  return (
+    <MockWindow app="QC Dashboard" label="Rep compliance">
+      <div style={{ display: "grid", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+          {[
+            { label: "Quality score", val: "82%" },
+            { label: "Show rate", val: "76%" },
+            { label: "Close rate", val: "34%" },
+            { label: "Pipeline issues", val: "7" },
+          ].map((m) => (
+            <div key={m.label} style={mock.metricCard}>
+              <span style={mock.metricLabel}>{m.label}</span>
+              <strong style={{ ...mock.metricValue, color: m.label === "Pipeline issues" ? "#F59E0B" : "#fff" }}>{m.val}</strong>
+            </div>
+          ))}
+        </div>
+        <div style={mock.panel}>
+          <div style={mock.panelHeader}>
+            <strong style={mock.panelTitle}>Compliance Checks</strong>
+            <span style={{ ...mock.chip, color: T.green, background: "rgba(16,185,129,0.16)", border: `1px solid rgba(16,185,129,0.2)` }}>Pro</span>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            {[
+              { check: "Pre-call preparation", result: "92%" },
+              { check: "Post-call actions completed", result: "88%" },
+              { check: "Pipeline updated within 24h", result: "71%" },
+            ].map((c) => (
+              <div key={c.check} style={mock.row}>
+                <span style={mock.rowLabel}>{c.check}</span>
+                <strong style={mock.rowValue}>{c.result}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MockWindow>
+  )
+}
+
 export function ProductMockup({ slug }: ProductMockupProps) {
   if (slug === "ai-call-coaching") return <CallCoachingMockup />
   if (slug === "manager-os") return <ManagerOSMockup />
+  if (slug === "commission-tracker") return <CommissionTrackerMockup />
+  if (slug === "setter-eod") return <SetterEODMockup />
   if (slug === "client-health") return <ClientHealthMockup />
   if (slug === "revenue-visibility") return <RevenueVisibilityMockup />
+  if (slug === "owner-radar") return <OwnerRadarMockup />
+  if (slug === "rep-onboarding") return <RepOnboardingMockup />
+  if (slug === "closer-playbook") return <CloserPlaybookMockup />
+  if (slug === "qc-dashboard") return <QCDashboardMockup />
   if (slug === "sales-onboarding") return <SalesOnboardingMockup />
   return <HubMockup />
 }
 
-export { HubMockup, CallCoachingMockup, ManagerOSMockup, ClientHealthMockup, RevenueVisibilityMockup, SalesOnboardingMockup }
+export {
+  HubMockup, CallCoachingMockup, ManagerOSMockup, ClientHealthMockup,
+  RevenueVisibilityMockup, SalesOnboardingMockup, CommissionTrackerMockup,
+  SetterEODMockup, OwnerRadarMockup, RepOnboardingMockup, CloserPlaybookMockup,
+  QCDashboardMockup,
+}

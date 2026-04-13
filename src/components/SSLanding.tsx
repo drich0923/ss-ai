@@ -14,8 +14,14 @@ const dotBg =
 const appColors: Record<string, string> = {
   "ai-call-coaching": "#8cb2ff",
   "manager-os": T.green,
+  "commission-tracker": "#a78bfa",
+  "setter-eod": "#f472b6",
   "client-health": "#f4c24a",
   "revenue-visibility": "#ff8f4d",
+  "owner-radar": "#EF4444",
+  "rep-onboarding": "#38bdf8",
+  "closer-playbook": "#818cf8",
+  "qc-dashboard": "#fb923c",
   "sales-onboarding": T.greenLight,
 }
 
@@ -118,7 +124,7 @@ function Hero() {
       </Reveal>
       <Reveal delay={0.16}>
         <p style={{ fontSize: "clamp(16px, 1.8vw, 19px)", color: T.text2, maxWidth: 600, margin: "0 auto 40px", lineHeight: 1.65 }}>
-          Start with the app causing the most drag right now. Add the rest as your team grows. One platform, five connected operating systems.
+          Start with the app causing the most drag right now. Add the rest as your team grows. One platform, eleven connected operating systems.
         </p>
       </Reveal>
       <Reveal delay={0.24}>
@@ -274,13 +280,13 @@ function AppsGrid() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <p style={{ fontSize: 13, textTransform: "uppercase", letterSpacing: 2.5, color: T.green, fontWeight: 600, marginBottom: 12, textAlign: "center" }}>
-            Five connected apps
+            Eleven connected apps
           </p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(32px, 4vw, 50px)", lineHeight: 1.08, letterSpacing: -1, textAlign: "center", maxWidth: 700, margin: "0 auto 48px" }}>
             One platform. Every operating system your sales team needs.
           </h2>
         </Reveal>
-        <StaggerChildren style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }} className="apps-grid">
+        <StaggerChildren style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }} className="apps-grid">
           {ecosystemModules.map((mod) => (
             <a
               key={mod.slug}
@@ -308,18 +314,6 @@ function AppsGrid() {
               </span>
             </a>
           ))}
-          {/* Coming soon placeholder */}
-          <div
-            style={{
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              padding: 28, borderRadius: 16,
-              border: `1px dashed ${T.border}`, background: "transparent",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: 14, fontWeight: 600, color: T.text3, marginBottom: 4 }}>More coming</div>
-            <div style={{ fontSize: 13, color: T.text3 }}>New apps are in development</div>
-          </div>
         </StaggerChildren>
       </div>
     </section>
@@ -552,7 +546,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 function FAQ() {
   const faqs = [
     { q: "What kind of sales teams is this built for?", a: "High-ticket setter-closer teams, agencies, and portfolio operators running sales teams at scale. If your team runs on calls and you need better coaching, visibility, or operational structure, this platform is built for you." },
-    { q: "Do I have to buy all five apps?", a: "No. Start with whichever app solves your biggest bottleneck right now. Most teams start with AI Call Coaching and add the rest as their operating rhythm matures." },
+    { q: "Do I have to buy all eleven apps?", a: "No. Start with whichever app solves your biggest bottleneck right now. Most teams start with AI Call Coaching or Commission Tracker and add the rest as their operating rhythm matures." },
     { q: "How long does it take to get set up?", a: "Most teams are live with their first app within 14 days. We handle setup, calibration against your real calls, and training for your managers." },
     { q: "What integrations do you support?", a: "We pull transcripts from RevPhlo, Fathom, and other call recording tools. Payment data can sync from Stripe and other billing platforms. Custom integrations are available for larger accounts." },
     { q: "How does pricing work?", a: "AI Call Coaching starts around $2.5k/month plus setup. Additional apps are priced as expansions. Pricing depends on team size and the number of modules you need." },
@@ -679,7 +673,7 @@ export default function SSLanding() {
           .ba-arrow svg { transform: rotate(90deg); }
           .feature-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .feature-grid > div { direction: ltr !important; }
-          .apps-grid { grid-template-columns: 1fr !important; }
+          .apps-grid { grid-template-columns: 1fr 1fr !important; }
           .audience-grid { grid-template-columns: 1fr 1fr !important; }
           .hiw-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
           h1 { font-size: 36px !important; }
@@ -690,6 +684,7 @@ export default function SSLanding() {
           h1 { font-size: 30px !important; }
           .btn-primary, .btn-ghost { padding: 12px 22px !important; font-size: 14px !important; }
           .audience-grid { grid-template-columns: 1fr !important; }
+          .apps-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
 
