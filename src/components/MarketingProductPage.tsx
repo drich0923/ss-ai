@@ -91,7 +91,7 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
       <section className="section">
         <div className="section-header">
           <span className="section-kicker">Rollout sequence</span>
-          <h2>A clean launch instead of a custom project that drags on forever.</h2>
+          <h2>A clean launch instead of a custom buildout.</h2>
         </div>
         <div className="timeline-grid">
           {product.implementation.map((step, index) => (

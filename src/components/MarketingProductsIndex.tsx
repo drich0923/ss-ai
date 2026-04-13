@@ -9,7 +9,7 @@ export default function MarketingProductsIndex() {
         <span className="eyebrow">App store</span>
         <h1>Explore the apps inside the platform.</h1>
         <p className="page-summary">
-          Each app solves a specific operating problem for your sales team. Start with the workflow creating the most drag now, then expand into the rest over time.
+          Each app solves a specific operating problem. Start with the biggest drag first.
         </p>
       </section>
 

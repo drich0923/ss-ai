@@ -12,15 +12,8 @@ export default function MarketingHome() {
           <span className="eyebrow">Sales operating system for high-ticket teams</span>
           <h1>The app store for your sales team.</h1>
           <p className="hero-summary">
-            Systemized Sales AI gives you one platform for AI Call Coaching, Manager OS, Client Health, Revenue Visibility,
-            and Sales Onboarding. Start with the workflow costing you the most money now, then expand into the rest as your
-            team grows.
+            Start with the app causing the most drag right now, then add the rest as your team grows.
           </p>
-          <ul className="hero-value-list">
-            <li>Replace random call reviews with a real coaching system.</li>
-            <li>Give managers, operators, and leadership one connected operating layer.</li>
-            <li>Keep client health, rep execution, and revenue ownership in the same system.</li>
-          </ul>
           <div className="hero-actions">
             <a href="mailto:dylan.rich@systemizedsales.com?subject=Systemized%20Sales%20AI%20Demo" className="button button-primary">
               Request a walkthrough
@@ -50,9 +43,7 @@ export default function MarketingHome() {
         <div className="section-header">
           <span className="section-kicker">Explore the app store</span>
           <h2>Start with the app solving the most expensive problem in your sales operation.</h2>
-          <p>
-            Each app solves a specific operational bottleneck. Most teams start with one, prove value quickly, and then layer in the rest.
-          </p>
+          <p>Most teams start with one, prove value fast, then add the rest.</p>
         </div>
         <div className="module-grid">
           {ecosystemModules.map(module => (
@@ -72,11 +63,7 @@ export default function MarketingHome() {
       <section className="section">
         <div className="section-header">
           <span className="section-kicker">Why teams start looking</span>
-          <h2>The pain usually shows up in one department first. The real problem is that the operating system is fragmented.</h2>
-          <p>
-            Call recordings live in one tool, coaching lives in Slack, client health lives in someone&apos;s head, and revenue
-            visibility lives in spreadsheets. That fragmentation is what slows leadership down.
-          </p>
+          <h2>The pain shows up in one department first. The real problem is the system is fragmented.</h2>
         </div>
         <div className="three-column-grid">
           <article className="detail-card">
@@ -124,24 +111,24 @@ export default function MarketingHome() {
       <section className="section">
         <div className="section-header">
           <span className="section-kicker">What launch looks like</span>
-          <h2>Fast enough to stand up quickly. Structured enough to become part of how the team runs.</h2>
+          <h2>Fast enough to launch quickly. Structured enough to stick.</h2>
         </div>
         <div className="two-column-grid">
           <article className="detail-card">
             <h3>What launch includes</h3>
             <ul className="bullet-list">
-              <li>One workflow selected as the first system to roll out.</li>
-              <li>Data connection, team mapping, and operating setup.</li>
-              <li>Configuration aligned to your sales motion and manager structure.</li>
-              <li>Sample QA, launch support, and first operating-cycle refinement.</li>
+              <li>Pick the first workflow to roll out.</li>
+              <li>Connect data and map the team.</li>
+              <li>Configure the system to your motion.</li>
+              <li>Launch, QA, and refine the first cycle.</li>
             </ul>
           </article>
           <article className="detail-card">
             <h3>What buyers are really getting</h3>
             <ul className="bullet-list">
-              <li>A clearer system for how reps, managers, and operators work.</li>
-              <li>Less time lost to random reviews, spreadsheet stitching, and reactive triage.</li>
-              <li>A platform that can expand as the team adds more complexity.</li>
+              <li>A cleaner operating layer for the team.</li>
+              <li>Less time lost to random reviews and reactive triage.</li>
+              <li>A platform that expands as complexity grows.</li>
             </ul>
           </article>
         </div>
@@ -153,8 +140,7 @@ export default function MarketingHome() {
             <span className="section-kicker">Next step</span>
             <h2>See which app should be your first rollout.</h2>
             <p className="page-summary">
-              We&apos;ll show you the platform, identify the workflow hurting revenue most right now, and map the cleanest
-              starting point.
+              We&apos;ll show you the platform and map the cleanest place to start.
             </p>
           </div>
           <div className="hero-actions">
