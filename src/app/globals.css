@@ -242,7 +242,9 @@ img {
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .page-hero {
@@ -274,7 +276,8 @@ img {
 }
 
 .hero h1 {
-  max-width: 8.5ch;
+  max-width: 12ch;
+  margin-inline: auto;
 }
 
 .page-hero h1,
@@ -289,12 +292,18 @@ img {
   line-height: 1.72;
 }
 
+.hero-summary {
+  margin-inline: auto;
+}
+
 .hero-value-list {
   margin: 1.15rem 0 0;
   padding-left: 0;
   list-style: none;
   display: grid;
   gap: 0.75rem;
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 .hero-value-list li {
@@ -321,6 +330,7 @@ img {
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-top: 1.4rem;
+  justify-content: center;
 }
 
 .hero-notes {
@@ -328,6 +338,7 @@ img {
   flex-wrap: wrap;
   gap: 0.65rem;
   margin-top: 1rem;
+  justify-content: center;
 }
 
 .hero-notes span {
@@ -353,6 +364,8 @@ img {
 .hero-proof-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 1.65rem;
+  max-width: 1040px;
+  margin-inline: auto;
 }
 
 .metric-card,
