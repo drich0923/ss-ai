@@ -11,42 +11,42 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
 
   return (
     <MarketingShell>
-      <section className="page-hero">
-        <span className="eyebrow">{product.eyebrow}</span>
-        <h1>{product.heroTitle}</h1>
-        <p className="page-summary">{product.heroSummary}</p>
-        <div className="hero-actions">
-          <a className="button button-primary" href="mailto:dylan.rich@systemizedsales.com?subject=Systemized%20Sales%20AI%20Demo">
-            Request demo
-          </a>
-          <Link className="button button-secondary" href="/platform">
-            View platform
-          </Link>
+      <section className="product-hero">
+        <div className="product-hero-copy">
+          <span className="eyebrow">{product.eyebrow}</span>
+          <h1>{product.heroTitle}</h1>
+          <p className="page-summary">{product.heroSummary}</p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="mailto:dylan.rich@systemizedsales.com?subject=Systemized%20Sales%20AI%20Demo">
+              Request demo
+            </a>
+            <Link className="button button-secondary" href="/platform">
+              View platform
+            </Link>
+          </div>
         </div>
-      </section>
 
-      <section className="section">
-        <div className="three-column-grid">
-          <article className="detail-card">
-            <span className="section-kicker">Audience</span>
-            <h3>{product.audience}</h3>
-          </article>
-          <article className="detail-card">
-            <span className="section-kicker">Pricing</span>
-            <h3>{product.pricing}</h3>
-          </article>
-          <article className="detail-card">
-            <span className="section-kicker">Why it lands</span>
-            <h3>{product.leadValue}</h3>
-          </article>
-        </div>
+        <aside className="product-hero-panel">
+          <div className="product-fact">
+            <span className="section-kicker">Best for</span>
+            <strong>{product.audience}</strong>
+          </div>
+          <div className="product-fact">
+            <span className="section-kicker">Typical investment</span>
+            <strong>{product.pricing}</strong>
+          </div>
+          <div className="product-fact">
+            <span className="section-kicker">Core promise</span>
+            <p>{product.leadValue}</p>
+          </div>
+        </aside>
       </section>
 
       <section className="section">
         <div className="two-column-grid">
           <article className="detail-card">
             <span className="section-kicker">Pain points</span>
-            <h3>What this product fixes</h3>
+            <h3>What this solves</h3>
             <ul className="bullet-list">
               {product.pains.map(item => (
                 <li key={item}>{item}</li>
@@ -55,7 +55,7 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
           </article>
           <article className="detail-card">
             <span className="section-kicker">Capabilities</span>
-            <h3>What gets delivered</h3>
+            <h3>What buyers get</h3>
             <ul className="bullet-list">
               {product.capabilities.map(item => (
                 <li key={item}>{item}</li>
@@ -68,8 +68,8 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
       <section className="section highlight-band">
         <div className="two-column-grid">
           <article className="detail-card">
-            <span className="section-kicker">Fulfillment</span>
-            <h3>How you can deliver this cleanly</h3>
+            <span className="section-kicker">Implementation</span>
+            <h3>What launch includes</h3>
             <ul className="bullet-list">
               {product.fulfillment.map(item => (
                 <li key={item}>{item}</li>
@@ -78,7 +78,7 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
           </article>
           <article className="detail-card">
             <span className="section-kicker">Outcomes</span>
-            <h3>What the buyer actually gets</h3>
+            <h3>What changes after rollout</h3>
             <ul className="bullet-list">
               {product.outcomes.map(item => (
                 <li key={item}>{item}</li>
@@ -90,8 +90,8 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
 
       <section className="section">
         <div className="section-header">
-          <span className="section-kicker">Implementation sequence</span>
-          <h2>Productized rollout, not bespoke consulting.</h2>
+          <span className="section-kicker">Rollout sequence</span>
+          <h2>A clean launch instead of a custom project that drags on forever.</h2>
         </div>
         <div className="timeline-grid">
           {product.implementation.map((step, index) => (
@@ -105,8 +105,8 @@ export default function MarketingProductPage({ product }: MarketingProductPagePr
 
       <section className="section">
         <div className="section-header">
-          <span className="section-kicker">Expansion path</span>
-          <h2>Related products in the ecosystem</h2>
+          <span className="section-kicker">Explore next</span>
+          <h2>Other products in the platform</h2>
         </div>
         <div className="module-grid">
           {relatedProducts.map(candidate => (

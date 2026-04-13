@@ -7,18 +7,18 @@ export default function MarketingPlatformPage() {
     <MarketingShell>
       <section className="page-hero">
         <span className="eyebrow">Platform overview</span>
-        <h1>One sales operating system. Multiple productized wedges.</h1>
+        <h1>One operating system for call quality, management discipline, account visibility, and revenue follow-through.</h1>
         <p className="page-summary">
-          Systemized Sales AI is the commercial operating layer behind coaching, management, account health, revenue ownership, and onboarding discipline for high-ticket teams.
+          Start with the workflow hurting most today, then expand into the rest of the platform as your team grows and the operating system earns trust.
         </p>
       </section>
 
       <section className="section">
         <div className="section-header">
-          <span className="section-kicker">Platform logic</span>
-          <h2>The ecosystem is the expansion story, not the first confusing sale.</h2>
+          <span className="section-kicker">What the platform covers</span>
+          <h2>Each product solves a specific operational problem. Together they create one system for how the team runs.</h2>
           <p>
-            Prospects buy urgent outcomes. Operators stay for the ecosystem once they realize each module shares the same client context, rep identity, and management data.
+            The products share client context, rep identity, and operating data so coaching, management, client health, and revenue visibility stay connected instead of living in separate tools.
           </p>
         </div>
         <div className="module-grid">
@@ -39,17 +39,17 @@ export default function MarketingPlatformPage() {
       <section className="section highlight-band">
         <div className="two-column-grid">
           <article className="detail-card">
-            <span className="section-kicker">Buyers feel this first</span>
-            <h3>“Our managers are coaching blind.”</h3>
+            <span className="section-kicker">Most teams start here</span>
+            <h3>Fix call quality first.</h3>
             <p>
-              That is why AI Call Coaching is the front door. It is the easiest way to prove the value of the operating system with hard evidence.
+              AI Call Coaching is usually the first product because it solves an urgent, visible problem with clear before-and-after proof.
             </p>
           </article>
           <article className="detail-card">
-            <span className="section-kicker">Then they want this</span>
-            <h3>“Now show me the bigger picture.”</h3>
+            <span className="section-kicker">Then add the next layer</span>
+            <h3>Expand into management and account visibility.</h3>
             <p>
-              Once call intelligence is trusted, the ecosystem story gets stronger: manager intervention, client health, revenue visibility, and operational consistency.
+              Once the first workflow is trusted, teams usually expand into manager operating rhythm, client health, revenue visibility, and onboarding discipline.
             </p>
           </article>
         </div>

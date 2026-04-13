@@ -75,7 +75,7 @@ img {
 }
 
 .site-header {
-  padding: 1.2rem 1.5rem 0;
+  padding: 1rem 1.25rem 0;
 }
 
 .site-header-inner,
@@ -92,7 +92,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.2rem;
+  padding: 0.8rem 1.05rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(249, 246, 239, 0.82);
@@ -107,7 +107,7 @@ img {
 }
 
 .brand-logo {
-  width: 104px;
+  width: 88px;
   height: auto;
 }
 
@@ -115,6 +115,10 @@ img {
 .footer-brand {
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
   font-weight: 700;
+}
+
+.brand-title {
+  font-size: 1.32rem;
 }
 
 .brand-subtitle,
@@ -147,11 +151,11 @@ img {
 
 .site-nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #314138;
 }
 
@@ -165,7 +169,7 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 3rem;
-  padding: 0.8rem 1.2rem;
+  padding: 0.75rem 1.2rem;
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 700;
@@ -184,46 +188,79 @@ img {
 }
 
 .hero,
-.page-hero {
+.page-hero,
+.product-hero {
   display: grid;
-  gap: 2rem;
-  padding: 4.5rem 0 2rem;
+  gap: 2.75rem;
+  padding: 3.8rem 0 2.2rem;
 }
 
 .hero {
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
   align-items: center;
+}
+
+.page-hero {
+  max-width: 900px;
+}
+
+.product-hero {
+  width: min(1180px, calc(100vw - 2rem));
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1.22fr) minmax(310px, 0.78fr);
+  align-items: start;
 }
 
 .hero h1,
 .page-hero h1,
+.product-hero h1,
 .section h2,
 .module-card h2,
 .detail-card h3,
 .timeline-card h3 {
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
-  line-height: 0.96;
+  line-height: 0.98;
   margin: 0;
 }
 
 .hero h1,
-.page-hero h1 {
-  font-size: clamp(3.6rem, 7vw, 6.4rem);
-  max-width: 11ch;
+.page-hero h1,
+.product-hero h1 {
+  font-size: clamp(2.85rem, 4.7vw, 4.65rem);
+  max-width: 11.5ch;
+  letter-spacing: -0.03em;
 }
 
 .hero-summary,
 .page-summary {
-  font-size: 1.18rem;
-  line-height: 1.7;
-  max-width: 58ch;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  max-width: 56ch;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 1.35rem;
+}
+
+.hero-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+.hero-notes span {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: rgba(17, 36, 25, 0.06);
+  border: 1px solid rgba(17, 36, 25, 0.08);
+  color: #3b4941;
+  font-size: 0.82rem;
 }
 
 .hero-proof-grid,
@@ -237,11 +274,12 @@ img {
 
 .hero-proof-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 2rem;
+  margin-top: 1.65rem;
 }
 
 .metric-card,
 .hero-panel-card,
+.product-hero-panel,
 .module-card,
 .detail-card,
 .timeline-card {
@@ -253,21 +291,51 @@ img {
 }
 
 .metric-card {
-  padding: 1.25rem;
+  padding: 1.05rem 1.1rem;
 }
 
 .metric-value {
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
-  font-size: 2.25rem;
+  font-size: 1.95rem;
   margin-bottom: 0.35rem;
 }
 
 .hero-panel-card {
-  padding: 2rem;
+  padding: 1.7rem;
   background:
     linear-gradient(135deg, rgba(17, 36, 25, 0.96), rgba(36, 65, 44, 0.9)),
     var(--forest);
   color: #f4f7f0;
+}
+
+.product-hero-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: var(--surface-strong);
+}
+
+.product-fact {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(17, 36, 25, 0.08);
+}
+
+.product-fact:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.product-fact strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.12rem;
+  line-height: 1.35;
+}
+
+.product-fact p {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .hero-panel-card p,
@@ -280,7 +348,7 @@ img {
 .mini-roadmap {
   display: grid;
   gap: 0.85rem;
-  margin-top: 1.75rem;
+  margin-top: 1.45rem;
 }
 
 .mini-roadmap div {
@@ -295,17 +363,18 @@ img {
 }
 
 .section {
-  padding: 2rem 0 4.25rem;
+  padding: 1.7rem 0 3.6rem;
 }
 
 .section-header {
   max-width: 54rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .section h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.9rem, 3.3vw, 2.75rem);
   margin-bottom: 0.75rem;
+  line-height: 1.02;
 }
 
 .module-grid {
@@ -315,7 +384,7 @@ img {
 .module-card,
 .detail-card,
 .timeline-card {
-  padding: 1.5rem;
+  padding: 1.3rem;
 }
 
 .module-card-header {
@@ -371,8 +440,9 @@ img {
 .detail-card h3,
 .timeline-card h3,
 .module-card h2 {
-  font-size: 1.55rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.14rem;
+  line-height: 1.12;
+  margin-bottom: 0.75rem;
 }
 
 .bullet-list {
@@ -391,7 +461,7 @@ img {
 .product-meta {
   display: grid;
   gap: 0.35rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .site-footer {
@@ -430,6 +500,7 @@ img {
   .site-header-inner,
   .site-footer-inner,
   .hero,
+  .product-hero,
   .two-column-grid,
   .three-column-grid {
     grid-template-columns: 1fr;
@@ -459,17 +530,24 @@ img {
   }
 
   .hero,
-  .page-hero {
+  .page-hero,
+  .product-hero {
     padding-top: 3rem;
   }
 
   .hero h1,
-  .page-hero h1 {
+  .page-hero h1,
+  .product-hero h1 {
     max-width: 100%;
+    font-size: clamp(2.45rem, 13vw, 3.6rem);
   }
 
   .hero-summary,
   .page-summary {
     font-size: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.2rem;
   }
 }

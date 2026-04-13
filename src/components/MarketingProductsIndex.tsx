@@ -6,10 +6,10 @@ export default function MarketingProductsIndex() {
   return (
     <MarketingShell>
       <section className="page-hero">
-        <span className="eyebrow">Product pages</span>
-        <h1>Focused offers for one pain, one buyer, and one budget line.</h1>
+        <span className="eyebrow">Product lineup</span>
+        <h1>Choose the product that solves the most expensive problem in your sales operation.</h1>
         <p className="page-summary">
-          The brand can sell the ecosystem. The product pages should sell a specific problem worth solving now.
+          Start with the workflow slowing revenue down today. Add the rest of the platform after the first system is already working for your team.
         </p>
       </section>
 
