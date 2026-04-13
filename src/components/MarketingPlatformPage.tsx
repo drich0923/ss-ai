@@ -7,7 +7,7 @@ export default function MarketingPlatformPage() {
     <MarketingShell>
       <section className="page-hero">
         <span className="eyebrow">Platform overview</span>
-        <h1>One platform. Multiple operating apps. A cleaner system for how the sales team runs.</h1>
+        <h1>One platform for how the sales team runs.</h1>
         <p className="page-summary">
           Systemized Sales AI is built as an app store for your sales team. Start with the app solving the biggest problem today, then add the rest as your stack matures.
         </p>

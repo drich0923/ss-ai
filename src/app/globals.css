@@ -275,27 +275,27 @@ img {
 .hero h1,
 .page-hero h1,
 .product-hero h1 {
-  font-size: clamp(3.1rem, 6.2vw, 5.8rem);
+  font-size: clamp(2.45rem, 4.6vw, 4.7rem);
   font-weight: 700;
-  line-height: 0.92;
+  line-height: 0.95;
 }
 
 .hero h1 {
-  max-width: 12ch;
+  max-width: 16ch;
   margin-inline: auto;
 }
 
 .page-hero h1,
 .product-hero h1 {
-  max-width: 12ch;
+  max-width: 16ch;
   margin-inline: auto;
 }
 
 .hero-summary,
 .page-summary {
-  max-width: 60ch;
-  font-size: 1.08rem;
-  line-height: 1.72;
+  max-width: 68ch;
+  font-size: 1.03rem;
+  line-height: 1.68;
 }
 
 .hero-summary {
@@ -500,7 +500,7 @@ img {
 }
 
 .section {
-  padding: 1.9rem 0 3.9rem;
+  padding: 1.45rem 0 3.1rem;
 }
 
 .section-tight {
@@ -514,9 +514,9 @@ img {
 
 .section h2 {
   margin-bottom: 0.75rem;
-  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
-  line-height: 0.96;
+  line-height: 1;
 }
 
 .module-grid {
@@ -526,7 +526,7 @@ img {
 .module-card,
 .detail-card,
 .timeline-card {
-  padding: 1.35rem;
+  padding: 1.2rem;
 }
 
 .module-card {
@@ -584,10 +584,10 @@ img {
 .detail-card h3,
 .timeline-card h3,
 .module-card h2 {
-  font-size: 1.16rem;
+  font-size: 1.08rem;
   font-weight: 700;
   line-height: 1.15;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.65rem;
 }
 
 .bullet-list {
@@ -606,7 +606,7 @@ img {
 .product-meta {
   display: grid;
   gap: 0.35rem;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 .cta-band {
