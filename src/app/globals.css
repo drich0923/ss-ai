@@ -122,7 +122,7 @@ img {
 }
 
 .brand-logo {
-  width: 88px;
+  width: 124px;
   height: auto;
 }
 
@@ -275,25 +275,26 @@ img {
 .hero h1,
 .page-hero h1,
 .product-hero h1 {
-  font-size: clamp(2.1rem, 3.7vw, 3.95rem);
+  font-size: clamp(1.9rem, 3vw, 3.25rem);
   font-weight: 700;
-  line-height: 0.98;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .hero h1 {
-  max-width: 18ch;
+  max-width: 24ch;
   margin-inline: auto;
 }
 
 .page-hero h1,
 .product-hero h1 {
-  max-width: 20ch;
+  max-width: 26ch;
   margin-inline: auto;
 }
 
 .hero-summary,
 .page-summary {
-  max-width: 74ch;
+  max-width: 78ch;
   font-size: 1rem;
   line-height: 1.64;
 }
@@ -688,7 +689,7 @@ img {
   }
 
   .brand-logo {
-    width: 76px;
+    width: 108px;
   }
 
   .brand-title {
@@ -709,7 +710,7 @@ img {
   .page-hero h1,
   .product-hero h1 {
     max-width: 100%;
-    font-size: clamp(2.5rem, 13vw, 4rem);
+    font-size: clamp(2.2rem, 11vw, 3.3rem);
   }
 
   .hero-summary,

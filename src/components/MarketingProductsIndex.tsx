@@ -7,7 +7,7 @@ export default function MarketingProductsIndex() {
     <MarketingShell>
       <section className="page-hero">
         <span className="eyebrow">App store</span>
-        <h1>Explore the apps inside Systemized Sales AI.</h1>
+        <h1>Explore the apps inside the platform.</h1>
         <p className="page-summary">
           Each app solves a specific operating problem for your sales team. Start with the workflow creating the most drag now, then expand into the rest over time.
         </p>
