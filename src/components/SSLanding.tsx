@@ -124,7 +124,7 @@ function Hero() {
       </Reveal>
       <Reveal delay={0.16}>
         <p style={{ fontSize: "clamp(16px, 1.8vw, 19px)", color: T.text2, maxWidth: 600, margin: "0 auto 40px", lineHeight: 1.65 }}>
-          Most sales teams lose 20–40% of revenue to bad calls, missed follow-ups, and zero accountability. We built 11 apps that plug every hole &mdash; from AI call scoring to commission payouts. Pick the one bleeding the most. Launch it in 14 days.
+          Most sales teams lose 20–40% of revenue to bad calls, missed follow-ups, and zero accountability. We built a platform that plugs every hole &mdash; from AI call scoring to commission payouts. Pick the one bleeding the most. Launch it in 14 days.
         </p>
       </Reveal>
       <Reveal delay={0.24}>
@@ -132,7 +132,7 @@ function Hero() {
           <a href="#quiz" className="btn-primary">
             Show Me What&apos;s Broken <span className="arrow-icon">&rarr;</span>
           </a>
-          <a href="#apps" className="btn-ghost">See All 11 Apps</a>
+          <a href="#apps" className="btn-ghost">See the Apps</a>
         </div>
       </Reveal>
     </section>
@@ -280,10 +280,10 @@ function AppsGrid() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <p style={{ fontSize: 13, textTransform: "uppercase", letterSpacing: 2.5, color: T.green, fontWeight: 600, marginBottom: 12, textAlign: "center" }}>
-            Pick the one that hurts most
+            One platform, pick what you need
           </p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(32px, 4vw, 50px)", lineHeight: 1.08, letterSpacing: -1, textAlign: "center", maxWidth: 700, margin: "0 auto 48px" }}>
-            11 apps. Each one kills a specific revenue leak.
+            Every app kills a specific revenue leak.
           </h2>
         </Reveal>
         <StaggerChildren style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }} className="apps-grid">
@@ -398,7 +398,7 @@ function NeedsAnalysisCTA() {
           }}
         >
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 40px)", lineHeight: 1.1, marginBottom: 12 }}>
-            You don&apos;t need all 11. You need the right one first.
+            You don&apos;t need every app. You need the right one first.
           </h2>
           <p style={{ fontSize: 17, color: T.text2, lineHeight: 1.65, marginBottom: 28, maxWidth: 560, margin: "0 auto 28px" }}>
             Answer 5 questions. We&apos;ll tell you exactly which app to launch first, why it&apos;s the biggest lever, and how fast you&apos;ll see results. Takes 90 seconds.
@@ -546,7 +546,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 function FAQ() {
   const faqs = [
     { q: "What kind of sales teams is this built for?", a: "If you have setters, closers, or both — and you're doing $50k/mo+ in sales — this is built for you. Agencies, portfolio operators, and teams running high-ticket offers on calls. If your team sells over the phone and you can't see what's happening on those calls, start here." },
-    { q: "Do I need all 11 apps?", a: "No. Most teams start with one — usually AI Call Coaching or Commission Tracker — and add more as the operating rhythm matures. Each app solves a specific problem. Take the needs analysis and we'll tell you which one to launch first." },
+    { q: "Do I need every app?", a: "No. Most teams start with one — usually AI Call Coaching or Commission Tracker — and add more as the operating rhythm matures. Each app solves a specific problem. Take the needs analysis and we'll tell you which one to launch first." },
     { q: "How long until I see results?", a: "Your first app is live in 14 days. We handle setup, data connections, and manager training. Most teams have usable coaching data by day 7 and are running a new management rhythm by day 30." },
     { q: "What if I already use GHL, Fathom, or RevPhlo?", a: "Good — that's exactly what we plug into. Call transcripts sync from Fathom and RevPhlo. Pipeline data syncs from GHL via webhooks. Payments sync from Stripe. If your tools are already collecting data, we turn that data into operating systems." },
     { q: "How does pricing work?", a: "AI Call Coaching starts around $2.5k/month plus a one-time setup fee. Additional apps are priced as expansions based on team size and usage. Most multi-module accounts pay less per app as they add more." },

@@ -17,7 +17,7 @@ export type ProductModule = {
 export const siteStats = [
   { value: "100%", label: "Of calls scored by AI — not the 5% your managers have time for" },
   { value: "14 days", label: "From signed to live. We build it. You use it. No DIY setup." },
-  { value: "11 apps", label: "Each one plugs a specific revenue leak. Start with one." },
+  { value: "1 app", label: "Is all you need to start. Pick the one that hurts most." },
 ] as const
 
 export const ecosystemModules = [
