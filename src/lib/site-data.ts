@@ -15,9 +15,9 @@ export type ProductModule = {
 }
 
 export const siteStats = [
-  { value: "100%", label: "Of your sales calls reviewed instead of random sampling" },
-  { value: "14 days", label: "To launch the first coaching workflow" },
-  { value: "11 apps", label: "For coaching, management, commissions, onboarding, and revenue visibility" },
+  { value: "100%", label: "Of calls scored by AI — not the 5% your managers have time for" },
+  { value: "14 days", label: "From signed to live. We build it. You use it. No DIY setup." },
+  { value: "11 apps", label: "Each one plugs a specific revenue leak. Start with one." },
 ] as const
 
 export const ecosystemModules = [

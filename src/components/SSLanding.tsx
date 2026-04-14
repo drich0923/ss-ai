@@ -69,7 +69,7 @@ function Nav() {
               boxShadow: "0 1px 3px rgba(16,185,129,0.2)", transition: "all 0.2s",
             }}
           >
-            Find Your First App
+            Find My Leak
           </a>
         </div>
       </div>
@@ -107,7 +107,7 @@ function Hero() {
               animation: "pulse 2s infinite",
             }}
           />
-          Sales operating system for high-ticket teams
+          Used by high-ticket teams doing $50k–$500k+/mo in sales
         </div>
       </Reveal>
       <Reveal delay={0.08}>
@@ -118,21 +118,21 @@ function Hero() {
             letterSpacing: -1.5, maxWidth: 820, margin: "0 auto 24px",
           }}
         >
-          The app store for your{" "}
-          <em style={{ fontStyle: "italic", color: T.green }}>sales team</em>.
+          Your reps are leaking revenue.{" "}
+          <em style={{ fontStyle: "italic", color: T.green }}>We fix that.</em>
         </h1>
       </Reveal>
       <Reveal delay={0.16}>
         <p style={{ fontSize: "clamp(16px, 1.8vw, 19px)", color: T.text2, maxWidth: 600, margin: "0 auto 40px", lineHeight: 1.65 }}>
-          Start with the app causing the most drag right now. Add the rest as your team grows. One platform, eleven connected operating systems.
+          Most sales teams lose 20–40% of revenue to bad calls, missed follow-ups, and zero accountability. We built 11 apps that plug every hole &mdash; from AI call scoring to commission payouts. Pick the one bleeding the most. Launch it in 14 days.
         </p>
       </Reveal>
       <Reveal delay={0.24}>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="#quiz" className="btn-primary">
-            Find Your First App <span className="arrow-icon">&rarr;</span>
+            Show Me What&apos;s Broken <span className="arrow-icon">&rarr;</span>
           </a>
-          <a href="#apps" className="btn-ghost">See the Platform</a>
+          <a href="#apps" className="btn-ghost">See All 11 Apps</a>
         </div>
       </Reveal>
     </section>
@@ -172,7 +172,7 @@ function BeforeAfter() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <p style={{ textAlign: "center", fontSize: 13, textTransform: "uppercase", letterSpacing: 2.5, color: T.text3, fontWeight: 600, marginBottom: 40 }}>
-            The Old Way vs. The New Way
+            This is what&apos;s actually happening inside your sales team right now
           </p>
         </Reveal>
         <div className="ba-grid" style={{ display: "grid", gridTemplateColumns: "1fr 60px 1fr", alignItems: "stretch", gap: 0 }}>
@@ -196,16 +196,16 @@ function BeforeAfter() {
                 Before
               </div>
               <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16 }}>
-                Manual sales management
+                What you&apos;re doing now
               </h3>
               <div style={{ display: "grid", gap: 12 }}>
                 {[
-                  "Managers only hear about problems in fragments",
-                  "Coaching happens reactively through Slack",
-                  "Revenue lives in scattered spreadsheets",
-                  "Rep quality drifts without a scoring standard",
-                  "Leadership sees weak numbers before weak behavior",
-                  "Account health is guesswork until it's too late",
+                  "Your worst closer had 6 bad calls last week. Nobody noticed.",
+                  "Managers coach from memory — if they coach at all.",
+                  "Commission disputes eat 3+ hours every pay period.",
+                  "Setters report numbers in Slack. Nobody analyzes them.",
+                  "You find out an account is dying when the revenue stops.",
+                  "New reps take 60+ days to ramp because onboarding is a mess.",
                 ].map((pain) => (
                   <div key={pain} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                     <span style={{ color: T.red, fontSize: 16, lineHeight: 1.4, flexShrink: 0 }}>&times;</span>
@@ -245,16 +245,16 @@ function BeforeAfter() {
                 After
               </div>
               <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 16 }}>
-                Systemized Sales AI
+                What changes in 14 days
               </h3>
               <div style={{ display: "grid", gap: 12 }}>
                 {[
-                  "AI reviews 100% of calls and flags what to coach",
-                  "Managers get a structured weekly coaching rhythm",
-                  "Revenue ownership is tracked with real attribution",
-                  "Every rep is scored against a consistent rubric",
-                  "Leadership sees behavior data before it hits numbers",
-                  "Account risk surfaces automatically across systems",
+                  "AI grades every single call. Weak openers, bad closes — flagged instantly.",
+                  "Managers open one queue and know exactly who to coach and why.",
+                  "Reps submit cash, system calculates commission. Zero disputes.",
+                  "Setters log EODs in 60 seconds. You see pickup rate, booking rate, show rate.",
+                  "At-risk accounts trigger alerts before revenue drops.",
+                  "New reps follow a day-by-day portal with tests. They ramp in half the time.",
                 ].map((benefit) => (
                   <div key={benefit} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
@@ -280,10 +280,10 @@ function AppsGrid() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <p style={{ fontSize: 13, textTransform: "uppercase", letterSpacing: 2.5, color: T.green, fontWeight: 600, marginBottom: 12, textAlign: "center" }}>
-            Eleven connected apps
+            Pick the one that hurts most
           </p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(32px, 4vw, 50px)", lineHeight: 1.08, letterSpacing: -1, textAlign: "center", maxWidth: 700, margin: "0 auto 48px" }}>
-            One platform. Every operating system your sales team needs.
+            11 apps. Each one kills a specific revenue leak.
           </h2>
         </Reveal>
         <StaggerChildren style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }} className="apps-grid">
@@ -336,13 +336,13 @@ function FlagshipFeature() {
                 marginBottom: 20, textTransform: "uppercase", letterSpacing: 1,
               }}
             >
-              &#9889; Flagship App
+              &#9889; Most teams start here
             </div>
             <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 42px)", lineHeight: 1.1, letterSpacing: -0.5, marginBottom: 16 }}>
-              Review every sales call with AI.
+              Your managers listen to 5% of calls. AI reviews 100%.
             </h2>
             <p style={{ fontSize: 16, color: T.text2, lineHeight: 1.65, marginBottom: 28 }}>
-              AI scores every call, flags weak conversations, and shows managers what to coach first. No more random sampling.
+              Every call gets scored. Every weak opener, fumbled close, and missed objection gets flagged. Managers stop guessing and start coaching from data.
             </p>
             <div style={{ display: "grid", gap: 14 }}>
               {[
@@ -398,10 +398,10 @@ function NeedsAnalysisCTA() {
           }}
         >
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 40px)", lineHeight: 1.1, marginBottom: 12 }}>
-            Not sure where to start?
+            You don&apos;t need all 11. You need the right one first.
           </h2>
-          <p style={{ fontSize: 17, color: T.text2, lineHeight: 1.65, marginBottom: 28, maxWidth: 520, margin: "0 auto 28px" }}>
-            Take a 2-minute needs analysis. We&apos;ll show you which app solves your biggest bottleneck.
+          <p style={{ fontSize: 17, color: T.text2, lineHeight: 1.65, marginBottom: 28, maxWidth: 560, margin: "0 auto 28px" }}>
+            Answer 5 questions. We&apos;ll tell you exactly which app to launch first, why it&apos;s the biggest lever, and how fast you&apos;ll see results. Takes 90 seconds.
           </p>
           <a
             href="#quiz"
@@ -413,7 +413,7 @@ function NeedsAnalysisCTA() {
               boxShadow: "0 2px 10px rgba(16,185,129,0.2)", transition: "all 0.25s",
             }}
           >
-            Take the Needs Analysis &rarr;
+            Find My Biggest Revenue Leak &rarr;
           </a>
         </div>
       </Reveal>
@@ -424,20 +424,20 @@ function NeedsAnalysisCTA() {
 // ── AUDIENCE SECTION ──
 function Audience() {
   const audiences = [
-    { title: "Setter Teams", desc: "Score every setter call and catch weak openers before they cost appointments." },
-    { title: "Closer Teams", desc: "Track close rates, discovery depth, and objection handling across every rep." },
-    { title: "Agencies", desc: "Give each client a dedicated coaching system with their own rubrics and dashboards." },
-    { title: "Portfolio Operators", desc: "See account risk, revenue exposure, and coaching quality across every brand." },
+    { title: "Setter Teams (5+ reps)", desc: "Your setters are dialing 100+ times a day. Without EOD tracking and AI call scoring, you have no idea who's producing and who's coasting. We fix that in week one." },
+    { title: "Closer Teams ($5k+ tickets)", desc: "One fumbled discovery call on a $10k deal is $10k gone. AI catches weak closes, missing urgency, and poor objection handling — across every rep, every call." },
+    { title: "Agencies (multi-client)", desc: "Each client gets their own rubrics, dashboards, and coaching queue. You stop stitching together client updates from Slack threads and spreadsheets." },
+    { title: "Portfolio Operators", desc: "You manage 3–15 brands. Owner Radar alerts you when an account goes quiet, a payment plan goes past due, or quality drops below threshold. No more surprise fires." },
   ]
   return (
     <section style={{ padding: "80px 32px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal>
           <p style={{ fontSize: 13, textTransform: "uppercase", letterSpacing: 2.5, color: T.green, fontWeight: 600, marginBottom: 12, textAlign: "center" }}>
-            Built for
+            This is built for you if
           </p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 42px)", lineHeight: 1.1, textAlign: "center", marginBottom: 48 }}>
-            Sales teams that run on structure, not guesswork.
+            You know the team is underperforming. You just can&apos;t prove where.
           </h2>
         </Reveal>
         <StaggerChildren style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }} className="audience-grid">
@@ -464,9 +464,9 @@ function Audience() {
 // ── HOW IT WORKS ──
 function HowItWorks() {
   const steps = [
-    { num: "01", title: "Take the Needs Analysis", desc: "Answer a few questions about your team structure, pain points, and current tools." },
-    { num: "02", title: "Get Your Recommendation", desc: "See which app matches your biggest bottleneck and the best order to roll them out." },
-    { num: "03", title: "Launch in 14 Days", desc: "We implement, calibrate against your real calls, and train your team to use the system." },
+    { num: "01", title: "Find the leak (90 seconds)", desc: "Answer 5 questions about your team. We tell you which app to install first and exactly what it fixes." },
+    { num: "02", title: "We build it for you (14 days)", desc: "No DIY setup. We configure the app, connect your data sources, calibrate against your real calls, and train your managers." },
+    { num: "03", title: "See results in the first week", desc: "By day 7 you have data. By day 14 your managers are coaching from it. By day 30 you wonder how you ran without it." },
   ]
   return (
     <section id="howitworks" style={{ padding: "80px 32px" }}>
@@ -476,7 +476,7 @@ function HowItWorks() {
             How it works
           </p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 42px)", lineHeight: 1.1, textAlign: "center", marginBottom: 48 }}>
-            Three steps to a systemized sales team.
+            From &ldquo;we have a problem&rdquo; to &ldquo;we have the data&rdquo; in 14 days.
           </h2>
         </Reveal>
         <StaggerChildren style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }} className="hiw-grid">
@@ -545,12 +545,12 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 function FAQ() {
   const faqs = [
-    { q: "What kind of sales teams is this built for?", a: "High-ticket setter-closer teams, agencies, and portfolio operators running sales teams at scale. If your team runs on calls and you need better coaching, visibility, or operational structure, this platform is built for you." },
-    { q: "Do I have to buy all eleven apps?", a: "No. Start with whichever app solves your biggest bottleneck right now. Most teams start with AI Call Coaching or Commission Tracker and add the rest as their operating rhythm matures." },
-    { q: "How long does it take to get set up?", a: "Most teams are live with their first app within 14 days. We handle setup, calibration against your real calls, and training for your managers." },
-    { q: "What integrations do you support?", a: "We pull transcripts from RevPhlo, Fathom, and other call recording tools. Payment data can sync from Stripe and other billing platforms. Custom integrations are available for larger accounts." },
-    { q: "How does pricing work?", a: "AI Call Coaching starts around $2.5k/month plus setup. Additional apps are priced as expansions. Pricing depends on team size and the number of modules you need." },
-    { q: "Can I see a demo before committing?", a: "Yes. Take the needs analysis to identify which app fits best, then email us to schedule a walkthrough of the specific product for your use case." },
+    { q: "What kind of sales teams is this built for?", a: "If you have setters, closers, or both — and you're doing $50k/mo+ in sales — this is built for you. Agencies, portfolio operators, and teams running high-ticket offers on calls. If your team sells over the phone and you can't see what's happening on those calls, start here." },
+    { q: "Do I need all 11 apps?", a: "No. Most teams start with one — usually AI Call Coaching or Commission Tracker — and add more as the operating rhythm matures. Each app solves a specific problem. Take the needs analysis and we'll tell you which one to launch first." },
+    { q: "How long until I see results?", a: "Your first app is live in 14 days. We handle setup, data connections, and manager training. Most teams have usable coaching data by day 7 and are running a new management rhythm by day 30." },
+    { q: "What if I already use GHL, Fathom, or RevPhlo?", a: "Good — that's exactly what we plug into. Call transcripts sync from Fathom and RevPhlo. Pipeline data syncs from GHL via webhooks. Payments sync from Stripe. If your tools are already collecting data, we turn that data into operating systems." },
+    { q: "How does pricing work?", a: "AI Call Coaching starts around $2.5k/month plus a one-time setup fee. Additional apps are priced as expansions based on team size and usage. Most multi-module accounts pay less per app as they add more." },
+    { q: "Can I see a demo before committing?", a: "Yes. Take the 90-second needs analysis, then book a call. We'll walk you through the exact app that matches your team's biggest bottleneck — with your data, not a generic demo." },
   ]
   return (
     <section id="faq" style={{ padding: "80px 32px" }}>
@@ -560,7 +560,7 @@ function FAQ() {
             FAQ
           </p>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 42px)", lineHeight: 1.1, textAlign: "center", marginBottom: 40 }}>
-            Common questions.
+            Before you ask.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
@@ -582,20 +582,20 @@ function FinalCTA() {
       <Reveal>
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(32px, 4vw, 50px)", lineHeight: 1.08, letterSpacing: -1, marginBottom: 16 }}>
-            Ready to systemize your sales team?
+            Every week you wait, bad calls close at a lower rate and your best reps carry the ones who should be coached or cut.
           </h2>
-          <p style={{ fontSize: 17, color: T.text2, lineHeight: 1.65, marginBottom: 36 }}>
-            Start with a needs analysis or jump straight to a call.
+          <p style={{ fontSize: 17, color: T.text2, lineHeight: 1.65, marginBottom: 36, maxWidth: 560, margin: "0 auto 36px" }}>
+            Take 90 seconds to find which app stops the bleeding. Or book a call and we&apos;ll tell you directly.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="#quiz" className="btn-primary">
-              Take the Needs Analysis <span className="arrow-icon">&rarr;</span>
+              Find My Biggest Leak <span className="arrow-icon">&rarr;</span>
             </a>
             <a
               href="mailto:dylan.rich@systemizedsales.com?subject=Systemized%20Sales%20AI%20Demo"
               className="btn-ghost"
             >
-              Email Us
+              Book a Call Instead
             </a>
           </div>
         </div>
