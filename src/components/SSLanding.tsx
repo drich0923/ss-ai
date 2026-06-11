@@ -478,7 +478,7 @@ function Faq() {
     { q: "How is this different from hiring a Zapier consultant or a RevOps agency?", a: "They wire existing tools together. We build new tools when the existing ones don't fit. Most orgs need both — but the custom builds are where the step-change lives." },
     { q: "We already have HubSpot/Salesforce. Does this replace it?", a: "No. We layer on top. Your CRM stays the source of truth; we build the dashboards, scorecards, and automation that your CRM's native UI is too generic to deliver." },
     { q: "How fast until something is live?", a: "14 days from signed to live. We scope in week one, ship in week two. No DIY setup." },
-    { q: "What does it cost?", a: "Audits are fixed-fee. Apps start around $2.5k/mo plus setup. Most clients see payback inside 90 days." },
+    { q: "How is the engagement scoped?", a: "Every build is scoped after the sales call. We use the audit to map your motion, identify the right first build, and send a custom recommendation based on complexity, integrations, and rollout needs." },
     { q: "Do we own the code?", a: "Yes. Everything lives in your portal, on your infrastructure, documented. You can fork us and run it in-house the moment you want to." },
     { q: "What if our process changes?", a: "It will. That's what the ongoing phase is for. We re-shape apps as your motion evolves, and ship new ones when new needs emerge." },
   ]
@@ -518,7 +518,7 @@ function FinalCta({ onBook }: { onBook: () => void }) {
               <button onClick={onBook} className="btn btn-primary">Book 30-min audit →</button>
               <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
             </div>
-            <div className="final-meta"><span>◆ Fixed-fee audits</span><span>◆ 14-day first ship</span><span>◆ You own the code</span></div>
+            <div className="final-meta"><span>◆ Custom scope after sales call</span><span>◆ 14-day first ship</span><span>◆ You own the code</span></div>
           </div>
         </div>
       </div>
