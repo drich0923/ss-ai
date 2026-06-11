@@ -5,7 +5,6 @@ export type ProductModule = {
   heroTitle: string
   heroSummary: string
   audience: string
-  pricing: string
   leadValue: string
   pains: string[]
   capabilities: string[]
@@ -86,7 +85,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Review every sales call with AI.",
     heroSummary: "AI scores every call, flags weak conversations, and shows managers what to coach first.",
     audience: "High-ticket teams with setters, closers, or both",
-    pricing: "Starts around $2.5k/mo plus setup",
     leadValue: "Catch weak conversations faster and give managers a repeatable coaching system.",
     pains: [
       "Managers only review a small sample of calls.",
@@ -124,7 +122,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Give managers one place to run coaching.",
     heroSummary: "Turn call quality and rep trends into one weekly management rhythm.",
     audience: "Sales leaders managing multiple reps, pods, or brands",
-    pricing: "Custom expansion pricing after coaching launch",
     leadValue: "Create a management rhythm that is proactive, measurable, and easier to scale.",
     pains: [
       "Managers know the team is off but cannot diagnose it quickly.",
@@ -159,7 +156,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Automate commissions from submission to payout.",
     heroSummary: "Reps submit cash collected. The system calculates tiers, bonuses, and base salary. Managers approve in one click.",
     audience: "Sales teams paying commissions to closers, setters, or both",
-    pricing: "Included with multi-module accounts or standalone setup",
     leadValue: "Eliminate commission disputes and give reps real-time payout visibility.",
     pains: [
       "Commission calculations happen in spreadsheets prone to errors.",
@@ -196,7 +192,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Daily setter submissions with real analytics.",
     heroSummary: "Phone and DM setters submit their numbers daily. Managers see team-wide performance with 30-plus calculated metrics.",
     audience: "Teams with phone setters, DM setters, or both",
-    pricing: "Standalone or included in multi-module accounts",
     leadValue: "Turn daily activity reports into a real accountability system with team analytics.",
     pains: [
       "Setters report numbers in Slack or spreadsheets with no consistency.",
@@ -233,7 +228,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "See account risk before revenue slips.",
     heroSummary: "Blend call quality, delivery, rep activity, and revenue into one account risk view.",
     audience: "Owners and operators managing a portfolio of client accounts or brands",
-    pricing: "Portfolio-tier pricing or custom expansion",
     leadValue: "Spot account risk earlier without relying on fragmented team updates.",
     pains: [
       "Leadership hears account problems in fragments.",
@@ -268,7 +262,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Track revenue ownership without spreadsheet fog.",
     heroSummary: "Turn payment tracking into an operating layer for managers, reps, and owners.",
     audience: "Teams collecting high-ticket payments across multiple reps and payment plans",
-    pricing: "Typically sold into multi-module accounts",
     leadValue: "Add commercial visibility so ownership stays attached to the money.",
     pains: [
       "Collected versus outstanding revenue lives in fragmented tools.",
@@ -303,7 +296,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Get alerts before accounts break.",
     heroSummary: "Automated monitoring for payment delays, setter silence, quality drops, and account risk across your entire portfolio.",
     audience: "Owners and portfolio operators managing multiple client accounts or brands",
-    pricing: "Portfolio-tier pricing, typically bundled with Client Health",
     leadValue: "Stop discovering account problems in fragments. Get severity-ranked alerts in one place.",
     pains: [
       "Account problems surface weeks after they start.",
@@ -340,7 +332,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Onboard new reps with structure, not chaos.",
     heroSummary: "A day-by-day training portal with modules, embedded content, knowledge tests, and progress tracking.",
     audience: "Sales organizations hiring and ramping new closers or setters",
-    pricing: "Included with multi-module accounts or standalone setup",
     leadValue: "Get new reps productive faster with a structured, trackable onboarding path.",
     pains: [
       "Onboarding is a Google Doc or Slack thread that nobody follows.",
@@ -377,7 +368,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Every SOP, script, and resource in one place.",
     heroSummary: "A structured playbook portal with Loom walkthroughs, Google Docs embeds, bookmarks, and hierarchical navigation.",
     audience: "Closers, setters, and managers who need a single resource hub for SOPs and training",
-    pricing: "Included in multi-module accounts or standalone",
     leadValue: "Stop losing SOPs in Slack threads and Google Drive folders. Give reps one link for everything.",
     pains: [
       "SOPs and scripts live in Slack threads, Google Docs, and memory.",
@@ -414,7 +404,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Track rep compliance and pipeline hygiene.",
     heroSummary: "Quality scores, appointment outcomes, pre-call prep, pipeline issues, and activity metrics in one operations view.",
     audience: "Operations managers and team leads running quality control for sales teams on GHL",
-    pricing: "Custom pricing based on team size and GHL integration",
     leadValue: "Catch compliance issues and pipeline problems before they cost revenue.",
     pains: [
       "Compliance checks happen manually or not at all.",
@@ -451,7 +440,6 @@ export const productModules: ProductModule[] = [
     heroTitle: "Launch clients and reps with fewer missed steps.",
     heroSummary: "Give your team a structured rollout for client setup and rep readiness.",
     audience: "Sales organizations onboarding clients, reps, or both at the same time",
-    pricing: "Usually sold as implementation and expansion work",
     leadValue: "Protect launch quality as more teams touch the rollout.",
     pains: [
       "Onboarding breaks when sales, ops, and fulfillment split ownership.",
