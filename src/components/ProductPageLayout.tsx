@@ -149,8 +149,8 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
                 <div className="product-meta-v">{product.audience}</div>
               </div>
               <div className="product-meta-row">
-                <div className="product-meta-label">PRICING</div>
-                <div className="product-meta-v">{product.pricing}</div>
+                <div className="product-meta-label">SCOPING</div>
+                <div className="product-meta-v">Custom scope set after your sales call.</div>
               </div>
               <div className="product-meta-row">
                 <div className="product-meta-label">APP</div>
