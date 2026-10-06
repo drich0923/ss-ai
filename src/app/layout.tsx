@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Dylan Rich" }, { name: "Jake Tacher" }],
   creator: "Systemized Sales",
   publisher: "Systemized Sales",
+  icons: { icon: "/ss-logo.svg" },
   alternates: { canonical: siteUrl },
   keywords: [
     "AI call coaching",
@@ -61,9 +62,9 @@ const jsonLd = {
       url: siteUrl,
       parentOrganization: {
         "@type": "Organization",
-        "@id": "https://systemizedsales.com/#organization",
+        "@id": "https://www.systemizedsales.com/#organization",
         name: "Systemized Sales",
-        url: "https://systemizedsales.com",
+        url: "https://www.systemizedsales.com",
         founder: [
           { "@type": "Person", name: "Dylan Rich" },
           { "@type": "Person", name: "Jake Tacher" },
