@@ -1,13 +1,20 @@
 import type { Metadata } from "next"
 import "./globals.css"
 
+const siteUrl = "https://systemizedsales.ai"
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Systemized Sales AI — The App Store for Your Sales Team",
     template: "%s | Systemized Sales AI",
   },
   description:
     "AI coaching, management, client health, revenue visibility, and onboarding systems for high-ticket sales teams. Start with one app, add the rest as your team grows.",
+  authors: [{ name: "Dylan Rich" }, { name: "Jake Tacher" }],
+  creator: "Systemized Sales",
+  publisher: "Systemized Sales",
+  alternates: { canonical: siteUrl },
   keywords: [
     "AI call coaching",
     "sales operating system",
@@ -24,6 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Systemized Sales AI",
+    url: siteUrl,
     title: "Systemized Sales AI — The App Store for Your Sales Team",
     description:
       "AI coaching, management, client health, revenue visibility, and onboarding systems for high-ticket sales teams.",
@@ -43,10 +51,48 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Systemized Sales AI",
+      url: siteUrl,
+      parentOrganization: {
+        "@type": "Organization",
+        "@id": "https://systemizedsales.com/#organization",
+        name: "Systemized Sales",
+        url: "https://systemizedsales.com",
+        founder: [
+          { "@type": "Person", name: "Dylan Rich" },
+          { "@type": "Person", name: "Jake Tacher" },
+        ],
+      },
+      sibling: {
+        "@type": "SoftwareApplication",
+        name: "RevPhlo",
+        url: "https://www.revphlo.com",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Systemized Sales AI",
+      url: siteUrl,
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

@@ -74,6 +74,8 @@ function Footer() {
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
             <Link href="/#cta">Book audit →</Link>
+            <a href="https://systemizedsales.com" target="_blank" rel="noopener noreferrer">Systemized Sales services ↗</a>
+            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">RevPhlo revenue intelligence ↗</a>
           </div>
         </div>
       </div>
