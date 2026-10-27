@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Dylan Rich" }, { name: "Jake Tacher" }],
   creator: "Systemized Sales",
   publisher: "Systemized Sales",
-  icons: { icon: "/ss-logo.svg" },
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.svg",
+  },
   alternates: { canonical: siteUrl },
   keywords: [
     "sales team OS",

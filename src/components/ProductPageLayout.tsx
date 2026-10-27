@@ -5,16 +5,7 @@ import Link from "next/link"
 import type { ProductModule } from "@/lib/site-data"
 import { ecosystemModules } from "@/lib/site-data"
 import AuditModal from "./AuditModal"
-
-function LogoMark() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-      <rect x="1" y="1" width="26" height="26" rx="4" stroke="currentColor" strokeOpacity=".35" />
-      <path d="M8 10h8a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h10" stroke="#9cff4f" strokeWidth="1.8" fill="none" strokeLinecap="round" />
-      <circle cx="20" cy="10" r="1.6" fill="#9cff4f" />
-    </svg>
-  )
-}
+import Logo from "./Logo"
 
 function Header({ onBook }: { onBook: () => void }) {
   const [scrolled, setScrolled] = useState(false)
@@ -27,8 +18,7 @@ function Header({ onBook }: { onBook: () => void }) {
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="wrap site-header-inner">
         <Link href="/" className="brand">
-          <LogoMark />
-          <span className="brand-name">SYSTEMIZED<span className="brand-thin">SALES</span></span>
+          <Logo />
         </Link>
         <nav className="site-nav">
           <Link href="/#problem">PROBLEM</Link>
@@ -51,11 +41,8 @@ function Footer() {
     <footer className="site-footer">
       <div className="wrap footer-inner">
         <div className="footer-brand">
-          <LogoMark />
-          <div>
-            <div className="brand-name">SYSTEMIZED<span className="brand-thin">SALES</span></div>
-            <div className="mono xs ink-mute">the sales team os</div>
-          </div>
+          <Logo />
+          <div className="mono xs ink-mute">the sales team os</div>
         </div>
         <div className="footer-cols">
           <div className="footer-col">
