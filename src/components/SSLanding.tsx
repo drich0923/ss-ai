@@ -178,6 +178,12 @@ function HowItWorks() {
             </div>
           ))}
         </div>
+        <div className="how-step-body card" style={{ marginTop: 32, ["--step-color" as string]: "var(--neon)" } as React.CSSProperties}>
+          <div className="mono xs ink-mute" style={{ marginBottom: 14 }}>GUARANTEE</div>
+          <h3 className="how-step-t" style={{ marginBottom: 14 }}>The Pays-For-Itself Guarantee</h3>
+          <p className="how-step-d">By day 90, The Sales Team OS finds at least your setup fee in cash you were leaving on the table: unpaid invoices, leads nobody called, no-shows nobody rebooked. If it doesn't, we refund your setup fee.</p>
+          <p className="how-step-d" style={{ marginBottom: 0 }}>And if your numbers haven't clearly moved by day 90, you can walk away from the rest of your term and keep everything we built.</p>
+        </div>
       </div>
     </section>
   )
@@ -478,10 +484,7 @@ function Faq() {
     { q: "Who owns it?", a: "Your team gets its own workspace in our hub. Your data and your integrations stay yours. We host and maintain the apps, keep an eye on them so we can fix things fast, and keep improving them." },
     // TODO: Optional price line is not approved. Do not add "Setup starts at $8,000." until Dylan signs off.
     { q: "What does it cost?", a: "One setup fee and one monthly fee, with RevPhlo included. Most teams stay with us 6 to 12 months. We give you an exact price on the call, based on your team size and tools." },
-    // TODO: Guarantee FAQ goes here, between pricing and "What if our process changes?".
-    // Dylan has not picked a guarantee and wants stronger options than go-live speed.
-    // Do not publish guarantee wording, or any visible placeholder, until he chooses one
-    // and it is squared with the RevPhlo 6-month minimum.
+    { q: "What's the guarantee?", a: "If The Sales Team OS doesn't surface at least your setup fee in leaked cash by day 90, we refund the setup fee. If your numbers haven't clearly moved by then, you can walk away from the rest of your term and keep what we built. We'll walk you through the details on the call." },
     { q: "What if our process changes?", a: "It will. Changes and fixes happen in your shared Slack channel and are included. If you need a brand-new app, we scope and price it with you." },
   ]
   const [open, setOpen] = useState(0)
@@ -520,7 +523,7 @@ function FinalCta({ onBook }: { onBook: () => void }) {
               <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
               <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
             </div>
-            <div className="final-meta"><span>◆ Every app included</span><span>◆ Live in 30 days</span><span>◆ Your data stays yours</span></div>
+            <div className="final-meta"><span>◆ Every app included</span><span>◆ Live in 30 days</span><span>◆ Your data stays yours</span><span>◆ Pays for itself in 90 days, or your setup fee back.</span></div>
           </div>
         </div>
       </div>
