@@ -1,7 +1,14 @@
 import type { Metadata } from "next"
 import "./globals.css"
 
-const siteUrl = "https://systemizedsales.ai"
+const siteUrl = "https://www.systemizedsales.ai"
+
+const socialImage = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "Systemized Sales AI — One system for your whole sales team.",
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,12 +44,14 @@ export const metadata: Metadata = {
     title: "Systemized Sales AI — The Sales Team OS",
     description:
       "One system for your whole sales team: hiring, playbooks, setter tracking, RevPhlo numbers and commissions, all in one hub.",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Systemized Sales AI — The Sales Team OS",
     description:
       "One system for your whole sales team: hiring, playbooks, setter tracking, RevPhlo numbers and commissions, all in one hub.",
+    images: [{ ...socialImage, url: "/twitter-image" }],
   },
   robots: {
     index: true,
