@@ -14,69 +14,78 @@ export type ProductModule = {
 }
 
 export const siteStats = [
-  { value: "100%", label: "Of calls scored by AI — not the 5% your managers have time for" },
-  { value: "14 days", label: "From signed to live. We build it. You use it. No DIY setup." },
-  { value: "1 app", label: "Is all you need to start. Pick the one that hurts most." },
+  { value: "10 apps", label: "Included from day one. Hiring to commissions, in one hub." },
+  // TODO: Client naming is unconfirmed. If Dylan approves naming The Listings Lab, replace this stat with:
+  // { value: "3 → 19", label: "Closes a month in 90 days at The Listings Lab, a team inside our agency." },
+  { value: "25% → 58%", label: "Show rate in one month for a team inside our agency." },
+  { value: "1 workspace", label: "Your team gets its own. Your data and integrations stay yours." },
 ] as const
 
 export const ecosystemModules = [
   {
-    title: "AI Call Coaching",
-    summary: "Score every call and show managers what to coach first.",
-    slug: "ai-call-coaching",
+    slug: "revphlo",
+    title: "RevPhlo",
+    summary: "Cash, shows, closes and attribution in one view. Pulls from GHL, Stripe, Fathom and Whop.",
+    href: "#cta",
   },
   {
-    title: "Manager OS",
-    summary: "Turn rep drift into clear priorities and weekly management rhythm.",
-    slug: "manager-os",
+    slug: "hiring-app",
+    title: "Hiring App",
+    summary: "A public application page with video and recorded-call steps, plus a dashboard to compare candidates.",
+    href: "#cta",
   },
   {
-    title: "Commission Tracker",
-    summary: "Automate commission calculations, submissions, and payout approvals.",
-    slug: "commission-tracker",
+    slug: "speed-to-lead",
+    title: "Speed to Lead",
+    summary: "New leads get worked fast, and you can see who called and when.",
+    href: "#cta",
   },
   {
-    title: "Setter EOD Dashboard",
-    summary: "Daily accountability system for phone and DM setters with team analytics.",
     slug: "setter-eod",
+    title: "Phone & DM Setter Trackers",
+    summary: "Daily EOD tracking for phone and DM setters, with team analytics.",
+    href: "/products/setter-eod",
   },
   {
-    title: "Client Health",
-    summary: "Blend call quality, delivery, and revenue into one account risk view.",
-    slug: "client-health",
-  },
-  {
-    title: "Revenue Visibility",
-    summary: "Track deal ownership and cash exposure without spreadsheet fog.",
-    slug: "revenue-visibility",
-  },
-  {
-    title: "Owner Radar",
-    summary: "Automated alerts for account risks, silent breaks, and revenue exposure.",
-    slug: "owner-radar",
-  },
-  {
-    title: "Rep Onboarding Portal",
-    summary: "Module-based training with knowledge tests and progress tracking.",
-    slug: "rep-onboarding",
-  },
-  {
-    title: "Closer Playbook",
-    summary: "SOPs, scripts, Loom walkthroughs, and resources in one rep portal.",
     slug: "closer-playbook",
+    title: "Closer & Setter Playbooks",
+    summary: "Scripts, SOPs, objection handling and Loom walkthroughs, all in one link.",
+    href: "/products/closer-playbook",
   },
   {
-    title: "QC Dashboard",
-    summary: "Track rep compliance, pipeline hygiene, and appointment outcomes.",
-    slug: "qc-dashboard",
+    slug: "rep-onboarding",
+    title: "Closer Onboarding",
+    summary: "A step-by-step ramp with training modules, knowledge checks and progress tracking.",
+    href: "/products/rep-onboarding",
   },
   {
-    title: "Sales Onboarding Systems",
-    summary: "Standardize how clients and reps go live as the team grows.",
-    slug: "sales-onboarding",
+    slug: "client-command-center",
+    title: "Client Command Center",
+    summary: "One place to see your team, your accounts and what needs attention.",
+    href: "#cta",
+  },
+  {
+    slug: "shared-metrics",
+    title: "Shared Metrics",
+    summary: "One set of team KPIs that everyone sees, defined the same way.",
+    href: "#cta",
+  },
+  {
+    slug: "commission-tracker",
+    title: "Commission Tracker",
+    summary: "Calculates commissions and routes them for approval. No more spreadsheet math.",
+    href: "/products/commission-tracker",
+  },
+  {
+    slug: "payment-tracking",
+    title: "Payment Tracking",
+    summary: "See what was collected, when, and from whom.",
+    href: "#cta",
   },
 ] as const
 
+// Old product pages stay live and unlinked from the homepage until Dylan decides on add-ons:
+// ai-call-coaching, manager-os, client-health, revenue-visibility, owner-radar, qc-dashboard, sales-onboarding.
 export const productModules: ProductModule[] = [
   {
     slug: "ai-call-coaching",
@@ -153,7 +162,7 @@ export const productModules: ProductModule[] = [
     slug: "commission-tracker",
     name: "Commission Tracker",
     eyebrow: "Sales compensation",
-    heroTitle: "Automate commissions from submission to payout.",
+    heroTitle: "Automate commissions from submission to approval.",
     heroSummary: "Reps submit cash collected. The system calculates tiers, bonuses, and base salary. Managers approve in one click.",
     audience: "Sales teams paying commissions to closers, setters, or both",
     leadValue: "Eliminate commission disputes and give reps real-time payout visibility.",
@@ -187,7 +196,7 @@ export const productModules: ProductModule[] = [
   },
   {
     slug: "setter-eod",
-    name: "Setter EOD Dashboard",
+    name: "Phone & DM Setter Trackers",
     eyebrow: "Daily accountability",
     heroTitle: "Daily setter submissions with real analytics.",
     heroSummary: "Phone and DM setters submit their numbers daily. Managers see team-wide performance with 30-plus calculated metrics.",
@@ -327,7 +336,7 @@ export const productModules: ProductModule[] = [
   },
   {
     slug: "rep-onboarding",
-    name: "Rep Onboarding Portal",
+    name: "Closer Onboarding",
     eyebrow: "Team enablement",
     heroTitle: "Onboard new reps with structure, not chaos.",
     heroSummary: "A day-by-day training portal with modules, embedded content, knowledge tests, and progress tracking.",
@@ -363,7 +372,7 @@ export const productModules: ProductModule[] = [
   },
   {
     slug: "closer-playbook",
-    name: "Closer Playbook",
+    name: "Closer & Setter Playbooks",
     eyebrow: "Rep resource hub",
     heroTitle: "Every SOP, script, and resource in one place.",
     heroSummary: "A structured playbook portal with Loom walkthroughs, Google Docs embeds, bookmarks, and hierarchical navigation.",

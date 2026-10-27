@@ -3,7 +3,7 @@ import { redirect } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Platform | Systemized Sales AI",
-  description: "See how Systemized Sales AI turns AI coaching, management, client health, and revenue visibility into one operating system.",
+  description: "See inside The Sales Team OS: RevPhlo, setter trackers, commissions and hiring in one workspace.",
 }
 
 export default function PlatformPage() {

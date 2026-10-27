@@ -35,11 +35,11 @@ export default function AuditModal({
       }}
       aria-hidden={!open}
     >
-      <div className="audit-modal" role="dialog" aria-label="Book a 30-minute audit">
+      <div className="audit-modal" role="dialog" aria-label="Book a 30-minute system map call">
         <div className="audit-modal-head">
           <div className="audit-modal-title">
             <span className="live-dot" />
-            <span>BOOK YOUR 30-MIN AUDIT</span>
+            <span>BOOK YOUR 30-MIN SYSTEM MAP CALL</span>
           </div>
           <button className="audit-modal-close" onClick={onClose} aria-label="Close">
             ×
@@ -53,7 +53,7 @@ export default function AuditModal({
           {open && (
             <iframe
               src="https://automatedrevenue.typeform.com/to/hFvfB43J"
-              title="Book a 30-minute audit"
+              title="Book a 30-minute system map call"
               onLoad={() => setLoaded(true)}
               allow="camera; microphone; autoplay; encrypted-media; fullscreen"
             />

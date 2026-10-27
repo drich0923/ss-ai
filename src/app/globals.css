@@ -171,6 +171,10 @@ body {
 .site-cta { display: flex; align-items: center; gap: 20px; }
 .link-dim { font-size: 12px; color: var(--ink-mute); text-decoration: none; font-family: var(--f-mono); }
 .link-dim:hover { color: var(--ink); }
+@media (max-width: 1200px) {
+  .site-nav { gap: 18px; }
+  .site-header .link-dim { display: none; }
+}
 @media (max-width: 960px) { .site-nav, .link-dim { display: none; } }
 
 /* ===== Hero ===== */

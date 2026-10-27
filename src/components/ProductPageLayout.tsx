@@ -33,13 +33,13 @@ function Header({ onBook }: { onBook: () => void }) {
         <nav className="site-nav">
           <Link href="/#problem">PROBLEM</Link>
           <Link href="/#how">HOW IT WORKS</Link>
-          <Link href="/#apps">APPS</Link>
-          <Link href="/#roi">ROI</Link>
+          <Link href="/#apps">WHAT'S INCLUDED</Link>
+          <Link href="/#roi">THE MATH</Link>
           <Link href="/#faq">FAQ</Link>
         </nav>
         <div className="site-cta">
           <a href="mailto:sales@systemizedsales.ai" className="link-dim">sales@systemizedsales.ai</a>
-          <button onClick={onBook} className="btn btn-primary">Book audit →</button>
+          <button onClick={onBook} className="btn btn-primary">Book a call →</button>
         </div>
       </div>
     </header>
@@ -54,28 +54,27 @@ function Footer() {
           <LogoMark />
           <div>
             <div className="brand-name">SYSTEMIZED<span className="brand-thin">SALES</span></div>
-            <div className="mono xs ink-mute">the app store for your sales team</div>
+            <div className="mono xs ink-mute">the sales team os</div>
           </div>
         </div>
         <div className="footer-cols">
           <div className="footer-col">
-            <div className="eyebrow">APPS</div>
+            <div className="eyebrow">INCLUDED</div>
             {ecosystemModules.slice(0, 5).map(m => (
-              <Link key={m.slug} href={`/products/${m.slug}`}>{m.title}</Link>
+              <Link key={m.slug} href={m.href.startsWith("#") ? `/${m.href}` : m.href}>{m.title}</Link>
             ))}
           </div>
           <div className="footer-col">
-            <div className="eyebrow">MORE APPS</div>
+            <div className="eyebrow">ALSO INCLUDED</div>
             {ecosystemModules.slice(5).map(m => (
-              <Link key={m.slug} href={`/products/${m.slug}`}>{m.title}</Link>
+              <Link key={m.slug} href={m.href.startsWith("#") ? `/${m.href}` : m.href}>{m.title}</Link>
             ))}
           </div>
           <div className="footer-col">
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
-            <Link href="/#cta">Book audit →</Link>
-            <a href="https://www.systemizedsales.com" target="_blank" rel="noopener noreferrer">Systemized Sales services ↗</a>
-            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">RevPhlo revenue intelligence ↗</a>
+            <Link href="/#cta">Book a call →</Link>
+            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">RevPhlo, included in the OS ↗</a>
           </div>
         </div>
       </div>
@@ -141,7 +140,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
               <p className="product-summary">{product.heroSummary}</p>
               <p className="mono sm ink-dim" style={{ marginBottom: 24 }}>{product.leadValue}</p>
               <div className="hero-cta-row">
-                <button onClick={openModal} className="btn btn-primary">Book 30-min audit →</button>
+                <button onClick={openModal} className="btn btn-primary">Book a 30-min call →</button>
                 <Link href="/#apps" className="btn btn-ghost">← Back to all apps</Link>
               </div>
             </div>
@@ -160,7 +159,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
               </div>
               <div className="product-meta-row">
                 <div className="product-meta-label">STATUS</div>
-                <div className="product-meta-v"><span className="live-dot" style={{ marginRight: 8 }} />Live · shipping in 14 days</div>
+                <div className="product-meta-v"><span className="live-dot" style={{ marginRight: 8 }} />Included in The Sales Team OS</div>
               </div>
             </div>
           </div>
@@ -207,7 +206,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
           <SectionHeader eyebrow="RELATED APPS" title={<>Pairs well with.</>} />
           <div className="related-grid">
             {related.map(m => (
-              <Link key={m.slug} href={`/products/${m.slug}`} className="related-card card">
+              <Link key={m.slug} href={m.href.startsWith("#") ? `/${m.href}` : m.href} className="related-card card">
                 <div className="related-card-t">{m.title}</div>
                 <div className="related-card-d">{m.summary}</div>
                 <div className="related-card-cta">LEARN MORE →</div>
@@ -224,9 +223,9 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
             <div className="final-inner">
               <div className="status-dot">READY TO SHIP</div>
               <h2 className="display display-lg final-t">Let's build <em className="italic-neon">{product.name}</em><br />for your team.</h2>
-              <p className="final-sub">30-minute audit call. We'll map your current motion, find the three highest-leverage builds, and send you a written diagnosis within 48 hours.</p>
+              <p className="final-sub">30-minute call. We'll map your team and your tools, show you where the glue is, and tell you exactly what we'd set up. No deck. No pressure.</p>
               <div className="final-ctas">
-                <button onClick={openModal} className="btn btn-primary">Book 30-min audit →</button>
+                <button onClick={openModal} className="btn btn-primary">Book a 30-min call →</button>
                 <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
               </div>
             </div>
