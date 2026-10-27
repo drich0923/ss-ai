@@ -41,10 +41,28 @@ export const ecosystemModules = [
     href: "#cta",
   },
   {
+    slug: "ai-call-coaching",
+    title: "AI Call Coaching",
+    summary: "Every closer call scored and broken down, so you know exactly what to fix before the next one.",
+    href: "/products/ai-call-coaching",
+  },
+  {
+    slug: "manager-os",
+    title: "Manager OS",
+    summary: "Your managers see which reps need help today, and what to coach them on.",
+    href: "/products/manager-os",
+  },
+  {
     slug: "setter-eod",
     title: "Phone & DM Setter Trackers",
     summary: "Daily EOD tracking for phone and DM setters, with team analytics.",
     href: "/products/setter-eod",
+  },
+  {
+    slug: "qc-dashboard",
+    title: "QC Dashboard",
+    summary: "Spot-check setter and closer quality without listening to every call.",
+    href: "/products/qc-dashboard",
   },
   {
     slug: "closer-playbook",
@@ -59,33 +77,15 @@ export const ecosystemModules = [
     href: "/products/rep-onboarding",
   },
   {
-    slug: "client-command-center",
-    title: "Client Command Center",
-    summary: "One place to see your team, your accounts and what needs attention.",
-    href: "#cta",
-  },
-  {
-    slug: "shared-metrics",
-    title: "Shared Metrics",
-    summary: "One set of team KPIs that everyone sees, defined the same way.",
-    href: "#cta",
-  },
-  {
     slug: "commission-tracker",
     title: "Commission Tracker",
     summary: "Calculates commissions and routes them for approval. No more spreadsheet math.",
     href: "/products/commission-tracker",
   },
-  {
-    slug: "payment-tracking",
-    title: "Payment Tracking",
-    summary: "See what was collected, when, and from whom.",
-    href: "#cta",
-  },
 ] as const
 
 // Old product pages stay live and unlinked from the homepage until Dylan decides on add-ons:
-// ai-call-coaching, manager-os, client-health, revenue-visibility, owner-radar, qc-dashboard, sales-onboarding.
+// client-health, revenue-visibility, owner-radar, sales-onboarding.
 export const productModules: ProductModule[] = [
   {
     slug: "ai-call-coaching",

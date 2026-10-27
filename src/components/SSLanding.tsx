@@ -182,13 +182,13 @@ function Apps() {
     "revphlo": { color: "var(--neon)", icon: "◆" },
     "hiring-app": { color: "var(--coral)", icon: "◎" },
     "speed-to-lead": { color: "var(--amber)", icon: "▸" },
+    "ai-call-coaching": { color: "var(--purple)", icon: "◉" },
+    "manager-os": { color: "var(--blue)", icon: "▦" },
     "setter-eod": { color: "var(--blue)", icon: "⎯" },
+    "qc-dashboard": { color: "var(--amber)", icon: "✓" },
     "closer-playbook": { color: "var(--purple)", icon: "▣" },
     "rep-onboarding": { color: "var(--blue)", icon: "⟶" },
-    "client-command-center": { color: "var(--purple)", icon: "▤" },
-    "shared-metrics": { color: "var(--amber)", icon: "≡" },
     "commission-tracker": { color: "var(--neon)", icon: "$" },
-    "payment-tracking": { color: "var(--neon)", icon: "✓" },
   }
   return (
     <section id="apps" className="section">
@@ -466,7 +466,7 @@ function RoiSlider({ label, v, set, min, max, step, prefix = "", format }: { lab
 function Faq() {
   const qs = [
     { q: "Is this a done-for-you sales team?", a: "No. We don't supply setters, closers or managers. You get the system your own team runs on: hiring, playbooks, tracking, numbers and pay, all connected. Your team does the selling." },
-    { q: "What's included?", a: "Ten apps, set up and connected for you: RevPhlo, the Hiring App, Speed to Lead, phone and DM setter trackers, closer and setter playbooks, Closer Onboarding, the Client Command Center, Shared Metrics, the Commission Tracker and Payment Tracking. Fixes and changes in a shared Slack channel are included too." },
+    { q: "What's included?", a: "Ten apps, set up and connected for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too." },
     { q: "We already use GoHighLevel. Does this replace it?", a: "No. We connect to it. GoHighLevel, Stripe, Fathom and Whop plug into your workspace, so your numbers come from the tools you already use. On a different stack? Ask us on the call." },
     { q: "How fast is it live?", a: "Most teams are live within 30 days of kickoff. The clock starts once we have access to your tools." },
     { q: "Who owns it?", a: "Your team gets its own workspace in our hub. Your data and your integrations stay yours. We host and maintain the apps, keep an eye on them so we can fix things fast, and keep improving them." },
