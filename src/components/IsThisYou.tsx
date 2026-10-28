@@ -399,7 +399,7 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
             <div className="iy-close">
               <p className="iy-argument">{selected.argument}</p>
               <p className="iy-proof">
-                This exact system is behind these results. They are not a promise you get the same result. Woobie went from $250K to $1.1M a month in 7 months. The Listings Lab went from a 10.7% to a 30.8% close rate in 90 days. BudgetDog went from $400K-$500K in a good month to back-to-back $1M months. Average monthly revenue rose about $100K within 3-4 months, and the first $1M month came 8-9 months in. Brennan Schlagbaum, Founder, Budgetdog. Your team does the work. We install the system and train you on how to use it.
+                This exact system is behind these results. They are not a promise you get the same result. Woobie went from $300K to $1.1M a month. The first $1M month came within 8 months. The Listings Lab went from a 10.7% to a 30.8% close rate in 90 days. BudgetDog went from $400K-$500K in a good month to back-to-back $1M months. Average monthly revenue rose about $100K within 3-4 months, and the first $1M month came 8-9 months in. Brennan Schlagbaum, Founder, Budgetdog. Your team does the work. We install the system and train you on how to use it.
               </p>
               <div className="iy-cta">
                 <button type="button" onClick={onBook} className="btn btn-primary">

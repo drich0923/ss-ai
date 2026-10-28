@@ -413,9 +413,10 @@ function Results() {
     {
       name: "Woobie",
       who: "Cole Tenney, CEO",
-      headline: "$250K to $1.1M a month in 7 months.",
+      headline: "$300K to $1.1M a month.",
       story: "Cold leads were going straight to closers, so calls went to people who were not ready to buy. The system showed where those calls were leaking, and the process was rebuilt around it. Their team did the selling.",
       nums: [
+        { n: "Within 8 months", l: "First $1M month" },
         { n: "41.5%", l: "Of booked prospects closed, Aug-Oct 2026" },
       ],
     },
