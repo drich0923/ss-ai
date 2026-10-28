@@ -1,0 +1,15 @@
+export const guideNav = [
+  { path: "/sales-team-operating-system", nav: "Sales team operating system", title: "What a Sales Team Operating System Is and the 10 Parts We Install" },
+  { path: "/how-to-scale-a-high-ticket-sales-team", nav: "Scale a high ticket team", title: "How to Scale a High Ticket Sales Team Without Breaking It" },
+  { path: "/founder-led-sales-team-without-a-manager", nav: "Team without a manager", title: "How to Run a Closer Team Without a Sales Manager" },
+  { path: "/high-ticket-close-rate-and-show-rate-benchmarks", nav: "Close rate and show rate", title: "High Ticket Close Rate and Show Rate: How to Measure Them Honestly" },
+  { path: "/gohighlevel-sales-team-dashboard", nav: "GoHighLevel dashboard", title: "GoHighLevel Sales Team Dashboard: Show Rate, Close Rate and Cash Per Call" },
+  { path: "/sales-system-vs-hiring-a-sales-manager", nav: "System or a manager", title: "Install a Sales System or Hire a Sales Manager First" },
+  { path: "/high-ticket-sales-team-kpis", nav: "Sales team KPIs", title: "The KPIs That Matter for a Closer and Setter Team" },
+  { path: "/high-ticket-closer-commission-structure", nav: "Commission structure", title: "Closer and Setter Commission Structures with a Free Tracker Template" },
+  { path: "/speed-to-lead-for-coaching-businesses", nav: "Speed to lead", title: "Speed to Lead for Coaching Businesses: Who Called and How Long the Lead Waited" },
+  { path: "/sales-call-scorecard-template", nav: "Call scorecard", title: "Sales Call Scorecard Template for High Ticket Closers" },
+  { path: "/closer-onboarding-30-60-90-day-plan", nav: "30 60 90 day plan", title: "A 30 60 90 Day Onboarding Plan for New High Ticket Closers" },
+  { path: "/setter-eod-report-template", nav: "Setter EOD template", title: "Setter EOD Report Template for Phone and DM Setters" },
+  { path: "/compare/commission-software-vs-sales-team-os", nav: "Commission software or the system", title: "QuotaPath, Spiff or a Sales Team System: Which Fits a High Ticket Coaching Team" },
+] as const

@@ -636,20 +636,24 @@ export const faqs = [
 ] as const
 
 const productSeoTitles: Record<string, string> = {
-  revphlo: "Revenue Tracking for Sales Teams",
-  "hiring-app": "Hiring App for Sales Reps",
-  "speed-to-lead": "Speed to Lead for High-Ticket Teams",
-  "ai-call-coaching": "AI Call Coaching for Sales Teams",
-  "manager-os": "Sales Manager Dashboard",
-  "setter-eod": "Setter EOD Tracker for Sales Teams",
-  "qc-dashboard": "Sales Call Quality Checks",
+  revphlo: "Certified Sales KPIs for High Ticket Teams",
+  "hiring-app": "Hiring App for Closers and Setters",
+  "speed-to-lead": "Speed to Lead for GoHighLevel Sales Teams",
+  "ai-call-coaching": "AI Sales Call Coaching for Closers",
+  "manager-os": "Manager OS: Run Sales Coaching in One Place",
+  "setter-eod": "Phone and DM Setter EOD Tracker",
+  "qc-dashboard": "Sales Call QC Dashboard for Rep Compliance",
   "closer-playbook": "Closer and Setter Playbooks",
-  "rep-onboarding": "Closer Onboarding for Sales Teams",
-  "commission-tracker": "Commission Tracker for High-Ticket Sales Teams",
-  "revenue-visibility": "Revenue Follow-Through for Sales Teams",
+  "rep-onboarding": "Closer Onboarding System for High Ticket Reps",
+  "commission-tracker": "Commission Tracker for Closers and Setters",
+  "revenue-visibility": "Revenue Follow Through for Sales Teams",
   "sales-onboarding": "Sales Onboarding Board",
 }
 
+export function productHasSeoTitle(slug: string) {
+  return Object.prototype.hasOwnProperty.call(productSeoTitles, slug)
+}
+
 export function productSeoTitle(slug: string, name: string) {
-  return productSeoTitles[slug] ?? `${name} for High-Ticket Sales Teams`
+  return productSeoTitles[slug] ?? `${name} for High Ticket Sales Teams`
 }

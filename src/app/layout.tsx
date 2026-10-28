@@ -79,10 +79,20 @@ const jsonLd = {
           { "@type": "Person", name: "Jake Tacher" },
         ],
       },
-      sibling: {
-        "@type": "SoftwareApplication",
-        name: "RevPhlo",
-        url: "https://www.revphlo.com",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Sales Team OS",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "RevPhlo",
+              serviceType: "Part of the Sales Team OS",
+              url: `${siteUrl}/products/revphlo`,
+            },
+          },
+        ],
       },
     },
     {

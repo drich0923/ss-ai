@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import type { ProductModule } from "@/lib/site-data"
-import { ecosystemModules } from "@/lib/site-data"
+import { ecosystemModules, productHasSeoTitle, productSeoTitle } from "@/lib/site-data"
+import { productExtras } from "@/lib/product-extras"
 import AuditModal from "./AuditModal"
+import GuideFooterLinks from "./GuideFooterLinks"
 import Logo from "./Logo"
 
 function Header({ onBook }: { onBook: () => void }) {
@@ -57,6 +59,7 @@ function Footer() {
               <Link key={m.slug} href={m.href.startsWith("#") ? `/${m.href}` : m.href}>{m.title}</Link>
             ))}
           </div>
+          <GuideFooterLinks />
           <div className="footer-col">
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
@@ -111,6 +114,8 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
   }, [])
 
   const related = ecosystemModules.filter(m => m.slug !== product.slug).slice(0, 3)
+  const seoTitle = productHasSeoTitle(product.slug) ? productSeoTitle(product.slug, product.name) : null
+  const extra = productExtras[product.slug]
 
   return (
     <>
@@ -124,7 +129,8 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
             <div>
               <div className="product-eyebrow"><span className="status-dot">{product.eyebrow.toUpperCase()}</span></div>
               <p className="product-part">Part of the system. The same one our agency runs its sales teams on.</p>
-              <h1 className="product-title">{product.heroTitle}</h1>
+              <h1 className="product-title">{seoTitle ?? product.heroTitle}</h1>
+              {seoTitle ? <p className="product-kicker">{product.heroTitle}</p> : null}
               <p className="product-summary">{product.heroSummary}</p>
               <p className="mono sm ink-dim" style={{ marginBottom: 24 }}>{product.leadValue}</p>
               <div className="hero-cta-row">
@@ -153,6 +159,29 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
           </div>
         </div>
       </section>
+
+      {extra ? (
+        <section className="section">
+          <div className="wrap">
+            <SectionHeader eyebrow="DEFINITIONS" title={<>The words on this page.</>} />
+            <div className="def-list">
+              {extra.definitions.map(item => (
+                <div key={item.term} className="def card">
+                  <h3>{item.term}</h3>
+                  <p className="def-formula">{item.formula}</p>
+                  <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="product-guide-links">
+              <div className="eyebrow">READ THE GUIDE</div>
+              {extra.guides.map(item => (
+                <Link key={item.href} href={item.href}>{item.label}</Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="wrap">
@@ -203,6 +232,20 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
           </div>
         </div>
       </section>
+
+      {extra ? (
+        <section className="section" id="product-faq">
+          <div className="wrap guide-faq">
+            <SectionHeader eyebrow="FAQ" title={<>Questions about this part.</>} />
+            {extra.faqs.map(item => (
+              <div key={item.q}>
+                <h3>{item.q}</h3>
+                <p>{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section id="cta" className="section">
         <div className="wrap">

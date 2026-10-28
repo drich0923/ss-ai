@@ -6,6 +6,8 @@ import AuditModal from "./AuditModal"
 import IsThisYou from "./IsThisYou"
 import Logo from "./Logo"
 import { ecosystemModules, faqs, siteStats } from "@/lib/site-data"
+import { guideNav } from "@/lib/guide-nav"
+import GuideFooterLinks from "./GuideFooterLinks"
 
 function Header({ onBook }: { onBook: () => void }) {
   const [scrolled, setScrolled] = useState(false)
@@ -567,6 +569,27 @@ function Faq() {
   )
 }
 
+function Guides() {
+  return (
+    <section id="guides" className="section">
+      <div className="wrap">
+        <div className="section-header">
+          <div className="eyebrow">GUIDES</div>
+          <h2 className="display display-md">Read the system before you book.</h2>
+        </div>
+        <div className="guide-index">
+          {guideNav.map(item => (
+            <Link key={item.path} href={item.path} className="guide-index-card card">
+              <div className="guide-index-t">{item.title}</div>
+              <div className="related-card-cta">READ →</div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function FinalCta({ onBook }: { onBook: () => void }) {
   return (
     <section id="cta" className="section">
@@ -610,6 +633,7 @@ function Footer() {
               <Link key={m.slug} href={m.href}>{m.title}</Link>
             ))}
           </div>
+          <GuideFooterLinks />
           <div className="footer-col">
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
@@ -651,6 +675,7 @@ export default function SSLanding() {
       <Results />
       <Roi onBook={openModal} />
       <Faq />
+      <Guides />
       <FinalCta onBook={openModal} />
       <Footer />
       <AuditModal open={modalOpen} onClose={() => setModalOpen(false)} />

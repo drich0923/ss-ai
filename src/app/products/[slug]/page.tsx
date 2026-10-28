@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import ProductPageLayout from "@/components/ProductPageLayout"
+import { productExtras } from "@/lib/product-extras"
 import { getProductModule, productModules, productSeoTitle, siteUrl } from "@/lib/site-data"
 
 type ProductPageProps = {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       title,
       description: product.heroSummary,
       url,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${product.name} — part of the Sales Team OS` }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${product.name}, part of the Sales Team OS` }],
     },
     twitter: {
       card: "summary_large_image",
@@ -46,6 +47,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound()
 
   const url = `${siteUrl}/products/${product.slug}`
+  const extra = productExtras[product.slug]
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -65,6 +67,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
           { "@type": "ListItem", position: 2, name: product.name, item: url },
         ],
       },
+      ...(extra
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: extra.faqs.map(item => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: { "@type": "Answer", text: item.a },
+              })),
+            },
+          ]
+        : []),
     ],
   }
 

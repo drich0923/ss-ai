@@ -1,3 +1,4 @@
+import { guides } from "@/lib/guides"
 import { ecosystemModules, faqs, publicProductModules, siteUrl } from "@/lib/site-data"
 
 const description =
@@ -33,6 +34,10 @@ ${results.map(line => `- ${line}`).join("\n")}
 
 These are results from running this system. They are not a promise that every business gets the same result.
 
+## Guides
+
+${guides.map(guide => `- [${guide.title}](${siteUrl}${guide.path}): ${guide.description}`).join("\n")}
+
 ## Book
 
 - [Book a 30-minute call](${siteUrl}/#cta)
@@ -66,6 +71,22 @@ export function buildLlmsFullTxt() {
 
   const faq = faqs.map(item => `Q: ${item.q}\nA: ${item.a}`).join("\n\n")
 
+  const guideText = guides
+    .map(guide => {
+      const blocks = [
+        `## ${guide.h1}`,
+        ...guide.answer,
+        ...guide.sections.flatMap(section => [section.h2, ...section.paragraphs, ...(section.bullets ?? [])]),
+        ...(guide.definitions ?? []).flatMap(item => [item.term, item.formula, item.text]),
+        guide.handles,
+        ...guide.proof,
+        ...guide.faqs.flatMap(item => [`Q: ${item.q}`, `A: ${item.a}`]),
+        `Page: ${siteUrl}${guide.path}`,
+      ]
+      return blocks.join("\n")
+    })
+    .join("\n\n")
+
   return `${buildLlmsTxt()}
 # Full page text
 
@@ -76,5 +97,9 @@ ${description}
 ${faq}
 
 ${products}
+
+# Guides
+
+${guideText}
 `
 }
