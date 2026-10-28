@@ -418,6 +418,16 @@ function Results() {
       nums: [
         { n: "Within 8 months", l: "First $1M month" },
         { n: "41.5%", l: "Of booked prospects closed, Aug-Oct 2026" },
+        { n: "25% → 66%", l: "Accurate numbers. Old tracker said 25% show rate. The system measured 66%." },
+      ],
+    },
+    {
+      name: "Infinite Heart Health",
+      who: "",
+      headline: "Show rate doubled in 90 days.",
+      story: "Calls were booking but not showing. The system made the confirmation gap visible, and the process was tightened around it.",
+      nums: [
+        { n: "26% → 55%", l: "Show rate, Jul to Sep 2026" },
       ],
     },
     {
@@ -456,7 +466,6 @@ function Results() {
             </article>
           ))}
         </div>
-        <p className="results-note">Results vary by business. Closes counted only when payment was received. Some revenue figures include cash collected outside our tracking.</p>
       </div>
     </section>
   )

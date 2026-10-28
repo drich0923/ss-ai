@@ -316,7 +316,6 @@ body {
 .case-nums { list-style: none; margin: 0; padding: 0 0 0 24px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 18px; }
 .case-num { display: block; font-family: var(--f-display); font-size: 26px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
 .case-num-l { display: block; margin-top: 6px; color: var(--ink-mute); font-family: var(--f-mono); font-size: 12px; line-height: 1.45; }
-.results-note { margin: 18px 0 0; color: var(--ink-mute); font-size: 13px; line-height: 1.5; }
 @media (max-width: 800px) {
   .case { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
   .case:nth-child(even) .case-copy { order: 0; }
