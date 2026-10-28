@@ -478,9 +478,9 @@ body {
 .product-guide-links a { color: var(--ink); }
 .guide .product-hero { padding-bottom: 0; }
 .guide .section { padding-top: 8px; }
-.guide-h1 { max-width: 16em; }
-.guide-answer { max-width: 760px; color: var(--ink-dim); font-size: 18px; line-height: 1.6; margin-top: 16px; }
-.guide-body { max-width: 800px; }
+/* One reading column for the eyebrow, title, lede, and body. Kept inside .wrap so it shares the page gutter instead of recentering a narrower box. */
+.guide-measure { max-width: 760px; }
+.guide-answer { color: var(--ink-dim); font-size: 18px; line-height: 1.6; margin-top: 16px; }
 .guide-body h2 { font-family: var(--f-display); font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.03em; margin: 48px 0 14px; line-height: 1.1; }
 .guide-body h3 { font-size: 18px; margin: 18px 0 6px; }
 .guide-body p, .guide-body li { color: var(--ink-dim); font-size: 16px; line-height: 1.65; }
@@ -511,7 +511,6 @@ body {
 .guide-index-t { font-size: 16px; line-height: 1.4; margin-bottom: 10px; }
 @media (max-width: 720px) {
   .calc-grid, .guide-index { grid-template-columns: 1fr; }
-  .guide-h1 { max-width: none; }
 }
 
 @media (max-width: 800px) {
