@@ -1,3 +1,5 @@
+export const siteUrl = "https://www.systemizedsales.ai"
+
 export type ProductModule = {
   slug: string
   name: string
@@ -584,4 +586,70 @@ export const productModules: ProductModule[] = [
 
 export function getProductModule(slug: string) {
   return productModules.find(product => product.slug === slug) ?? null
+}
+
+/** Old pages that describe an agency portfolio view or a disabled part. Not for the sitemap. */
+export const excludedProductSlugs = ["owner-radar", "client-health"] as const
+
+export function publicProductModules() {
+  return productModules.filter(product => !excludedProductSlugs.includes(product.slug as (typeof excludedProductSlugs)[number]))
+}
+
+export const faqs = [
+  {
+    q: "What is a sales team operating system?",
+    a: "A sales team operating system is one system a high-ticket team uses to hire, ramp, track, and pay its own reps. It is not a pile of separate tools, and it is not someone else running your sales. We install The Sales Team OS, show your owner, manager, and reps how to use it, and support you in Slack. Your team does the hiring, the selling, and the managing.",
+  },
+  {
+    q: "Is this a done-for-you sales team?",
+    a: "No. We don't hire, ramp, train, coach, or manage your reps, and we don't supply setters, closers, or managers. We install the system and train you, your manager, and your team on how to use it. Your team does the work.",
+  },
+  {
+    q: "What's included?",
+    a: "Ten parts of one system, set up for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too.",
+  },
+  {
+    q: "We already use GoHighLevel. Does this replace it?",
+    a: "No. We connect to it. GoHighLevel, Stripe, Fathom and Whop plug into your workspace, so your numbers come from the tools you already use. On a different stack? Ask us on the call.",
+  },
+  {
+    q: "How fast is it live?",
+    a: "Most teams are live within 30 days of kickoff. The clock starts once we have access to your tools.",
+  },
+  {
+    q: "Who owns it?",
+    a: "Your team gets its own workspace. Your data stays yours. We host and maintain the system, keep an eye on it so we can fix things fast, and keep improving it.",
+  },
+  // TODO: Optional price line is not approved. Do not add "Setup starts at $8,000." until Dylan signs off.
+  {
+    q: "What does it cost?",
+    a: "One setup fee and one monthly fee, with RevPhlo included. Most teams stay with us 6 to 12 months. We give you an exact price on the call, based on your team size and tools.",
+  },
+  {
+    q: "What's the guarantee?",
+    a: "If The Sales Team OS doesn't surface at least your setup fee in leaked cash by day 90, we refund the setup fee. If your numbers haven't clearly moved by then, you can walk away from the rest of your term and keep what we built. We'll walk you through the details on the call.",
+  },
+  {
+    q: "What if our process changes?",
+    a: "It will. Changes and fixes happen in your shared Slack channel and are included. If you need a new part, we scope and price it with you.",
+  },
+] as const
+
+const productSeoTitles: Record<string, string> = {
+  revphlo: "Revenue Tracking for Sales Teams",
+  "hiring-app": "Hiring App for Sales Reps",
+  "speed-to-lead": "Speed to Lead for High-Ticket Teams",
+  "ai-call-coaching": "AI Call Coaching for Sales Teams",
+  "manager-os": "Sales Manager Dashboard",
+  "setter-eod": "Setter EOD Tracker for Sales Teams",
+  "qc-dashboard": "Sales Call Quality Checks",
+  "closer-playbook": "Closer and Setter Playbooks",
+  "rep-onboarding": "Closer Onboarding for Sales Teams",
+  "commission-tracker": "Commission Tracker for High-Ticket Sales Teams",
+  "revenue-visibility": "Revenue Follow-Through for Sales Teams",
+  "sales-onboarding": "Sales Onboarding Board",
+}
+
+export function productSeoTitle(slug: string, name: string) {
+  return productSeoTitles[slug] ?? `${name} for High-Ticket Sales Teams`
 }

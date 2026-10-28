@@ -5,7 +5,7 @@ import Link from "next/link"
 import AuditModal from "./AuditModal"
 import IsThisYou from "./IsThisYou"
 import Logo from "./Logo"
-import { ecosystemModules, siteStats } from "@/lib/site-data"
+import { ecosystemModules, faqs, siteStats } from "@/lib/site-data"
 
 function Header({ onBook }: { onBook: () => void }) {
   const [scrolled, setScrolled] = useState(false)
@@ -544,17 +544,7 @@ function RoiSlider({ label, v, set, min, max, step, prefix = "", format }: { lab
 }
 
 function Faq() {
-  const qs = [
-    { q: "Is this a done-for-you sales team?", a: "No. We don't hire, ramp, train, coach, or manage your reps, and we don't supply setters, closers, or managers. We install the system and train you, your manager, and your team on how to use it. Your team does the work." },
-    { q: "What's included?", a: "Ten parts of one system, set up for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too." },
-    { q: "We already use GoHighLevel. Does this replace it?", a: "No. We connect to it. GoHighLevel, Stripe, Fathom and Whop plug into your workspace, so your numbers come from the tools you already use. On a different stack? Ask us on the call." },
-    { q: "How fast is it live?", a: "Most teams are live within 30 days of kickoff. The clock starts once we have access to your tools." },
-    { q: "Who owns it?", a: "Your team gets its own workspace. Your data stays yours. We host and maintain the system, keep an eye on it so we can fix things fast, and keep improving it." },
-    // TODO: Optional price line is not approved. Do not add "Setup starts at $8,000." until Dylan signs off.
-    { q: "What does it cost?", a: "One setup fee and one monthly fee, with RevPhlo included. Most teams stay with us 6 to 12 months. We give you an exact price on the call, based on your team size and tools." },
-    { q: "What's the guarantee?", a: "If The Sales Team OS doesn't surface at least your setup fee in leaked cash by day 90, we refund the setup fee. If your numbers haven't clearly moved by then, you can walk away from the rest of your term and keep what we built. We'll walk you through the details on the call." },
-    { q: "What if our process changes?", a: "It will. Changes and fixes happen in your shared Slack channel and are included. If you need a new part, we scope and price it with you." },
-  ]
+  const qs = faqs
   const [open, setOpen] = useState(0)
   return (
     <section id="faq" className="section">

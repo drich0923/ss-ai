@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
-
-const siteUrl = "https://www.systemizedsales.ai"
+import { siteUrl } from "@/lib/site-data"
 
 const socialImage = {
   url: "/opengraph-image",
@@ -13,8 +12,8 @@ const socialImage = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Systemized Sales AI — The Sales Team OS",
-    template: "%s | Systemized Sales AI",
+    default: "Sales Team Operating System for High-Ticket Teams",
+    template: "%s | Sales Team OS",
   },
   description:
     "The Sales Team OS: the exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay. We install it and train you on how to use it.",
@@ -41,14 +40,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Systemized Sales AI",
     url: siteUrl,
-    title: "Systemized Sales AI — The Sales Team OS",
+    title: "Sales Team Operating System for High-Ticket Teams",
     description:
       "The exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay.",
     images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Systemized Sales AI — The Sales Team OS",
+    title: "Sales Team Operating System for High-Ticket Teams",
     description:
       "The exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay.",
     images: [{ ...socialImage, url: "/twitter-image" }],
@@ -91,6 +90,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#website`,
       name: "Systemized Sales AI",
       url: siteUrl,
+      description: "The Sales Team OS: the system high-ticket teams use to hire, ramp, track, and pay their own reps.",
       publisher: { "@id": `${siteUrl}/#organization` },
     },
   ],

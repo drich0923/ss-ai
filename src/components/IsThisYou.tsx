@@ -271,10 +271,6 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
     }
   }
 
-  const selected = path ? paths[path] : null
-  const current = selected?.stages[stage]
-  const visiblePains = path ? pains.filter(pain => pain.paths.includes(path)) : []
-
   return (
     <section className="section iy" id="is-this-you" aria-labelledby={`${baseId}-title`}>
       <div className="wrap">
@@ -322,123 +318,136 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
           })}
         </div>
 
-        {selected && current && (
-          <div className="iy-walk" key={path}>
-            <p className="iy-example">{selected.example}</p>
-
-            <div className="iy-steps" role="tablist" aria-label={`${selected.title} walkthrough`}>
-              {selected.stages.map((item, index) => {
-                const on = index === stage
-                const tabId = `${baseId}-${item.id}-tab`
-                const panelId = `${baseId}-${item.id}-panel`
-                return (
-                  <button
-                    key={item.id}
-                    ref={node => {
-                      stageRefs.current[index] = node
-                    }}
-                    type="button"
-                    role="tab"
-                    id={tabId}
-                    aria-selected={on}
-                    aria-controls={panelId}
-                    tabIndex={on ? 0 : -1}
-                    className={`iy-step${on ? " is-on" : ""}`}
-                    onClick={() => setStage(index)}
-                    onKeyDown={event => {
-                      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return
-                      event.preventDefault()
-                      const next = event.key === "ArrowRight" ? Math.min(selected.stages.length - 1, index + 1) : Math.max(0, index - 1)
-                      setStage(next)
-                      stageRefs.current[next]?.focus()
-                    }}
-                  >
-                    <span className="iy-step-n">{item.kicker}</span>
-                    <span>{item.title}</span>
-                  </button>
-                )
-              })}
-            </div>
-
-            <div
-              key={current.id}
-              role="tabpanel"
-              id={`${baseId}-${current.id}-panel`}
-              aria-labelledby={`${baseId}-${current.id}-tab`}
-              className="iy-stage card"
-            >
-              <div className="iy-stage-top">
-                <span className="iy-example-tag">Example business</span>
-                <h3 className="iy-stage-title">{current.title}</h3>
-                <p className="iy-stage-example">{current.example}</p>
-              </div>
-              <div className="iy-facts">
-                <div>
-                  <div className="iy-fact-label">What breaks</div>
-                  <p>{current.breaks}</p>
-                </div>
-                <div>
-                  <div className="iy-fact-label">What you're stuck doing</div>
-                  <p>{current.stuck}</p>
-                </div>
-                <div>
-                  <div className="iy-fact-label">Parts that turn on</div>
-                  <div className="iy-chips">
-                    {current.apps.map(name => (
-                      <AppChip key={name} name={name} />
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="iy-fact-label">What changes</div>
-                  <p>{current.changes}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="iy-close">
-              <p className="iy-argument">{selected.argument}</p>
-              <p className="iy-proof">
-                This exact system is behind these results. They are not a promise you get the same result. Woobie went from $300K to $1.1M a month. The first $1M month came within 8 months. The Listings Lab went from a 10.7% to a 30.8% close rate in 90 days. BudgetDog went from $400K-$500K in a good month to back-to-back $1M months. Average monthly revenue rose about $100K within 3-4 months, and the first $1M month came 8-9 months in. Brennan Schlagbaum, Founder, Budgetdog. Your team does the work. We install the system and train you on how to use it.
-              </p>
-              <div className="iy-cta">
-                <button type="button" onClick={onBook} className="btn btn-primary">
-                  Book a 30-min call →
-                </button>
-                <span className="iy-cta-note">We install the system, train you on how to use it, and support you in Slack.</span>
-              </div>
-            </div>
-
-            <div className="iy-pains">
-              <div className="iy-fact-label">Common problems</div>
-              <div className="iy-pain-row">
-                {visiblePains.map(pain => {
-                  const open = openPain === pain.id
-                  const panelId = `${baseId}-pain-${pain.id}`
+        {(["A", "B"] as PathId[]).map(id => {
+          const item = paths[id]
+          const active = path === id
+          const pathPains = pains.filter(pain => pain.paths.includes(id))
+          return (
+            <div key={id} className="iy-walk" hidden={!active}>
+              <p className="iy-example">{item.example}</p>
+              <div className="iy-steps" role="tablist" aria-label={`${item.title} walkthrough`}>
+                {item.stages.map((step, index) => {
+                  const on = active && index === stage
+                  const tabId = `${baseId}-${step.id}-tab`
+                  const panelId = `${baseId}-${step.id}-panel`
                   return (
                     <button
-                      key={pain.id}
+                      key={step.id}
+                      ref={node => {
+                        if (active) stageRefs.current[index] = node
+                      }}
                       type="button"
-                      className={`iy-pain${open ? " is-on" : ""}`}
-                      aria-expanded={open}
+                      role="tab"
+                      id={tabId}
+                      aria-selected={on}
                       aria-controls={panelId}
-                      onClick={() => setOpenPain(open ? null : pain.id)}
+                      tabIndex={on ? 0 : -1}
+                      className={`iy-step${on ? " is-on" : ""}`}
+                      onClick={() => {
+                        choose(id)
+                        setStage(index)
+                      }}
+                      onKeyDown={event => {
+                        if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return
+                        event.preventDefault()
+                        const next = event.key === "ArrowRight" ? Math.min(item.stages.length - 1, index + 1) : Math.max(0, index - 1)
+                        setStage(next)
+                        stageRefs.current[next]?.focus()
+                      }}
                     >
-                      {pain.name}
+                      <span className="iy-step-n">{step.kicker}</span>
+                      <span>{step.title}</span>
                     </button>
                   )
                 })}
               </div>
-              {visiblePains.map(pain =>
-                openPain === pain.id ? (
-                  <p key={pain.id} id={`${baseId}-pain-${pain.id}`} className="iy-pain-body">
+              {item.stages.map((step, index) => (
+                <div
+                  key={step.id}
+                  role="tabpanel"
+                  id={`${baseId}-${step.id}-panel`}
+                  aria-labelledby={`${baseId}-${step.id}-tab`}
+                  className="iy-stage card"
+                  hidden={!(active && index === stage)}
+                >
+                  <div className="iy-stage-top">
+                    <span className="iy-example-tag">Example business</span>
+                    <h3 className="iy-stage-title">{step.title}</h3>
+                    <p className="iy-stage-example">{step.example}</p>
+                  </div>
+                  <div className="iy-facts">
+                    <div>
+                      <div className="iy-fact-label">What breaks</div>
+                      <p>{step.breaks}</p>
+                    </div>
+                    <div>
+                      <div className="iy-fact-label">What you're stuck doing</div>
+                      <p>{step.stuck}</p>
+                    </div>
+                    <div>
+                      <div className="iy-fact-label">Parts that turn on</div>
+                      <div className="iy-chips">
+                        {step.apps.map(name => (
+                          <AppChip key={name} name={name} />
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="iy-fact-label">What changes</div>
+                      <p>{step.changes}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div className="iy-close">
+                <p className="iy-argument">{item.argument}</p>
+                <p className="iy-proof">
+                  This exact system is behind these results. They are not a promise you get the same result. Woobie went from $300K to $1.1M a month. The first $1M month came within 8 months. The Listings Lab went from a 10.7% to a 30.8% close rate in 90 days. BudgetDog went from $400K-$500K in a good month to back-to-back $1M months. Average monthly revenue rose about $100K within 3-4 months, and the first $1M month came 8-9 months in. Brennan Schlagbaum, Founder, Budgetdog. Your team does the work. We install the system and train you on how to use it.
+                </p>
+                <div className="iy-cta">
+                  <button type="button" onClick={onBook} className="btn btn-primary">
+                    Book a 30-min call →
+                  </button>
+                  <span className="iy-cta-note">We install the system, train you on how to use it, and support you in Slack.</span>
+                </div>
+              </div>
+              <div className="iy-pains">
+                <div className="iy-fact-label">Common problems</div>
+                <div className="iy-pain-row">
+                  {pathPains.map(pain => {
+                    const open = active && openPain === pain.id
+                    const panelId = `${baseId}-${id}-pain-${pain.id}`
+                    return (
+                      <button
+                        key={pain.id}
+                        type="button"
+                        className={`iy-pain${open ? " is-on" : ""}`}
+                        aria-expanded={open}
+                        aria-controls={panelId}
+                        onClick={() => {
+                          choose(id)
+                          setOpenPain(open ? null : pain.id)
+                        }}
+                      >
+                        {pain.name}
+                      </button>
+                    )
+                  })}
+                </div>
+                {pathPains.map(pain => (
+                  <p
+                    key={pain.id}
+                    id={`${baseId}-${id}-pain-${pain.id}`}
+                    className="iy-pain-body"
+                    hidden={!(active && openPain === pain.id)}
+                  >
                     {pain.argument}
                   </p>
-                ) : null
-              )}
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )
+        })}
       </div>
     </section>
   )
