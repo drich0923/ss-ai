@@ -7,13 +7,13 @@ export const guidesB: Guide[] = [
   {
     slug: "how-to-scale-a-high-ticket-sales-team",
     path: "/how-to-scale-a-high-ticket-sales-team",
-    nav: "Scale a high ticket team",
-    title: "How to Scale a High Ticket Sales Team Without Breaking It",
-    h1: "How to Scale a High Ticket Sales Team Without Breaking It",
-    description: "Scaling a high ticket sales team breaks when numbers, call quality, lead speed, onboarding, and pay still live in the founder's head. Here is the order to systemize them.",
+    nav: "Scaling a sales team",
+    title: "Scaling a Sales Team Without Breaking It",
+    h1: "Scaling a Sales Team Without Breaking It",
+    description: "Scaling a sales team breaks when numbers, call quality, lead speed, onboarding, and pay still live in one person's head. Here is how to scale a sales team that already has reps.",
     answer: [
-      "You scale a high ticket sales team by making the work visible before you add people. More reps on a process that lives in one person's memory just makes the leaks louder.",
-      "The order that holds is simple. Certify the numbers. Write the playbook. Watch how fast leads are called. Score calls. Ramp new reps the same way. Pay on cash you can match. Then, if you need one, hire a manager into that system.",
+      "Scaling a sales team means making the work visible before you add people. More reps on a process that lives in one person's memory just makes the leaks louder.",
+      "To scale a sales team you already have, certify the numbers, write the playbook, watch how fast leads are called, score calls, ramp new reps the same way, and pay on cash you can match. Then, if you need one, hire a manager into that system. If you do not have reps yet, that is a different page, linked below.",
     ],
     sections: [
       {
@@ -41,7 +41,7 @@ export const guidesB: Guide[] = [
         ],
       },
       {
-        h2: "What to systemize, in order",
+        h2: "How to scale a sales team, in order",
         paragraphs: [
           "Do not turn on ten parts on day one if the team cannot use three of them. Start where the leak is expensive. For most booked call teams that is numbers, then speed to lead, then call quality, then pay, then the ramp for the next hire.",
           "The Sales Team OS by Systemized Sales AI is installed in that spirit. We fit the order to the business. We do not drop a login on the team and leave.",
@@ -63,6 +63,7 @@ export const guidesB: Guide[] = [
       { href: "/products/ai-call-coaching", label: "AI Call Coaching" },
       { href: "/products/commission-tracker", label: "Commission tracker" },
       { href: "/founder-led-sales-team-without-a-manager", label: "Running closers without a manager" },
+      { href: "https://systemizedsales.com/how-to-build-a-high-ticket-sales-team", label: "Before the first reps, on systemizedsales.com" },
     ],
     proof: publishedProof,
     related: [
@@ -71,9 +72,9 @@ export const guidesB: Guide[] = [
       { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day onboarding" },
     ],
     faqs: [
-      { q: "Can I scale with more reps and no system?", a: "You can add people. The usual result is more calls taken the old way. Notes, follow up, and pay get worse because more people are guessing. Systemize the leak before you add the next seat." },
+      { q: "What breaks first when you scale a sales team?", a: "Usually the numbers and the speed of the first call. Reps can type a show rate that is not the show rate. Leads sit because nobody owns the clock. Call quality and pay break next, once more than a couple of reps are live." },
       { q: "When should I hire a sales manager?", a: "After the numbers, the playbook, and the daily list exist. A manager who inherits a real system can run the day. A manager who inherits your memory becomes the next single point of failure. If you want people rather than a system, that is a different offer." },
-      { q: "What breaks first on a high ticket team?", a: "Usually the numbers and the speed of the first call. Reps can type a show rate that is not the show rate. Leads sit because nobody owns the clock. Call quality and pay break next, once more than a couple of reps are live." },
+      { q: "Can I scale a sales team by only adding reps?", a: "You can add people. The usual result is more calls taken the old way. Notes, follow up, and pay get worse because more people are guessing. Systemize the leak before you add the next seat." },
       { q: "Do you run the team while we scale?", a: "No. We install the system, show your people how to use it, and support you in Slack. We do not hire, ramp, coach, or manage the reps." },
       { q: "How do I know it is working?", a: "You can see show rate, close rate, and cash per call without asking a rep to type them. You can see who called new leads. New reps follow one ramp. Pay matches cash that arrived. Revenue moving is a separate question and it is not guaranteed." },
     ],

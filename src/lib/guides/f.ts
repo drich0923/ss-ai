@@ -17,13 +17,13 @@ export const guidesF: Guide[] = [
   {
     slug: "how-to-improve-show-rate",
     path: "/how-to-improve-show-rate",
-    nav: "Improve show rate",
-    title: "How to Improve Show Rate on High Ticket Sales Calls",
-    h1: "How to Improve Show Rate on High Ticket Sales Calls",
-    description: "Improve show rate only after you measure it. Attended divided by booked, not a tracker a rep can type. Then work speed to lead, confirmation, reminders, and rebooking per setter.",
+    nav: "Reduce no shows",
+    title: "How to Reduce No Shows on High Ticket Sales Calls",
+    h1: "How to Reduce No Shows on High Ticket Sales Calls",
+    description: "Reduce no shows only after you measure them. Attended divided by booked, not a tracker a rep can type. Then use a no show email, a no show policy, and a named setter on every booking.",
     answer: [
-      "You improve show rate by measuring who actually attended, then fixing the steps between the booking and the call. A typed tracker is not that measurement. Woobie's old tracker said 25%. The system measured 66% on the same kind of work. Coaching the wrong number wastes the week.",
-      "Show rate is attended calls divided by booked calls. No show rate is no shows divided by booked calls. A reschedule is neither. Once those are stable, the levers are speed to lead, setter confirmation, content before the call, reminders, rebooking, and a named setter on each booked call. The Sales Team OS by Systemized Sales AI makes the rate visible. Your setters still make the calls.",
+      "You reduce no shows by measuring who actually attended, then fixing the steps between the booking and the call. A typed tracker is not that measurement. Woobie's old tracker said 25%. The system measured 66% on the same kind of work. Coaching the wrong number wastes the week.",
+      "How to improve show rate is the same work from the other side. Show rate is attended calls divided by booked calls. No show rate is no shows divided by booked calls. A reschedule is neither. Once those are stable, use speed to lead, setter confirmation, a no show email, a written no show policy, and a named setter on each booked call. The Sales Team OS by Systemized Sales AI makes the rate visible. Your setters still make the calls.",
     ],
     sections: [
       {
@@ -35,7 +35,7 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "The levers that actually move attendance",
+        h2: "How to improve show rate",
         paragraphs: [
           "Speed to lead is first if the lead is not yet a hard booking, and it still matters after one. A person who waited a day to be called is less likely to treat the appointment as real. On this system the clock is per setter and it works with GoHighLevel only. You see who called and how long the lead waited. You do not get a team average that flatters the fast setter.",
           "Confirmation is a conversation, not a checkbox. The setter confirms the problem, the time, and what the call is for. Pre call content is the short piece you send so the prospect arrives knowing the offer is real: a page, a short video you already use, or a written outline. Reminders are the calendar note and the message the day before and the day of. None of these replace a human who will rebook a miss the same day.",
@@ -51,11 +51,11 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "What not to do with a weak show rate",
+        h2: "No show policy",
         paragraphs: [
-          "Do not change the closer script because people are not sitting down. Close rate is matched payment closes divided by held calls. If nobody held the call, the closer was not the variable. Fix attendance, then read close rate.",
-          "Do not add a second reminder tool and call it a system. The failure is usually an unnamed owner and a number nobody trusts. One list of today's bookings, with a setter and a status, beats three apps that all say confirmed.",
-          "Do not promise the prospect a result on the confirmation just to raise the show. You will buy attendance with a claim you cannot keep, and the close rate will pay for it later. Confirm the meeting. Do not invent the outcome.",
+          "A no show policy is a few rules the team can repeat. A no show was booked, was not attended, and was not moved before the slot. The setter who booked it owns the rebook the same day, on the calendar, not only in Slack. Two misses and the lead comes off the closer's calendar until a new time is confirmed.",
+          "Do not count a reschedule as a no show. Do not promise a result in the message just to buy attendance. Do not change the closer script because people are not sitting down. If nobody held the call, the closer was not the variable. The definitions for close rate live on the benchmarks page.",
+          "The no show email below is the wording for the day before, the morning of, and the miss. It is a template, not a claim that any client used these exact lines.",
         ],
       },
     ],
@@ -64,6 +64,15 @@ export const guidesF: Guide[] = [
       { term: "No show rate", formula: "no shows / booked", text: "Bookings that were not attended and were not moved before the slot, divided by booked calls." },
       { term: "Reschedule", formula: "moved before the slot", text: "Count these on their own. They are not no shows and they are not shows." },
     ],
+    template: {
+      title: "No show email template",
+      headers: ["When", "Who sends it", "What it says"],
+      rows: [
+        ["Day before", "The setter who booked it", "You are on the calendar tomorrow at [time] to talk through [the problem they named]. Reply if that time still works."],
+        ["Morning of", "The same setter", "Today at [time]. The link is [link]. If you need to move it, tell me before the slot and I will rebook you."],
+        ["After a miss", "The same setter, same day", "We missed each other at [time]. I can do [two times]. Which one should I book?"],
+      ],
+    },
     checklist: {
       title: "This week's show rate check",
       items: [
@@ -86,23 +95,24 @@ export const guidesF: Guide[] = [
     proof: publishedProof,
     related: cluster.filter(item => item.href !== "/how-to-improve-show-rate"),
     faqs: [
+      { q: "How do you reduce no shows?", a: "Measure no shows as bookings that were not attended and were not moved before the slot. Then confirm, send the no show email, and rebook the same day under a written policy. Do not coach the closer for a call nobody attended." },
       { q: "How do you calculate no show rate?", a: "No shows divided by booked calls. A no show was booked, was not attended, and was not rescheduled before the slot. Show rate is the other fraction: attended divided by booked. Keep reschedules in their own bucket." },
       { q: "Why did Woobie show 25% and 66%?", a: "25% was the old tracker. 66% is what the system measured from attendance. Use it as a warning about typed numbers. Do not treat the gap as a promise for your calendar." },
       { q: "What improved show rate for the teams you can name?", a: "Budgetdog's published no shows went from 19.1% to 9.6%. Infinite Heart Health's published show rate went from 26% to 55% from July to September 2026. The pages do not hand you their reminder copy. They show that the rate was measured and then worked." },
-      { q: "Should reminders be automatic?", a: "A reminder the prospect receives is useful. An automatic send that nobody checks is not confirmation. You still want a person who sees the no show and rebooks it." },
-      { q: "Does a higher show rate raise close rate?", a: "Not by itself. Close rate is measured on held calls. More people in the room can lower close rate if the sets are weaker. Read both rates. Do not blend them into one number." },
+      { q: "What should a no show email say?", a: "The time, what the call is for in their words, and a way to move it before the slot. After a miss, two new times and a question, sent the same day by the setter who booked it. Do not add a promise about the result." },
+      { q: "What belongs in a no show policy?", a: "The definition, one owner, a same day rebook on the calendar, and what happens after a second miss. Reschedules stay out of the no show count. The template on this page is the message. The policy is who sends it and when." },
     ],
   },
   {
     slug: "how-to-improve-close-rate",
     path: "/how-to-improve-close-rate",
-    nav: "Improve close rate",
-    title: "How to Improve Close Rate on a High Ticket Sales Team",
-    h1: "How to Improve Close Rate on a High Ticket Sales Team",
-    description: "Improve close rate only after a close means a matched payment. Then review calls, enforce the playbook, and look at the sets your setters are booking. No universal good close rate.",
+    nav: "Increase close rate",
+    title: "How to Increase Close Rate and Close More Sales",
+    h1: "How to Increase Close Rate and Close More Sales",
+    description: "How to increase close rate starts with a matched payment, not a stage named won. How to close more sales is call review, the playbook, and the sets that never collect.",
     answer: [
-      "You improve close rate by counting a close only when a payment matches, then changing the calls and the leads that produce those payments. A stage named won is not a close. A verbal yes is not a close.",
-      "There is no reliable public number for what a good close rate is on offers above $5,000. The formulas and the reason are on the benchmarks page. The Listings Lab ran this system: close rate moved from 10.7% to 30.8% in 90 days, and tripled close rate from 6% to 19%. Budgetdog's close rate moved from 24.7% to 31.7%. Those are their results, not a bar you are owed. The Sales Team OS by Systemized Sales AI shows the rate and the calls. Your closers still sell.",
+      "You increase close rate by counting a close only when a payment matches, then changing the calls and the leads that produce those payments. A stage named won is not a close. A verbal yes is not a close.",
+      "How to close more sales is that same rule on the calls you already hold. The Listings Lab ran this system: close rate moved from 10.7% to 30.8% in 90 days, and tripled close rate from 6% to 19%. Budgetdog's close rate moved from 24.7% to 31.7%. Those are their results, not a bar you are owed. Definitions sit on the benchmarks page. The Sales Team OS by Systemized Sales AI shows the rate and the calls. Your closers still sell.",
     ],
     sections: [
       {
@@ -114,7 +124,7 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "What to change once the rate is real",
+        h2: "How to close more sales",
         paragraphs: [
           "Call review is the first lever. Score the opener, the discovery, the offer, the ask, and the next step. QC catches prep and pipeline hygiene, including whether the opportunity is assigned and the tasks are not stale. AI Call Coaching scores transcripts and puts weak calls in a queue so a manager does not sample at random. The manager still coaches. We do not.",
           "Playbook adherence is the second lever. A script that lives in one closer's head cannot be enforced. The playbook holds the call flow and the objections. The scorecard asks whether the call followed it. If the same miss shows up on three calls, fix the playbook or the rep. Do not add a new slogan.",
@@ -122,9 +132,9 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "What a good close rate is not",
+        h2: "What will not increase close rate",
         paragraphs: [
-          "It is not an industry average. We will not publish one. It is not your best closer's best week used as a whip for the new hire. Compare a closer to their own prior month, on the same definition, after they have passed the 30 60 90 gates and are on a normal load.",
+          "An industry average will not. We will not publish one. Your best closer's best week, used as a whip for the new hire, will not either. Compare a closer to their own prior month, on the same definition, after they have passed the 30 60 90 gates and are on a normal load.",
           "It is not show rate in disguise. People who do not attend cannot buy. Fix show rate on its own page. Then come back to held calls.",
           "It is not a promise. The Listings Lab ran this system. Close rate moved from 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%. Budgetdog moved from 24.7% to 31.7%. Your starting point, offer, and lead source are not theirs. Use the numbers to see that the rate can be measured and worked. Do not paste them into a forecast.",
         ],
@@ -157,8 +167,8 @@ export const guidesF: Guide[] = [
     proof: publishedProof,
     related: cluster.filter(item => item.href !== "/how-to-improve-close-rate"),
     faqs: [
-      { q: "What is a good close rate?", a: "We do not publish one. Offers above $5,000 do not have a reliable public benchmark. Use the benchmarks page for the formulas, then compare your team to its own last month and to the named results in the proof section." },
-      { q: "How do you increase sales close rate without faking it?", a: "Stop counting unpaid wins. Review the calls that scored poorly. Put the repeated objection in the playbook. Check which setter's bookings are the ones that do not pay. Change one of those, then read the rate next week." },
+      { q: "How do you increase close rate?", a: "Stop counting unpaid wins. Review the calls that scored poorly. Put the repeated objection in the playbook. Check which setter's bookings are the ones that do not pay. Change one of those, then read the rate next week. The benchmarks page holds the definition." },
+      { q: "How do you close more sales?", a: "On the held calls you already have. A matched payment is the close. Call review, playbook adherence, and setter lead quality are the levers. More booked calls that do not show are a show rate problem, not this one." },
       { q: "Whose close rate moved in the published results?", a: "The Listings Lab ran this system. Close rate went from 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%. Budgetdog's close rate went from 24.7% to 31.7%. Do not mix those into one promise, and do not treat either as your forecast." },
       { q: "Should I coach show rate and close rate in the same meeting?", a: "Look at both. Coach them separately. Show rate is attendance. Close rate is held calls that collected. A blended number hides which fix you need." },
       { q: "Will you coach the closers?", a: "No. Scoring shows your manager what to coach. We install the system and show your team how to use it. We do not coach or manage the reps." },
@@ -167,13 +177,13 @@ export const guidesF: Guide[] = [
   {
     slug: "how-to-hire-high-ticket-closers",
     path: "/how-to-hire-high-ticket-closers",
-    nav: "Hire closers",
-    title: "How to Hire High Ticket Closers: Application, Scorecard and Interview Process",
-    h1: "How to Hire High Ticket Closers: Application, Scorecard and Interview Process",
-    description: "A hiring process for high ticket closers: one application page, a scorecard, named stages, and a role play. We install that system. We do not recruit the closer for you.",
+    nav: "Sales rep hiring",
+    title: "How to Hire a Salesperson: Scorecard, Interview Questions and Job Description",
+    h1: "How to Hire a Salesperson: Scorecard, Interview Questions and Job Description",
+    description: "How to hire a salesperson for a booked call team: one application page, a scorecard, sales rep interview questions, and a job description. We install that system. We do not recruit.",
     answer: [
-      "Hire a high ticket closer with one application page, a written scorecard, and stages you do not skip when you are in a hurry. The interview is a role play and a few hard questions, not a tour of the office story.",
-      "The Sales Team OS by Systemized Sales AI includes the Hiring App: a public page where candidates apply, and one place where your team reviews and compares them. You still choose who to hire. We do not recruit for you. Teams that want hiring done for them should start at https://systemizedsales.com.",
+      "How to hire a salesperson for booked calls starts with one application page, a written scorecard, and stages you do not skip when you are in a hurry. The interview is a role play and a few sales rep interview questions, not a tour of the office story.",
+      "The Sales Team OS by Systemized Sales AI includes the Hiring App: a public page where candidates apply, and one place where your team reviews and compares them. You still choose who to hire. We do not recruit for you. Sourcing is a different page, linked below. Teams that want hiring done for them should start at https://systemizedsales.com. After a yes, the 30 60 90 plan is the ramp.",
     ],
     sections: [
       {
@@ -185,7 +195,7 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "Interview questions that are worth the time",
+        h2: "Sales rep interview questions",
         paragraphs: [
           "Ask for a specific deal, not a philosophy. What was the price? Who else was on the decision? What did the prospect say when they stalled, and what did you say next? A closer who cannot narrate one deal will not run yours.",
           "Ask what they do the day before a call. Confirmation is part of the job on a booked call team even when a setter booked it. A closer who thinks attendance is someone else's problem will blame show rate for a close rate they never earned.",
@@ -207,6 +217,14 @@ export const guidesF: Guide[] = [
           "Do not test them by putting them on a live calendar 'just to see.' That is a prospect paying for your interview. The gates for live calls sit in the 30 60 90 plan: product test, shadowing, role play, then a capped set of live calls. Hiring ends at the decision. Onboarding starts at day one.",
         ],
       },
+      {
+        h2: "Sales rep job description",
+        paragraphs: [
+          "Write the sales rep job description as the work, not as a personality ad. The person takes booked sales calls on a high ticket offer. They confirm, they run the call from the playbook, they ask for a decision, they approve the note, and they submit cash collected. Pay is on cash collected, in a plan you can show them, not on a contract value.",
+          "Say what the first 90 days are. The 30 60 90 onboarding page is the ramp: a product test, shadowing, a role play, then a capped set of live calls. If the description promises a full calendar in week one, you have already skipped the gates.",
+          "Leave sourcing out of this description. Where names come from is linked below. This page is what you do once a person has applied. We install the application and the place you compare people. We do not recruit them.",
+        ],
+      },
     ],
     template: {
       title: "Closer candidate scorecard",
@@ -221,6 +239,7 @@ export const guidesF: Guide[] = [
       { href: "/products/hiring-app", label: "Hiring App" },
       { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day onboarding" },
       { href: "/sales-call-scorecard-template", label: "The call scorecard to reuse in the role play" },
+      { href: "https://systemizedsales.com/where-to-find-high-ticket-closers", label: "Sourcing, on systemizedsales.com" },
       { href: "https://systemizedsales.com", label: "Systemized Sales, if you want hiring done for you" },
     ],
     proof: publishedProof,
@@ -230,19 +249,19 @@ export const guidesF: Guide[] = [
       { q: "What sales rep interview questions matter?", a: "A specific past deal with a price, the words they used on a stall, how they confirm a call, what a bad set looks like, and how they expect to be paid. Then a role play. Opinions about hustle do not separate candidates." },
       { q: "Can we skip the role play if the resume is strong?", a: "You can, and you will not know if they can run the call. A strong resume is a reason to interview. The role play is the test. The scorecard is what keeps the debrief from becoming a vote on likability." },
       { q: "Where do they go after we say yes?", a: "Into the 30 60 90 plan: product test, shadowing, role play against your offer, then a small set of live calls. The hiring scorecard does not replace that. It gets them in the door." },
-      { q: "What if we only need one closer?", a: "Use the same page and the same scorecard. A single hire made from a group chat is how a founder led team gets a closer who only works when you are watching." },
+      { q: "What belongs in a sales rep job description?", a: "Booked calls, the playbook, pay on cash collected, and the 30 60 90 ramp before a full calendar. Not a list of traits. Not a promise of leads with no setter. The description should match the scorecard you will use in the interview." },
     ],
   },
   {
     slug: "how-to-hire-appointment-setters",
     path: "/how-to-hire-appointment-setters",
-    nav: "Hire setters",
-    title: "How to Hire Appointment Setters for a Booked Call Team",
-    h1: "How to Hire Appointment Setters for a Booked Call Team",
-    description: "Hire phone and DM setters with one application, a scorecard, and a booking role play. Size the seat from your own show rate and closer capacity. We do not recruit them for you.",
+    nav: "Appointment setters",
+    title: "How to Hire Appointment Setters: Job Description and Interview Questions",
+    h1: "How to Hire Appointment Setters: Job Description and Interview Questions",
+    description: "How to hire appointment setters for phone or DM: a job description, setter interview questions, one application page, and a booking role play. We do not recruit them for you.",
     answer: [
-      "Hire appointment setters the same way you hire closers: one application page, a scorecard, and a test that matches the channel. Phone setters are tested on a call. DM setters are tested on a written thread. Do not pretend those are the same job.",
-      "The Sales Team OS by Systemized Sales AI installs that hiring system. Your team still decides. We do not recruit setters for you. If you want hiring done as a service, start at https://systemizedsales.com. After they are hired, the end of day tracker is how you see the work.",
+      "How to hire appointment setters starts with the channel. Phone and DM are different jobs. Each one needs an appointment setter job description, setter interview questions, one application page, and a role play that asks them to book a time.",
+      "The Sales Team OS by Systemized Sales AI installs that hiring system. Your team still decides. We do not recruit setters for you. If you want hiring done as a service, start at https://systemizedsales.com. After a yes, use the onboarding idea on the 30 60 90 page, with a booking test instead of a close. The end of day tracker is how you see the work.",
     ],
     sections: [
       {
@@ -254,15 +273,15 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "How many setters, thought through from your numbers",
+        h2: "Appointment setter job description",
         paragraphs: [
-          "There is no setter to closer ratio we will publish. The ratio is arithmetic on your own rates. Start from how many calls one closer can hold in a week. Divide by your show rate to see how many bookings that closer needs. Divide by how many real sets one setter can book in a week. That is the headcount. If show rate is a typed fiction, the headcount is fiction too. Measure show rate first.",
-          "Here is the shape of the math, labeled as an example so it is not mistaken for a client result. Suppose a closer can hold 12 calls a week and show rate is one half. That closer needs 24 bookings. Suppose a setter can book 8 sets that actually qualify. That is three setters for that closer, before you add room for no shows you intend to rebook. Change any input and the answer changes. Use your inputs.",
-          "Separate the channels in that math. Eight DM sets are not eight phone sets. They confirm differently and they no show differently. A blended 'activity' number will tell you to hire the wrong seat.",
+          "The appointment setter job description names the channel first: phone, DM, or both only if one person truly does both. The job ends at a qualified booking that can show, not at a close. They confirm, and they rebook a miss the same day. Claimed dials or messages get checked against the CRM.",
+          "Write the pay you actually run. Shows, collected cash, or a mix. A setter who heard a vague commission and assumed closer pay will leave. Point the description at the end of day tracker so the form is not a surprise in week one.",
+          "We do not publish a setters per closer figure, ours or anyone else's. Headcount follows your own show rate and how many calls a closer can hold, after you have measured show rate. DM bookings are not phone bookings. Do not blend them into one activity number and then open the wrong seat.",
         ],
       },
       {
-        h2: "What to ask and what to test",
+        h2: "Setter interview questions",
         paragraphs: [
           "Ask them to describe a booking they made that showed up, and one that did not. You want to hear confirmation and a rebook, not a speech about grinding. Ask what they say when the lead asks for information instead of a time. The right shape is a short answer and a booked slot, or a clean disqualify. A novel is a miss.",
           "For a phone hire, role play a live dial. You are busy, skeptical, and you ask 'what is this about?' For a DM hire, hand them a thread and a clock. They write the next three messages. You are looking for a question, a time, and no invented discount. Keep the messages. Compare them on the scorecard after, not from memory.",
@@ -295,13 +314,15 @@ export const guidesF: Guide[] = [
       { href: "/products/setter-eod", label: "Phone and DM setter end of day" },
       { href: "/setter-eod-report-template", label: "Setter end of day template" },
       { href: "/how-to-improve-show-rate", label: "Show rate, which sizes this seat" },
+      { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day onboarding" },
       { href: "https://systemizedsales.com", label: "Systemized Sales, if you want hiring done for you" },
     ],
     proof: publishedProof,
     related: cluster.filter(item => item.href !== "/how-to-hire-appointment-setters"),
     faqs: [
-      { q: "How do you hire appointment setters?", a: "One application page, a scorecard for the channel, an interview, and a role play that asks them to book a time. Phone and DM are different tests. Your team makes the decision." },
-      { q: "What is the right setter to closer ratio?", a: "The one your show rate and your closer's held call capacity produce. Divide held calls by show rate to get bookings required, then divide by sets one setter can book. We do not publish a universal ratio." },
+      { q: "How do you hire appointment setters?", a: "One application page, an appointment setter job description that names phone or DM, setter interview questions, and a role play that asks them to book a time. Your team makes the decision." },
+      { q: "What setter interview questions should we ask?", a: "A booking that showed and one that did not. What they say when the lead asks for information instead of a time. Then a live role play on the channel you are hiring for. A speech about effort is not an answer." },
+      { q: "Do you publish how many setters per closer?", a: "No. Not our number, and not a number borrowed from anyone else. Measure show rate first. Headcount follows your own bookings and how many calls a closer can hold. We will not print a ratio." },
       { q: "Do you find the setters?", a: "No. We install the hiring system. We do not recruit. Teams that want hiring done for them can start at https://systemizedsales.com." },
       { q: "Where do their numbers go after they start?", a: "Into the phone or DM end of day tracker, checked against the CRM. The template is on the setter end of day guide. A form they can type is not the calendar." },
       { q: "Should a setter be on the closer onboarding plan?", a: "The 30 60 90 plan on this site is written for closers: product test, shadowing, role play, live closes. Setters need the same idea with a booking test instead of a close. Do not run them through a closer certification and call it done." },
@@ -310,17 +331,17 @@ export const guidesF: Guide[] = [
   {
     slug: "high-ticket-sales-script-setter-and-closer",
     path: "/high-ticket-sales-script-setter-and-closer",
-    nav: "Setter and closer scripts",
-    title: "Setter and Closer Scripts for High Ticket Offers: How to Build and Enforce Them",
-    h1: "Setter and Closer Scripts for High Ticket Offers: How to Build and Enforce Them",
-    description: "Build a setter script and a closer call framework, including objections, then enforce them with QC and call review. A script nobody checks is a document.",
+    nav: "High ticket sales script",
+    title: "High Ticket Sales Script for Setters and Closers",
+    h1: "High Ticket Sales Script for Setters and Closers",
+    description: "A high ticket sales script splits into a setter script and a closer script, with objection handling written down. Enforce it with call review, or it is only a document.",
     answer: [
-      "A setter script books a qualified time. A closer framework runs the conversation through discovery, the offer, and a decision. Neither is a poem the rep must recite. Both are the standard you can score.",
+      "A high ticket sales script is two standards, not one recital. The setter script books a qualified time. The closer script runs discovery, the offer, and a decision. Objection handling sits beside both.",
       "Scripts fail when they are optional. The Sales Team OS by Systemized Sales AI keeps them in the playbooks and checks calls against them with QC and AI Call Coaching. Your team still says the words. We do not hop on the calls.",
     ],
     sections: [
       {
-        h2: "What a setter script has to do",
+        h2: "Setter script",
         paragraphs: [
           "The setter script has five jobs, in order. Open with a reason that is true. Ask enough to know the person could buy. State what the call with the closer is, including the kind of decision and the price range if you reveal price before the call. Book a specific time. Confirm what will happen before that time. If a line does not serve one of those jobs, cut it.",
           "Phone and DM can share the jobs and not the sentences. A dial has a few seconds to earn the next sentence. A DM can be shorter still: one question, then a time. Do not paste the closer's pitch into the setter's mouth. The setter who delivers the whole offer on the booking call steals the closer's conversation and usually mangles the terms.",
@@ -328,7 +349,7 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "A closer call framework",
+        h2: "Closer script",
         paragraphs: [
           "Frame the call in the first minute: how long it is, what a yes and a no look like, and that a decision is the point. Then discovery, which is the problem, the cost of leaving it, and who else decides. Then the offer, tied to what they just said, including price and what happens after payment. Then the ask. Then, if they do not buy, a next step that is a time or a clear no. A framework with no ask is a webinar.",
           "Do not write the discovery as a form they can hear. Two or three questions that you actually use are better than twelve that no closer remembers. The playbook can hold examples. The live call has to sound like a person who listened.",
@@ -336,7 +357,7 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "Objections, and why the script dies without QC",
+        h2: "Objection handling",
         paragraphs: [
           "Handle objections in a section of the playbook, not in a side doc. For each one, write what it usually means, the question to ask, and the line you are willing to say. The common ones on a high ticket booked call are price, a partner who is absent, timing, and 'I need to think about it.' 'I need to think' is often a missing decision or a missing person. The question comes before the speech.",
           "A script fails in silence. Closers drift off it on Thursday and the close rate moves the next month, and nobody can point at the call. QC shows whether prep happened and whether the pipeline is being worked. AI Call Coaching scores the call against the card for that role and queues the weak ones. The manager listens to those. If the same objection is missed, you either coach the rep or you rewrite the line because the line was bad. Both are allowed. Ignoring it is not.",
@@ -368,7 +389,7 @@ export const guidesF: Guide[] = [
     proof: publishedProof,
     related: cluster.filter(item => item.href !== "/high-ticket-sales-script-setter-and-closer"),
     faqs: [
-      { q: "What is in a high ticket closing script?", a: "A frame, discovery, the offer with price, an ask, and a next step if they do not buy. Objections sit next to it: price, an absent partner, timing, and the need to think about it. It is a framework, not a recital." },
+      { q: "What is a high ticket sales script?", a: "A setter script that books and confirms, a closer script that frames, discovers, states the offer, and asks for a decision, and an objection handling section for price, an absent partner, timing, and the need to think about it. It is a standard you can score, not a recital." },
       { q: "Should setters use the closer script?", a: "No. The setter script opens, qualifies, books, and confirms. The closer script runs the decision. Mixing them makes the booking call too long and the sales call redundant." },
       { q: "How do you enforce a script?", a: "Put it in the playbook, score calls against it, and review the misses. A document nobody opens is not enforced. QC and call coaching are the check. The manager is the one who coaches." },
       { q: "Do you write the script for us?", a: "We install the playbook and show your team how to put the script in it. The words are yours. We do not take the sales calls, and we do not hand you a generic closer monologue." },
@@ -381,14 +402,14 @@ export const guidesF: Guide[] = [
     nav: "Sales playbook",
     title: "Sales Playbook Template for High Ticket Closer and Setter Teams",
     h1: "Sales Playbook Template for High Ticket Closer and Setter Teams",
-    description: "What belongs in a sales playbook for a high ticket setter and closer team: the buyer, the offer, the calls, the objections, the KPIs, and the SOPs. Plus how it connects to onboarding and QC.",
+    description: "A sales playbook template for a high ticket setter and closer team: the buyer, the offer, the calls, the objections, the KPIs, and each sales SOP. Plus how it connects to onboarding and QC.",
     answer: [
-      "A sales playbook is the one link a setter or closer opens for how this team sells. It holds the buyer, the offer, the call flow, the objections, the KPIs with their formulas, and the SOPs for the work around the call. If it lives in five tools, it is not a playbook.",
+      "A sales playbook template is the one link a setter or closer opens for how this team sells. It holds the buyer, the offer, the call flow, the objections, the KPIs with their formulas, and each sales SOP for the work around the call. If it lives in five tools, it is not a playbook.",
       "The Sales Team OS by Systemized Sales AI puts that link in Closer and Setter Playbooks. Onboarding assigns it. QC and call review check whether the calls followed it. We install the place and show your team how to fill it. We do not write your offer for you.",
     ],
     sections: [
       {
-        h2: "What goes in it",
+        h2: "What a sales playbook template includes",
         paragraphs: [
           "Start with who you sell to and who you do not. A playbook that describes 'anyone with the problem' will be used to book anyone with a pulse. Name the buyer, the price band, and the disqualify. Setters need this more than closers do, because they decide who reaches the calendar.",
           "Then the offer in plain language: what they get, what it costs, how it is paid, and what happens the day after a yes. Closers invent terms when this page is vague. Payment plans belong here so commission and the pitch describe the same cash.",
@@ -396,7 +417,7 @@ export const guidesF: Guide[] = [
         ],
       },
       {
-        h2: "How the outline is used",
+        h2: "Where the sales SOP lives",
         paragraphs: [
           "Onboarding is where a new closer is required to open it. The 30 60 90 plan tests the product from this document, then shadows calls, then role plays the framework that lives here. If the playbook and the onboarding modules disagree, the rep will follow whichever person spoke last. Make the playbook the source and point the modules at it.",
           "QC and the call scorecard are how you know the playbook is real. Prep before the call, the shape of the conversation, and the note after it should match the pages you wrote. When they do not, you have a coaching item or a page that is wrong. Update the page when the offer changes. A playbook that is 'basically current' is how two closers quote two prices.",
