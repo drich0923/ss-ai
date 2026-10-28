@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Systemized Sales AI",
   },
   description:
-    "The Sales Team OS: every app you need to hire, ramp, track and pay a high-ticket sales team, connected to the tools you already use. Built and battle-tested inside our own agency.",
+    "The Sales Team OS: the exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay. We install it and train you on how to use it.",
   authors: [{ name: "Dylan Rich" }, { name: "Jake Tacher" }],
   creator: "Systemized Sales",
   publisher: "Systemized Sales",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   keywords: [
     "sales team OS",
     "high-ticket sales team",
-    "sales hiring app",
+    "sales team system",
     "speed to lead",
     "setter EOD tracker",
     "commission tracker",
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Systemized Sales AI — The Sales Team OS",
     description:
-      "One system for your whole sales team: hiring, playbooks, setter tracking, RevPhlo numbers and commissions, all in one hub.",
+      "The exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay.",
     images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Systemized Sales AI — The Sales Team OS",
     description:
-      "One system for your whole sales team: hiring, playbooks, setter tracking, RevPhlo numbers and commissions, all in one hub.",
+      "The exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay.",
     images: [{ ...socialImage, url: "/twitter-image" }],
   },
   robots: {

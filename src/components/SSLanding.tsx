@@ -63,7 +63,7 @@ function Hero({ onBook }: { onBook: () => void }) {
           One system<br />for your whole<br />sales team.
         </h1>
         <p className="hero-sub">
-          Hire, ramp, track and pay your own sales team from one hub, connected to the tools you already use. Every app is included, and the system grows with your team. Built and battle-tested inside our own agency.
+          This is the exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay. We install it, train you on how to use it, and support you in Slack.
         </p>
         <div className="hero-terminal-window">
           <div className="twin-top">
@@ -84,13 +84,16 @@ function Hero({ onBook }: { onBook: () => void }) {
         <div className="hero-cta-row">
           <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
           <a href="#preview" className="btn btn-ghost">See what's inside</a>
-          <div className="hero-stats mono">
+          <div className="hero-proof">
+            <div className="hero-proof-kicker">The exact system behind these results</div>
+            <div className="hero-stats mono">
             {siteStats.map(s => (
               <div key={s.label} className="stat">
                 <div className="stat-n">{s.value}</div>
                 <div className="stat-label">{s.label}</div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>
@@ -138,8 +141,8 @@ function Problem() {
 function HowItWorks() {
   const steps = [
     { n: "01", t: "Map", time: "DISCOVERY CALL", d: "We get on a call and map how your team works today: who does what, which tools you use, and where deals and data fall through.", out: ["Your team, mapped", "Your tools, listed", "The gaps, ranked"], color: "var(--neon)" },
-    { n: "02", t: "Connect", time: "FIRST 30 DAYS", d: "We connect your tools to our hub and RevPhlo, load your playbooks, trackers, hiring page and commission plan, and get your team logged in. Your team does the hiring, selling, and managing. We show them how to use the system.", out: ["Tools connected", "Every app set up", "Your team shown how to use it"], color: "var(--blue)" },
-    { n: "03", t: "Refine", time: "ONGOING", d: "We don't hand you logins and leave. A shared Slack channel stays open for fixes and changes, all included. Need a brand-new app as you grow? We scope it with you.", out: ["Shared Slack channel", "Fixes and changes included", "New apps scoped as you grow"], color: "var(--amber)" },
+    { n: "02", t: "Connect", time: "FIRST 30 DAYS", d: "We connect what you already use to the system and RevPhlo, load your playbooks, trackers, hiring page and commission plan, and get your team logged in. Your team does the hiring, selling, and managing. We show them how to use the system.", out: ["Connected", "The system set up", "Your team shown how to use it"], color: "var(--blue)" },
+    { n: "03", t: "Refine", time: "ONGOING", d: "We don't hand you logins and leave. A shared Slack channel stays open for fixes and changes, all included. Need a new part as you grow? We scope it with you.", out: ["Shared Slack channel", "Fixes and changes included", "New parts scoped as you grow"], color: "var(--amber)" },
   ]
   return (
     <section id="how" className="section">
@@ -195,7 +198,7 @@ function Apps() {
   return (
     <section id="apps" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="WHAT'S INCLUDED" title={<>Every app your team needs.<br /><span className="ink-mute">All included. All connected.</span></>} />
+        <SectionHeader eyebrow="THE SYSTEM" title={<>Ten parts. One system.<br /><span className="ink-mute">The same one our agency runs.</span></>} />
         <div className="feat-grid">
           {ecosystemModules.map(m => {
             const meta = cats[m.slug] ?? { color: "var(--neon)", icon: "◆" }
@@ -203,7 +206,7 @@ function Apps() {
               <Link key={m.slug} href={m.href} className="feat card reveal">
                 <div className="feat-top">
                   <span className="feat-icon" style={{ color: meta.color, borderColor: meta.color }}>{meta.icon}</span>
-                  <span className="mono xs" style={{ color: meta.color, letterSpacing: "0.14em" }}>APP</span>
+                  <span className="mono xs" style={{ color: meta.color, letterSpacing: "0.14em" }}>PART</span>
                 </div>
                 <div className="feat-t">{m.title}</div>
                 <div className="feat-d">{m.summary}</div>
@@ -468,14 +471,14 @@ function RoiSlider({ label, v, set, min, max, step, prefix = "", format }: { lab
 function Faq() {
   const qs = [
     { q: "Is this a done-for-you sales team?", a: "No. We don't hire, ramp, train, coach, or manage your reps, and we don't supply setters, closers, or managers. We install the system and train you, your manager, and your team on how to use it. Your team does the work." },
-    { q: "What's included?", a: "Ten apps, set up and connected for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too." },
+    { q: "What's included?", a: "Ten parts of one system, set up for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too." },
     { q: "We already use GoHighLevel. Does this replace it?", a: "No. We connect to it. GoHighLevel, Stripe, Fathom and Whop plug into your workspace, so your numbers come from the tools you already use. On a different stack? Ask us on the call." },
     { q: "How fast is it live?", a: "Most teams are live within 30 days of kickoff. The clock starts once we have access to your tools." },
-    { q: "Who owns it?", a: "Your team gets its own workspace in our hub. Your data and your integrations stay yours. We host and maintain the apps, keep an eye on them so we can fix things fast, and keep improving them." },
+    { q: "Who owns it?", a: "Your team gets its own workspace. Your data stays yours. We host and maintain the system, keep an eye on it so we can fix things fast, and keep improving it." },
     // TODO: Optional price line is not approved. Do not add "Setup starts at $8,000." until Dylan signs off.
     { q: "What does it cost?", a: "One setup fee and one monthly fee, with RevPhlo included. Most teams stay with us 6 to 12 months. We give you an exact price on the call, based on your team size and tools." },
     { q: "What's the guarantee?", a: "If The Sales Team OS doesn't surface at least your setup fee in leaked cash by day 90, we refund the setup fee. If your numbers haven't clearly moved by then, you can walk away from the rest of your term and keep what we built. We'll walk you through the details on the call." },
-    { q: "What if our process changes?", a: "It will. Changes and fixes happen in your shared Slack channel and are included. If you need a brand-new app, we scope and price it with you." },
+    { q: "What if our process changes?", a: "It will. Changes and fixes happen in your shared Slack channel and are included. If you need a new part, we scope and price it with you." },
   ]
   const [open, setOpen] = useState(0)
   return (
@@ -513,7 +516,7 @@ function FinalCta({ onBook }: { onBook: () => void }) {
               <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
               <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
             </div>
-            <div className="final-meta"><span>◆ Every app included</span><span>◆ Live in 30 days</span><span>◆ Your data stays yours</span><span>◆ Pays for itself in 90 days, or your setup fee back.</span></div>
+            <div className="final-meta"><span>◆ The whole system</span><span>◆ Live in 30 days</span><span>◆ Your data stays yours</span><span>◆ Pays for itself in 90 days, or your setup fee back.</span></div>
           </div>
         </div>
       </div>

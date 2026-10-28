@@ -14,9 +14,9 @@ export type ProductModule = {
 }
 
 export const siteStats = [
-  { value: "10 apps", label: "Included from day one. Hiring to commissions, in one hub." },
-  { value: "10.7% → 30.8%", label: "Close rate within 90 days, for a team inside our agency." },
-  { value: "$250K → $1M", label: "Monthly cash collected in 7 months, for a team inside our agency." },
+  { value: "10 parts", label: "One system. Hiring to pay, included from day one." },
+  { value: "10.7% → 30.8%", label: "Close rate in 90 days. The Listings Lab, running this system." },
+  { value: "$250K → $1M", label: "Monthly cash in 7 months. Woobie, running this system." },
 ] as const
 
 export const ecosystemModules = [
@@ -29,7 +29,7 @@ export const ecosystemModules = [
   {
     slug: "hiring-app",
     title: "Hiring App",
-    summary: "A public application page with video and recorded-call steps, plus a dashboard to compare candidates.",
+    summary: "A public application page with video and recorded-call steps, plus one place to compare candidates.",
     href: "#cta",
   },
   {
@@ -244,7 +244,7 @@ export const productModules: ProductModule[] = [
     capabilities: [
       "Cross-system health scoring from coaching, onboarding, and revenue.",
       "Fast visibility into red-risk accounts.",
-      "Leadership rollups that reduce app-hopping.",
+      "Leadership rollups so you are not checking five places.",
     ],
     fulfillment: [
       "Start with call and payment data.",
@@ -314,7 +314,7 @@ export const productModules: ProductModule[] = [
       "Severity-ranked alerts for cash, operations, quality, and data gaps.",
       "Client-level health status: healthy, watch, or at-risk.",
       "Portfolio summary: tracked clients, average score, outstanding revenue.",
-      "Direct links from each alert to the app where the fix happens.",
+      "Direct links from each alert to the part of the system where the fix happens.",
     ],
     fulfillment: [
       "Connect payment, setter, and coaching data sources.",
@@ -324,10 +324,10 @@ export const productModules: ProductModule[] = [
     outcomes: [
       "Earlier intervention on at-risk accounts.",
       "Less time in status meetings asking what went wrong.",
-      "A single view of portfolio health without app-hopping.",
+      "A single view of portfolio health, without checking five places.",
     ],
     implementation: [
-      "Layer it on after two or more apps are feeding data.",
+      "Layer it on after two or more parts of the system are feeding data.",
       "Tune alert severity and thresholds for each client.",
       "Build it into the owner weekly review rhythm.",
     ],

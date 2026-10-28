@@ -47,44 +47,44 @@ const paths: Record<
 > = {
   A: {
     kicker: "PATH A",
-    title: "I'm still the one closing",
-    sub: "Founder-led. Zero to two reps.",
+    title: "I run the sales team myself",
+    sub: "You manage the reps. No sales manager yet.",
     checks: [
-      "You still take most of the sales calls yourself.",
-      "You hired a closer before, and you ended up back on the calendar.",
-      "Your process is in your head, not written down.",
-      "You aren't sure of your real show rate or close rate.",
-      "Leads sit because you don't have time to follow up.",
-      "You want off the phone without sales dropping.",
+      "You have closers, and maybe a setter, and you manage them yourself.",
+      "There is no sales manager. You are it.",
+      "Reps still ask you for the script, the price, and what to say.",
+      "You aren't sure of the real show rate or close rate.",
+      "Leads sit when you don't have time to follow up.",
+      "You want the team to run without everything going through you.",
     ],
     example:
-      "Example business. A founder selling a $6,000 offer from YouTube and a weekly webinar. Calls booked in GoHighLevel, paid in Stripe, taken on Zoom. The amounts in this walkthrough are an example, not a client result.",
+      "Example business. A founder with two closers and one setter, selling a $6,000 offer from YouTube and a weekly webinar. Calls booked in GoHighLevel, paid in Stripe, taken on Zoom. Headcount and revenue below are an example, not a client result.",
     argument:
-      "If you're still taking most of the sales calls, the next hire won't fix that alone. The system starts with your own calls. It writes them up, shows your real numbers, and puts your process on paper. Then you hire, ramp, and coach a closer against that bar. You step off the calendar when the numbers say they're ready.",
+      "You already have the reps. The way the team works still lives in your head. This system puts the playbook, the numbers, and the scorecards in one place, so you are not the only copy. You still manage them. If you hire a manager later, they step into the same system. We install it, train you on how to use it, and support you in Slack.",
     stages: [
       {
         id: "a1",
         kicker: "01",
-        title: "Still on the calls",
-        example: "Example: about $50K to $100K a month. About 10 to 17 sales on a $6,000 offer.",
+        title: "You still run the day",
+        example: "Example: about $100K to $200K a month. One to three closers, and maybe a setter. You are the manager.",
         breaks:
-          "The calendar is full. Follow-up gets skipped. Nobody keeps notes. Show rate and close rate are guesses. When you step away, sales dip.",
-        stuck: "Taking every call, chasing no-shows, writing notes from memory, and tracking cash in a sheet.",
-        apps: ["RevPhlo", "Closer & Setter Playbooks", "Speed to Lead"],
+          "The sheet, Slack, and the CRM don't match. New reps learn from you, not from one playbook. Follow-up depends on whether you had time. When you step away, the team slows down.",
+        stuck: "Coaching from memory, rescuing deals, answering the same questions, and working out pay by hand.",
+        apps: ["RevPhlo", "Closer & Setter Playbooks", "AI Call Coaching", "Speed to Lead", "Commission Tracker"],
         changes:
-          "Your own calls become the standard. You see your real numbers, and the way you sell is written down, so a new closer has a bar to hit.",
+          "You see one set of numbers. The playbook is written down. Calls get scored so you know what to coach. Pay comes from submissions you approve. The team can work when you are not in every thread.",
       },
       {
         id: "a2",
         kicker: "02",
-        title: "First closers",
-        example: "Example: one or two closers, growing toward about $100K to $150K a month.",
+        title: "A team that can run without you",
+        example: "Example: growing toward about $200K to $400K a month. You may hire a sales manager.",
         breaks:
-          "The new closer starts slow and you jump back in. You can't tell if the problem is the closer or the leads. Pay is figured in a spreadsheet.",
-        stuck: "Listening to calls at night, rescuing deals, and working out pay by hand.",
-        apps: ["Hiring App", "Closer Onboarding", "AI Call Coaching", "Commission Tracker", "RevPhlo"],
+          "You are still the backstop for every hire, every escalation, and every number. A new manager would have nothing to step into. Quality depends on you being in the room.",
+        stuck: "Being the only person who knows how the team is supposed to run.",
+        apps: ["Hiring App", "Closer Onboarding", "Manager OS", "RevPhlo", "Closer & Setter Playbooks", "AI Call Coaching"],
         changes:
-          "You coach the calls that were flagged, not a random few. The numbers show when a closer is ready, and you step off most of the calendar. Pay comes from submissions you approve.",
+          "A new rep ramps on the same playbook. If you hire a manager, they step into the lists, scorecards, and numbers. You run the business from the brief, not from every deal.",
       },
     ],
   },
@@ -104,7 +104,7 @@ const paths: Record<
     example:
       "Example business. The same kind of offer, now with a small team: three closers, two phone setters, one DM setter, and a sales manager. Headcount and revenue below are an example, not a client result.",
     argument:
-      "You already have the team. What you don't have is one place that shows what each rep is doing and where the cash is leaking. Your manager gets the lists, scorecards, and numbers to run the day. You get a daily brief instead of a pile of reports. If the manager leaves, the system stays.",
+      "You already have a manager. What you don't have is one system they can run the day from. They get the lists, scorecards, and numbers. You get a daily brief instead of a pile of reports. If the manager leaves, the system stays. We install it, train them on how to use it, and support you in Slack.",
     stages: [
       {
         id: "b1",
@@ -148,10 +148,10 @@ const paths: Record<
 const pains: Pain[] = [
   {
     id: "calls",
-    name: "Getting off the calls",
+    name: "It all runs through you",
     paths: ["A"],
     argument:
-      "You built an offer that sells, and right now you are the only one selling it. Write down what you do on a call and measure it. Then a new closer has a real bar to hit, and you can see when they are ready to take the calendar.",
+      "You have reps, but the way the team works still lives in your head. Write the playbook down and measure the calls. Then you can see who needs help, and the team can run when you are not on every thread.",
   },
   {
     id: "hiring",
@@ -179,7 +179,7 @@ const pains: Pain[] = [
     name: "Managing the day",
     paths: ["B"],
     argument:
-      "A manager with no system is a single point of failure. Put the playbook, the daily list, and the numbers in the software. The manager runs the day from it. If they leave, the next one picks up the same system.",
+      "A manager with no system is a single point of failure. Put the playbook, the daily list, and the numbers in the system. The manager runs the day from it. If they leave, the next one picks up the same system.",
   },
   {
     id: "tracking",
@@ -382,7 +382,7 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
                   <p>{current.stuck}</p>
                 </div>
                 <div>
-                  <div className="iy-fact-label">Apps that turn on</div>
+                  <div className="iy-fact-label">Parts that turn on</div>
                   <div className="iy-chips">
                     {current.apps.map(name => (
                       <AppChip key={name} name={name} />
@@ -399,7 +399,7 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
             <div className="iy-close">
               <p className="iy-argument">{selected.argument}</p>
               <p className="iy-proof">
-                Published results from teams inside our agency, not a promise you get the same result: Woobie went from $250K to $1M a month in 7 months. The Listings Lab went from a 10.7% to a 30.8% close rate in 90 days. Your install is fitted to your business.
+                This exact system is behind these results. They are not a promise you get the same result. Woobie went from $250K to $1M a month in 7 months. The Listings Lab went from a 10.7% to a 30.8% close rate in 90 days. Your team does the work. We install the system and train you on how to use it.
               </p>
               <div className="iy-cta">
                 <button type="button" onClick={onBook} className="btn btn-primary">

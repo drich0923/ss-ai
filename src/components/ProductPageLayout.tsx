@@ -123,12 +123,13 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
           <div className="product-hero-grid">
             <div>
               <div className="product-eyebrow"><span className="status-dot">{product.eyebrow.toUpperCase()}</span></div>
+              <p className="product-part">Part of the system. The same one our agency runs its sales teams on.</p>
               <h1 className="product-title">{product.heroTitle}</h1>
               <p className="product-summary">{product.heroSummary}</p>
               <p className="mono sm ink-dim" style={{ marginBottom: 24 }}>{product.leadValue}</p>
               <div className="hero-cta-row">
                 <button onClick={openModal} className="btn btn-primary">Book a 30-min call →</button>
-                <Link href="/#apps" className="btn btn-ghost">← Back to all apps</Link>
+                <Link href="/#apps" className="btn btn-ghost">← Back to the system</Link>
               </div>
             </div>
             <div className="product-meta-card card">
@@ -162,7 +163,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
 
       <section className="section">
         <div className="wrap">
-          <SectionHeader eyebrow="CAPABILITIES" title={<>What the app <em className="italic-neon">actually does.</em></>} />
+          <SectionHeader eyebrow="CAPABILITIES" title={<>What this part <em className="italic-neon">does.</em></>} />
           <ListGrid items={product.capabilities} />
         </div>
       </section>
