@@ -15,8 +15,8 @@ export const productExtras: Record<string, ProductExtra> = {
     definitions: rates,
     guides: [
       { href: "/high-ticket-close-rate-and-show-rate-benchmarks", label: "How to measure close rate and show rate" },
-      { href: "/gohighlevel-sales-team-dashboard", label: "GoHighLevel and certified numbers" },
-      { href: "/high-ticket-sales-team-kpis", label: "KPIs for closers and setters" },
+      { href: "/how-to-improve-show-rate", label: "How to improve show rate" },
+      { href: "/how-to-improve-close-rate", label: "How to improve close rate" },
     ],
     faqs: [
       { q: "What does certified mean here?", a: "Show rate, close rate, and cash per call are counted from the call and from payments. A close counts only when a payment matches. An edit that makes a call look better than it was is flagged." },
@@ -32,8 +32,8 @@ export const productExtras: Record<string, ProductExtra> = {
       { term: "Review", formula: "your team compares", text: "Your team reviews and compares applicants. The page does not hire them." },
     ],
     guides: [
-      { href: "/sales-team-operating-system", label: "What the sales team operating system includes" },
-      { href: "/how-to-scale-a-high-ticket-sales-team", label: "How to scale a high ticket team" },
+      { href: "/how-to-hire-high-ticket-closers", label: "How to hire high ticket closers" },
+      { href: "/how-to-hire-appointment-setters", label: "How to hire appointment setters" },
       { href: "/closer-onboarding-30-60-90-day-plan", label: "What happens after you hire" },
     ],
     faqs: [
@@ -50,7 +50,7 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
     guides: [
       { href: "/speed-to-lead-for-coaching-businesses", label: "Speed to lead for coaching businesses" },
-      { href: "/gohighlevel-sales-team-dashboard", label: "GoHighLevel sales team dashboard" },
+      { href: "/how-to-improve-show-rate", label: "How to improve show rate" },
       { href: "/setter-eod-report-template", label: "Setter end of day template" },
     ],
     faqs: [
@@ -68,8 +68,8 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
     guides: [
       { href: "/sales-call-scorecard-template", label: "Sales call scorecard template" },
-      { href: "/products/qc-dashboard", label: "QC for prep and pipeline" },
-      { href: "/founder-led-sales-team-without-a-manager", label: "Coaching when you are the manager" },
+      { href: "/how-to-improve-close-rate", label: "How to improve close rate" },
+      { href: "/high-ticket-sales-script-setter-and-closer", label: "Setter and closer scripts" },
     ],
     faqs: [
       { q: "Where do transcripts come from?", a: "Sources such as RevPhlo and Fathom. We connect one source, map reps, and install a rubric." },
@@ -103,8 +103,8 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
     guides: [
       { href: "/setter-eod-report-template", label: "Setter end of day template" },
-      { href: "/high-ticket-sales-team-kpis", label: "Setter KPIs" },
-      { href: "/speed-to-lead-for-coaching-businesses", label: "Speed to lead" },
+      { href: "/how-to-hire-appointment-setters", label: "How to hire appointment setters" },
+      { href: "/how-to-improve-show-rate", label: "How to improve show rate" },
     ],
     faqs: [
       { q: "What do setters submit?", a: "Phone: dials, conversations, sets, triage, and cash if you track it. DM: messages, follow ups, and bookings. The tracker calculates rates such as pickup rate and dials per booking." },
@@ -121,8 +121,8 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
     guides: [
       { href: "/sales-call-scorecard-template", label: "Call scorecard template" },
-      { href: "/gohighlevel-sales-team-dashboard", label: "GoHighLevel dashboard" },
-      { href: "/products/ai-call-coaching", label: "AI Call Coaching" },
+      { href: "/how-to-improve-close-rate", label: "How to improve close rate" },
+      { href: "/sales-playbook-template", label: "Sales playbook template" },
     ],
     faqs: [
       { q: "What CRM does QC use?", a: "GoHighLevel. It syncs opportunities, tasks, and appointments." },
@@ -137,9 +137,9 @@ export const productExtras: Record<string, ProductExtra> = {
       { term: "What it is not", formula: "not the scorecard", text: "The playbook is the standard. The scorecard is how a call is judged against it." },
     ],
     guides: [
-      { href: "/sales-call-scorecard-template", label: "Sales call scorecard" },
+      { href: "/high-ticket-sales-script-setter-and-closer", label: "Setter and closer scripts" },
+      { href: "/sales-playbook-template", label: "Sales playbook template" },
       { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day onboarding" },
-      { href: "/sales-team-operating-system", label: "Where playbooks sit in the system" },
     ],
     faqs: [
       { q: "What goes in the playbook?", a: "The script, the objections, SOPs, and the Loom or doc the rep should open. Sections cover the call, admin, tech, and training." },
@@ -155,8 +155,8 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
     guides: [
       { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day plan" },
-      { href: "/sales-call-scorecard-template", label: "Scorecard used on shadowed calls" },
-      { href: "/products/hiring-app", label: "Hiring, before onboarding" },
+      { href: "/sales-playbook-template", label: "Sales playbook the ramp uses" },
+      { href: "/how-to-hire-high-ticket-closers", label: "Hiring, before onboarding" },
     ],
     faqs: [
       { q: "Do you ramp the new closer?", a: "No. We do not ramp or coach reps. We install the modules and show your team how to run them." },

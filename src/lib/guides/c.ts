@@ -57,7 +57,8 @@ export const guidesC: Guide[] = [
     proof: publishedProof,
     related: [
       { href: "/high-ticket-sales-team-kpis", label: "KPIs for a closer and setter team" },
-      { href: "/sales-team-operating-system", label: "What a sales team operating system is" },
+      { href: "/how-to-improve-show-rate", label: "How to improve show rate" },
+      { href: "/how-to-improve-close-rate", label: "How to improve close rate" },
     ],
     faqs: [
       { q: "What is a good close rate in sales?", a: "We do not publish a universal good close rate. Public lists are not comparable for offers above $5,000, and we will not invent an industry average. Judge the team against its own prior month, with the formulas on this page, and against the named client before and after numbers in the proof section." },

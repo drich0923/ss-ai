@@ -12,4 +12,10 @@ export const guideNav = [
   { path: "/closer-onboarding-30-60-90-day-plan", nav: "30 60 90 day plan", title: "A 30 60 90 Day Onboarding Plan for New High Ticket Closers" },
   { path: "/setter-eod-report-template", nav: "Setter EOD template", title: "Setter EOD Report Template for Phone and DM Setters" },
   { path: "/compare/commission-software-vs-sales-team-os", nav: "Commission software or the system", title: "QuotaPath, Spiff or a Sales Team System: Which Fits a High Ticket Coaching Team" },
+  { path: "/how-to-improve-show-rate", nav: "Improve show rate", title: "How to Improve Show Rate on High Ticket Sales Calls" },
+  { path: "/how-to-improve-close-rate", nav: "Improve close rate", title: "How to Improve Close Rate on a High Ticket Sales Team" },
+  { path: "/how-to-hire-high-ticket-closers", nav: "Hire closers", title: "How to Hire High Ticket Closers: Application, Scorecard and Interview Process" },
+  { path: "/how-to-hire-appointment-setters", nav: "Hire setters", title: "How to Hire Appointment Setters for a Booked Call Team" },
+  { path: "/high-ticket-sales-script-setter-and-closer", nav: "Setter and closer scripts", title: "Setter and Closer Scripts for High Ticket Offers: How to Build and Enforce Them" },
+  { path: "/sales-playbook-template", nav: "Sales playbook", title: "Sales Playbook Template for High Ticket Closer and Setter Teams" },
 ] as const

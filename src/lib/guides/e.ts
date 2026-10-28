@@ -61,7 +61,8 @@ export const guidesE: Guide[] = [
     proof: publishedProof,
     related: [
       { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day closer onboarding" },
-      { href: "/founder-led-sales-team-without-a-manager", label: "Coaching without a sales manager" },
+      { href: "/high-ticket-sales-script-setter-and-closer", label: "Setter and closer scripts" },
+      { href: "/sales-playbook-template", label: "Sales playbook template" },
     ],
     faqs: [
       { q: "What should a sales call scorecard include?", a: "Opener, discovery, offer and close, next step, whether the note matches the call, and whether prep was done. Add a row only if you can point to it on the recording or in the CRM. Skip vague traits." },
@@ -129,8 +130,9 @@ export const guidesE: Guide[] = [
     ],
     proof: publishedProof,
     related: [
-      { href: "/how-to-scale-a-high-ticket-sales-team", label: "What to systemize as you add reps" },
-      { href: "/sales-call-scorecard-template", label: "The scorecard used in this plan" },
+      { href: "/how-to-hire-high-ticket-closers", label: "How to hire high ticket closers" },
+      { href: "/sales-playbook-template", label: "Sales playbook template" },
+      { href: "/high-ticket-sales-script-setter-and-closer", label: "Setter and closer scripts" },
     ],
     faqs: [
       { q: "What should a 30 60 90 day sales plan include?", a: "Days 1 to 30: product test, shadowing, and role play. Days 31 to 60: a capped set of live calls with a review after each. Days 61 to 90: a normal load judged on the same show rate, close rate, and cash per call as the rest of the team." },
@@ -200,8 +202,8 @@ export const guidesE: Guide[] = [
     ],
     proof: publishedProof,
     related: [
-      { href: "/speed-to-lead-for-coaching-businesses", label: "Speed to lead" },
-      { href: "/high-ticket-sales-team-kpis", label: "The weekly scorecard" },
+      { href: "/how-to-hire-appointment-setters", label: "How to hire appointment setters" },
+      { href: "/how-to-improve-show-rate", label: "How to improve show rate" },
     ],
     faqs: [
       { q: "What is on a setter end of day report?", a: "Date, setter, channel, attempts, conversations, sets booked, follow ups, and a note. Cash collected if you pay on it. A yes or no for whether the row matched the CRM." },

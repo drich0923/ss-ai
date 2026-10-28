@@ -205,7 +205,7 @@ export const guidesD: Guide[] = [
     proof: publishedProof,
     related: [
       { href: "/setter-eod-report-template", label: "Setter end of day template" },
-      { href: "/high-ticket-sales-team-kpis", label: "Where response time sits in the KPI list" },
+      { href: "/how-to-improve-show-rate", label: "How to improve show rate" },
     ],
     faqs: [
       { q: "What is speed to lead?", a: "The time a new lead waited before a named person called. Measure it per lead and review it per setter. Do not manage a team average." },

@@ -65,6 +65,11 @@ export const guidesB: Guide[] = [
       { href: "/founder-led-sales-team-without-a-manager", label: "Running closers without a manager" },
     ],
     proof: publishedProof,
+    related: [
+      { href: "/how-to-hire-high-ticket-closers", label: "How to hire high ticket closers" },
+      { href: "/how-to-hire-appointment-setters", label: "How to hire appointment setters" },
+      { href: "/closer-onboarding-30-60-90-day-plan", label: "30 60 90 day onboarding" },
+    ],
     faqs: [
       { q: "Can I scale with more reps and no system?", a: "You can add people. The usual result is more calls taken the old way. Notes, follow up, and pay get worse because more people are guessing. Systemize the leak before you add the next seat." },
       { q: "When should I hire a sales manager?", a: "After the numbers, the playbook, and the daily list exist. A manager who inherits a real system can run the day. A manager who inherits your memory becomes the next single point of failure. If you want people rather than a system, that is a different offer." },
