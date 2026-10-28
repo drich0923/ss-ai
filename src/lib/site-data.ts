@@ -26,20 +26,20 @@ export const ecosystemModules = [
   {
     slug: "revphlo",
     title: "RevPhlo",
-    summary: "Cash, shows, closes and attribution in one view. Pulls from GHL, Stripe, Fathom and Whop.",
-    href: "#cta",
+    summary: "The numbers your reps can't inflate. Notes written from the call, closes counted only when payment lands, every KPI certified.",
+    href: "/products/revphlo",
   },
   {
     slug: "hiring-app",
     title: "Hiring App",
-    summary: "A public application page with video and recorded-call steps, plus one place to compare candidates.",
-    href: "#cta",
+    summary: "A public page where candidates apply, and one place for your team to review and compare them.",
+    href: "/products/hiring-app",
   },
   {
     slug: "speed-to-lead",
     title: "Speed to Lead",
-    summary: "New leads get worked fast, and you can see who called and when.",
-    href: "#cta",
+    summary: "See who called a new lead, and when. Works with GoHighLevel.",
+    href: "/products/speed-to-lead",
   },
   {
     slug: "ai-call-coaching",
@@ -88,6 +88,109 @@ export const ecosystemModules = [
 // Old product pages stay live and unlinked from the homepage until Dylan decides on add-ons:
 // client-health, revenue-visibility, owner-radar, sales-onboarding.
 export const productModules: ProductModule[] = [
+  {
+    slug: "revphlo",
+    name: "RevPhlo",
+    eyebrow: "The numbers",
+    heroTitle: "The numbers your reps can't inflate.",
+    heroSummary: "Part of the system. Notes are written from the call. A close counts only when payment lands. Show rate, close rate, and cash per call are certified.",
+    audience: "Teams that need one set of numbers for the whole system",
+    leadValue: "Your team reads the same numbers. A rep cannot edit a call into looking better than it was.",
+    pains: [
+      "Show rate and close rate live in a tracker a rep can change.",
+      "Call notes are written from memory after the hang-up.",
+      "A close gets counted before any payment arrives.",
+      "You cannot see which source actually returned cash.",
+    ],
+    capabilities: [
+      "Connects about 20 sources, including GoHighLevel, HubSpot, iClosed, Zoom, Fathom, Stripe, Whop, Commas, Zapier, Typeform, PandaDoc, Hyros, Cortana, Slack, and Google Sheets.",
+      "Writes a post-call note from the call. The rep approves it in Slack.",
+      "Flags an edit that makes a call look better than it was.",
+      "Counts a close only when a payment matches.",
+      "Certified KPIs, including show rate, close rate, and cash per call.",
+      "A daily brief in Slack, a list of action items, source and return-on-ad-spend attribution, and closer capacity.",
+    ],
+    fulfillment: [
+      "We connect the sources you already use.",
+      "We install RevPhlo as part of the system.",
+      "We show your team how to approve notes and read the certified numbers.",
+      "Support stays in Slack.",
+    ],
+    outcomes: [
+      "Notes come from the call, not from memory.",
+      "A close shows up only when payment matches.",
+      "Woobie's old tracker said a 25% show rate. RevPhlo measured 66%.",
+    ],
+    implementation: [
+      "Connect your CRM, call recorder, and payments.",
+      "Turn on the daily Slack brief and the action items.",
+      "Show your team how to use the numbers. Your team still does the selling.",
+    ],
+  },
+  {
+    slug: "hiring-app",
+    name: "Hiring App",
+    eyebrow: "Hiring",
+    heroTitle: "Your page for applicants. One place to compare them.",
+    heroSummary: "Part of the system your team uses to find and screen reps. Candidates apply on a public page. You review and compare them in one place.",
+    audience: "Teams hiring their own setters and closers",
+    leadValue: "Your team runs hiring. Every applicant comes through the same page.",
+    pains: [
+      "Applicants arrive in DMs, email, and job posts.",
+      "Each person is judged a different way.",
+      "The decision sits in one person's memory.",
+    ],
+    capabilities: [
+      "A public application page for candidates.",
+      "One place for your team to review and compare applicants.",
+    ],
+    fulfillment: [
+      "We set up the application page as part of the system.",
+      "We show your team how to review and compare applicants.",
+      "Your team decides who to hire. We support you in Slack.",
+    ],
+    outcomes: [
+      "Applicants come through one page.",
+      "Your team compares people in one place instead of from memory.",
+    ],
+    implementation: [
+      "Publish your application page.",
+      "Show your team how to review applicants.",
+      "You run hiring from there.",
+    ],
+  },
+  {
+    slug: "speed-to-lead",
+    name: "Speed to Lead",
+    eyebrow: "Speed to lead",
+    heroTitle: "See who called, and how long the lead waited.",
+    heroSummary: "Part of the system. New leads get a clock. You see who called, and when. This part works with GoHighLevel.",
+    audience: "Teams taking new leads in GoHighLevel",
+    leadValue: "Your team can see the wait, so a lead does not sit until someone remembers.",
+    pains: [
+      "A lead comes in and nobody can say how long it sat.",
+      "Follow-up depends on who remembers.",
+      "You find out a lead was never called after the day is over.",
+    ],
+    capabilities: [
+      "Tracks lead response in GoHighLevel.",
+      "Shows who called, and when.",
+    ],
+    fulfillment: [
+      "We connect your GoHighLevel account.",
+      "We show your team how to read who called and how long the lead waited.",
+      "Your team makes the calls. Support stays in Slack.",
+    ],
+    outcomes: [
+      "Wait time is visible.",
+      "Your team can see which leads were called.",
+    ],
+    implementation: [
+      "Connect GoHighLevel.",
+      "Show your team how to use the view.",
+      "Your setters still make the calls.",
+    ],
+  },
   {
     slug: "ai-call-coaching",
     name: "AI Call Coaching",
