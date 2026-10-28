@@ -84,16 +84,16 @@ function Hero({ onBook }: { onBook: () => void }) {
         <div className="hero-cta-row">
           <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
           <a href="#preview" className="btn btn-ghost">See what's inside</a>
-          <div className="hero-proof">
-            <div className="hero-proof-kicker">The exact system behind these results</div>
-            <div className="hero-stats mono">
+        </div>
+        <div className="hero-proof">
+          <div className="hero-proof-kicker">The exact system behind these results</div>
+          <div className="hero-results">
             {siteStats.map(s => (
-              <div key={s.label} className="stat">
+              <div key={s.label} className="hero-result">
                 <div className="stat-n">{s.value}</div>
                 <div className="stat-label">{s.label}</div>
               </div>
             ))}
-            </div>
           </div>
         </div>
       </div>
@@ -424,7 +424,7 @@ function Roi({ onBook }: { onBook: () => void }) {
               <div className="roi-out-row">
                 <div className="mono xs ink-mute">EXTRA CLOSES / YR</div>
                 <div className="roi-out-v">{extraDealsYr}</div>
-                <div className="mono sm ink-dim">at +5 pts close rate on shows</div>
+                <div className="mono sm ink-dim">at +5 pts close rate</div>
               </div>
             </div>
             <div className="roi-out card">
@@ -445,7 +445,7 @@ function Roi({ onBook }: { onBook: () => void }) {
               <div className="roi-total-label">ANNUAL IMPACT // ILLUSTRATIVE</div>
               <div className="roi-total-v">{fmtShort(total)}<span className="roi-total-yr">/yr</span></div>
               <div className="roi-total-bar"><div className="roi-bar-fill" style={{ width: "88%" }} /></div>
-              <div className="mono xs ink-dim">Illustration only, not a promise. It assumes a 5-point lift in close rate on shows. Inside our own agency, 4 of 5 teams we tracked raised close rate on shows within 90 days, by 5 to 20 points. One went down. Your call gives you a real baseline.</div>
+              <div className="mono xs ink-dim">Illustration only, not a promise. It assumes a 5-point lift in close rate. Inside our own agency, 4 of 5 teams we tracked raised close rate within 90 days, by 5 to 20 points. One went down. Your call gives you a real baseline.</div>
               <button onClick={onBook} className="btn btn-primary roi-btn">Get your real baseline →</button>
             </div>
           </div>

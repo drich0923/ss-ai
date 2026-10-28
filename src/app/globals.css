@@ -189,17 +189,19 @@ body {
 .hero-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
 .hero-sub { max-width: 640px; font-size: 17px; color: var(--ink-dim); line-height: 1.55; margin: 20px 0 0; }
 .hero-cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
-.hero-proof { display: flex; flex-direction: column; gap: 10px; margin-left: 20px; border-left: 1px solid var(--line); padding-left: 28px; }
-.hero-proof-kicker { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--neon); }
-.hero-stats { display: flex; gap: 32px; }
+.hero-proof { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; width: 100%; }
+.hero-proof-kicker { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--neon); }
+.hero-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.hero-result { border: 1px solid var(--line); border-radius: var(--r-md); background: rgba(255,255,255,0.02); padding: 18px 16px 16px; min-width: 0; }
+.hero-result .stat-n { font-size: clamp(22px, 1.8vw, 28px); white-space: normal; line-height: 1.05; }
+.hero-result .stat-label { margin-top: 10px; max-width: none; }
 .stat { max-width: 190px; }
 .stat-n { font-family: var(--f-display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
 .stat-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); }
 .twin-dots-short { display: none; }
 .twin-tail { white-space: nowrap; }
 @media (max-width: 720px) {
-  .hero-proof { margin-left: 0; padding-left: 0; border-left: none; width: 100%; }
-  .hero-stats { gap: 20px 28px; flex-wrap: wrap; width: 100%; }
+  .hero-results { grid-template-columns: 1fr; }
   .stat { max-width: none; flex: 1 1 160px; min-width: min(100%, 160px); }
   .twin-dots-full { display: none; }
   .twin-dots-short { display: inline; }

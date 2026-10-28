@@ -14,9 +14,12 @@ export type ProductModule = {
 }
 
 export const siteStats = [
-  { value: "10 parts", label: "One system. Hiring to pay, included from day one." },
   { value: "10.7% → 30.8%", label: "Close rate in 90 days. The Listings Lab, running this system." },
   { value: "$250K → $1M", label: "Monthly cash in 7 months. Woobie, running this system." },
+  {
+    value: "Back-to-back $1M months",
+    label: "From $400-500K on a good month to back-to-back $1M months. Brennan Schlagbaum, Founder, Budgetdog.",
+  },
 ] as const
 
 export const ecosystemModules = [
