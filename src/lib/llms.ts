@@ -7,7 +7,7 @@ const description =
 const results = [
   "Woobie: $300K to $1.1M a month. First $1M month within 8 months.",
   "Budgetdog: back-to-back $1M months, from $400-500K on a good month. No-shows cut in half, 19.1% to 9.6%. Close rate up from 24.7% to 31.7%.",
-  "The Listings Lab: close rate 10.7% to 30.8% in 90 days.",
+  "The Listings Lab ran this system. Close rate 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%.",
   "Infinite Heart Health: show rate doubled in 90 days, from 26% to 55%.",
 ]
 

@@ -102,7 +102,7 @@ export const guidesF: Guide[] = [
     description: "Improve close rate only after a close means a matched payment. Then review calls, enforce the playbook, and look at the sets your setters are booking. No universal good close rate.",
     answer: [
       "You improve close rate by counting a close only when a payment matches, then changing the calls and the leads that produce those payments. A stage named won is not a close. A verbal yes is not a close.",
-      "There is no reliable public number for what a good close rate is on offers above $5,000. The formulas and the reason are on the benchmarks page. Budgetdog's published close rate moved from 24.7% to 31.7%. That is their result, not a bar you are owed. The Sales Team OS by Systemized Sales AI shows the rate and the calls. Your closers still sell.",
+      "There is no reliable public number for what a good close rate is on offers above $5,000. The formulas and the reason are on the benchmarks page. The Listings Lab ran this system: close rate moved from 10.7% to 30.8% in 90 days, and tripled close rate from 6% to 19%. Budgetdog's close rate moved from 24.7% to 31.7%. Those are their results, not a bar you are owed. The Sales Team OS by Systemized Sales AI shows the rate and the calls. Your closers still sell.",
     ],
     sections: [
       {
@@ -126,7 +126,7 @@ export const guidesF: Guide[] = [
         paragraphs: [
           "It is not an industry average. We will not publish one. It is not your best closer's best week used as a whip for the new hire. Compare a closer to their own prior month, on the same definition, after they have passed the 30 60 90 gates and are on a normal load.",
           "It is not show rate in disguise. People who do not attend cannot buy. Fix show rate on its own page. Then come back to held calls.",
-          "It is not a promise. Budgetdog moved from 24.7% to 31.7%. The Listings Lab moved from 10.7% to 30.8% in 90 days, which is also published on the homepage. Your starting point, offer, and lead source are not theirs. Use the numbers to see that the rate can be measured and worked. Do not paste them into a forecast.",
+          "It is not a promise. The Listings Lab ran this system. Close rate moved from 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%. Budgetdog moved from 24.7% to 31.7%. Your starting point, offer, and lead source are not theirs. Use the numbers to see that the rate can be measured and worked. Do not paste them into a forecast.",
         ],
       },
     ],
@@ -159,7 +159,7 @@ export const guidesF: Guide[] = [
     faqs: [
       { q: "What is a good close rate?", a: "We do not publish one. Offers above $5,000 do not have a reliable public benchmark. Use the benchmarks page for the formulas, then compare your team to its own last month and to the named results in the proof section." },
       { q: "How do you increase sales close rate without faking it?", a: "Stop counting unpaid wins. Review the calls that scored poorly. Put the repeated objection in the playbook. Check which setter's bookings are the ones that do not pay. Change one of those, then read the rate next week." },
-      { q: "Whose close rate moved in the published results?", a: "Budgetdog's close rate went from 24.7% to 31.7%. That is the figure this page is built around. Other homepage results use their own labels. Do not mix them into a single promise." },
+      { q: "Whose close rate moved in the published results?", a: "The Listings Lab ran this system. Close rate went from 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%. Budgetdog's close rate went from 24.7% to 31.7%. Do not mix those into one promise, and do not treat either as your forecast." },
       { q: "Should I coach show rate and close rate in the same meeting?", a: "Look at both. Coach them separately. Show rate is attendance. Close rate is held calls that collected. A blended number hides which fix you need." },
       { q: "Will you coach the closers?", a: "No. Scoring shows your manager what to coach. We install the system and show your team how to use it. We do not coach or manage the reps." },
     ],

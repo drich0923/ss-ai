@@ -21,7 +21,7 @@ export const guidesC: Guide[] = [
         paragraphs: [
           "A booked call is a time on the calendar. An attended call is a prospect who showed up. A held call is a conversation a closer actually ran. If you divide closes by booked calls, you are measuring the whole funnel, including people who never sat down. If you divide closes by held calls, you are measuring the closer.",
           "Both numbers are useful. They answer different questions. A low show rate with a solid close rate means the problem is confirmation and the calendar, not the pitch. A high show rate with a weak close rate means people are sitting down and not buying. Mixing the two into one 'close rate' is how a team argues for a month and changes nothing.",
-          "The Listings Lab result on our homepage uses both ideas on purpose. Close rate moved from 10.7% to 30.8% in 90 days. Booked call close rate, closes divided by booked calls, moved from 6% to 19%. Those are not two versions of the same fact. Read the label before you quote the number.",
+          "The Listings Lab ran this system. Close rate moved from 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%, is the booked call figure on that same team: matched closes divided by booked calls. Those are not two versions of the same fact. Read the label before you quote the number.",
         ],
       },
       {
