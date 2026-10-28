@@ -60,7 +60,7 @@ const paths: Record<
     example:
       "Example business. A founder selling a $6,000 offer from YouTube and a weekly webinar. Calls booked in GoHighLevel, paid in Stripe, taken on Zoom. The amounts in this walkthrough are an example, not a client result.",
     argument:
-      "If you're still taking most of the sales calls, the next hire won't fix that alone. We start with your own calls. We write them up, show your real numbers, and put your process on paper. Then we help you hire, ramp, and coach a closer against that bar. You step off the calendar when the numbers say they're ready.",
+      "If you're still taking most of the sales calls, the next hire won't fix that alone. The system starts with your own calls. It writes them up, shows your real numbers, and puts your process on paper. Then you hire, ramp, and coach a closer against that bar. You step off the calendar when the numbers say they're ready.",
     stages: [
       {
         id: "a1",
@@ -116,7 +116,7 @@ const paths: Record<
         stuck: "Reading end-of-day reports, matching cash to deals, settling pay disputes, and reviewing calls at night.",
         apps: ["RevPhlo", "AI Call Coaching", "QC Dashboard", "Speed to Lead", "Phone & DM Setter Trackers", "Manager OS", "Commission Tracker"],
         changes:
-          "The manager starts the day from one list and one set of numbers. You read a daily brief instead of a pile of Slack messages. Coaching goes to the calls that need it. Pay is checked against cash that actually came in.",
+          "The manager starts the day from one list and one set of numbers. You read a daily brief instead of a pile of Slack messages. Your manager coaches the calls that need it. Pay is checked against cash that actually came in.",
       },
       {
         id: "b2",
@@ -286,7 +286,7 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
           </h2>
         </div>
         <p className="iy-lead">
-          Pick the one that sounds like you. We install it, train your team, and support you in Slack. Each install is fitted to the business. Not every team turns on the same apps at the same time.
+          Pick the one that sounds like you. We install the system, train you, your manager, and your team on how to use it, and support you in Slack. Your team does the hiring, the selling, and the managing. Each install is fitted to the business.
         </p>
 
         <div className="iy-cards" role="radiogroup" aria-label="Which sounds like you?">
@@ -405,7 +405,7 @@ export default function IsThisYou({ onBook }: { onBook: () => void }) {
                 <button type="button" onClick={onBook} className="btn btn-primary">
                   Book a 30-min call →
                 </button>
-                <span className="iy-cta-note">We install it, train your team, and support you in Slack.</span>
+                <span className="iy-cta-note">We install the system, train you on how to use it, and support you in Slack.</span>
               </div>
             </div>
 

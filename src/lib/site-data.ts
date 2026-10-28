@@ -143,7 +143,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Enable once AI coaching is live.",
       "Define one review cadence per manager.",
-      "Train leaders to use it as the command layer.",
+      "Show leaders how to run the day from it.",
     ],
     outcomes: [
       "Less time guessing what is wrong.",
@@ -179,7 +179,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Configure commission plans per rep type (closer, setter, etc.).",
       "Set payout periods (monthly, semi-monthly, or custom dates).",
-      "Train reps on submission flow and managers on approval queue.",
+      "Show reps how to submit, and managers how to approve.",
     ],
     outcomes: [
       "Zero spreadsheet commission calculations.",
@@ -189,7 +189,7 @@ export const productModules: ProductModule[] = [
     implementation: [
       "Define commission structures and bonus tiers.",
       "Configure payout periods and reporting preferences.",
-      "Roll out to reps and train on the submission flow.",
+      "Roll it out and show reps how to submit.",
     ],
   },
   {
@@ -215,7 +215,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Map setters to clients and assign rep types (phone or DM).",
       "Configure the EOD submission form for your workflow.",
-      "Train the team on daily submissions and manager review cadence.",
+      "Show setters how to submit each day, and managers how to review.",
     ],
     outcomes: [
       "Daily accountability without chasing people in Slack.",
@@ -225,7 +225,7 @@ export const productModules: ProductModule[] = [
     implementation: [
       "Configure rep assignments and submission cadence.",
       "Launch the submission form to the setter team.",
-      "Train managers on the analytics views and review rhythm.",
+      "Show managers how to read the analytics and run their review.",
     ],
   },
   {
@@ -283,7 +283,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Configure payment offers and ownership rules.",
       "Roll out closer and setter assignment logic.",
-      "Train teams on filtering and assignment workflows.",
+      "Show the team how to filter and assign deals.",
     ],
     outcomes: [
       "Cleaner ownership over follow-through and collections.",
@@ -319,7 +319,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Connect payment, setter, and coaching data sources.",
       "Configure alert thresholds per client.",
-      "Train the owner on the daily review cadence.",
+      "Show the owner how to use the daily review.",
     ],
     outcomes: [
       "Earlier intervention on at-risk accounts.",
@@ -391,7 +391,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Map your existing SOPs, scripts, and Loom libraries into the playbook structure.",
       "Organize into sections: pre-call, during-call, post-call, admin, tech.",
-      "Invite reps and train them on the bookmark and search flow.",
+      "Invite reps and show them how to bookmark and search.",
     ],
     outcomes: [
       "One link for every SOP, script, and training resource.",
@@ -437,15 +437,15 @@ export const productModules: ProductModule[] = [
     implementation: [
       "Connect GHL and validate webhook data flow.",
       "Configure QC scoring criteria and rank thresholds.",
-      "Train ops managers on the report review cadence.",
+      "Show ops managers how to read the daily report.",
     ],
   },
   {
     slug: "sales-onboarding",
     name: "Sales Onboarding Systems",
     eyebrow: "Delivery expansion",
-    heroTitle: "Launch clients and reps with fewer missed steps.",
-    heroSummary: "Give your team a structured rollout for client setup and rep readiness.",
+    heroTitle: "Run launches from one board, with fewer missed steps.",
+    heroSummary: "Your team runs client setup and rep readiness from one board.",
     audience: "Sales organizations onboarding clients, reps, or both at the same time",
     leadValue: "Protect launch quality as more teams touch the rollout.",
     pains: [
@@ -461,7 +461,7 @@ export const productModules: ProductModule[] = [
     fulfillment: [
       "Install the default onboarding template.",
       "Define internal versus client-visible stages.",
-      "Train the team to use the board as the system of record.",
+      "Show the team how to use the board as the system of record.",
     ],
     outcomes: [
       "Fewer launch surprises and cleaner coordination.",

@@ -63,7 +63,7 @@ function Hero({ onBook }: { onBook: () => void }) {
           One system<br />for your whole<br />sales team.
         </h1>
         <p className="hero-sub">
-          Hire, ramp, track and pay your sales team from one hub, connected to the tools you already use. Every app is included, and the system grows with your team. Built and battle-tested inside our own agency.
+          Hire, ramp, track and pay your own sales team from one hub, connected to the tools you already use. Every app is included, and the system grows with your team. Built and battle-tested inside our own agency.
         </p>
         <div className="hero-terminal-window">
           <div className="twin-top">
@@ -76,7 +76,7 @@ function Hero({ onBook }: { onBook: () => void }) {
             <div className="twin-line">{typed}<span className="caret">▊</span></div>
             <div className="twin-line ink-dim">  ▸ every lead called in minutes, not tomorrow<span className="twin-tail"><span className="twin-dots-full"> ...... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
             <div className="twin-line ink-dim">  ▸ new reps ramp on a playbook, not on you<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ closer calls scored and coached<span className="twin-tail"><span className="twin-dots-full"> ................. </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ every call scored so your manager can coach<span className="twin-tail"><span className="twin-dots-full"> ..... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
             <div className="twin-line ink-dim">  ▸ cash, shows and closes in one live view<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
             <div className="twin-line"><span className="ok">✓</span> live in 30 days · pays for itself in 90, or your setup fee back</div>
           </div>
@@ -138,7 +138,7 @@ function Problem() {
 function HowItWorks() {
   const steps = [
     { n: "01", t: "Map", time: "DISCOVERY CALL", d: "We get on a call and map how your team works today: who does what, which tools you use, and where deals and data fall through.", out: ["Your team, mapped", "Your tools, listed", "The gaps, ranked"], color: "var(--neon)" },
-    { n: "02", t: "Connect", time: "FIRST 30 DAYS", d: "We connect your tools to our hub and RevPhlo. Then we load your playbooks, trackers, hiring page and commission plan, and get your team logged in to its own workspace.", out: ["Tools connected", "Every app set up", "Team logged in"], color: "var(--blue)" },
+    { n: "02", t: "Connect", time: "FIRST 30 DAYS", d: "We connect your tools to our hub and RevPhlo, load your playbooks, trackers, hiring page and commission plan, and get your team logged in. Your team does the hiring, selling, and managing. We show them how to use the system.", out: ["Tools connected", "Every app set up", "Your team shown how to use it"], color: "var(--blue)" },
     { n: "03", t: "Refine", time: "ONGOING", d: "We don't hand you logins and leave. A shared Slack channel stays open for fixes and changes, all included. Need a brand-new app as you grow? We scope it with you.", out: ["Shared Slack channel", "Fixes and changes included", "New apps scoped as you grow"], color: "var(--amber)" },
   ]
   return (
@@ -467,7 +467,7 @@ function RoiSlider({ label, v, set, min, max, step, prefix = "", format }: { lab
 
 function Faq() {
   const qs = [
-    { q: "Is this a done-for-you sales team?", a: "No. We don't supply setters, closers or managers. You get the system your own team runs on: hiring, playbooks, tracking, numbers and pay, all connected. Your team does the selling." },
+    { q: "Is this a done-for-you sales team?", a: "No. We don't hire, ramp, train, coach, or manage your reps, and we don't supply setters, closers, or managers. We install the system and train you, your manager, and your team on how to use it. Your team does the work." },
     { q: "What's included?", a: "Ten apps, set up and connected for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too." },
     { q: "We already use GoHighLevel. Does this replace it?", a: "No. We connect to it. GoHighLevel, Stripe, Fathom and Whop plug into your workspace, so your numbers come from the tools you already use. On a different stack? Ask us on the call." },
     { q: "How fast is it live?", a: "Most teams are live within 30 days of kickoff. The clock starts once we have access to your tools." },
