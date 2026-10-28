@@ -15,10 +15,8 @@ export type ProductModule = {
 
 export const siteStats = [
   { value: "10 apps", label: "Included from day one. Hiring to commissions, in one hub." },
-  // TODO: Client naming is unconfirmed. If Dylan approves naming The Listings Lab, replace this stat with:
-  // { value: "3 → 19", label: "Closes a month in 90 days at The Listings Lab, a team inside our agency." },
-  { value: "25% → 58%", label: "Show rate in one month for a team inside our agency." },
-  { value: "1 workspace", label: "Your team gets its own. Your data and integrations stay yours." },
+  { value: "10.7% → 30.8%", label: "Close rate within 90 days, for a team inside our agency." },
+  { value: "$250K → $1M", label: "Monthly cash collected in 7 months, for a team inside our agency." },
 ] as const
 
 export const ecosystemModules = [

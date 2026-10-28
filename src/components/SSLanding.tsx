@@ -38,14 +38,15 @@ function Header({ onBook }: { onBook: () => void }) {
 
 function Hero({ onBook }: { onBook: () => void }) {
   const [typed, setTyped] = useState("")
-  const cmd = "> ss install --os=sales-team --connect=ghl,stripe,fathom,whop"
+  const cmd = "> ss install sales-team-os"
   useEffect(() => {
     let i = 0
+    // Shorter than the old command. ~46ms/char keeps the type-out near 1.2s instead of flashing by.
     const id = setInterval(() => {
       i++
       setTyped(cmd.slice(0, i))
       if (i >= cmd.length) clearInterval(id)
-    }, 28)
+    }, 46)
     return () => clearInterval(id)
   }, [])
   return (
@@ -66,17 +67,17 @@ function Hero({ onBook }: { onBook: () => void }) {
         <div className="hero-terminal-window">
           <div className="twin-top">
             <span className="dot dot-r" /><span className="dot dot-y" /><span className="dot dot-g" />
-            <span className="twin-title">ss-ai · ~/sales-team-os</span>
+            <span className="twin-title">ss-ai · ~/your-sales-team</span>
             <span className="twin-tag">live</span>
           </div>
           <div className="twin-body">
-            <div className="twin-line ink-mute">// discovery call → tools connected → your team live in its own workspace</div>
+            <div className="twin-line ink-mute">// today: every lead, rep and payout runs through you.</div>
             <div className="twin-line">{typed}<span className="caret">▊</span></div>
-            <div className="twin-line ink-dim">  ▸ connecting GHL, Stripe, Fathom, Whop ............ <span className="ok">ok</span></div>
-            <div className="twin-line ink-dim">  ▸ loading closer + setter playbooks ............... <span className="ok">ok</span></div>
-            <div className="twin-line ink-dim">  ▸ publishing hiring page + dashboard .............. <span className="ok">ok</span></div>
-            <div className="twin-line ink-dim">  ▸ wiring RevPhlo: cash, shows, closes ............. <span className="ok">ok</span></div>
-            <div className="twin-line"><span className="ok">✓</span> system live · your whole team, one workspace</div>
+            <div className="twin-line ink-dim">  ▸ every lead called in minutes, not tomorrow<span className="twin-tail"><span className="twin-dots-full"> ...... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ new reps ramp on a playbook, not on you<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ closer calls scored and coached<span className="twin-tail"><span className="twin-dots-full"> ................. </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ cash, shows and closes in one live view<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line"><span className="ok">✓</span> live in 30 days · pays for itself in 90, or your setup fee back</div>
           </div>
         </div>
         <div className="hero-cta-row">
@@ -84,7 +85,7 @@ function Hero({ onBook }: { onBook: () => void }) {
           <a href="#preview" className="btn btn-ghost">See what's inside</a>
           <div className="hero-stats mono">
             {siteStats.map(s => (
-              <div key={s.label} className="stat" style={{ maxWidth: 170 }}>
+              <div key={s.label} className="stat">
                 <div className="stat-n">{s.value}</div>
                 <div className="stat-label">{s.label}</div>
               </div>
