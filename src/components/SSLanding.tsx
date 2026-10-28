@@ -402,32 +402,30 @@ function Results() {
       name: "Budgetdog",
       who: "Brennan Schlagbaum, Founder",
       headline: "From $400-500K on a good month to back-to-back $1M months.",
-      story: "A good month used to land around $400K to $500K. Average monthly revenue then rose about $100K within 3 to 4 months, and the first $1M month came 8 to 9 months in. After that, they posted back-to-back $1M months, with about the same paid closes from half the booked calls.",
+      story: "A good month used to land around $400K to $500K. Average monthly revenue then rose about $100K within 3 to 4 months, and the first $1M month came 8 to 9 months in. After that, they posted back-to-back $1M months.",
       nums: [
         { n: "~$100K", l: "Average monthly revenue, up within 3-4 months" },
         { n: "8-9 months", l: "To the first $1M month" },
-        { n: "8.3% → 17.2%", l: "Booked-call close rate, Jan to Oct 2026. 70 paid closes from 844 booked calls, then 69 from 401." },
+        { n: "19.1% → 9.6%", l: "No-shows cut in half" },
+        { n: "24.7% → 31.7%", l: "Close rate, up" },
       ],
     },
     {
       name: "Woobie",
       who: "Cole Tenney, CEO",
-      headline: "$250K to $1M a month in 7 months.",
+      headline: "$250K to $1.1M a month in 7 months.",
       story: "Cold leads were going straight to closers, so calls went to people who were not ready to buy. The system showed where those calls were leaking, and the process was rebuilt around it. Their team did the selling.",
       nums: [
         { n: "41.5%", l: "Of booked prospects closed, Aug-Oct 2026" },
-        { n: "525", l: "Payment-verified sales" },
-        { n: "1,265", l: "Booked prospects in that same window" },
       ],
     },
     {
       name: "The Listings Lab",
       who: "",
       headline: "10.7% to 30.8% close rate in 90 days.",
-      story: "Close rate moved from 10.7% to 30.8% in 90 days. Paid closes went from 3 in August to 18 in October 2026. Booked-call close rate went from 6% to 19% over those same months.",
+      story: "Close rate moved from 10.7% to 30.8% in 90 days. Booked-call close rate went from 6% to 19% over those same months.",
       nums: [
-        { n: "3 → 18", l: "Paid closes, August to October 2026" },
-        { n: "6% → 19%", l: "Booked-call close rate over the same period" },
+        { n: "6% → 19%", l: "Tripled booked-call close rate" },
         { n: "90 days", l: "For the 10.7% to 30.8% close rate" },
       ],
     },
@@ -436,7 +434,7 @@ function Results() {
     <section id="results" className="section">
       <div className="wrap">
         <SectionHeader eyebrow="RESULTS" title={<>Results from teams<br /><em className="italic-neon">running this system.</em></>} />
-        <p className="results-lead">The exact system behind these numbers. Their teams did the selling. The system showed them where to focus.</p>
+        <p className="results-lead">The exact system behind these numbers.</p>
         <div className="case-list">
           {cases.map(item => (
             <article key={item.name} className="case card">
@@ -457,7 +455,7 @@ function Results() {
             </article>
           ))}
         </div>
-        <p className="results-note">Results vary by business. Closes counted only when payment was received.</p>
+        <p className="results-note">Results vary by business. Closes counted only when payment was received. Some revenue figures include cash collected outside our tracking.</p>
       </div>
     </section>
   )
