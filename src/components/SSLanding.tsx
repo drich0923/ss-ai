@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import AuditModal from "./AuditModal"
+import IsThisYou from "./IsThisYou"
 import Logo from "./Logo"
 import { ecosystemModules, siteStats } from "@/lib/site-data"
 
@@ -574,6 +575,7 @@ export default function SSLanding() {
     <>
       <Header onBook={openModal} />
       <Hero onBook={openModal} />
+      <IsThisYou onBook={openModal} />
       <Problem />
       <HowItWorks />
       <Apps />

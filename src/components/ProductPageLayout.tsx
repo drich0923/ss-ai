@@ -210,7 +210,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
             <div className="final-inner">
               <div className="status-dot">READY TO SHIP</div>
               <h2 className="display display-lg final-t">Let's build <em className="italic-neon">{product.name}</em><br />for your team.</h2>
-              <p className="final-sub">30-minute call. We'll map your team and your tools, show you where the glue is, and tell you exactly what we'd set up. No deck. No pressure.</p>
+              <p className="final-sub">30-minute call. We'll map your team and your tools, show you where everything still runs through you, and tell you exactly what we'd set up. No deck. No pressure.</p>
               <div className="final-ctas">
                 <button onClick={openModal} className="btn btn-primary">Book a 30-min call →</button>
                 <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
