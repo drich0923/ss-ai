@@ -85,7 +85,7 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
     guides: [
       { href: "/founder-led-sales-team-without-a-manager", label: "Run closers without a sales manager" },
-      { href: "/sales-system-vs-hiring-a-sales-manager", label: "System or a sales manager first" },
+      { href: "/sales-team-meeting-cadence", label: "Sales meeting cadence" },
       { href: "/sales-call-scorecard-template", label: "Call scorecard" },
     ],
     faqs: [

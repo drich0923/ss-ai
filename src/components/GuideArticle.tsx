@@ -1,5 +1,7 @@
 import Link from "next/link"
 import BookCall from "./BookCall"
+import CapacityCalculator from "./CapacityCalculator"
+import ForecastCalculator from "./ForecastCalculator"
 import RateCalculator from "./RateCalculator"
 import type { Guide } from "@/lib/guide-types"
 import { siteUrl } from "@/lib/site-data"
@@ -97,6 +99,20 @@ export default function GuideArticle({ guide }: { guide: Guide }) {
             <section>
               <h2>Check your own rates</h2>
               <RateCalculator />
+            </section>
+          ) : null}
+
+          {guide.capacity ? (
+            <section>
+              <h2>Work it out from your numbers</h2>
+              <CapacityCalculator />
+            </section>
+          ) : null}
+
+          {guide.forecast ? (
+            <section>
+              <h2>Run the formula on your numbers</h2>
+              <ForecastCalculator />
             </section>
           ) : null}
 

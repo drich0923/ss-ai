@@ -1,0 +1,4 @@
+When,Email,Text or DM
+Day before,"You are on the calendar tomorrow at [time] to talk through [the problem they named]. Reply if that time still works.","Tomorrow at [time]. Reply if you need to move it."
+Morning of,"Today at [time]. The link is [link]. Tell me before the slot if you need a different time.","Today at [time]. Link: [link]. Need to move it?"
+After a miss,"We missed each other at [time]. I can do [time] or [time]. Which should I book?","Missed you at [time]. [time] or [time]?"

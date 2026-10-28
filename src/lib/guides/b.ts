@@ -114,6 +114,13 @@ export const guidesB: Guide[] = [
         ],
       },
       {
+        h2: "How an owner gets out of the sales day",
+        paragraphs: [
+          "Getting out of sales, when you already have reps, means the day no longer waits on your attention. It does not mean someone else takes the calls for you, and it does not mean you stop managing. The notes, the lead clock, the scores, and the pay have to exist without you remembering them.",
+          "You step out of being the only copy of the script and the only person who can explain a number. You do not step out of deciding who to coach. If the goal is a person who manages the reps so you can leave the sales day entirely, that is a people offer, not this install. The system or manager page points at it.",
+        ],
+      },
+      {
         h2: "What not to do yet",
         paragraphs: [
           "Do not hire a manager to escape the mess. They will rebuild your habits with their own names on them. Do not add a pile of new logins and call it a system. Three parts the team opens every day beat ten parts nobody trusts.",
@@ -147,6 +154,7 @@ export const guidesB: Guide[] = [
       { q: "Do setters need an end of day form if I am the manager?", a: "Yes, if you have setters. Otherwise you are reconstructing the day from Slack. The form is for your review. It still has to be checked against the CRM, because typed numbers drift." },
       { q: "When is a manager worth hiring?", a: "When the system exists and your constraint is hours, not missing process. If you want a person to run the team as a service, look at sales management from Systemized Sales. That is people. This page is the system." },
       { q: "Will you coach my closers?", a: "No. Call scoring shows you what to coach. You, or a manager you hire, do the coaching. We install the system and show your team how to use it." },
+      { q: "How do I get out of sales?", a: "Get the process out of your head: certified numbers, a playbook, a lead clock, and pay that does not wait on your sheet. You still manage the reps you have. We do not take the calls, and we do not become your sales manager." },
     ],
   },
 ]

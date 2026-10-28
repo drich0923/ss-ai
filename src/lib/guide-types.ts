@@ -11,6 +11,8 @@ export type Guide = {
   sections: { h2: string; paragraphs: string[]; bullets?: string[] }[]
   definitions?: { term: string; formula: string; text: string }[]
   calculator?: boolean
+  capacity?: boolean
+  forecast?: boolean
   checklist?: { title: string; items: string[] }
   template?: { title: string; headers: string[]; rows: string[][]; csv?: string }
   handles: string
