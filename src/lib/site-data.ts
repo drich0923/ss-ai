@@ -15,8 +15,8 @@ export type ProductModule = {
 
 export const siteStats = [
   { value: "10 apps", label: "Included from day one. Hiring to commissions, in one hub." },
-  { value: "10.7% → 30.8%", label: "Close rate on shows within 90 days, for a team inside our agency." },
-  { value: "$99K → $224K", label: "Weekly cash collected in 14 weeks, for a team inside our agency." },
+  { value: "10.7% → 30.8%", label: "Close rate within 90 days, for a team inside our agency." },
+  { value: "$250K → $1M", label: "Monthly cash collected in 7 months, for a team inside our agency." },
 ] as const
 
 export const ecosystemModules = [
