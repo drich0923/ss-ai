@@ -334,6 +334,8 @@ body {
 .final-bg { position: absolute; inset: 0; opacity: 0.25; mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 20%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 20%, transparent 80%); }
 .final-inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 24px; }
 .final-t { margin: 0; }
+/* First line is longer than the old headline. Cap this heading so it stays one line inside the card at desktop widths. */
+.final-t.display-xl { font-size: clamp(44px, 6.4vw, 88px); }
 .final-sub { max-width: 560px; color: var(--ink-dim); font-size: 17px; margin: 0; }
 .final-ctas { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
 .final-meta { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; justify-content: center; letter-spacing: 0.1em; font-family: var(--f-mono); font-size: 11px; color: var(--ink-mute); }

@@ -505,8 +505,8 @@ function FinalCta({ onBook }: { onBook: () => void }) {
           <div className="grid-bg final-bg" aria-hidden />
           <div className="final-inner">
             <div className="status-dot">NOW BOOKING DISCOVERY CALLS</div>
-            <h2 className="display display-xl final-t">Stop being the glue.<br /><em className="italic-neon">Install the system.</em></h2>
-            <p className="final-sub">30-minute call. We'll map your team and your tools, show you where the glue is, and tell you exactly what we'd set up. No deck. No pressure.</p>
+            <h2 className="display display-xl final-t">Stop being the constraint.<br /><em className="italic-neon">Install the system.</em></h2>
+            <p className="final-sub">30-minute call. We'll map your team and your tools, show you where everything still runs through you, and tell you exactly what we'd set up. No deck. No pressure.</p>
             <div className="final-ctas">
               <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
               <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
