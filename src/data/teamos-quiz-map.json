@@ -1,0 +1,261 @@
+{
+ "archetypes": [
+  {
+   "id": "a1",
+   "name": "Owner runs the team",
+   "description": "Has reps, no manager. The owner coaches, reviews, and chases numbers at night."
+  },
+  {
+   "id": "a2",
+   "name": "Manager with numbers nobody trusts",
+   "description": "Has a manager. Data lives in a CRM, a sheet, and EOD reports that disagree."
+  },
+  {
+   "id": "a3",
+   "name": "Hiring treadmill",
+   "description": "Keeps hiring closers. Few ramp. Onboarding lives in someone's head."
+  }
+ ],
+ "shared_questions": [
+  {
+   "id": "s1",
+   "type": "choice",
+   "text": "Who manages your sales team day to day?",
+   "options": [
+    {
+     "label": "I do",
+     "points_to": [
+      "a1"
+     ]
+    },
+    {
+     "label": "A sales manager",
+     "points_to": [
+      "a2"
+     ]
+    },
+    {
+     "label": "Nobody. We keep rehiring.",
+     "points_to": [
+      "a3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "type": "choice",
+   "text": "What eats most of your week?",
+   "options": [
+    {
+     "label": "Reviewing calls and EOD reports",
+     "points_to": [
+      "a1"
+     ]
+    },
+    {
+     "label": "Figuring out which numbers are right",
+     "points_to": [
+      "a2"
+     ]
+    },
+    {
+     "label": "Fixing the CRM and spreadsheets",
+     "points_to": [
+      "a2"
+     ]
+    },
+    {
+     "label": "Hiring and training new reps",
+     "points_to": [
+      "a3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "type": "open",
+   "text": "If you had one week, what would you fix first?"
+  }
+ ],
+ "branches": {
+  "a1": [
+   {
+    "id": "a1_q1",
+    "type": "choice",
+    "text": "How many reps do you manage yourself?",
+    "options": [
+     {
+      "label": "1 to 3",
+      "points_to": [
+       "a1"
+      ]
+     },
+     {
+      "label": "4 to 8",
+      "points_to": [
+       "a1"
+      ]
+     },
+     {
+      "label": "More than 8",
+      "points_to": [
+       "a1",
+       "a2"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "a1_q2",
+    "type": "open",
+    "text": "Where do you look to see how today went?"
+   },
+   {
+    "id": "a1_q3",
+    "type": "open",
+    "text": "What happens to the numbers when you take a week off?"
+   }
+  ],
+  "a2": [
+   {
+    "id": "a2_q1",
+    "type": "choice",
+    "text": "Where do your sales numbers live?",
+    "options": [
+     {
+      "label": "CRM plus a spreadsheet",
+      "points_to": [
+       "a2"
+      ]
+     },
+     {
+      "label": "A dashboard nobody trusts",
+      "points_to": [
+       "a2"
+      ]
+     },
+     {
+      "label": "Slack EOD reports",
+      "points_to": [
+       "a2"
+      ]
+     },
+     {
+      "label": "Honestly, nowhere",
+      "points_to": [
+       "a2"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "a2_q2",
+    "type": "open",
+    "text": "Last time two reports disagreed, what happened?"
+   },
+   {
+    "id": "a2_q3",
+    "type": "open",
+    "text": "How do you know which lead source is working?"
+   }
+  ],
+  "a3": [
+   {
+    "id": "a3_q1",
+    "type": "choice",
+    "text": "How long until a new closer hits target?",
+    "options": [
+     {
+      "label": "Under 30 days",
+      "points_to": [
+       "a3"
+      ]
+     },
+     {
+      "label": "One to three months",
+      "points_to": [
+       "a3"
+      ]
+     },
+     {
+      "label": "Most never do",
+      "points_to": [
+       "a3"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "a3_q2",
+    "type": "open",
+    "text": "How many reps did you hire this year?"
+   },
+   {
+    "id": "a3_q3",
+    "type": "open",
+    "text": "Why did the last one leave?"
+   }
+  ]
+ },
+ "landing_pages": {
+  "a1": {
+   "headline": "You run the team. The team runs your evenings.",
+   "pain_points": [
+    "Nights go to EOD reports and call feedback.",
+    "Every new rep needs you on their calls to close.",
+    "Take a week off and the numbers notice."
+   ],
+   "cta": "Book an intro call",
+   "offer": {
+    "what": "A short intro call about Team OS. We look at how your team runs today and walk through what gets installed in 30 days: RevPhlo, Hiring App, Speed to Lead, AI Call Coaching, Manager OS, Setter Trackers, QC Dashboard, Playbooks, Closer Onboarding, Commission Tracker. Training plus Slack support.",
+    "after_submit": "https://link.automatedrev.com/widget/bookings/ss-intro-call1",
+    "submit_line": "Takes you to book a free intro call. Nothing is charged."
+   }
+  },
+  "a2": {
+   "headline": "Three reports. Three different numbers.",
+   "pain_points": [
+    "The dashboard exists. Nobody believes it.",
+    "Nobody can say which lead source actually pays.",
+    "Reps don't log, so the data is mostly fiction."
+   ],
+   "cta": "Book an intro call",
+   "offer": {
+    "what": "A short intro call about Team OS. We look at how your team runs today and walk through what gets installed in 30 days: RevPhlo, Hiring App, Speed to Lead, AI Call Coaching, Manager OS, Setter Trackers, QC Dashboard, Playbooks, Closer Onboarding, Commission Tracker. Training plus Slack support.",
+    "after_submit": "https://link.automatedrev.com/widget/bookings/ss-intro-call1",
+    "submit_line": "Takes you to book a free intro call. Nothing is charged."
+   }
+  },
+  "a3": {
+   "headline": "You're not building a team. You're running a hiring program.",
+   "pain_points": [
+    "New closers take months to hit target, if ever.",
+    "Good reps leave before they pay for themselves.",
+    "Onboarding lives in your head, not on paper."
+   ],
+   "cta": "Book an intro call",
+   "offer": {
+    "what": "A short intro call about Team OS. We look at how your team runs today and walk through what gets installed in 30 days: RevPhlo, Hiring App, Speed to Lead, AI Call Coaching, Manager OS, Setter Trackers, QC Dashboard, Playbooks, Closer Onboarding, Commission Tracker. Training plus Slack support.",
+    "after_submit": "https://link.automatedrev.com/widget/bookings/ss-intro-call1",
+    "submit_line": "Takes you to book a free intro call. Nothing is charged."
+   }
+  },
+  "general": {
+   "headline": "One system for your whole sales team.",
+   "pain_points": [
+    "Hiring, ramp, tracking, and pay live in five places.",
+    "Nobody agrees on the numbers.",
+    "You find the leaks after the month closes."
+   ],
+   "cta": "Book an intro call",
+   "offer": {
+    "what": "A short intro call about Team OS. We look at how your team runs today and walk through what gets installed in 30 days: RevPhlo, Hiring App, Speed to Lead, AI Call Coaching, Manager OS, Setter Trackers, QC Dashboard, Playbooks, Closer Onboarding, Commission Tracker. Training plus Slack support.",
+    "after_submit": "https://link.automatedrev.com/widget/bookings/ss-intro-call1",
+    "submit_line": "Takes you to book a free intro call. Nothing is charged."
+   }
+  }
+ },
+ "confidence_threshold": 0.85
+}
