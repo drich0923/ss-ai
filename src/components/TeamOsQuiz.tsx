@@ -405,7 +405,7 @@ function Results({
     )
     const page = new URL(window.location.href)
     page.searchParams.set("quiz_session_id", sessionId)
-    window.history.replaceState(window.history.state, "", page)
+    window.history.replaceState(window.history.state, "", `${page.pathname}${page.search}${page.hash}`)
     setCalendarSrc(bookingCalendarSrc(sessionId, result.grade, result.archetypeId))
     // Once per results visit. A restart remounts this screen and starts a new session.
     // eslint-disable-next-line react-hooks/exhaustive-deps
