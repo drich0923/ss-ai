@@ -40,6 +40,7 @@ const contact: QuizContact = {
   last_name: "Lovelace",
   email: "ada@example.com",
   phone: "+1 (415) 555-0100",
+  sms_consent: false,
 }
 
 test("payload builder maps the score, leaks, and readable answers", () => {
@@ -72,6 +73,7 @@ test("payload builder maps the score, leaks, and readable answers", () => {
   assert.equal(payload.last_name, "Lovelace")
   assert.equal(payload.email, "ada@example.com")
   assert.equal(payload.phone, "+1 (415) 555-0100")
+  assert.equal(payload.sms_consent, false)
   for (const key of [
     "session_id",
     "quiz",
@@ -87,6 +89,7 @@ test("payload builder maps the score, leaks, and readable answers", () => {
     "last_name",
     "email",
     "phone",
+    "sms_consent",
   ]) {
     assert.equal(key in payload, true)
   }
@@ -141,12 +144,13 @@ test("booking url carries the session, grade, archetype, and contact", () => {
   assert.equal(url.searchParams.get("last_name"), "Lovelace")
   assert.equal(url.searchParams.get("email"), "ada@example.com")
   assert.equal(url.searchParams.get("phone"), "+1 (415) 555-0100")
+  assert.equal(url.searchParams.get("sms_consent"), "no")
   assert.match(src, /phone=%2B1/)
   assert.match(src, /first_name=Ada/)
 })
 
 test("contact fields are required, with email and phone checks", () => {
-  assert.deepEqual(validateQuizContact({ first_name: " ", last_name: "", email: "", phone: "" }), {
+  assert.deepEqual(validateQuizContact({ first_name: " ", last_name: "", email: "", phone: "", sms_consent: false }), {
     first_name: "Enter your first name.",
     last_name: "Enter your last name.",
     email: "Enter your email.",

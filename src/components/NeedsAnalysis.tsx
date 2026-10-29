@@ -1,14 +1,15 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import Link from "next/link"
+import { useState, useEffect } from "react"
+import EmbedGate from "./EmbedGate"
 import { T, Reveal } from "@/lib/design-tokens"
 import { quizQuestions, scoreQuiz, type QuizAnswers, type ProductScore } from "@/lib/quiz-logic"
 
-function TypeformEmbed() {
-  const containerRef = useRef<HTMLDivElement>(null)
+function TypeformWidget() {
   useEffect(() => {
     const script = document.createElement("script")
-    script.src = "//embed.typeform.com/next/embed.js"
+    script.src = "https://embed.typeform.com/next/embed.js"
     script.async = true
     document.body.appendChild(script)
     return () => {
@@ -18,7 +19,6 @@ function TypeformEmbed() {
 
   return (
     <div
-      ref={containerRef}
       data-tf-widget="hFvfB43J"
       data-tf-opacity="100"
       data-tf-inline-on-mobile
@@ -30,6 +30,23 @@ function TypeformEmbed() {
         overflow: "hidden",
       }}
     />
+  )
+}
+
+function TypeformEmbed() {
+  return (
+    <>
+      <EmbedGate
+        title="This form is hosted by Typeform"
+        detail="The form stays off until you accept non-essential cookies."
+      >
+        <TypeformWidget />
+      </EmbedGate>
+      <p className="form-legal" style={{ marginTop: 12 }}>
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/terms">Terms</Link>
+      </p>
+    </>
   )
 }
 
@@ -78,7 +95,7 @@ export default function NeedsAnalysis() {
             </p>
             <h2
               style={{
-                fontFamily: "'DM Serif Display', Georgia, serif",
+                fontFamily: "var(--f-serif), Georgia, serif",
                 fontSize: "clamp(32px, 4vw, 48px)", lineHeight: 1.1,
                 letterSpacing: -1, marginBottom: 16,
               }}
@@ -183,7 +200,7 @@ export default function NeedsAnalysis() {
               </p>
               <h3
                 style={{
-                  fontFamily: "'DM Serif Display', Georgia, serif",
+                  fontFamily: "var(--f-serif), Georgia, serif",
                   fontSize: "clamp(24px, 3vw, 36px)", lineHeight: 1.1,
                   marginBottom: 12,
                 }}
@@ -229,7 +246,7 @@ export default function NeedsAnalysis() {
           </p>
           <h2
             style={{
-              fontFamily: "'DM Serif Display', Georgia, serif",
+              fontFamily: "var(--f-serif), Georgia, serif",
               fontSize: "clamp(28px, 4vw, 42px)", lineHeight: 1.1,
               letterSpacing: -0.5, marginBottom: 40, textAlign: "center",
             }}

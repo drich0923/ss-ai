@@ -13,6 +13,7 @@ export type QuizContact = {
   last_name: string
   email: string
   phone: string
+  sms_consent: boolean
 }
 
 export type QuizContactErrors = Partial<Record<keyof QuizContact, string>>
@@ -32,12 +33,13 @@ export type QuizResultsPayload = {
   last_name: string
   email: string
   phone: string
+  sms_consent: boolean
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export function emptyQuizContact(): QuizContact {
-  return { first_name: "", last_name: "", email: "", phone: "" }
+  return { first_name: "", last_name: "", email: "", phone: "", sms_consent: false }
 }
 
 export function validateQuizContact(contact: QuizContact): QuizContactErrors {
@@ -107,6 +109,7 @@ export function buildQuizResultsPayload(input: {
     last_name: contact.last_name.trim(),
     email: contact.email.trim(),
     phone: contact.phone.trim(),
+    sms_consent: contact.sms_consent === true,
   }
 }
 
@@ -127,6 +130,7 @@ export function bookingCalendarSrc(
   url.searchParams.set("last_name", contact.last_name.trim())
   url.searchParams.set("email", contact.email.trim())
   url.searchParams.set("phone", contact.phone.trim())
+  url.searchParams.set("sms_consent", contact.sms_consent === true ? "yes" : "no")
   return url.toString()
 }
 

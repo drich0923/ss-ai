@@ -1,6 +1,6 @@
 /* SS AI — Global styles (Next.js) */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { font-family: 'DM Sans', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+html, body { font-family: var(--f-body), -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
 html { scroll-behavior: smooth; }
 
 :root {
@@ -40,10 +40,10 @@ html { scroll-behavior: smooth; }
   --err: #ff5c5c;
 
   /* Type */
-  --f-display: 'Space Grotesk', 'DM Sans', system-ui, sans-serif;
-  --f-body: 'DM Sans', system-ui, sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --f-serif: 'DM Serif Display', serif;
+  --f-display: var(--font-space-grotesk), var(--font-dm-sans), system-ui, sans-serif;
+  --f-body: var(--font-dm-sans), system-ui, sans-serif;
+  --f-mono: var(--font-jetbrains-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  --f-serif: var(--font-dm-serif), Georgia, serif;
 
   /* Radii */
   --r-xs: 4px;
@@ -382,6 +382,12 @@ body {
 .footer-col a { color: var(--ink-dim); text-decoration: none; font-size: 13px; }
 .footer-col a:hover { color: var(--neon); }
 .footer-bottom { display: flex; justify-content: space-between; padding-top: 24px; gap: 20px; flex-wrap: wrap; letter-spacing: 0.12em; font-family: var(--f-mono); font-size: 11px; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.footer-legal a, .footer-legal button {
+  background: none; border: 0; padding: 0; color: var(--ink-mute);
+  font: inherit; letter-spacing: inherit; cursor: pointer; text-decoration: none;
+}
+.footer-legal a:hover, .footer-legal button:hover { color: var(--neon); }
 
 /* Audit Modal */
 .audit-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity .25s; }
@@ -666,3 +672,70 @@ body {
   .quiz-panel { animation: none; }
   .quiz-bar > span { transition: none; }
 }
+
+.sms-consent {
+  display: flex; gap: 12px; align-items: flex-start;
+  grid-column: 1 / -1;
+  font-size: 14px; line-height: 1.55; color: var(--ink-dim);
+}
+.sms-consent input {
+  width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; accent-color: var(--neon);
+}
+.sms-consent a { color: var(--ink); }
+.form-legal { display: flex; flex-wrap: wrap; gap: 14px; margin: 0; font-family: var(--f-mono); font-size: 12px; }
+.form-legal a { color: var(--ink-dim); }
+.form-legal a:hover { color: var(--neon); }
+
+.embed-blocked {
+  min-height: 280px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  gap: 14px; padding: 28px; background: #0a0a0a; color: var(--ink-dim); font-size: 15px; line-height: 1.5;
+}
+.quiz-calendar .embed-blocked, .audit-modal-body .embed-blocked { position: absolute; inset: 0; min-height: 0; }
+.quiz-calendar:has(.embed-blocked) { min-height: 320px; background: #0a0a0a; }
+.embed-blocked-title { margin: 0; color: var(--ink); font-family: var(--f-display); font-size: 24px; letter-spacing: -0.03em; }
+
+.consent-banner, .consent-dialog {
+  background: #0c0c0d; color: var(--ink-dim); border: 1px solid var(--line-strong); border-radius: 12px;
+  padding: 20px; display: grid; gap: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+.consent-banner {
+  position: fixed; z-index: 3000; left: 16px; right: 16px; bottom: 16px; max-width: 880px; margin: 0 auto;
+}
+.consent-dialog-backdrop {
+  position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.72);
+  display: flex; align-items: flex-end; justify-content: center; padding: 16px;
+}
+.consent-dialog { width: min(640px, 100%); margin-bottom: 8px; }
+.consent-dialog ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+.consent-kicker { margin: 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--neon); }
+.consent-banner p, .consent-dialog p { margin: 0; line-height: 1.5; }
+.consent-banner a, .consent-dialog a { color: var(--ink); }
+.consent-gpc { color: var(--ink); }
+.consent-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.consent-choice {
+  appearance: none; min-height: 48px; padding: 14px 18px; border-radius: 6px;
+  border: 1px solid var(--line-bright); background: transparent; color: var(--ink);
+  font-family: var(--f-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; cursor: pointer;
+}
+.consent-choice:hover { border-color: var(--ink); }
+.consent-choice:focus-visible, .footer-legal a:focus-visible, .footer-legal button:focus-visible {
+  outline: 2px solid var(--neon); outline-offset: 2px;
+}
+.consent-choice-inline { width: auto; min-width: 180px; }
+.consent-close {
+  justify-self: start; background: none; border: 0; padding: 0; color: var(--ink-mute);
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; cursor: pointer;
+}
+.consent-close:hover { color: var(--ink); }
+
+.legal-page { padding: 140px 0 80px; }
+.legal-prose { max-width: 760px; display: flex; flex-direction: column; gap: 14px; color: var(--ink-dim); font-size: 16px; line-height: 1.65; }
+.legal-prose h1 { font-family: var(--f-display); color: var(--ink); font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.03em; font-weight: 500; line-height: 1; }
+.legal-prose h2 { font-family: var(--f-display); color: var(--ink); font-size: 28px; font-weight: 500; letter-spacing: -0.03em; margin-top: 12px; }
+.legal-prose a { color: var(--neon); }
+.legal-prose ul, .legal-prose ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.legal-prose table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.legal-prose th, .legal-prose td { border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; padding: 10px 8px; }
+.legal-prose th { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); }
+.legal-placeholder { background: rgba(255, 180, 58, 0.16); color: var(--amber); padding: 0 4px; font-family: var(--f-mono); font-size: 0.92em; }
+.legal-note { border: 1px solid var(--line-strong); border-radius: 8px; padding: 12px 14px; color: var(--ink); }

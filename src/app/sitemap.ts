@@ -7,6 +7,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: siteUrl, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/quiz`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteUrl}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${siteUrl}/cookie-policy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${siteUrl}/terms`, lastModified, changeFrequency: "yearly", priority: 0.3 },
     ...guides.map(guide => ({
       url: `${siteUrl}${guide.path}`,
       lastModified,

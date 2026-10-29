@@ -1,6 +1,9 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect, useId, useLayoutEffect, useRef, useState, type FormEvent } from "react"
+import EmbedGate from "./EmbedGate"
+import { smsConsentSentence } from "@/lib/sms-consent"
 import {
   bookingCalendarSrc,
   buildQuizResultsPayload,
@@ -148,6 +151,7 @@ export default function TeamOsQuiz() {
       last_name: nextContact.last_name.trim(),
       email: nextContact.email.trim(),
       phone: nextContact.phone.trim(),
+      sms_consent: nextContact.sms_consent === true,
     }
     const id = sessionIdRef.current ?? createSessionId()
     sessionIdRef.current = id
@@ -448,7 +452,7 @@ function loadGhlEmbedScript(): Promise<void> {
   return ghlEmbedScript
 }
 
-function BookingCalendar({ src }: { src: string }) {
+function BookingFrame({ src }: { src: string }) {
   const reactId = useId()
   const frameId = `ghl-ss-intro-call1-${reactId.replace(/[^a-zA-Z0-9]/g, "")}`
   const iframeRef = useRef<HTMLIFrameElement>(null)
@@ -485,17 +489,34 @@ function BookingCalendar({ src }: { src: string }) {
   }, [])
 
   return (
-    <div className="quiz-calendar">
-      <iframe
-        ref={iframeRef}
-        id={frameId}
-        src={src}
-        title="Book an intro call"
-        width="100%"
-        scrolling="no"
-        style={{ border: "none", width: "100%" }}
-      />
-    </div>
+    <iframe
+      ref={iframeRef}
+      id={frameId}
+      src={src}
+      title="Book an intro call"
+      width="100%"
+      scrolling="no"
+      style={{ border: "none", width: "100%" }}
+    />
+  )
+}
+
+function BookingCalendar({ src }: { src: string }) {
+  return (
+    <>
+      <div className="quiz-calendar">
+        <EmbedGate
+          title="This calendar is hosted by GoHighLevel"
+          detail="The intro-call calendar stays off until you accept non-essential cookies. Your quiz result is already saved. Email sales@systemizedsales.ai if you would rather not load the calendar."
+        >
+          <BookingFrame src={src} />
+        </EmbedGate>
+      </div>
+      <p className="form-legal">
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/terms">Terms</Link>
+      </p>
+    </>
   )
 }
 
@@ -595,13 +616,28 @@ function ContactStep({
           onChange={value => update("phone", value)}
         />
       </div>
+      <label className="sms-consent" htmlFor={`quiz-sms-${reactId}`}>
+        <input
+          id={`quiz-sms-${reactId}`}
+          name="sms_consent"
+          type="checkbox"
+          checked={contact.sms_consent}
+          onChange={event => onChange({ ...contact, sms_consent: event.target.checked })}
+        />
+        <span>
+          {smsConsentSentence(contact.phone)}{" "}
+          <Link href="/privacy">Privacy Policy</Link>
+          {" and "}
+          <Link href="/terms">Terms</Link>.
+        </span>
+      </label>
       <div className="quiz-actions">
         <button type="submit" className="btn btn-primary quiz-primary">
           Show my results
         </button>
       </div>
       <p className="quiz-note">
-        By continuing you agree we can contact you about your results by email, phone or text. Reply STOP to opt out.
+        Submitting sends your answers so we can reply about your results. It is not consent to text messages. Text messages are sent only if the box above is checked.
       </p>
     </form>
   )

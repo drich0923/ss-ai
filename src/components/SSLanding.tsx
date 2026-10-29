@@ -8,6 +8,7 @@ import Logo from "./Logo"
 import { ecosystemModules, faqs, siteStats } from "@/lib/site-data"
 import { guideNav } from "@/lib/guide-nav"
 import GuideFooterLinks from "./GuideFooterLinks"
+import LegalFooterLinks from "./LegalFooterLinks"
 
 function Header({ onBook }: { onBook: () => void }) {
   const [scrolled, setScrolled] = useState(false)
@@ -644,6 +645,7 @@ function Footer() {
       </div>
       <div className="wrap footer-bottom">
         <span className="ink-mute">© 2026 SYSTEMIZED SALES AI</span>
+        <LegalFooterLinks />
         <span className="ink-mute">BUILT FOR HIGH-TICKET SALES TEAMS</span>
         <span className="status-dot-inline"><span className="live-dot" /> ALL SYSTEMS OPERATIONAL</span>
       </div>

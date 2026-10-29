@@ -7,6 +7,7 @@ import { ecosystemModules, productHasSeoTitle, productSeoTitle } from "@/lib/sit
 import { productExtras } from "@/lib/product-extras"
 import AuditModal from "./AuditModal"
 import GuideFooterLinks from "./GuideFooterLinks"
+import LegalFooterLinks from "./LegalFooterLinks"
 import Logo from "./Logo"
 
 function Header({ onBook }: { onBook: () => void }) {
@@ -70,6 +71,7 @@ function Footer() {
       </div>
       <div className="wrap footer-bottom">
         <span className="ink-mute">© 2026 SYSTEMIZED SALES AI</span>
+        <LegalFooterLinks />
         <span className="ink-mute">BUILT FOR HIGH-TICKET SALES TEAMS</span>
         <span className="status-dot-inline"><span className="live-dot" /> ALL SYSTEMS OPERATIONAL</span>
       </div>
