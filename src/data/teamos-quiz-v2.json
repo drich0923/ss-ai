@@ -1,0 +1,1126 @@
+{
+  "funnel": "teamos",
+  "version": 2,
+  "brand_site": "https://systemizedsales.ai",
+  "intro": {
+    "eyebrow": "Sales Team OS diagnostic",
+    "headline": "Where is your sales system leaking?",
+    "sub": "23 questions. About 6 minutes. You get a score across nine parts of your sales system, your top three leaks, the math on your own numbers, and fixes you can run this week. No email needed to see it.",
+    "start": "Run the diagnostic"
+  },
+  "numbers_intro": "Now the numbers. Rough is fine. Pick \"I don't know\" if you don't.",
+  "config": {
+    "_note": "Every value here is a DEFAULT, not an industry statistic. Dylan to confirm each one.",
+    "selling_days_per_month": 20,
+    "followup_illustration_rate_pct": 5,
+    "leak_threshold": 70,
+    "show_rate_bands": [
+      {
+        "min": 70,
+        "score": 4
+      },
+      {
+        "min": 60,
+        "score": 3
+      },
+      {
+        "min": 50,
+        "score": 2
+      },
+      {
+        "min": 40,
+        "score": 1
+      },
+      {
+        "min": 0,
+        "score": 0
+      }
+    ],
+    "close_rate_bands": [
+      {
+        "min": 30,
+        "score": 4
+      },
+      {
+        "min": 25,
+        "score": 3
+      },
+      {
+        "min": 20,
+        "score": 2
+      },
+      {
+        "min": 15,
+        "score": 1
+      },
+      {
+        "min": 0,
+        "score": 0
+      }
+    ],
+    "show_rate_target_pct": 70,
+    "close_rate_target_pct": 30,
+    "speed_to_lead_target_minutes": 5,
+    "booking_window_test_hours": 72,
+    "no_show_touches_target": 5,
+    "max_quick_wins": 5,
+    "display_rounding": "counts to whole numbers, except sales (closes), which show 1 decimal; rates and per-day figures to 1 decimal; money to whole dollars, and money of 1,000 or more to the nearest 100. Math runs on unrounded values."
+  },
+  "categories": [
+    {
+      "id": "hiring",
+      "name": "Hiring system",
+      "part": "Hiring App",
+      "good": "There's a vetted bench before anyone quits. Every candidate roleplays your offer before an offer letter.",
+      "leak": {
+        "title": "Hiring starts when someone quits",
+        "looks_like": "Replacement plan: {hr_source}. Vetting: {hr_vet}.",
+        "why": "Every gap between closers is a month of leads worked by whoever's left. Usually you.",
+        "fixes": [
+          "Keep one job post live all the time. Interview two people a week, even when you're full.",
+          "Make every candidate roleplay your actual offer for 15 minutes.",
+          "Write the three things your best closer does that your last bad hire didn't. Hire for those."
+        ],
+        "cta_line": "The Hiring App keeps a vetted bench, so the next closer is already waiting."
+      }
+    },
+    {
+      "id": "ramp",
+      "name": "Onboarding and ramp",
+      "part": "Closer Onboarding",
+      "good": "New reps study real calls, roleplay daily, and certify before live leads. First close inside a few weeks.",
+      "leak": {
+        "title": "New reps take too long to pay for themselves",
+        "looks_like": "First close for a new closer: {rp_first}. Day one gets them: {rp_day1}.",
+        "why": "A rep who takes three months to ramp burns three months of leads at a lower close rate.",
+        "fixes": [
+          "Pick your 10 best recorded calls. That's week one.",
+          "Certify before live leads: they pitch you the offer and handle your top three objections.",
+          "Fifteen-minute roleplay every day for a new rep's first two weeks."
+        ],
+        "cta_line": "Closer Onboarding gives every new rep the same first two weeks, without you running it."
+      }
+    },
+    {
+      "id": "speed",
+      "name": "Speed to lead",
+      "part": "Speed to Lead",
+      "good": "Every new lead gets a call inside 5 minutes, and time-to-first-call is reported by rep.",
+      "leak": {
+        "title": "Speed to lead depends on who's free",
+        "looks_like": "First call happens: {sl_speed}.",
+        "why": "The lead was most interested the minute they opted in. Every hour after that, someone else's ad is in their feed.",
+        "fixes": [
+          "Instant text and a call task the second a lead comes in.",
+          "Report time-to-first-call by rep every morning.",
+          "Set a five-day call and text cadence for leads who don't pick up."
+        ],
+        "cta_line": "Speed to Lead routes and timestamps every new lead, so nothing sits."
+      }
+    },
+    {
+      "id": "qc",
+      "name": "Call QC and coaching",
+      "part": "AI Call Coaching",
+      "good": "Every call gets scored against one written scorecard. Reps see their scores every week.",
+      "leak": {
+        "title": "Nobody knows what happens on the calls",
+        "looks_like": "Calls reviewed: {qc_share}. Feedback: {qc_feedback}.",
+        "looks_like_numbers": "Calls reviewed: {qc_share}. {close_pct}% of held calls close. Each 5 points of close rate is worth about ${close5} a month.",
+        "why": "Close rate gets made on the calls. If nobody's listening, the same objection loses the same deal every week.",
+        "fixes": [
+          "Write a 10-line scorecard. Every review uses it.",
+          "Score two calls per rep this week. Share the scores with the team.",
+          "Pull three lost calls. Find the minute the prospect checked out."
+        ],
+        "cta_line": "AI Call Coaching scores every call against your scorecard, not just the ones someone had time for."
+      }
+    },
+    {
+      "id": "cadence",
+      "name": "Manager cadence and EOD",
+      "part": "Manager OS",
+      "good": "A manager runs the daily huddle and weekly one-on-ones. EODs come in structured and get a reply.",
+      "leak": {
+        "title": "The team runs on someone's evenings",
+        "looks_like": "Day to day, the team is managed by: {cd_who}. EOD reports: {cd_eod}.",
+        "why": "If the cadence depends on one person's free time, it stops the week that person gets busy.",
+        "fixes": [
+          "Three numbers and one question in every EOD. Reply to each by 9 a.m.",
+          "Fifteen-minute huddle every morning: yesterday's numbers, today's calls, one skill.",
+          "Weekly one-on-one with each rep: their numbers, one call clip, one goal."
+        ],
+        "cta_line": "Manager OS runs the EOD, huddle, and one-on-one rhythm so it doesn't live in one head."
+      }
+    },
+    {
+      "id": "tracking",
+      "name": "Setter and closer tracking",
+      "part": "Phone & DM Setter Trackers, QC Dashboard",
+      "good": "Every rep's booked, showed, closed, and collected is visible today. Show rate is split by who booked it.",
+      "leak": {
+        "title": "You see team totals, not reps",
+        "looks_like": "Numbers by rep: {tr_rep}. Show rate split: {tr_split}. Core numbers you didn't know: {unknown_count} of 4.",
+        "looks_like_numbers": "You booked {booked} and {show_pct}% showed. Each 5 points of show rate is worth about ${show5} a month. Numbers by rep: {tr_rep}. Show rate split: {tr_split}.",
+        "why": "A blended number hides the rep dragging it down and the setter carrying it.",
+        "fixes": [
+          "One sheet, one row per rep: booked, showed, closed, collected. Updated daily.",
+          "Tag every booking setter or self. Compare show rates next Friday.",
+          "Review cash per booked call every Monday."
+        ],
+        "cta_line": "The Setter Trackers and QC Dashboard show every rep's numbers live."
+      }
+    },
+    {
+      "id": "comp",
+      "name": "Commission and pay",
+      "part": "Commission Tracker",
+      "good": "Commission is calculated from collected cash, automatically, with a written clawback rule.",
+      "leak": {
+        "title": "Commission is a monthly argument",
+        "looks_like": "Commissions: {cp_calc}. Reps are paid on: {cp_basis}.",
+        "why": "Paying on closed means paying on deals that never collect. Hand math means disputes, and disputes cost you good reps.",
+        "fixes": [
+          "Reconcile last month's commissions against Stripe before the next payout.",
+          "Pay on collected cash. Write the clawback rule down.",
+          "Send each rep a statement: deals, cash collected, commission. Same format every time."
+        ],
+        "cta_line": "The Commission Tracker pays from collected cash, automatically."
+      }
+    },
+    {
+      "id": "data",
+      "name": "CRM and data trust",
+      "part": "RevPhlo",
+      "good": "CRM, Stripe, and the manager's numbers agree to the dollar. Every call outcome is logged the same day.",
+      "leak": {
+        "title": "Three systems, three numbers",
+        "looks_like": "CRM vs Stripe vs manager: {dt_agree}. Call outcomes logged: {dt_log}.",
+        "why": "If the numbers don't agree, every meeting is about whose number is right instead of what to fix.",
+        "fixes": [
+          "Put last month's CRM cash and Stripe cash side by side. Find the gap.",
+          "No commission until the call outcome is logged.",
+          "Pick one source of truth for cash and tell the team which one."
+        ],
+        "cta_line": "RevPhlo ties GHL, Stripe, and Fathom together so there's one number."
+      }
+    },
+    {
+      "id": "playbooks",
+      "name": "Playbooks",
+      "part": "Closer & Setter Playbooks",
+      "good": "Scripts and objection handling are written, dated, and updated from real calls.",
+      "leak": {
+        "title": "The playbook lives in someone's head",
+        "looks_like": "Scripts and objections: {pb_script}.",
+        "why": "If it isn't written down, every rep runs a different pitch and nobody can coach to a standard.",
+        "fixes": [
+          "Transcribe your top rep's best call. That's version one.",
+          "List your top five objections and the answer that works. One page.",
+          "Date the script. Review it every month."
+        ],
+        "cta_line": "The Closer and Setter Playbooks come written, then get tuned to your calls."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "cd_who",
+      "category": "cadence",
+      "type": "choice",
+      "text": "Who manages the sales team day to day?",
+      "options": [
+        {
+          "label": "A sales manager",
+          "score": 4,
+          "points": {
+            "a2": 2
+          }
+        },
+        {
+          "label": "A senior closer, part-time",
+          "score": 2,
+          "points": {
+            "a1": 1
+          }
+        },
+        {
+          "label": "I do",
+          "score": 1,
+          "points": {
+            "a1": 3
+          }
+        },
+        {
+          "label": "Nobody. We keep rehiring.",
+          "score": 0,
+          "points": {
+            "a3": 2
+          }
+        }
+      ],
+      "quick_win": "Put a name next to \"runs the huddle\" and \"reviews calls\". Even if it's yours."
+    },
+    {
+      "id": "cd_eod",
+      "category": "cadence",
+      "type": "choice",
+      "text": "End-of-day reports from reps. What happens to them?",
+      "options": [
+        {
+          "label": "Structured, someone replies daily",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "They come in. Nobody reads them.",
+          "score": 1,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "I read every one at night",
+          "score": 1,
+          "points": {
+            "a1": 2
+          }
+        },
+        {
+          "label": "No EOD reports",
+          "score": 0,
+          "points": {}
+        }
+      ],
+      "quick_win": "Three numbers and one question in every EOD. Reply by 9 a.m."
+    },
+    {
+      "id": "hr_source",
+      "category": "hiring",
+      "type": "choice",
+      "text": "Your best closer quits tomorrow. Where's the replacement?",
+      "options": [
+        {
+          "label": "Vetted candidates already waiting",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "We'd post a job",
+          "score": 1,
+          "points": {
+            "a3": 1
+          }
+        },
+        {
+          "label": "Ask around for referrals",
+          "score": 1,
+          "points": {
+            "a3": 1
+          }
+        },
+        {
+          "label": "I'd take the calls",
+          "score": 0,
+          "points": {
+            "a1": 2
+          }
+        }
+      ],
+      "quick_win": "Keep a job post live even when you're full. Interview two a week."
+    },
+    {
+      "id": "hr_vet",
+      "category": "hiring",
+      "type": "choice",
+      "text": "How do candidates prove they can sell before you hire?",
+      "options": [
+        {
+          "label": "Roleplay on our actual offer",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Interview and past numbers",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "Interview only",
+          "score": 1,
+          "points": {
+            "a3": 1
+          }
+        },
+        {
+          "label": "Gut feel",
+          "score": 0,
+          "points": {
+            "a3": 1
+          }
+        }
+      ],
+      "quick_win": "Make the next candidate roleplay your offer for 15 minutes."
+    },
+    {
+      "id": "rp_first",
+      "category": "ramp",
+      "type": "choice",
+      "text": "How long until a new closer closes a deal?",
+      "options": [
+        {
+          "label": "Under two weeks",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Two to four weeks",
+          "score": 3,
+          "points": {}
+        },
+        {
+          "label": "One to three months",
+          "score": 1,
+          "points": {
+            "a3": 1
+          }
+        },
+        {
+          "label": "Most never do",
+          "score": 0,
+          "points": {
+            "a1": 1,
+            "a3": 1
+          }
+        },
+        {
+          "label": "Haven't hired one yet",
+          "score": 1,
+          "points": {
+            "a1": 2
+          }
+        }
+      ],
+      "quick_win": "Write a two-week ramp with a certification before live leads."
+    },
+    {
+      "id": "rp_day1",
+      "category": "ramp",
+      "type": "choice",
+      "text": "What does a new rep get on day one?",
+      "options": [
+        {
+          "label": "Playbook, recorded calls, certification",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Shadowing a top rep",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "Time with me",
+          "score": 1,
+          "points": {
+            "a1": 1
+          }
+        },
+        {
+          "label": "A login and good luck",
+          "score": 0,
+          "points": {
+            "a3": 1
+          }
+        }
+      ],
+      "quick_win": "Pick your 10 best recorded calls. That's onboarding week one."
+    },
+    {
+      "id": "sl_speed",
+      "category": "speed",
+      "type": "choice",
+      "text": "A lead opts in or books. How fast does someone call?",
+      "options": [
+        {
+          "label": "Under 5 minutes",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "5 to 30 minutes",
+          "score": 3,
+          "points": {}
+        },
+        {
+          "label": "30 minutes to 2 hours",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "Same day",
+          "score": 1,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "Next day or later",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "Nobody calls. They self-book.",
+          "score": 1,
+          "points": {
+            "a1": 1
+          }
+        }
+      ],
+      "quick_win": "Instant text and a call task the second a lead comes in."
+    },
+    {
+      "id": "qc_share",
+      "category": "qc",
+      "type": "choice",
+      "text": "What share of recorded sales calls get reviewed?",
+      "options": [
+        {
+          "label": "All of them, scored",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "A few per rep, weekly",
+          "score": 3,
+          "points": {}
+        },
+        {
+          "label": "Only the bad ones",
+          "score": 1,
+          "points": {}
+        },
+        {
+          "label": "None",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        }
+      ],
+      "quick_win": "Score two calls per rep this week against one scorecard."
+    },
+    {
+      "id": "qc_feedback",
+      "category": "qc",
+      "type": "choice",
+      "text": "How does a rep get feedback on a call?",
+      "options": [
+        {
+          "label": "Scored against a written scorecard",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Loom or Slack notes",
+          "score": 2,
+          "points": {
+            "a1": 1
+          }
+        },
+        {
+          "label": "When they ask",
+          "score": 1,
+          "points": {}
+        },
+        {
+          "label": "They don't",
+          "score": 0,
+          "points": {}
+        }
+      ],
+      "quick_win": "Write a 10-line scorecard. Every review uses it."
+    },
+    {
+      "id": "tr_rep",
+      "category": "tracking",
+      "type": "choice",
+      "text": "Can you see each rep's numbers today?",
+      "options": [
+        {
+          "label": "Live, by rep",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Weekly, in a sheet",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "Only team totals",
+          "score": 1,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "No",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        }
+      ],
+      "quick_win": "One sheet, one row per rep: booked, showed, closed, collected."
+    },
+    {
+      "id": "tr_split",
+      "category": "tracking",
+      "type": "choice",
+      "text": "Is show rate split by setter-booked vs self-booked?",
+      "options": [
+        {
+          "label": "Yes, split",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "No, it's blended",
+          "score": 1,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "No setters yet",
+          "score": 2,
+          "points": {
+            "a1": 1
+          }
+        },
+        {
+          "label": "We don't track show rate",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        }
+      ],
+      "quick_win": "Tag every booking setter or self. Compare show rates Friday."
+    },
+    {
+      "id": "cp_calc",
+      "category": "comp",
+      "type": "choice",
+      "text": "How are commissions calculated each pay period?",
+      "options": [
+        {
+          "label": "Automatically, from collected cash",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "A spreadsheet, by hand",
+          "score": 2,
+          "points": {
+            "a1": 1
+          }
+        },
+        {
+          "label": "By hand, with disputes",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "Reps tell us what they're owed",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        }
+      ],
+      "quick_win": "Reconcile last month's commissions against Stripe before payout."
+    },
+    {
+      "id": "cp_basis",
+      "category": "comp",
+      "type": "choice",
+      "text": "Are reps paid on cash closed or cash collected?",
+      "options": [
+        {
+          "label": "Collected",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Closed",
+          "score": 1,
+          "points": {}
+        },
+        {
+          "label": "Depends on the deal",
+          "score": 1,
+          "points": {
+            "a1": 1
+          }
+        },
+        {
+          "label": "Not sure",
+          "score": 0,
+          "points": {}
+        }
+      ],
+      "quick_win": "Pay on collected. Write the clawback rule down."
+    },
+    {
+      "id": "dt_agree",
+      "category": "data",
+      "type": "choice",
+      "text": "Do CRM, Stripe, and the manager agree on last month's cash?",
+      "options": [
+        {
+          "label": "Yes, to the dollar",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Close enough",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "No",
+          "score": 0,
+          "points": {
+            "a2": 2
+          }
+        },
+        {
+          "label": "Never checked",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        }
+      ],
+      "quick_win": "Put CRM cash and Stripe cash for last month side by side."
+    },
+    {
+      "id": "dt_log",
+      "category": "data",
+      "type": "choice",
+      "text": "How often do reps log call outcomes in the CRM?",
+      "options": [
+        {
+          "label": "Every call, same day",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Most calls",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "When someone reminds them",
+          "score": 1,
+          "points": {
+            "a2": 1
+          }
+        },
+        {
+          "label": "They don't",
+          "score": 0,
+          "points": {
+            "a2": 1
+          }
+        }
+      ],
+      "quick_win": "No commission until the call outcome is logged."
+    },
+    {
+      "id": "pb_script",
+      "category": "playbooks",
+      "type": "choice",
+      "text": "Are scripts and objection handling written down?",
+      "options": [
+        {
+          "label": "Written, updated this quarter",
+          "score": 4,
+          "points": {}
+        },
+        {
+          "label": "Written, out of date",
+          "score": 2,
+          "points": {}
+        },
+        {
+          "label": "In the top rep's head",
+          "score": 0,
+          "points": {
+            "a3": 1
+          }
+        },
+        {
+          "label": "In my head",
+          "score": 0,
+          "points": {
+            "a1": 1
+          }
+        }
+      ],
+      "quick_win": "Transcribe your top rep's best call this week."
+    },
+    {
+      "id": "n_booked",
+      "category": "tracking",
+      "type": "number",
+      "text": "Sales calls booked last month?",
+      "unit": "count",
+      "var": "booked",
+      "allow_unknown": true,
+      "known_scores_category": "tracking",
+      "min": 0,
+      "help": "Rough is fine. Unknown is an answer too."
+    },
+    {
+      "id": "n_show",
+      "category": "tracking",
+      "type": "number",
+      "text": "What percent of booked calls showed?",
+      "unit": "pct",
+      "var": "show_pct",
+      "allow_unknown": true,
+      "known_scores_category": "tracking",
+      "min": 0,
+      "max": 100,
+      "score_bands": "show_rate_bands"
+    },
+    {
+      "id": "n_close",
+      "category": "qc",
+      "type": "number",
+      "text": "Of calls that showed, what percent closed?",
+      "unit": "pct",
+      "var": "close_pct",
+      "allow_unknown": true,
+      "known_scores_category": "tracking",
+      "min": 0,
+      "max": 100,
+      "score_bands": "close_rate_bands"
+    },
+    {
+      "id": "n_cash",
+      "category": "comp",
+      "type": "number",
+      "text": "Average cash collected per sale?",
+      "unit": "money",
+      "var": "cash_per_sale",
+      "allow_unknown": true,
+      "known_scores_category": "tracking",
+      "min": 0,
+      "help": "Collected, not contract value."
+    },
+    {
+      "id": "n_closers",
+      "category": "tracking",
+      "type": "number",
+      "text": "How many closers?",
+      "unit": "count",
+      "var": "closers",
+      "allow_unknown": true,
+      "known_scores_category": null,
+      "min": 0
+    },
+    {
+      "id": "n_setters",
+      "category": "tracking",
+      "type": "number",
+      "text": "How many setters?",
+      "unit": "count",
+      "var": "setters",
+      "allow_unknown": true,
+      "known_scores_category": null,
+      "min": 0
+    },
+    {
+      "id": "open_other",
+      "category": null,
+      "type": "open",
+      "optional": true,
+      "text": "Anything else breaking in sales right now? Optional."
+    }
+  ],
+  "archetypes": [
+    {
+      "id": "a1",
+      "name": "Owner runs the team",
+      "means": "You have a team. The system is you. When you step out, it stops."
+    },
+    {
+      "id": "a2",
+      "name": "Manager with numbers nobody trusts",
+      "means": "You have a manager. The data underneath isn't strong enough to manage with."
+    },
+    {
+      "id": "a3",
+      "name": "Hiring treadmill",
+      "means": "You keep hiring. The system to ramp and keep reps isn't there yet."
+    }
+  ],
+  "archetype_tiebreak": [
+    "a2",
+    "a1",
+    "a3"
+  ],
+  "math": [
+    {
+      "id": "shows",
+      "formula": "booked * show_pct / 100",
+      "needs": [
+        "booked",
+        "show_pct"
+      ],
+      "line": "{booked} booked x {show_pct}% showed = {shows} calls held"
+    },
+    {
+      "id": "no_shows",
+      "formula": "booked - shows",
+      "needs": [
+        "booked",
+        "show_pct"
+      ],
+      "line": null
+    },
+    {
+      "id": "closes",
+      "formula": "shows * close_pct / 100",
+      "needs": [
+        "booked",
+        "show_pct",
+        "close_pct"
+      ],
+      "line": "{shows} held x {close_pct}% closed = {closes} sales"
+    },
+    {
+      "id": "unclosed",
+      "formula": "shows - closes",
+      "needs": [
+        "booked",
+        "show_pct",
+        "close_pct"
+      ],
+      "line": null
+    },
+    {
+      "id": "cash",
+      "formula": "closes * cash_per_sale",
+      "needs": [
+        "booked",
+        "show_pct",
+        "close_pct",
+        "cash_per_sale"
+      ],
+      "line": "{closes} sales x ${cash_per_sale} collected = ${cash} a month",
+      "money": true
+    },
+    {
+      "id": "cash_per_booked",
+      "formula": "cash / booked",
+      "needs": [
+        "booked",
+        "show_pct",
+        "close_pct",
+        "cash_per_sale"
+      ],
+      "line": "Cash per booked call: ${cash_per_booked}",
+      "money": true
+    },
+    {
+      "id": "show5",
+      "formula": "booked * 0.05 * close_pct / 100 * cash_per_sale",
+      "needs": [
+        "booked",
+        "close_pct",
+        "cash_per_sale"
+      ],
+      "line": "Each 5 points of show rate: about ${show5} a month",
+      "money": true
+    },
+    {
+      "id": "close5",
+      "formula": "shows * 0.05 * cash_per_sale",
+      "needs": [
+        "booked",
+        "show_pct",
+        "cash_per_sale"
+      ],
+      "line": "Each 5 points of close rate: about ${close5} a month",
+      "money": true
+    },
+    {
+      "id": "fu_value",
+      "formula": "(unclosed + no_shows) * config.followup_illustration_rate_pct / 100 * close_pct / 100 * cash_per_sale",
+      "needs": [
+        "booked",
+        "show_pct",
+        "close_pct",
+        "cash_per_sale"
+      ],
+      "line": null,
+      "money": true,
+      "_note": "Illustration only: if follow-up turned 5% (config) of non-buyers and no-shows into held calls closing at their own close rate."
+    },
+    {
+      "id": "shows_per_closer_day",
+      "formula": "shows / closers / config.selling_days_per_month",
+      "needs": [
+        "booked",
+        "show_pct",
+        "closers"
+      ],
+      "line": "Held calls per closer per selling day: {shows_per_closer_day}",
+      "decimals": 1
+    },
+    {
+      "id": "setters_per_closer",
+      "formula": "setters / closers",
+      "needs": [
+        "setters",
+        "closers"
+      ],
+      "line": "Setters per closer: {setters_per_closer}",
+      "decimals": 1
+    }
+  ],
+  "grade_bands": [
+    {
+      "min": 85,
+      "grade": "A",
+      "line": "Tight. The leaks are small. Protect what works."
+    },
+    {
+      "min": 70,
+      "grade": "B",
+      "line": "Solid, with a couple of real leaks."
+    },
+    {
+      "min": 55,
+      "grade": "C",
+      "line": "You're selling in spite of the system."
+    },
+    {
+      "min": 40,
+      "grade": "D",
+      "line": "Leaking every week. Start with the top one."
+    },
+    {
+      "min": 0,
+      "grade": "F",
+      "line": "The pipeline is a sieve. Fix the top leak first."
+    }
+  ],
+  "scoring": {
+    "option_score_range": [
+      0,
+      4
+    ],
+    "category_score": "round(mean(item scores in category) / 4 * 100). Items = answered choice questions in the category + number questions with score_bands in the category (unknown = skipped there) + known/unknown items routed via known_scores_category (known = 4, unknown = 0). Categories with no items are left out.",
+    "overall_score": "round(mean(category scores))",
+    "rounding": "round() is round half up (12.5 -> 13), same as JavaScript Math.round for positive numbers. Not banker's rounding.",
+    "grade": "first grade band where overall_score >= min",
+    "archetype": "sum option points per archetype; highest total wins; ties broken by archetype_tiebreak order; all zero = first in tiebreak order",
+    "leaks": "one leak per category. A category is a leak if its score < config.leak_threshold. Rank leaks by category score ascending; ties broken by category order. Show the top 3. If fewer than 3 qualify, show only those.",
+    "severity": [
+      {
+        "max": 39,
+        "label": "Severe"
+      },
+      {
+        "max": 54,
+        "label": "Major"
+      },
+      {
+        "max": 69,
+        "label": "Moderate"
+      }
+    ],
+    "looks_like": "Use looks_like_numbers if every {token} in it resolves, else looks_like. Choice tokens {question_id} resolve to the chosen option label. Math tokens resolve from math outputs.",
+    "quick_wins": "For every answered choice option with score <= 1, take that question's quick_win. Order by category score ascending, then question order. Cap at config.max_quick_wins."
+  },
+  "results_copy": {
+    "heading": "Your sales system diagnostic",
+    "leaks_heading": "Your top 3 leaks",
+    "math_heading": "Your numbers, your math",
+    "math_note": "Only your inputs. Rounded. Nothing here is a forecast.",
+    "quick_wins_heading": "Quick wins this week",
+    "good_heading": "What good looks like",
+    "no_leaks": "Nothing scored under the leak line. The work is keeping it there.",
+    "no_math": "You skipped the numbers, so there's no math. That's a finding too."
+  },
+  "cta": {
+    "heading": "Want us to fix this with you?",
+    "lead_in": "Your top leak is {top_leak}.",
+    "url": "https://link.automatedrev.com/widget/bookings/ss-intro-call1",
+    "button": "Book an intro call",
+    "submit_line": "Takes you to book a free intro call. Nothing is charged.",
+    "prefill": {
+      "first_name": "first word of name",
+      "last_name": "rest of name",
+      "email": "email"
+    },
+    "fields": [
+      "name",
+      "email"
+    ],
+    "checkboxes": []
+  },
+  "brand": {
+    "site": "https://systemizedsales.ai",
+    "platform": "Next.js",
+    "logo_url": "https://systemizedsales.ai/systemized-sales-logo.svg",
+    "logo_local": "/workspace/quizfunnels/brand/ssai-logo.svg",
+    "logo_size": [
+      129,
+      43
+    ],
+    "logo_note": "Byte-identical to the systemizedsales.com White Logo.svg (same md5). White fill.",
+    "css_source": "https://systemizedsales.ai/_next/static/chunks/fa4be0cb3a6cf61e.css",
+    "colors": {
+      "bg": "#050505",
+      "bg_raised": "#0a0a0a",
+      "bg_card": "#0c0c0d",
+      "bg_inset": "#070708",
+      "ink": "#f5f5f3",
+      "ink_dim": "#b8b8b2",
+      "ink_mute": "#78786f",
+      "ink_faint": "#4a4a43",
+      "line": "#ffffff12",
+      "line_strong": "#ffffff24",
+      "neon": "#9cff4f",
+      "neon_dim": "#6fc438",
+      "neon_glow": "#9cff4f59",
+      "neon_wash": "#9cff4f14",
+      "amber_warn": "#ffb43a",
+      "err": "#ff5c5c",
+      "coral": "#ff6b4a",
+      "blue": "#4f8cff"
+    },
+    "fonts": {
+      "display": "Space Grotesk 500, letter-spacing -.035em",
+      "body": "DM Sans 15px / 1.55",
+      "mono": "JetBrains Mono (buttons, labels)",
+      "google_fonts_css": "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    },
+    "buttons": {
+      ".btn": "JetBrains Mono 13px weight 500, letter-spacing .04em, radius 6px, padding 14px 22px",
+      ".btn-primary": "bg #9cff4f, text #050505, box-shadow 0 0 0 1px #9cff4f, 0 8px 30px -10px #9cff4f59; hover translateY(-1px)",
+      "header_cta_text": "Book a call \u2192"
+    }
+  }
+}
