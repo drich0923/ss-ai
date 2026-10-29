@@ -58,6 +58,7 @@ function sanitizeContact(raw: unknown): QuizContact {
   for (const key of ["first_name", "last_name", "email", "phone"] as const) {
     if (typeof value[key] === "string") contact[key] = value[key]
   }
+  contact.sms_consent = value.sms_consent === true
   return contact
 }
 

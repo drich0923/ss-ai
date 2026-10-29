@@ -23,7 +23,7 @@ test("a submitted draft reopens on results and keeps contact", () => {
     stage: "contact",
     index: 3,
     answers: { choice: { cd_who: 0 }, nums: { n_show: null }, text: {} },
-    contact: { first_name: "Ada", last_name: "Lovelace", email: "ada@example.com", phone: "4155550100" },
+    contact: { first_name: "Ada", last_name: "Lovelace", email: "ada@example.com", phone: "4155550100", sms_consent: true },
     sessionId: "sess-1",
     posted: true,
   })
@@ -32,6 +32,7 @@ test("a submitted draft reopens on results and keeps contact", () => {
   assert.equal(draft?.posted, true)
   assert.equal(draft?.sessionId, "sess-1")
   assert.equal(draft?.contact.email, "ada@example.com")
+  assert.equal(draft?.contact.sms_consent, true)
   assert.equal(draft?.answers.choice.cd_who, 0)
   assert.equal(draft?.answers.nums.n_show, null)
 })
@@ -43,13 +44,28 @@ test("results without a successful submit return to the contact step", () => {
       stage: "results",
       index: 22,
       answers: { choice: {}, nums: {}, text: {} },
-      contact: { first_name: "Ada", last_name: "Lovelace", email: "ada@example.com", phone: "4155550100" },
+      contact: { first_name: "Ada", last_name: "Lovelace", email: "ada@example.com", phone: "4155550100", sms_consent: true },
       sessionId: null,
       posted: false,
     }),
   )
   assert.equal(draft?.stage, "contact")
   assert.equal(draft?.posted, false)
+})
+
+test("a draft saved before the SMS checkbox existed stays opted out", () => {
+  const draft = parseQuizDraft(
+    JSON.stringify({
+      v: 1,
+      stage: "contact",
+      index: 22,
+      answers: { choice: {}, nums: {}, text: {} },
+      contact: { first_name: "Ada", last_name: "Lovelace", email: "ada@example.com", phone: "4155550100" },
+      sessionId: null,
+      posted: false,
+    }),
+  )
+  assert.equal(draft?.contact.sms_consent, false)
 })
 
 test("corrupt drafts are ignored", () => {
