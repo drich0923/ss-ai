@@ -1,12 +1,17 @@
 "use client"
 
-import { useEffect, useId, useLayoutEffect, useRef, useState } from "react"
+import { useEffect, useId, useLayoutEffect, useRef, useState, type FormEvent } from "react"
 import {
   bookingCalendarSrc,
   buildQuizResultsPayload,
   createSessionId,
+  emptyQuizContact,
   submitQuizResults,
+  validateQuizContact,
+  type QuizContact,
+  type QuizContactErrors,
 } from "@/lib/quiz-results"
+import { loadQuizDraft, saveQuizDraft, type QuizStage } from "@/lib/quiz-session"
 import {
   numberIsValid,
   quizQuestions,
@@ -16,8 +21,6 @@ import {
   type DiagnosticResult,
   type QuizQuestion,
 } from "@/lib/teamos-quiz"
-
-type Stage = "intro" | "quiz" | "results"
 
 const emptyAnswers = (): Answers => ({ choice: {}, nums: {}, text: {} })
 
@@ -31,27 +34,65 @@ function draftFor(question: QuizQuestion, answers: Answers): string {
 }
 
 export default function TeamOsQuiz() {
-  const [stage, setStage] = useState<Stage>("intro")
+  const [stage, setStage] = useState<QuizStage>("intro")
   const [index, setIndex] = useState(0)
   const [answers, setAnswers] = useState<Answers>(emptyAnswers)
   const [draft, setDraft] = useState("")
+  const [contact, setContact] = useState<QuizContact>(emptyQuizContact)
+  const [sessionId, setSessionId] = useState<string | null>(null)
+  const [posted, setPosted] = useState(false)
+  const [hydrated, setHydrated] = useState(false)
   const frameRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const postedRef = useRef(false)
+  const sessionIdRef = useRef<string | null>(null)
   const question = quizQuestions[index]
   const total = quizQuestions.length
   const result = stage === "results" ? scoreDiagnostic(answers) : null
-  const progress = stage === "results" ? 100 : stage === "quiz" ? Math.round((index / total) * 100) : 0
+  const progress = stage === "results" || stage === "contact" ? 100 : stage === "quiz" ? Math.round((index / total) * 100) : 0
+
+  useLayoutEffect(() => {
+    const stored = loadQuizDraft(window.sessionStorage)
+    if (stored) {
+      setStage(stored.stage)
+      setIndex(stored.index)
+      setAnswers(stored.answers)
+      setContact(stored.contact)
+      setSessionId(stored.sessionId)
+      setPosted(stored.posted)
+      postedRef.current = stored.posted
+      sessionIdRef.current = stored.sessionId
+      if (stored.stage === "quiz") {
+        const restored = quizQuestions[stored.index]
+        if (restored) setDraft(draftFor(restored, stored.answers))
+      }
+    }
+    setHydrated(true)
+  }, [])
 
   useEffect(() => {
-    if (stage === "intro") return
+    if (!hydrated) return
+    saveQuizDraft(window.sessionStorage, {
+      v: 1,
+      stage,
+      index,
+      answers,
+      contact,
+      sessionId,
+      posted,
+    })
+  }, [hydrated, stage, index, answers, contact, sessionId, posted])
+
+  useEffect(() => {
+    if (!hydrated || stage === "intro") return
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     frameRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" })
     headingRef.current?.focus()
-  }, [stage, index])
+  }, [hydrated, stage, index])
 
   function goTo(nextIndex: number, nextAnswers: Answers) {
     if (nextIndex >= total) {
-      setStage("results")
+      setStage("contact")
       return
     }
     setStage("quiz")
@@ -87,6 +128,10 @@ export default function TeamOsQuiz() {
 
   function back() {
     if (stage === "results") {
+      setStage("contact")
+      return
+    }
+    if (stage === "contact") {
       goTo(total - 1, answers)
       return
     }
@@ -95,6 +140,73 @@ export default function TeamOsQuiz() {
       return
     }
     goTo(index - 1, answers)
+  }
+
+  function showResults(nextContact: QuizContact) {
+    const trimmed: QuizContact = {
+      first_name: nextContact.first_name.trim(),
+      last_name: nextContact.last_name.trim(),
+      email: nextContact.email.trim(),
+      phone: nextContact.phone.trim(),
+    }
+    const id = sessionIdRef.current ?? createSessionId()
+    sessionIdRef.current = id
+    if (!postedRef.current) {
+      postedRef.current = true
+      const pageUrl = window.location.href
+      submitQuizResults(
+        buildQuizResultsPayload({
+          sessionId: id,
+          result: scoreDiagnostic(answers),
+          answers,
+          pageUrl,
+          submittedAt: new Date().toISOString(),
+          contact: trimmed,
+        }),
+      )
+      const page = new URL(pageUrl)
+      page.searchParams.set("quiz_session_id", id)
+      window.history.replaceState(window.history.state, "", `${page.pathname}${page.search}${page.hash}`)
+    }
+    saveQuizDraft(window.sessionStorage, {
+      v: 1,
+      stage: "results",
+      index,
+      answers,
+      contact: trimmed,
+      sessionId: id,
+      posted: true,
+    })
+    setSessionId(id)
+    setPosted(true)
+    setContact(trimmed)
+    setStage("results")
+  }
+
+  function restart() {
+    postedRef.current = false
+    sessionIdRef.current = null
+    setPosted(false)
+    setSessionId(null)
+    setContact(emptyQuizContact())
+    setAnswers(emptyAnswers())
+    setDraft("")
+    setIndex(0)
+    setStage("intro")
+    saveQuizDraft(window.sessionStorage, {
+      v: 1,
+      stage: "intro",
+      index: 0,
+      answers: emptyAnswers(),
+      contact: emptyQuizContact(),
+      sessionId: null,
+      posted: false,
+    })
+    const page = new URL(window.location.href)
+    if (page.searchParams.has("quiz_session_id")) {
+      page.searchParams.delete("quiz_session_id")
+      window.history.replaceState(window.history.state, "", `${page.pathname}${page.search}${page.hash}`)
+    }
   }
 
   const screenKey = stage === "quiz" ? question.id : stage
@@ -133,8 +245,18 @@ export default function TeamOsQuiz() {
               onBack={back}
             />
           ) : null}
-          {stage === "results" && result ? (
-            <Results result={result} answers={answers} headingRef={headingRef} onBack={back} onRestart={() => { setAnswers(emptyAnswers()); setDraft(""); setIndex(0); setStage("intro") }} />
+          {stage === "contact" ? (
+            <ContactStep contact={contact} headingRef={headingRef} onChange={setContact} onBack={back} onSubmit={showResults} />
+          ) : null}
+          {stage === "results" && result && sessionId ? (
+            <Results
+              result={result}
+              sessionId={sessionId}
+              contact={contact}
+              headingRef={headingRef}
+              onBack={back}
+              onRestart={restart}
+            />
           ) : null}
         </div>
       </div>
@@ -153,7 +275,7 @@ function Intro({ onStart, headingRef }: { onStart: () => void; headingRef: React
       <button type="button" className="btn btn-primary quiz-primary" onClick={onStart}>
         {quizSpec.intro.start} →
       </button>
-      <p className="quiz-note">{quizSpec.categories.length} areas scored. Results on screen, no email.</p>
+      <p className="quiz-note">{quizSpec.categories.length} areas scored. Your breakdown stays on this page.</p>
     </div>
   )
 }
@@ -280,7 +402,7 @@ function QuestionScreen({
           />
           <div className="quiz-actions">
             <button type="button" className="btn btn-primary quiz-primary" onClick={() => onOpen(false)}>
-              See my results
+              Next →
             </button>
             <button type="button" className="quiz-ghost" onClick={() => onOpen(true)}>
               Skip
@@ -377,39 +499,192 @@ function BookingCalendar({ src }: { src: string }) {
   )
 }
 
+function ContactStep({
+  contact,
+  headingRef,
+  onChange,
+  onBack,
+  onSubmit,
+}: {
+  contact: QuizContact
+  headingRef: React.RefObject<HTMLHeadingElement | null>
+  onChange: (contact: QuizContact) => void
+  onBack: () => void
+  onSubmit: (contact: QuizContact) => void
+}) {
+  const reactId = useId().replace(/[^a-zA-Z0-9]/g, "")
+  const [errors, setErrors] = useState<QuizContactErrors>({})
+  const fieldId = (name: keyof QuizContact) => `quiz-${name}-${reactId}`
+
+  function update(name: keyof QuizContact, value: string) {
+    onChange({ ...contact, [name]: value })
+    if (errors[name]) setErrors(current => ({ ...current, [name]: undefined }))
+  }
+
+  function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const nextErrors = validateQuizContact(contact)
+    setErrors(nextErrors)
+    const firstInvalid = (["first_name", "last_name", "email", "phone"] as const).find(name => nextErrors[name])
+    if (firstInvalid) {
+      document.getElementById(fieldId(firstInvalid))?.focus()
+      return
+    }
+    onSubmit(contact)
+  }
+
+  return (
+    <form className="quiz-contact" onSubmit={submit} noValidate>
+      <div className="quiz-progress-row">
+        <p className="quiz-kicker">{"// Last step"}</p>
+        <button type="button" className="quiz-back" onClick={onBack}>
+          ← Back
+        </button>
+      </div>
+      <h1 ref={headingRef} tabIndex={-1} className="quiz-q">
+        Your diagnosis is ready
+      </h1>
+      <p className="quiz-lead">Where should we send your full breakdown?</p>
+      <div className="quiz-fields">
+        <ContactField
+          id={fieldId("first_name")}
+          name="first_name"
+          label="First name"
+          type="text"
+          autoComplete="given-name"
+          autoCapitalize="words"
+          value={contact.first_name}
+          error={errors.first_name}
+          onChange={value => update("first_name", value)}
+        />
+        <ContactField
+          id={fieldId("last_name")}
+          name="last_name"
+          label="Last name"
+          type="text"
+          autoComplete="family-name"
+          autoCapitalize="words"
+          value={contact.last_name}
+          error={errors.last_name}
+          onChange={value => update("last_name", value)}
+        />
+        <ContactField
+          id={fieldId("email")}
+          name="email"
+          label="Email"
+          type="email"
+          wide
+          autoComplete="email"
+          inputMode="email"
+          autoCapitalize="none"
+          spellCheck={false}
+          value={contact.email}
+          error={errors.email}
+          onChange={value => update("email", value)}
+        />
+        <ContactField
+          id={fieldId("phone")}
+          name="phone"
+          label="Phone"
+          type="tel"
+          wide
+          autoComplete="tel"
+          inputMode="tel"
+          value={contact.phone}
+          error={errors.phone}
+          onChange={value => update("phone", value)}
+        />
+      </div>
+      <div className="quiz-actions">
+        <button type="submit" className="btn btn-primary quiz-primary">
+          Show my results
+        </button>
+      </div>
+      <p className="quiz-note">
+        By continuing you agree we can contact you about your results by email, phone or text. Reply STOP to opt out.
+      </p>
+    </form>
+  )
+}
+
+function ContactField({
+  id,
+  name,
+  label,
+  type,
+  wide,
+  autoComplete,
+  autoCapitalize,
+  inputMode,
+  spellCheck,
+  value,
+  error,
+  onChange,
+}: {
+  id: string
+  name: string
+  label: string
+  type: "text" | "email" | "tel"
+  wide?: boolean
+  autoComplete: string
+  autoCapitalize?: "words" | "none"
+  inputMode?: "email" | "tel"
+  spellCheck?: boolean
+  value: string
+  error?: string
+  onChange: (value: string) => void
+}) {
+  const errorId = `${id}-error`
+  return (
+    <div className={wide ? "quiz-field quiz-field-wide" : "quiz-field"}>
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        name={name}
+        type={type}
+        autoComplete={autoComplete}
+        autoCapitalize={autoCapitalize}
+        inputMode={inputMode}
+        spellCheck={spellCheck}
+        required
+        aria-required="true"
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
+        value={value}
+        onChange={event => onChange(event.target.value)}
+      />
+      {error ? (
+        <p id={errorId} className="quiz-field-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+    </div>
+  )
+}
+
 function Results({
   result,
-  answers,
+  sessionId,
+  contact,
   headingRef,
   onBack,
   onRestart,
 }: {
   result: DiagnosticResult
-  answers: Answers
+  sessionId: string
+  contact: QuizContact
   headingRef: React.RefObject<HTMLHeadingElement | null>
   onBack: () => void
   onRestart: () => void
 }) {
-  const [calendarSrc, setCalendarSrc] = useState<string | null>(null)
+  const calendarSrc = bookingCalendarSrc(sessionId, result.grade, result.archetypeId, contact)
 
   useLayoutEffect(() => {
-    const sessionId = createSessionId()
-    submitQuizResults(
-      buildQuizResultsPayload({
-        sessionId,
-        result,
-        answers,
-        pageUrl: window.location.href,
-        submittedAt: new Date().toISOString(),
-      }),
-    )
     const page = new URL(window.location.href)
+    if (page.searchParams.get("quiz_session_id") === sessionId) return
     page.searchParams.set("quiz_session_id", sessionId)
     window.history.replaceState(window.history.state, "", `${page.pathname}${page.search}${page.hash}`)
-    setCalendarSrc(bookingCalendarSrc(sessionId, result.grade, result.archetypeId))
-    // Once per results visit. A restart remounts this screen and starts a new session.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [sessionId])
 
   const top = result.leaks[0]
   const ask = top
@@ -531,7 +806,7 @@ function Results({
       <section className="card quiz-ask" aria-labelledby="quiz-ask">
         <h2 id="quiz-ask" className="quiz-section-title">{quizSpec.cta.heading}</h2>
         <p className="quiz-copy">{ask}</p>
-        {calendarSrc ? <BookingCalendar src={calendarSrc} /> : <div className="quiz-calendar" aria-hidden="true" />}
+        <BookingCalendar src={calendarSrc} />
         <button type="button" className="quiz-back" onClick={onRestart}>
           Start over
         </button>
