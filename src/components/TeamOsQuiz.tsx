@@ -1,6 +1,12 @@
 "use client"
 
-import { useEffect, useId, useRef, useState } from "react"
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react"
+import {
+  bookingCalendarSrc,
+  buildQuizResultsPayload,
+  createSessionId,
+  submitQuizResults,
+} from "@/lib/quiz-results"
 import {
   numberIsValid,
   quizQuestions,
@@ -128,7 +134,7 @@ export default function TeamOsQuiz() {
             />
           ) : null}
           {stage === "results" && result ? (
-            <Results result={result} headingRef={headingRef} onBack={back} onRestart={() => { setAnswers(emptyAnswers()); setDraft(""); setIndex(0); setStage("intro") }} />
+            <Results result={result} answers={answers} headingRef={headingRef} onBack={back} onRestart={() => { setAnswers(emptyAnswers()); setDraft(""); setIndex(0); setStage("intro") }} />
           ) : null}
         </div>
       </div>
@@ -320,7 +326,7 @@ function loadGhlEmbedScript(): Promise<void> {
   return ghlEmbedScript
 }
 
-function BookingCalendar() {
+function BookingCalendar({ src }: { src: string }) {
   const reactId = useId()
   const frameId = `ghl-ss-intro-call1-${reactId.replace(/[^a-zA-Z0-9]/g, "")}`
   const iframeRef = useRef<HTMLIFrameElement>(null)
@@ -361,7 +367,7 @@ function BookingCalendar() {
       <iframe
         ref={iframeRef}
         id={frameId}
-        src={quizSpec.cta.url}
+        src={src}
         title="Book an intro call"
         width="100%"
         scrolling="no"
@@ -373,15 +379,38 @@ function BookingCalendar() {
 
 function Results({
   result,
+  answers,
   headingRef,
   onBack,
   onRestart,
 }: {
   result: DiagnosticResult
+  answers: Answers
   headingRef: React.RefObject<HTMLHeadingElement | null>
   onBack: () => void
   onRestart: () => void
 }) {
+  const [calendarSrc, setCalendarSrc] = useState<string | null>(null)
+
+  useLayoutEffect(() => {
+    const sessionId = createSessionId()
+    submitQuizResults(
+      buildQuizResultsPayload({
+        sessionId,
+        result,
+        answers,
+        pageUrl: window.location.href,
+        submittedAt: new Date().toISOString(),
+      }),
+    )
+    const page = new URL(window.location.href)
+    page.searchParams.set("quiz_session_id", sessionId)
+    window.history.replaceState(window.history.state, "", page)
+    setCalendarSrc(bookingCalendarSrc(sessionId, result.grade, result.archetypeId))
+    // Once per results visit. A restart remounts this screen and starts a new session.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const top = result.leaks[0]
   const ask = top
     ? `Your top leak is ${top.title.toLowerCase()}. ${top.cta}`
@@ -502,7 +531,7 @@ function Results({
       <section className="card quiz-ask" aria-labelledby="quiz-ask">
         <h2 id="quiz-ask" className="quiz-section-title">{quizSpec.cta.heading}</h2>
         <p className="quiz-copy">{ask}</p>
-        <BookingCalendar />
+        {calendarSrc ? <BookingCalendar src={calendarSrc} /> : <div className="quiz-calendar" aria-hidden="true" />}
         <button type="button" className="quiz-back" onClick={onRestart}>
           Start over
         </button>
