@@ -4,9 +4,9 @@ import TeamOsQuiz from "@/components/TeamOsQuiz"
 import { siteUrl } from "@/lib/site-data"
 
 // Static /quiz. This segment wins over app/[slug], so the guide route never handles it.
-const title = "How your sales team runs"
+const title = "Where is your sales system leaking?"
 const description =
-  "Answer a few questions about how your sales team runs today. Then book an intro call about The Sales Team OS."
+  "23 questions. About 6 minutes. You get a score across nine parts of your sales system, your top three leaks, the math on your own numbers, and fixes you can run this week."
 const url = `${siteUrl}/quiz`
 
 export const metadata: Metadata = {

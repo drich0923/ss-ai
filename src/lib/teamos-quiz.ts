@@ -1,181 +1,346 @@
-import quizMap from "@/data/teamos-quiz-map.json"
+import quizMap from "@/data/teamos-quiz-v2.json"
 
 export type ChoiceOption = {
   label: string
-  points_to: string[]
+  score: number
+  points: Record<string, number>
 }
 
 export type QuizQuestion = {
   id: string
-  type: "choice" | "open"
+  category: string | null
+  type: "choice" | "number" | "open"
   text: string
   options?: ChoiceOption[]
+  quick_win?: string
+  unit?: "count" | "pct" | "money"
+  var?: string
+  allow_unknown?: boolean
+  known_scores_category?: string | null
+  min?: number
+  max?: number
+  score_bands?: "show_rate_bands" | "close_rate_bands"
+  help?: string
+  optional?: boolean
 }
 
-export type LandingPage = {
-  headline: string
-  pain_points: string[]
-  cta: string
-  offer: {
-    what: string
-    after_submit: string
+export type QuizCategory = {
+  id: string
+  name: string
+  part: string
+  good: string
+  leak: {
+    title: string
+    looks_like: string
+    looks_like_numbers?: string
+    why: string
+    fixes: string[]
+    cta_line: string
+  }
+}
+
+type GradeBand = { min: number; grade: string; line: string }
+type ScoreBand = { min: number; score: number }
+type MathRow = { id: string; line: string | null; needs: string[] }
+
+type QuizSpec = {
+  intro: { eyebrow: string; headline: string; sub: string; start: string }
+  numbers_intro: string
+  config: {
+    selling_days_per_month: number
+    followup_illustration_rate_pct: number
+    leak_threshold: number
+    show_rate_bands: ScoreBand[]
+    close_rate_bands: ScoreBand[]
+    max_quick_wins: number
+  }
+  categories: QuizCategory[]
+  questions: QuizQuestion[]
+  archetypes: { id: string; name: string; means: string }[]
+  archetype_tiebreak: string[]
+  math: MathRow[]
+  grade_bands: GradeBand[]
+  results_copy: {
+    heading: string
+    leaks_heading: string
+    math_heading: string
+    math_note: string
+    quick_wins_heading: string
+    good_heading: string
+    no_leaks: string
+    no_math: string
+  }
+  cta: {
+    heading: string
+    lead_in: string
+    url: string
+    button: string
     submit_line: string
   }
 }
 
-type QuizMap = {
-  archetypes: { id: string; name: string; description: string }[]
-  shared_questions: QuizQuestion[]
-  branches: Record<string, QuizQuestion[]>
-  landing_pages: Record<string, LandingPage>
-  confidence_threshold: number
+const spec = quizMap as QuizSpec
+
+export const quizSpec = spec
+export const quizQuestions = spec.questions
+
+export type Answers = {
+  choice: Record<string, number>
+  nums: Record<string, number | null>
+  text: Record<string, string>
 }
 
-const map = quizMap as QuizMap
-
-/** Reserved for a future classifier. The deterministic tally does not apply it. */
-export const confidenceThreshold = map.confidence_threshold
-
-export const sharedQuestions = map.shared_questions
-
-export const longestQuestionCount =
-  map.shared_questions.length +
-  Math.max(0, ...Object.values(map.branches).map(branch => branch.length))
-
-const fallbackBookingUrl = "https://link.automatedrev.com/widget/bookings/ss-intro-call1"
-
-export function questionById(id: string): QuizQuestion | null {
-  const shared = map.shared_questions.find(question => question.id === id)
-  if (shared) return shared
-  for (const branch of Object.values(map.branches)) {
-    const found = branch.find(question => question.id === id)
-    if (found) return found
-  }
-  return null
+export type AreaScore = { id: string; name: string; part: string; score: number }
+export type LeakResult = {
+  id: string
+  name: string
+  part: string
+  title: string
+  score: number
+  severity: "Severe" | "Major" | "Moderate"
+  looks: string
+  why: string
+  fixes: string[]
+  cta: string
 }
 
-export function isBranchQuestion(id: string): boolean {
-  return Object.values(map.branches).some(branch => branch.some(question => question.id === id))
-}
-
-export function landingPage(id: string): LandingPage {
-  return map.landing_pages[id] ?? map.landing_pages.general
-}
-
-export type QuizResponse = {
-  questionId: string
-  question: string
-  answer: string
-}
-
-export type BuyerClassification = {
-  /** Archetype id, or "general" when the tally ties or has no points. */
+export type DiagnosticResult = {
+  areas: AreaScore[]
+  overall: number
+  grade: string
+  gradeLine: string
   archetypeId: string
-  confidence: number
-  scores: Record<string, number>
+  archetypeName: string
+  archetypeMeans: string
+  leaks: LeakResult[]
+  lowestName: string
+  lowestCta: string
+  math: string[]
+  quickWins: string[]
+  points: Record<string, number>
 }
 
-export type QuizScreen =
-  | { kind: "question"; id: string }
-  | { kind: "landing"; id: string }
-
-function emptyScores(): Record<string, number> {
-  const scores: Record<string, number> = {}
-  for (const archetype of map.archetypes) scores[archetype.id] = 0
-  return scores
+/** Round half up for positive numbers. Same as Math.round, and as the reference scorer. */
+export function roundHalfUp(value: number): number {
+  return Math.round(value)
 }
 
-function tally(responses: readonly QuizResponse[]): Record<string, number> {
-  const scores = emptyScores()
-  for (const response of responses) {
-    const question = questionById(response.questionId)
-    if (!question || question.type !== "choice" || !question.options) continue
-    const option = question.options.find(item => item.label === response.answer)
-    if (!option) continue
-    for (const id of option.points_to) {
-      if (id in scores) scores[id] += 1
+function fill(template: string, tokens: Record<string, string>): string | null {
+  let missing = false
+  const out = template.replace(/\{(\w+)\}/g, (_match, key: string) => {
+    if (tokens[key] === undefined) {
+      missing = true
+      return ""
     }
-  }
-  return scores
-}
-
-function fromScores(scores: Record<string, number>): BuyerClassification {
-  const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-  const total = ranked.reduce((sum, [, points]) => sum + points, 0)
-  const topScore = ranked[0]?.[1] ?? 0
-  const leaders = ranked.filter(([, points]) => points === topScore && points > 0)
-  if (total === 0 || leaders.length !== 1) {
-    return { archetypeId: "general", confidence: 0, scores }
-  }
-  return {
-    archetypeId: leaders[0][0],
-    confidence: topScore / total,
-    scores,
-  }
-}
-
-/**
- * Routing seam. Called after the shared questions to pick a branch, and after
- * a branch to pick the landing page. Today it tallies `points_to` on choice
- * answers. A tie, or no points at all, returns "general".
- *
- * Replace this function with an AI classifier later. Keep the return shape.
- * A classifier should return "general" when it fails, when the top
- * probabilities tie, or when the top probability is below `confidenceThreshold`.
- * The tally does not apply that threshold: the highest total wins unless it is
- * tied or zero. Open answers are on each response for that future call; the
- * tally ignores them.
- */
-export function classifyBuyer(responses: readonly QuizResponse[]): BuyerClassification {
-  return fromScores(tally(responses))
-}
-
-export function responsesFor(questionIds: readonly string[], answers: Record<string, string>): QuizResponse[] {
-  return questionIds.map(id => {
-    const question = questionById(id)
-    return {
-      questionId: id,
-      question: question?.text ?? "",
-      answer: answers[id] ?? "",
-    }
+    return tokens[key]
   })
+  return missing ? null : out
 }
 
-export function nextQuizScreen(currentQuestionId: string, answers: Record<string, string>): QuizScreen {
-  const sharedIndex = map.shared_questions.findIndex(question => question.id === currentQuestionId)
-  if (sharedIndex >= 0) {
-    if (sharedIndex < map.shared_questions.length - 1) {
-      return { kind: "question", id: map.shared_questions[sharedIndex + 1].id }
-    }
-    const decision = classifyBuyer(responsesFor(map.shared_questions.map(question => question.id), answers))
-    if (decision.archetypeId === "general") return { kind: "landing", id: "general" }
-    const branch = map.branches[decision.archetypeId]
-    if (!branch?.length) return { kind: "landing", id: decision.archetypeId }
-    return { kind: "question", id: branch[0].id }
-  }
+function countLabel(value: number): string {
+  return Math.round(value).toLocaleString("en-US")
+}
 
-  for (const [archetypeId, branch] of Object.entries(map.branches)) {
-    const branchIndex = branch.findIndex(question => question.id === currentQuestionId)
-    if (branchIndex < 0) continue
-    if (branchIndex < branch.length - 1) {
-      return { kind: "question", id: branch[branchIndex + 1].id }
-    }
-    const ids = [...map.shared_questions.map(question => question.id), ...branch.map(question => question.id)]
-    const decision = classifyBuyer(responsesFor(ids, answers))
-    return { kind: "landing", id: decision.archetypeId }
-  }
+function oneDecimal(value: number): string {
+  return String(Number(value.toFixed(1)))
+}
 
-  return { kind: "landing", id: "general" }
+function moneyLabel(value: number): string {
+  const rounded = value >= 1000 ? Math.round(value / 100) * 100 : Math.round(value)
+  return rounded.toLocaleString("en-US")
+}
+
+function bandScore(question: QuizQuestion, value: number): number {
+  if (!question.score_bands) return 0
+  const bands = spec.config[question.score_bands]
+  return bands.find(band => value >= band.min)?.score ?? 0
+}
+
+function severity(score: number): LeakResult["severity"] {
+  if (score <= 39) return "Severe"
+  if (score <= 54) return "Major"
+  return "Moderate"
 }
 
 /**
- * GoHighLevel booking widgets read first_name, last_name, full_name, name, and
- * email from the page query string into the contact form. Confirmed in this
- * calendar widget's form-fill (`eg` keys include those fields).
+ * Deterministic Team OS diagnostic. Mirrors engine.py: category means, half-up
+ * rounding, tiebreak order, and leaks under the threshold.
  */
-export function bookingHref(afterSubmit: string, name: string, email: string): string {
-  const base = /^https?:\/\//.test(afterSubmit) ? afterSubmit : fallbackBookingUrl
-  const url = new URL(base)
+export function scoreDiagnostic(answers: Answers): DiagnosticResult {
+  const items: Record<string, number[]> = {}
+  for (const category of spec.categories) items[category.id] = []
+  const points: Record<string, number> = {}
+  for (const archetype of spec.archetypes) points[archetype.id] = 0
+  const tokens: Record<string, string> = {}
+  let unknown = 0
+
+  for (const question of spec.questions) {
+    if (question.type === "choice" && question.options && answers.choice[question.id] !== undefined) {
+      const option = question.options[answers.choice[question.id]]
+      if (question.category) items[question.category].push(option.score)
+      tokens[question.id] = option.label
+      for (const [id, value] of Object.entries(option.points)) {
+        if (id in points) points[id] += value
+      }
+    }
+    if (question.type === "number" && answers.nums[question.id] !== undefined) {
+      const value = answers.nums[question.id]
+      if (question.known_scores_category) {
+        items[question.known_scores_category].push(value === null ? 0 : 4)
+        if (value === null) unknown += 1
+      }
+      if (value !== null && question.score_bands && question.category) {
+        items[question.category].push(bandScore(question, value))
+      }
+    }
+  }
+  tokens.unknown_count = String(unknown)
+
+  const areas: AreaScore[] = spec.categories
+    .filter(category => items[category.id].length > 0)
+    .map(category => {
+      const scores = items[category.id]
+      const mean = scores.reduce((sum, score) => sum + score, 0) / scores.length
+      return {
+        id: category.id,
+        name: category.name,
+        part: category.part,
+        score: roundHalfUp((mean / 4) * 100),
+      }
+    })
+
+  const overall = areas.length
+    ? roundHalfUp(areas.reduce((sum, area) => sum + area.score, 0) / areas.length)
+    : 0
+  const grade = spec.grade_bands.find(band => overall >= band.min) ?? spec.grade_bands[spec.grade_bands.length - 1]
+
+  let archetypeId = spec.archetype_tiebreak[0]
+  for (const id of spec.archetype_tiebreak) {
+    if (points[id] > points[archetypeId]) archetypeId = id
+  }
+  const archetype = spec.archetypes.find(item => item.id === archetypeId) ?? spec.archetypes[0]
+
+  const numberValue = (id: string): number | null => {
+    const value = answers.nums[id]
+    return value === undefined || value === null ? null : value
+  }
+  const booked = numberValue("n_booked")
+  const showPct = numberValue("n_show")
+  const closePct = numberValue("n_close")
+  const cashPerSale = numberValue("n_cash")
+  const closers = numberValue("n_closers")
+  const setters = numberValue("n_setters")
+
+  if (booked !== null) tokens.booked = countLabel(booked)
+  if (showPct !== null) tokens.show_pct = oneDecimal(showPct)
+  if (closePct !== null) tokens.close_pct = oneDecimal(closePct)
+  if (cashPerSale !== null) tokens.cash_per_sale = moneyLabel(cashPerSale)
+  if (closers !== null) tokens.closers = countLabel(closers)
+  if (setters !== null) tokens.setters = countLabel(setters)
+
+  let shows: number | null = null
+  if (booked !== null && showPct !== null) {
+    shows = (booked * showPct) / 100
+    tokens.shows = countLabel(shows)
+    tokens.no_shows = countLabel(booked - shows)
+    if (closePct !== null) {
+      const closes = (shows * closePct) / 100
+      tokens.closes = oneDecimal(closes)
+      tokens.unclosed = countLabel(shows - closes)
+      if (cashPerSale !== null) {
+        const cash = closes * cashPerSale
+        tokens.cash = moneyLabel(cash)
+        if (booked > 0) tokens.cash_per_booked = moneyLabel(cash / booked)
+        const followUp =
+          ((shows - closes + (booked - shows)) * spec.config.followup_illustration_rate_pct) /
+          100 *
+          (closePct / 100) *
+          cashPerSale
+        tokens.fu_value = moneyLabel(followUp)
+      }
+    }
+  }
+  if (booked !== null && closePct !== null && cashPerSale !== null) {
+    tokens.show5 = moneyLabel(booked * 0.05 * (closePct / 100) * cashPerSale)
+  }
+  if (shows !== null && cashPerSale !== null) {
+    tokens.close5 = moneyLabel(shows * 0.05 * cashPerSale)
+  }
+  if (shows !== null && closers !== null && closers > 0) {
+    tokens.shows_per_closer_day = oneDecimal(shows / closers / spec.config.selling_days_per_month)
+  }
+  if (setters !== null && closers !== null && closers > 0) {
+    tokens.setters_per_closer = oneDecimal(setters / closers)
+  }
+
+  const math = spec.math.flatMap(row => {
+    if (!row.line) return []
+    const line = fill(row.line, tokens)
+    return line ? [line] : []
+  })
+
+  const categoryOrder = spec.categories.map(category => category.id)
+  const leaks: LeakResult[] = areas
+    .filter(area => area.score < spec.config.leak_threshold)
+    .sort((a, b) => a.score - b.score || categoryOrder.indexOf(a.id) - categoryOrder.indexOf(b.id))
+    .slice(0, 3)
+    .map(area => {
+      const category = spec.categories.find(item => item.id === area.id)!
+      const numbered = category.leak.looks_like_numbers ? fill(category.leak.looks_like_numbers, tokens) : null
+      const plain = fill(category.leak.looks_like, tokens)
+      const looks =
+        numbered ||
+        plain ||
+        category.leak.looks_like.replace(/\{(\w+)\}/g, (_match, key: string) => tokens[key] || "not answered")
+      return {
+        id: area.id,
+        name: area.name,
+        part: area.part,
+        title: category.leak.title,
+        score: area.score,
+        severity: severity(area.score),
+        looks,
+        why: category.leak.why,
+        fixes: category.leak.fixes,
+        cta: category.leak.cta_line,
+      }
+    })
+
+  const ranked = [...areas].sort((a, b) => a.score - b.score || categoryOrder.indexOf(a.id) - categoryOrder.indexOf(b.id))
+  const lowest = spec.categories.find(category => category.id === ranked[0]?.id) ?? spec.categories[0]
+  const scoreOf: Record<string, number> = {}
+  for (const area of areas) scoreOf[area.id] = area.score
+
+  const quickWins = spec.questions
+    .map((question, index) => ({ question, index }))
+    .filter(({ question }) => {
+      if (question.type !== "choice" || !question.options || !question.quick_win) return false
+      const picked = answers.choice[question.id]
+      return picked !== undefined && question.options[picked].score <= 1
+    })
+    .sort((a, b) => (scoreOf[a.question.category || ""] ?? 101) - (scoreOf[b.question.category || ""] ?? 101) || a.index - b.index)
+    .slice(0, spec.config.max_quick_wins)
+    .map(({ question }) => question.quick_win as string)
+
+  return {
+    areas,
+    overall,
+    grade: grade.grade,
+    gradeLine: grade.line,
+    archetypeId,
+    archetypeName: archetype.name,
+    archetypeMeans: archetype.means,
+    leaks,
+    lowestName: lowest.name,
+    lowestCta: lowest.leak.cta_line,
+    math,
+    quickWins,
+    points,
+  }
+}
+
+export function bookingHref(name: string, email: string): string {
+  const url = new URL(spec.cta.url)
   const cleaned = name.trim().replace(/\s+/g, " ")
   const [first, ...rest] = cleaned.split(" ")
   if (first) url.searchParams.set("first_name", first)
@@ -185,48 +350,19 @@ export function bookingHref(afterSubmit: string, name: string, email: string): s
     url.searchParams.set("full_name", cleaned)
     url.searchParams.set("name", cleaned)
   }
-  const trimmedEmail = email.trim()
-  if (trimmedEmail) url.searchParams.set("email", trimmedEmail)
+  const trimmed = email.trim()
+  if (trimmed) url.searchParams.set("email", trimmed)
   return url.toString()
 }
 
-export function validateName(value: string): string | null {
-  const name = value.trim().replace(/\s+/g, " ")
-  if (name.length < 2) return "Enter your name."
-  return null
+export function contactReady(name: string, email: string): boolean {
+  const first = name.trim().split(/\s+/)[0] || ""
+  return first.length > 0 && /.+@.+\..+/.test(email.trim())
 }
 
-export function validateEmail(value: string): string | null {
-  const email = value.trim()
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Enter a valid email."
-  return null
-}
-
-type AnalyticsWindow = Window & {
-  gtag?: (...args: unknown[]) => void
-  fbq?: (...args: unknown[]) => void
-  va?: (...args: unknown[]) => void
-  plausible?: (event: string, options?: { props?: Record<string, string> }) => void
-  dataLayer?: unknown[]
-}
-
-/** Fires only if a tracker is already on the page. Does not load a new one. */
-export function trackQuizEvent(
-  name: "quiz_start" | "quiz_complete" | "booking_click",
-  detail?: { archetype?: string },
-) {
-  if (typeof window === "undefined") return
-  const payload: Record<string, string> = {}
-  if (detail?.archetype) payload.archetype = detail.archetype
-  const host = window as AnalyticsWindow
-  try {
-    host.gtag?.("event", name, payload)
-    host.fbq?.("trackCustom", name, payload)
-    host.va?.("event", { name, ...payload })
-    if (Object.keys(payload).length) host.plausible?.(name, { props: payload })
-    else host.plausible?.(name)
-    host.dataLayer?.push({ event: name, ...payload })
-  } catch {
-    // Tracking must not block the quiz.
-  }
+export function numberIsValid(draft: string, unit: QuizQuestion["unit"]): boolean {
+  const value = Number.parseFloat(draft.replace(/[$,%\s]/g, ""))
+  if (Number.isNaN(value) || value < 0) return false
+  if (unit === "pct" && value > 100) return false
+  return true
 }
