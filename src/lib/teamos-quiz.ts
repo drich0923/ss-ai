@@ -339,27 +339,6 @@ export function scoreDiagnostic(answers: Answers): DiagnosticResult {
   }
 }
 
-export function bookingHref(name: string, email: string): string {
-  const url = new URL(spec.cta.url)
-  const cleaned = name.trim().replace(/\s+/g, " ")
-  const [first, ...rest] = cleaned.split(" ")
-  if (first) url.searchParams.set("first_name", first)
-  const last = rest.join(" ").trim()
-  if (last) url.searchParams.set("last_name", last)
-  if (cleaned) {
-    url.searchParams.set("full_name", cleaned)
-    url.searchParams.set("name", cleaned)
-  }
-  const trimmed = email.trim()
-  if (trimmed) url.searchParams.set("email", trimmed)
-  return url.toString()
-}
-
-export function contactReady(name: string, email: string): boolean {
-  const first = name.trim().split(/\s+/)[0] || ""
-  return first.length > 0 && /.+@.+\..+/.test(email.trim())
-}
-
 export function numberIsValid(draft: string, unit: QuizQuestion["unit"]): boolean {
   const value = Number.parseFloat(draft.replace(/[$,%\s]/g, ""))
   if (Number.isNaN(value) || value < 0) return false
