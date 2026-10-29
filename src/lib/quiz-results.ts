@@ -94,23 +94,31 @@ function sendQuizBeacon(body: string): boolean {
   }
 }
 
-/** Fire-and-forget. A failed fetch falls back to sendBeacon. Nothing is thrown to the UI. */
+/**
+ * Fire-and-forget. fetch is the path that runs in the browser. sendBeacon is only
+ * used when fetch itself is missing, because a rejected simple POST was already
+ * handed to the network and a second beacon would store the result twice.
+ */
 export function submitQuizResults(payload: QuizResultsPayload): void {
   const body = JSON.stringify(payload)
   if (typeof fetch !== "function") {
     if (!sendQuizBeacon(body)) console.error("quiz results submit failed")
     return
   }
-  fetch(QUIZ_RESULTS_WEBHOOK, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain" },
-    body,
-    keepalive: true,
-  })
-    .then(response => {
-      if (!response.ok) console.error("quiz results submit failed", response.status)
+  try {
+    fetch(QUIZ_RESULTS_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body,
+      keepalive: true,
     })
-    .catch(error => {
-      if (!sendQuizBeacon(body)) console.error("quiz results submit failed", error)
-    })
+      .then(response => {
+        if (!response.ok) console.error("quiz results submit failed", response.status)
+      })
+      .catch(error => {
+        console.error("quiz results submit failed", error)
+      })
+  } catch (error) {
+    if (!sendQuizBeacon(body)) console.error("quiz results submit failed", error)
+  }
 }
