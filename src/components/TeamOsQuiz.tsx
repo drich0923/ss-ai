@@ -2,8 +2,6 @@
 
 import { useEffect, useId, useRef, useState } from "react"
 import {
-  bookingHref,
-  contactReady,
   numberIsValid,
   quizQuestions,
   quizSpec,
@@ -31,8 +29,6 @@ export default function TeamOsQuiz() {
   const [index, setIndex] = useState(0)
   const [answers, setAnswers] = useState<Answers>(emptyAnswers)
   const [draft, setDraft] = useState("")
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
   const frameRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const question = quizQuestions[index]
@@ -132,7 +128,7 @@ export default function TeamOsQuiz() {
             />
           ) : null}
           {stage === "results" && result ? (
-            <Results result={result} name={name} email={email} headingRef={headingRef} onName={setName} onEmail={setEmail} onBack={back} onRestart={() => { setAnswers(emptyAnswers()); setDraft(""); setName(""); setEmail(""); setIndex(0); setStage("intro") }} />
+            <Results result={result} headingRef={headingRef} onBack={back} onRestart={() => { setAnswers(emptyAnswers()); setDraft(""); setIndex(0); setStage("intro") }} />
           ) : null}
         </div>
       </div>
@@ -290,35 +286,106 @@ function QuestionScreen({
   )
 }
 
+const GHL_EMBED_SCRIPTS = [
+  "https://link.automatedrev.com/js/form_embed.js",
+  "https://link.msgsndr.com/js/form_embed.js",
+] as const
+
+const GHL_EMBED_SCRIPT_ID = "ghl-form-embed"
+
+let ghlEmbedScript: Promise<void> | null = null
+
+function loadGhlEmbedScript(): Promise<void> {
+  if (ghlEmbedScript) return ghlEmbedScript
+  ghlEmbedScript = new Promise(resolve => {
+    if (document.getElementById(GHL_EMBED_SCRIPT_ID)) {
+      resolve()
+      return
+    }
+    const append = (index: number) => {
+      const script = document.createElement("script")
+      script.id = GHL_EMBED_SCRIPT_ID
+      script.src = GHL_EMBED_SCRIPTS[index]
+      script.async = true
+      script.onload = () => resolve()
+      script.onerror = () => {
+        script.remove()
+        if (index + 1 < GHL_EMBED_SCRIPTS.length) append(index + 1)
+        else resolve()
+      }
+      document.body.appendChild(script)
+    }
+    append(0)
+  })
+  return ghlEmbedScript
+}
+
+function BookingCalendar() {
+  const reactId = useId()
+  const frameId = `ghl-ss-intro-call1-${reactId.replace(/[^a-zA-Z0-9]/g, "")}`
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    const frame = iframeRef.current
+    loadGhlEmbedScript().then(() => {
+      if (cancelled || !frame) return
+      if (frame.getAttribute("data-iframe-resizer-initialized") === "true") {
+        frame.setAttribute("scrolling", "no")
+        return
+      }
+      const resize = (window as Window & {
+        iFrameResize?: (options: Record<string, unknown>, target: HTMLIFrameElement) => void
+      }).iFrameResize
+      resize?.(
+        {
+          log: false,
+          checkOrigin: false,
+          heightCalculationMethod: "offset",
+          scrolling: false,
+          autoResize: true,
+          sizeWidth: false,
+          sizeHeight: true,
+        },
+        frame,
+      )
+      frame.setAttribute("scrolling", "no")
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  return (
+    <div className="quiz-calendar">
+      <iframe
+        ref={iframeRef}
+        id={frameId}
+        src={quizSpec.cta.url}
+        title="Book an intro call"
+        width="100%"
+        scrolling="no"
+        style={{ border: "none", width: "100%" }}
+      />
+    </div>
+  )
+}
+
 function Results({
   result,
-  name,
-  email,
   headingRef,
-  onName,
-  onEmail,
   onBack,
   onRestart,
 }: {
   result: DiagnosticResult
-  name: string
-  email: string
   headingRef: React.RefObject<HTMLHeadingElement | null>
-  onName: (value: string) => void
-  onEmail: (value: string) => void
   onBack: () => void
   onRestart: () => void
 }) {
-  const ready = contactReady(name, email)
   const top = result.leaks[0]
   const ask = top
     ? `Your top leak is ${top.title.toLowerCase()}. ${top.cta}`
     : `Your lowest score is ${result.lowestName.toLowerCase()}. ${result.lowestCta}`
-
-  function book() {
-    if (!ready) return
-    window.location.assign(bookingHref(name, email))
-  }
 
   return (
     <div className="quiz-results">
@@ -435,21 +502,7 @@ function Results({
       <section className="card quiz-ask" aria-labelledby="quiz-ask">
         <h2 id="quiz-ask" className="quiz-section-title">{quizSpec.cta.heading}</h2>
         <p className="quiz-copy">{ask}</p>
-        <div className="quiz-ask-fields">
-          <label className="quiz-field">
-            <span className="quiz-label">Name</span>
-            <input name="name" autoComplete="name" placeholder="Name" value={name} onChange={event => onName(event.target.value)} />
-          </label>
-          <label className="quiz-field">
-            <span className="quiz-label">Email</span>
-            <input name="email" type="email" inputMode="email" autoComplete="email" autoCapitalize="none" spellCheck={false} placeholder="Email" value={email} onChange={event => onEmail(event.target.value)} />
-          </label>
-        </div>
-        <p className="quiz-submit-line">{quizSpec.cta.submit_line}</p>
-        <button type="button" className="btn btn-primary quiz-primary" disabled={!ready} onClick={book}>
-          {quizSpec.cta.button} →
-        </button>
-        <p className="quiz-note">Opens the booking page with your name and email filled in.</p>
+        <BookingCalendar />
         <button type="button" className="quiz-back" onClick={onRestart}>
           Start over
         </button>
