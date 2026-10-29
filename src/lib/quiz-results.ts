@@ -8,6 +8,15 @@ export type QuizResultsAnswer = {
   answer: string | number
 }
 
+export type QuizContact = {
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+}
+
+export type QuizContactErrors = Partial<Record<keyof QuizContact, string>>
+
 export type QuizResultsPayload = {
   session_id: string
   quiz: "teamos"
@@ -19,6 +28,29 @@ export type QuizResultsPayload = {
   answers: QuizResultsAnswer[]
   page_url: string
   submitted_at: string
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+}
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export function emptyQuizContact(): QuizContact {
+  return { first_name: "", last_name: "", email: "", phone: "" }
+}
+
+export function validateQuizContact(contact: QuizContact): QuizContactErrors {
+  const errors: QuizContactErrors = {}
+  if (!contact.first_name.trim()) errors.first_name = "Enter your first name."
+  if (!contact.last_name.trim()) errors.last_name = "Enter your last name."
+  const email = contact.email.trim()
+  if (!email) errors.email = "Enter your email."
+  else if (!EMAIL_PATTERN.test(email)) errors.email = "Enter a valid email."
+  const phone = contact.phone.trim()
+  if (!phone) errors.phone = "Enter your phone number."
+  else if (phone.replace(/\D/g, "").length < 10) errors.phone = "Enter a phone number with at least 10 digits."
+  return errors
 }
 
 export function createSessionId(): string {
@@ -53,8 +85,9 @@ export function buildQuizResultsPayload(input: {
   answers: Answers
   pageUrl: string
   submittedAt: string
+  contact: QuizContact
 }): QuizResultsPayload {
-  const { sessionId, result, answers, pageUrl, submittedAt } = input
+  const { sessionId, result, answers, pageUrl, submittedAt, contact } = input
   return {
     session_id: sessionId,
     quiz: "teamos",
@@ -70,10 +103,19 @@ export function buildQuizResultsPayload(input: {
     })),
     page_url: pageUrl,
     submitted_at: submittedAt,
+    first_name: contact.first_name.trim(),
+    last_name: contact.last_name.trim(),
+    email: contact.email.trim(),
+    phone: contact.phone.trim(),
   }
 }
 
-export function bookingCalendarSrc(sessionId: string, grade: string, archetypeId: string): string {
+export function bookingCalendarSrc(
+  sessionId: string,
+  grade: string,
+  archetypeId: string,
+  contact: QuizContact,
+): string {
   const url = new URL(quizSpec.cta.url)
   url.searchParams.set("utm_source", "quiz")
   url.searchParams.set("utm_medium", "quiz-results")
@@ -81,6 +123,10 @@ export function bookingCalendarSrc(sessionId: string, grade: string, archetypeId
   url.searchParams.set("utm_term", `${grade}-${archetypeId}`)
   url.searchParams.set("utm_content", sessionId)
   url.searchParams.set("quiz_session_id", sessionId)
+  url.searchParams.set("first_name", contact.first_name.trim())
+  url.searchParams.set("last_name", contact.last_name.trim())
+  url.searchParams.set("email", contact.email.trim())
+  url.searchParams.set("phone", contact.phone.trim())
   return url.toString()
 }
 

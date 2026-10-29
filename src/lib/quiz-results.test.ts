@@ -1,6 +1,6 @@
 import assert from "node:assert/strict"
 import test from "node:test"
-import { bookingCalendarSrc, buildQuizResultsPayload } from "./quiz-results"
+import { bookingCalendarSrc, buildQuizResultsPayload, validateQuizContact, type QuizContact } from "./quiz-results"
 import { scoreDiagnostic, type Answers } from "./teamos-quiz"
 
 const sample: Answers = {
@@ -35,6 +35,12 @@ const sample: Answers = {
 
 const submittedAt = "2026-10-29T02:00:00.000Z"
 const pageUrl = "https://www.systemizedsales.ai/quiz?test=1"
+const contact: QuizContact = {
+  first_name: " Ada ",
+  last_name: "Lovelace",
+  email: "ada@example.com",
+  phone: "+1 (415) 555-0100",
+}
 
 test("payload builder maps the score, leaks, and readable answers", () => {
   const result = scoreDiagnostic(sample)
@@ -44,6 +50,7 @@ test("payload builder maps the score, leaks, and readable answers", () => {
     answers: sample,
     pageUrl,
     submittedAt,
+    contact,
   })
 
   assert.equal(payload.session_id, "sess-1")
@@ -61,6 +68,28 @@ test("payload builder maps the score, leaks, and readable answers", () => {
   )
   assert.equal(payload.page_url, pageUrl)
   assert.equal(payload.submitted_at, submittedAt)
+  assert.equal(payload.first_name, "Ada")
+  assert.equal(payload.last_name, "Lovelace")
+  assert.equal(payload.email, "ada@example.com")
+  assert.equal(payload.phone, "+1 (415) 555-0100")
+  for (const key of [
+    "session_id",
+    "quiz",
+    "grade",
+    "score",
+    "archetype",
+    "area_scores",
+    "top_leaks",
+    "answers",
+    "page_url",
+    "submitted_at",
+    "first_name",
+    "last_name",
+    "email",
+    "phone",
+  ]) {
+    assert.equal(key in payload, true)
+  }
   assert.equal(payload.grade, "D")
   assert.equal(payload.score, 40)
   assert.equal(payload.archetype.id, "a2")
@@ -90,6 +119,7 @@ test("skipped numbers and a blank note are I don't know", () => {
     answers,
     pageUrl,
     submittedAt,
+    contact,
   })
   const byId = Object.fromEntries(payload.answers.map(item => [item.question_id, item]))
   assert.equal(byId.n_show.answer, "I don't know")
@@ -97,8 +127,8 @@ test("skipped numbers and a blank note are I don't know", () => {
   assert.equal(byId.n_close.answer, 18)
 })
 
-test("booking url carries the session, grade, and archetype", () => {
-  const src = bookingCalendarSrc("sess-1", "D", "a2")
+test("booking url carries the session, grade, archetype, and contact", () => {
+  const src = bookingCalendarSrc("sess-1", "D", "a2", contact)
   const url = new URL(src)
   assert.equal(url.origin + url.pathname, "https://link.automatedrev.com/widget/bookings/ss-intro-call1")
   assert.equal(url.searchParams.get("utm_source"), "quiz")
@@ -107,4 +137,22 @@ test("booking url carries the session, grade, and archetype", () => {
   assert.equal(url.searchParams.get("utm_term"), "D-a2")
   assert.equal(url.searchParams.get("utm_content"), "sess-1")
   assert.equal(url.searchParams.get("quiz_session_id"), "sess-1")
+  assert.equal(url.searchParams.get("first_name"), "Ada")
+  assert.equal(url.searchParams.get("last_name"), "Lovelace")
+  assert.equal(url.searchParams.get("email"), "ada@example.com")
+  assert.equal(url.searchParams.get("phone"), "+1 (415) 555-0100")
+  assert.match(src, /phone=%2B1/)
+  assert.match(src, /first_name=Ada/)
+})
+
+test("contact fields are required, with email and phone checks", () => {
+  assert.deepEqual(validateQuizContact({ first_name: " ", last_name: "", email: "", phone: "" }), {
+    first_name: "Enter your first name.",
+    last_name: "Enter your last name.",
+    email: "Enter your email.",
+    phone: "Enter your phone number.",
+  })
+  assert.equal(validateQuizContact({ ...contact, email: "not-an-email" }).email, "Enter a valid email.")
+  assert.equal(validateQuizContact({ ...contact, phone: "555-010" }).phone, "Enter a phone number with at least 10 digits.")
+  assert.deepEqual(validateQuizContact({ ...contact, phone: "415.555.0100" }), {})
 })
