@@ -8,7 +8,7 @@ import { ecosystemModules, faqs, siteStats } from "@/lib/site-data"
 import { guideNav } from "@/lib/guide-nav"
 import GuideFooterLinks from "./GuideFooterLinks"
 import { LazyMotion, domAnimation, MotionConfig } from "motion/react"
-import { SalesOpportunityExample, SalesLeakMap, ProductScreenTour, InstallIllustration, VisualIcon } from "./LandingVisuals"
+import { SalesLeakMap, ProductScreenTour, InstallIllustration, VisualIcon } from "./LandingVisuals"
 
 function Header({ onBook }: { onBook: () => void }) {
   const [scrolled, setScrolled] = useState(false)
@@ -55,11 +55,10 @@ function Hero({ onBook }: { onBook: () => void }) {
             <p className="hero-sub">RevPhlo is a sales system that shows where leads, calls and follow-ups are slipping—and gives your team the playbooks and coaching tools to close more of those opportunities.</p>
             <div className="hero-cta-row">
               <button onClick={onBook} className="btn btn-primary">Book a demo →</button>
-              <a href="#overview" className="hero-watch"><VisualIcon name="play" />Watch the overview</a>
             </div>
             <p className="hero-fit-note">Installed for your business. Your team trained to use it.</p>
           </div>
-          <SalesOpportunityExample />
+          <HeroVideo />
         </div>
         <div className="hero-proof">
           <div className="hero-proof-kicker">Sales teams we’ve helped through our agency work</div>
@@ -70,27 +69,17 @@ function Hero({ onBook }: { onBook: () => void }) {
   )
 }
 
-function Overview() {
+function HeroVideo() {
   return (
-    <section id="overview" className="section overview-section">
-      <div className="wrap overview-grid">
-        <div className="overview-player">
-          <div className="visual-card-top"><span>See RevPhlo in action</span><VisualIcon name="play" /></div>
-          <video controls playsInline preload="none" poster="/media/revphlo-overview-poster.webp" aria-label="RevPhlo overview, narrated by Dylan" width="1280" height="720">
-            <source src="/media/revphlo-overview.mp4" type="video/mp4" />
-            <track kind="captions" src="/media/revphlo-overview.vtt" srcLang="en" label="English" default />
-            Your browser does not support video. <a href="/media/revphlo-overview.mp4">Watch the RevPhlo overview.</a>
-          </video>
-          <div className="video-note">Product walkthrough · Demo account shown</div>
-        </div>
-        <div className="overview-copy">
-          <h2 className="display display-md">Your numbers should tell you<br /><em className="italic-neon">what to work on.</em></h2>
-          <p>More leads? Better follow-up? A rep who needs coaching? Get the evidence to choose where to focus and the processes to help your team improve.</p>
-          <div className="fit-row"><VisualIcon name="people" /><div><strong>You lead the sales team</strong><span>Use a repeatable process to manage your reps.</span></div></div>
-          <div className="fit-row"><VisualIcon name="target" /><div><strong>You have a sales manager</strong><span>Give them the numbers and tools to lead better.</span></div></div>
-        </div>
-      </div>
-    </section>
+    <div id="overview" className="hero-video">
+      <div className="visual-card-top"><span>See RevPhlo in action</span><VisualIcon name="play" /></div>
+      <video controls playsInline preload="none" poster="/media/revphlo-overview-poster.webp" aria-label="RevPhlo overview, narrated by Dylan" width="1280" height="720">
+        <source src="/media/revphlo-overview.mp4" type="video/mp4" />
+        <track kind="captions" src="/media/revphlo-overview.vtt" srcLang="en" label="English" default />
+        Your browser does not support video. <a href="/media/revphlo-overview.mp4">Watch the RevPhlo overview.</a>
+      </video>
+      <div className="video-note">Demo account shown</div>
+    </div>
   )
 }
 
@@ -342,7 +331,6 @@ export default function SSLanding() {
         <div className="visual-landing">
           <Header onBook={openModal} />
           <Hero onBook={openModal} />
-          <Overview />
           <Problem />
           <HowItWorks />
           <Apps />

@@ -30,36 +30,6 @@ export const landingScreens = [
   { id: "manager", label: "Manager workspace", src: "/media/revphlo-manager.webp", alt: "RevPhlo demo manager workspace with KPIs, a performance follow-up and worklist.", title: "Keep your sales leader focused.", description: "Bring performance, coaching and the week’s priorities into a shared workspace.", icon: "target" },
 ] as const
 
-export function SalesOpportunityExample() {
-  const reduced = useReducedMotion()
-  return (
-    <div className="opportunity-example">
-      <div className="example-heading">
-        <span className="example-context">One place sales slip away</span>
-        <h2>A missed call can still<br />become a sale.</h2>
-      </div>
-      <div className="example-journey" aria-label="A prospect books a call, misses it, and needs follow-up from your team.">
-        <div className="journey-step"><span className="journey-icon"><VisualIcon name="call" /></span><span>Call booked</span></div>
-        <span className="journey-link" aria-hidden="true"><VisualIcon name="arrow" /></span>
-        <div className="journey-step journey-missed"><span className="journey-icon">!</span><span>No-show</span></div>
-        <span className="journey-link journey-link-next" aria-hidden="true"><VisualIcon name="arrow" /></span>
-        <div className="journey-step journey-followup"><span className="journey-icon"><VisualIcon name="people" /></span><span>Follow-up</span></div>
-      </div>
-      <div className="example-help">
-        <div className="example-brand"><span className="example-brand-mark"><VisualIcon name="connect" /></span><strong>How RevPhlo helps</strong></div>
-        <ul>
-          <li><VisualIcon name="chart" /><span>See no-shows by rep and lead source.</span></li>
-          <li><VisualIcon name="book" /><span>Give setters a clear rebooking process.</span></li>
-          <li><VisualIcon name="check" /><span>See whether more booked calls happen.</span></li>
-        </ul>
-      </div>
-      <m.div className="example-benefit" initial={false} whileHover={reduced ? {} : { y: -2 }} transition={{ duration: 0.18 }}>
-        Get more from the leads you already have.<VisualIcon name="arrow" />
-      </m.div>
-    </div>
-  )
-}
-
 const leaks = [
   { id: "leads", label: "Unworked leads", stage: 1, question: "Are new leads actually getting a call?", action: "See response times and activity. Give each lead an owner and a follow-up process.", icon: "call" },
   { id: "shows", label: "No-shows", stage: 3, question: "Which booked calls are we losing?", action: "Compare no-shows by rep and source. Give setters a clear confirmation and rebooking process.", icon: "people" },

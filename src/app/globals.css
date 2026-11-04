@@ -684,13 +684,11 @@ body {
 .visual-landing :is(button, a, summary, [tabindex="0"]):focus-visible { outline: 2px solid var(--neon); outline-offset: 5px; }
 .visual-hero { padding: 130px 0 50px; }
 .visual-hero .hero-top { margin-bottom: 48px; }
-.hero-split { display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: 50px; }
+.hero-split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; }
 .hero-copy { min-width: 0; }
 .visual-hero h1 { font-size: clamp(44px, 4.7vw, 68px); line-height: 1.04; letter-spacing: -.045em; text-wrap: initial; }
 .visual-hero .hero-sub { font-size: 17px; max-width: 480px; margin-top: 24px; }
 .visual-hero .hero-cta-row { gap: 24px; margin-top: 28px; }
-.hero-watch { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink); text-decoration: none; }
-.hero-watch .visual-icon { width: 17px; height: 17px; color: var(--neon); }
 .hero-fit-note { font-size: 12px; color: var(--ink-mute); margin-top: 18px; max-width: 430px; }
 .visual-hero .hero-proof { margin-top: 58px; gap: 18px; padding-top: 26px; border-top: 1px solid var(--line); }
 .visual-hero .hero-proof-kicker { color: var(--ink-mute); font-size: 10px; }
@@ -701,21 +699,12 @@ body {
 .visual-hero .stat-label { font-size: 9px; letter-spacing: .07em; line-height: 1.6; max-width: 310px; }
 .stack-chrome { height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 14px; color: #c1c1bc; background: #151617; border-bottom: 1px solid var(--line-strong); font: 10px var(--f-mono); }
 .stack-dots { font-size: 7px; color: #595c58; letter-spacing: 2px; }
-.visual-landing .overview-section { padding: 56px 0 68px; }
-.overview-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 58px; }
-.overview-player { border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; min-width: 0; background: #0c0d0c; }
-.overview-player video { display: block; width: 100%; height: auto; aspect-ratio: 16/9; }
+.hero-video { width: 100%; max-width: 600px; scroll-margin-top: 105px; border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; min-width: 0; background: #0c0d0c; }
+.hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 16/9; }
 .visual-card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.overview-player .visual-card-top { padding: 14px 18px; }
+.hero-video .visual-card-top { padding: 14px 18px; }
 .demo-tag { font: 8px var(--f-mono); letter-spacing: .06em; color: #a2a69c; border: 1px solid var(--line-strong); border-radius: 4px; padding: 4px 6px; white-space: nowrap; }
 .video-note { padding: 11px 18px; color: var(--ink-mute); font: 9px var(--f-mono); }
-.overview-copy .display { margin-top: 16px; font-size: clamp(30px, 3vw, 42px); line-height: 1.12; }
-.overview-copy > p { color: var(--ink-dim); margin: 20px 0 24px; font-size: 15px; max-width: 430px; }
-.fit-row { display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--line); padding: 15px 0; }
-.fit-row > .visual-icon { color: var(--neon); width: 21px; }
-.fit-row strong, .fit-row span { display: block; }
-.fit-row strong { font-size: 14px; font-weight: 500; }
-.fit-row span { font-size: 12px; color: var(--ink-mute); margin-top: 3px; }
 .visual-section-lead { color: var(--ink-dim); font-size: 16px; line-height: 1.6; max-width: 660px; margin: -6px 0 32px; }
 .leak-map { padding: 28px 36px 0; background: radial-gradient(ellipse at top, #9cff4f05, transparent 60%), var(--bg-card); overflow: hidden; }
 .leak-tabs { display: flex; justify-content: center; gap: 8px; margin: 32px 0; }
@@ -823,8 +812,6 @@ body {
   .hero-split { gap: 30px; }
   .visual-hero .hero-cta-row { gap: 18px; }
   .visual-hero .hero-cta-row .btn { padding: 13px 16px; font-size: 12px; }
-  .hero-watch { font-size: 12px; }
-  .overview-grid { gap: 36px; }
   .install-card { padding: 20px; }
   .tool-link { width: 10px; }
   .tool-tile, .tool-hub { width: 35px; height: 38px; }
@@ -834,15 +821,11 @@ body {
 @media (max-width: 850px) {
   .visual-hero { padding-top: 115px; }
   .visual-hero .hero-top { margin-bottom: 36px; }
-  .hero-split { grid-template-columns: 1fr; gap: 60px; }
+  .hero-split { grid-template-columns: 1fr; gap: 36px; }
   .visual-hero h1 { font-size: clamp(44px, 8.5vw, 68px); }
   .visual-hero .hero-sub { max-width: 530px; }
   .visual-hero .hero-proof { margin-top: 40px; }
   .visual-hero .hero-results { gap: 20px; }
-  .overview-grid { grid-template-columns: 1fr; gap: 32px; }
-  .overview-copy { max-width: 620px; }
-  .overview-copy > p { max-width: none; }
-  .fit-row { display: inline-flex; width: 50%; vertical-align: top; padding-right: 20px; }
   .leak-map { padding: 24px 24px 0; }
   .leak-detail { grid-template-columns: 1fr; gap: 20px; }
   .leak-outcome { border-left: 0; padding-left: 0; font-size: 12px; }
@@ -871,9 +854,7 @@ body {
   .visual-hero .hero-sub { font-size: 15px; margin-top: 20px; }
   .visual-hero .hero-cta-row { margin-top: 24px; gap: 18px; }
   .visual-hero .hero-cta-row .btn { padding: 13px 15px; }
-  .hero-watch { font-size: 11px; }
   .hero-fit-note { font-size: 11px; }
-  .hero-split { gap: 62px; }
   .stack-chrome { font-size: 8px; height: 28px; padding: 0 9px; gap: 9px; }
   .stack-dots { font-size: 5px; }
   .visual-hero .hero-results { grid-template-columns: 1fr; gap: 18px; }
@@ -881,11 +862,8 @@ body {
   .visual-hero .hero-result:last-child { border-bottom: 0; padding-bottom: 0; }
   .visual-hero .hero-result .stat-n { font-size: 20px; }
   .visual-hero .hero-result .stat-label { margin: 0; font-size: 8px; }
-  .overview-player .visual-card-top { padding: 12px; }
-  .overview-player .visual-card-top .xs { font-size: 9px; }
+  .hero-video .visual-card-top { padding: 12px; }
   .video-note { font-size: 8px; padding: 10px 12px; }
-  .overview-copy .display { font-size: 32px; }
-  .fit-row { display: flex; width: 100%; }
   .visual-section-lead { font-size: 14px; margin-bottom: 24px; }
   .leak-map { padding: 20px 16px 0; }
   .leak-map .visual-card-top { flex-wrap: wrap; gap: 10px; }
@@ -936,35 +914,9 @@ body {
   .visual-landing *, .visual-landing *::before, .visual-landing *::after { animation: none !important; transition: none !important; }
 }
 
-/* A readable sales example introduces the offer before the detailed product tour. */
-.opportunity-example { justify-self: end; width: 100%; max-width: 520px; border: 1px solid #ffffff20; border-radius: 16px; background: linear-gradient(145deg, #141812 0%, #0c0e0b 60%); box-shadow: 0 24px 70px #0006, 0 0 60px #9cff4f07; overflow: hidden; }
-.example-heading { padding: 26px 28px 0; }
 .example-context { color: #aeb5a7; font: 12px var(--f-body); line-height: 1.4; }
-.example-heading h2 { font: 500 clamp(24px, 2.1vw, 30px)/1.15 var(--f-display); letter-spacing: -.035em; margin-top: 10px; }
-.example-journey { display: flex; align-items: center; gap: 8px; padding: 25px 28px 28px; border-bottom: 1px solid var(--line-strong); }
-.journey-step { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--ink-dim); font-size: 11px; }
-.journey-icon { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #ffffff24; border-radius: 12px; color: #cbd3c5; background: #1a1e17; }
-.journey-icon .visual-icon { width: 22px; height: 22px; }
-.journey-missed { color: var(--amber); }
-.journey-missed .journey-icon { color: var(--amber); font: 500 25px var(--f-display); background: #2a2111; border-color: #ffb43a60; }
-.journey-followup { color: var(--neon); }
-.journey-followup .journey-icon { color: var(--neon); border-color: #9cff4f60; background: #192712; }
-.journey-link { color: #636c5b; margin-top: -24px; }
-.journey-link .visual-icon { width: 24px; height: 24px; }
-.journey-link-next { color: #9cff4f88; }
-.example-help { padding: 23px 28px 25px; }
-.example-brand { display: flex; align-items: center; gap: 10px; }
-.example-brand strong { font-size: 14px; font-weight: 500; }
-.example-brand-mark { display: grid; place-items: center; color: var(--neon); }
-.example-brand-mark .visual-icon { width: 20px; height: 20px; }
-.example-help ul { list-style: none; display: grid; gap: 15px; margin-top: 20px; }
-.example-help li { display: flex; align-items: center; gap: 13px; font-size: 13px; color: #ccd2c6; line-height: 1.45; }
-.example-help li .visual-icon { width: 18px; height: 18px; color: #90ae7c; }
-.example-benefit { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 17px 28px; background: #9cff4f0b; border-top: 1px solid #9cff4f24; color: var(--neon); font-size: 13px; }
-.example-benefit .visual-icon { width: 17px; height: 17px; }
-.overview-player .visual-card-top { color: var(--ink-dim); font-size: 13px; }
-.overview-player .visual-card-top > .visual-icon { width: 15px; height: 15px; color: var(--neon); }
-.overview-copy .display { margin-top: 0; }
+.hero-video .visual-card-top { color: var(--ink-dim); font-size: 13px; }
+.hero-video .visual-card-top > .visual-icon { width: 15px; height: 15px; color: var(--neon); }
 .screen-data-note { margin: -5px 20px 16px; font-size: 11px; color: #91968b; }
 .leak-detail h3 { margin-top: 0; }
 .visual-landing .leak-detail { min-height: 140px; }
@@ -975,25 +927,10 @@ body {
 .resource-details { margin-top: 0; }
 .resource-details > summary { font-size: 14px; padding: 18px 0; }
 .resource-details .guide-index { margin: 10px 0 24px; }
-@media (max-width: 850px) {
-  .opportunity-example { justify-self: center; max-width: 600px; }
-  .example-heading h2 { font-size: 30px; }
-  .example-journey { padding-top: 30px; }
-}
 @media (max-width: 600px) {
   .hero-split { gap: 35px; }
-  .example-heading { padding: 23px 22px 0; }
-  .example-heading h2 { font-size: 26px; }
   .example-context { font-size: 11px; }
-  .example-journey { padding: 25px 18px; gap: 5px; }
-  .journey-step { font-size: 10px; }
-  .journey-icon { width: 42px; height: 42px; }
-  .journey-link .visual-icon { width: 20px; }
-  .example-help { padding: 22px; }
-  .example-help li { font-size: 12px; gap: 10px; }
-  .example-help ul { gap: 16px; }
-  .example-benefit { padding: 16px 22px; font-size: 12px; }
-  .overview-player .visual-card-top { font-size: 12px; }
+  .hero-video .visual-card-top { font-size: 12px; }
   .screen-data-note { font-size: 10px; margin: 3px 12px 14px; }
   .outcome-card { padding-top: 23px; }
   .outcome-card:first-child { padding-top: 0; }
