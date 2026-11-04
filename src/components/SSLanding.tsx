@@ -56,7 +56,7 @@ function Hero({ onBook }: { onBook: () => void }) {
             <p className="hero-sub">Find the sales you’re missing and close more of them. We install the tracking, playbooks and workflows—and help your team put them to work.</p>
             <div className="hero-cta-row">
               <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
-              <a href="#overview" className="hero-watch"><VisualIcon name="play" />Watch in 58 seconds</a>
+              <a href="#overview" className="hero-watch"><VisualIcon name="play" />Watch the overview</a>
             </div>
             <p className="hero-fit-note">For established businesses with setters, closers and inbound leads.</p>
           </div>
@@ -76,7 +76,7 @@ function Overview() {
     <section id="overview" className="section overview-section">
       <div className="wrap overview-grid">
         <div className="overview-player">
-          <div className="visual-card-top"><span className="mono xs ink-mute">THE IDEA IN 58 SECONDS</span><span className="demo-tag">SOUND ON</span></div>
+          <div className="visual-card-top"><span className="mono xs ink-mute">THE IDEA IN UNDER A MINUTE</span><span className="demo-tag">SOUND ON</span></div>
           <video controls playsInline preload="none" poster="/media/revphlo-overview-poster.webp" aria-label="RevPhlo overview, narrated by Dylan" width="1280" height="720">
             <source src="/media/revphlo-overview.mp4" type="video/mp4" />
             <track kind="captions" src="/media/revphlo-overview.vtt" srcLang="en" label="English" default />
