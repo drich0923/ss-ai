@@ -16,19 +16,19 @@ export type ProductModule = {
 }
 
 export const siteStats = [
-  { value: "10.7% → 30.8%", label: "Close rate in 90 days. The Listings Lab, running this system." },
-  { value: "$300K → $1.1M", label: "First $1M month within 8 months. Woobie, running this system." },
+  { value: "10.7% → 30.8%", label: "The Listings Lab · close rate on held calls over 90 days · agency engagement" },
+  { value: "$300K → $1.1M", label: "Woobie · monthly revenue · agency engagement" },
   {
     value: "Back-to-back $1M months",
-    label: "From $400-500K on a good month to back-to-back $1M months. Brennan Schlagbaum, Founder, Budgetdog.",
+    label: "Budgetdog · agency engagement · achieved before RevPhlo’s June 2026 rollout",
   },
 ] as const
 
 export const ecosystemModules = [
   {
     slug: "revphlo",
-    title: "RevPhlo",
-    summary: "The numbers your reps can't inflate. Notes written from the call, closes counted only when payment lands, every KPI certified.",
+    title: "Sales Reporting",
+    summary: "Connect sales activity and collected cash. Compare reps, sources and funnel stages to see where to investigate.",
     href: "/products/revphlo",
   },
   {
@@ -46,13 +46,13 @@ export const ecosystemModules = [
   {
     slug: "ai-call-coaching",
     title: "AI Call Coaching",
-    summary: "Every closer call scored and broken down, so you know exactly what to fix before the next one.",
+    summary: "Review scored sales calls alongside performance data, so your leader can coach specific behaviors.",
     href: "/products/ai-call-coaching",
   },
   {
     slug: "manager-os",
     title: "Manager OS",
-    summary: "Your managers see which reps need help today, and what to coach them on.",
+    summary: "Keep coaching, team priorities and follow-through in one workspace for your sales leader.",
     href: "/products/manager-os",
   },
   {
@@ -92,12 +92,12 @@ export const ecosystemModules = [
 export const productModules: ProductModule[] = [
   {
     slug: "revphlo",
-    name: "RevPhlo",
+    name: "RevPhlo Sales Reporting",
     eyebrow: "The numbers",
-    heroTitle: "The numbers your reps can't inflate.",
-    heroSummary: "Part of the system. Notes are written from the call. A close counts only when payment lands. Show rate, close rate, and cash per call are certified.",
+    heroTitle: "Back your instincts with sales data you can trust.",
+    heroSummary: "The reporting inside RevPhlo connects sales activity with collected cash. See how reps and sources perform, investigate missed opportunities and review the impact of your decisions.",
     audience: "Teams that need one set of numbers for the whole system",
-    leadValue: "Your team reads the same numbers. A rep cannot edit a call into looking better than it was.",
+    leadValue: "Your team works from consistent definitions and a connected view of calls, outcomes and payments.",
     pains: [
       "Show rate and close rate live in a tracker a rep can change.",
       "Call notes are written from memory after the hang-up.",
@@ -114,7 +114,7 @@ export const productModules: ProductModule[] = [
     ],
     fulfillment: [
       "We connect the sources you already use.",
-      "We install RevPhlo as part of the system.",
+      "We set up the reporting inside your RevPhlo workspace.",
       "We show your team how to approve notes and read the certified numbers.",
       "Support stays in Slack.",
     ],
@@ -597,46 +597,45 @@ export function publicProductModules() {
 
 export const faqs = [
   {
-    q: "What is a sales team operating system?",
-    a: "A sales team operating system is one system a high-ticket team uses to hire, ramp, track, and pay its own reps. It is not a pile of separate tools, and it is not someone else running your sales. We install The Sales Team OS, show your owner, manager, and reps how to use it, and support you in Slack. Your team does the hiring, the selling, and the managing.",
+    q: "What is RevPhlo?",
+    a: "A sales system for businesses with setters and closers. It brings reporting, playbooks, call coaching and daily team processes together. We install it in your business, connect your tools and train your team to use it."
   },
   {
-    q: "Is this a done-for-you sales team?",
-    a: "No. We don't hire, ramp, train, coach, or manage your reps, and we don't supply setters, closers, or managers. We install the system and train you, your manager, and your team on how to use it. Your team does the work.",
+    q: "Who is it for?",
+    a: "Established high-ticket businesses with setters and closers working inbound leads from paid or organic marketing. You should already have an offer that sells, leads coming in and someone responsible for leading the sales team. That can be the owner or an existing sales manager."
   },
   {
-    q: "What's included?",
-    a: "Ten parts of one system, set up for you: RevPhlo, the Hiring App, Speed to Lead, AI Call Coaching, Manager OS, phone and DM setter trackers, the QC Dashboard, closer and setter playbooks, Closer Onboarding and the Commission Tracker. Fixes and changes in a shared Slack channel are included too.",
+    q: "Will you run our sales team?",
+    a: "You or your sales manager lead the team. Your reps handle calls and follow-up. We install the system and provide training, playbooks, Slack support and weekly group office hours."
   },
   {
-    q: "We already use GoHighLevel. Does this replace it?",
-    a: "No. We connect to it. GoHighLevel, Stripe, Fathom and Whop plug into your workspace, so your numbers come from the tools you already use. On a different stack? Ask us on the call.",
+    q: "What’s included?",
+    a: "Connected sales reporting, manager workflows, setter tracking, call coaching and quality review, playbooks, hiring and onboarding tools, and commission tracking. We map your existing process, migrate relevant sales assets, help improve weak processes and train your team. Dedicated Slack support and weekly office hours support ongoing use."
   },
   {
-    q: "How fast is it live?",
-    a: "Most teams are live within 30 days of kickoff. The clock starts once we have access to your tools.",
+    q: "We already have a CRM. How does this fit?",
+    a: "RevPhlo connects to your existing tools so you can use activity and payment data alongside the processes your team follows. GoHighLevel is a strong fit; we also work with other stacks. We confirm your integrations and the required setup on the call."
   },
   {
-    q: "Who owns it?",
-    a: "Your team gets its own workspace. Your data stays yours. We host and maintain the system, keep an eye on it so we can fix things fast, and keep improving it.",
+    q: "What does implementation involve?",
+    a: "We review your funnel, tools, reporting and sales assets, agree on the scope, then connect, migrate and train. Timing depends on your integrations, data readiness and team availability. We agree on the rollout with you before kickoff."
   },
-  // TODO: Optional price line is not approved. Do not add "Setup starts at $8,000." until Dylan signs off.
+  {
+    q: "What ongoing help do we get?",
+    a: "A dedicated Slack channel for questions and troubleshooting, customer success support, documentation and Loom walkthroughs, plus weekly group office hours. Bring your questions and learn from the questions other teams ask."
+  },
   {
     q: "What does it cost?",
-    a: "One setup fee and one monthly fee, with RevPhlo included. Most teams stay with us 6 to 12 months. We give you an exact price on the call, based on your team size and tools.",
+    a: "There is an implementation fee and an ongoing monthly fee. We explain the scope and investment on your demo before you decide."
   },
   {
-    q: "What's the guarantee?",
-    a: "If The Sales Team OS doesn't surface at least your setup fee in leaked cash by day 90, we refund the setup fee. If your numbers haven't clearly moved by then, you can walk away from the rest of your term and keep what we built. We'll walk you through the details on the call.",
-  },
-  {
-    q: "What if our process changes?",
-    a: "It will. Changes and fixes happen in your shared Slack channel and are included. If you need a new part, we scope and price it with you.",
-  },
+    q: "Who owns our data, and what if our process changes?",
+    a: "Your data stays yours. We host and maintain the system. If your process changes, bring it to your support channel so we can work through the change. Additional integrations or custom work are scoped with you."
+  }
 ] as const
 
 const productSeoTitles: Record<string, string> = {
-  revphlo: "Certified Sales KPIs for High Ticket Teams",
+  revphlo: "RevPhlo Sales Reporting for High-Ticket Teams",
   "hiring-app": "Hiring App for Closers and Setters",
   "speed-to-lead": "Speed to Lead for GoHighLevel Sales Teams",
   "ai-call-coaching": "AI Sales Call Coaching for Closers",

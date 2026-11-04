@@ -40,7 +40,7 @@ export default function GuideChrome({ children }: { children: React.ReactNode })
         <div className="wrap footer-inner">
           <div className="footer-brand">
             <Logo />
-            <div className="mono xs ink-mute">the sales team os</div>
+            <div className="mono xs ink-mute">RevPhlo · The Sales Team OS</div>
           </div>
           <div className="footer-cols">
             <div className="footer-col">

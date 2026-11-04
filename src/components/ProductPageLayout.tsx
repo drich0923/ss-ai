@@ -44,7 +44,7 @@ function Footer() {
       <div className="wrap footer-inner">
         <div className="footer-brand">
           <Logo />
-          <div className="mono xs ink-mute">the sales team os</div>
+          <div className="mono xs ink-mute">RevPhlo · The Sales Team OS</div>
         </div>
         <div className="footer-cols">
           <div className="footer-col">
@@ -64,7 +64,7 @@ function Footer() {
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
             <Link href="/#cta">Book a call →</Link>
-            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">RevPhlo, included in the OS ↗</a>
+            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">Explore RevPhlo ↗</a>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
           <div className="product-hero-grid">
             <div>
               <div className="product-eyebrow"><span className="status-dot">{product.eyebrow.toUpperCase()}</span></div>
-              <p className="product-part">Part of the system. The same one our agency runs its sales teams on.</p>
+              <p className="product-part">Part of RevPhlo: connected tracking, workflows, playbooks and training.</p>
               <h1 className="product-title">{seoTitle ?? product.heroTitle}</h1>
               {seoTitle ? <p className="product-kicker">{product.heroTitle}</p> : null}
               <p className="product-summary">{product.heroSummary}</p>
@@ -254,7 +254,7 @@ export default function ProductPageLayout({ product }: { product: ProductModule 
             <div className="final-inner">
               <div className="status-dot">READY TO SHIP</div>
               <h2 className="display display-lg final-t">Let's build <em className="italic-neon">{product.name}</em><br />for your team.</h2>
-              <p className="final-sub">30-minute call. We'll map your team and your tools, show you where everything still runs through you, and tell you exactly what we'd set up. No deck. No pressure.</p>
+              <p className="final-sub">In 30 minutes, we’ll talk through your sales process, show you how RevPhlo works and map what an implementation could look like for your team.</p>
               <div className="final-ctas">
                 <button onClick={openModal} className="btn btn-primary">Book a 30-min call →</button>
                 <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>

@@ -1,19 +1,20 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useId, useState } from "react"
 import Link from "next/link"
 import AuditModal from "./AuditModal"
-import IsThisYou from "./IsThisYou"
 import Logo from "./Logo"
 import { ecosystemModules, faqs, siteStats } from "@/lib/site-data"
 import { guideNav } from "@/lib/guide-nav"
 import GuideFooterLinks from "./GuideFooterLinks"
+import { LazyMotion, domAnimation, MotionConfig } from "motion/react"
+import { SalesLeakMap, ProductScreenTour, InstallIllustration, VisualIcon } from "./LandingVisuals"
 
 function Header({ onBook }: { onBook: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", onScroll)
+    window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
   return (
@@ -23,16 +24,15 @@ function Header({ onBook }: { onBook: () => void }) {
           <Logo />
         </Link>
         <nav className="site-nav">
-          <a href="#problem">PROBLEM</a>
+          <a href="#problem">WHY REVPHLO</a>
           <a href="#how">HOW IT WORKS</a>
           <a href="#apps">WHAT'S INCLUDED</a>
-          <a href="#preview">INSIDE</a>
-          <a href="#roi">THE MATH</a>
+          <a href="#results">RESULTS</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div className="site-cta">
           <a href="mailto:sales@systemizedsales.ai" className="link-dim">sales@systemizedsales.ai</a>
-          <button onClick={onBook} className="btn btn-primary">Book a call →</button>
+          <button onClick={onBook} className="btn btn-primary">Book a demo →</button>
         </div>
       </div>
     </header>
@@ -40,101 +40,65 @@ function Header({ onBook }: { onBook: () => void }) {
 }
 
 function Hero({ onBook }: { onBook: () => void }) {
-  const [typed, setTyped] = useState("")
-  const cmd = "> ss install sales-team-os"
-  useEffect(() => {
-    let i = 0
-    // Shorter than the old command. ~46ms/char keeps the type-out near 1.2s instead of flashing by.
-    const id = setInterval(() => {
-      i++
-      setTyped(cmd.slice(0, i))
-      if (i >= cmd.length) clearInterval(id)
-    }, 46)
-    return () => clearInterval(id)
-  }, [])
   return (
-    <section className="hero">
-      <div className="hero-bg-grid grid-bg" aria-hidden />
-      <div className="hero-glow" aria-hidden />
+    <section className="hero visual-hero">
+      <div className="hero-bg-grid grid-bg" aria-hidden="true" />
+      <div className="hero-glow" aria-hidden="true" />
       <div className="wrap hero-inner">
         <div className="hero-top">
-          <span className="status-dot">ALL SYSTEMS OPERATIONAL</span>
-          <span className="mono ink-mute sm">v4.2 · The Sales Team OS</span>
+          <span className="status-dot">FOR HIGH-TICKET SALES TEAMS</span>
+          <span className="mono ink-mute sm">RevPhlo</span>
         </div>
-        <h1 className="display display-xl">
-          One system<br />for your whole<br />sales team.
-        </h1>
-        <p className="hero-sub">
-          This is the exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay. We install it, train you on how to use it, and support you in Slack.
-        </p>
-        <div className="hero-terminal-window">
-          <div className="twin-top">
-            <span className="dot dot-r" /><span className="dot dot-y" /><span className="dot dot-g" />
-            <span className="twin-title">ss-ai · ~/your-sales-team</span>
-            <span className="twin-tag">live</span>
+        <div className="hero-split">
+          <div className="hero-copy">
+            <h1 className="display display-xl">A six-figure month<br />can hide a<br /><em className="italic-neon">sales problem.</em></h1>
+            <p className="hero-sub">RevPhlo is a sales system that shows where leads, calls and follow-ups are slipping—and gives your team the playbooks and coaching tools to close more of those opportunities.</p>
+            <div className="hero-cta-row">
+              <button onClick={onBook} className="btn btn-primary">Book a demo →</button>
+            </div>
+            <p className="hero-fit-note">Installed for your business. Your team trained to use it.</p>
           </div>
-          <div className="twin-body">
-            <div className="twin-line ink-mute">// today: every lead, rep and payout runs through you.</div>
-            <div className="twin-line">{typed}<span className="caret">▊</span></div>
-            <div className="twin-line ink-dim">  ▸ every lead called in minutes, not tomorrow<span className="twin-tail"><span className="twin-dots-full"> ...... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ new reps ramp on a playbook, not on you<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ every call scored so your manager can coach<span className="twin-tail"><span className="twin-dots-full"> ..... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ cash, shows and closes in one live view<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line"><span className="ok">✓</span> live in 30 days · pays for itself in 90, or your setup fee back</div>
-          </div>
-        </div>
-        <div className="hero-cta-row">
-          <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
-          <a href="#preview" className="btn btn-ghost">See what's inside</a>
+          <HeroVideo />
         </div>
         <div className="hero-proof">
-          <div className="hero-proof-kicker">The exact system behind these results</div>
-          <div className="hero-results">
-            {siteStats.map(s => (
-              <div key={s.label} className="hero-result">
-                <div className="stat-n">{s.value}</div>
-                <div className="stat-label">{s.label}</div>
-              </div>
-            ))}
-          </div>
+          <div className="hero-proof-kicker">Sales teams we’ve helped through our agency work</div>
+          <div className="hero-results">{siteStats.map(s => <div key={s.label} className="hero-result"><div className="stat-n">{s.value}</div><div className="stat-label">{s.label}</div></div>)}</div>
         </div>
       </div>
     </section>
   )
 }
 
-function SectionHeader({ eyebrow, title }: { eyebrow: string; title: React.ReactNode }) {
+function HeroVideo() {
+  return (
+    <div id="overview" className="hero-video">
+      <div className="visual-card-top"><span>See RevPhlo in action</span><VisualIcon name="play" /></div>
+      <video controls playsInline preload="none" poster="/media/revphlo-overview-poster.webp" aria-label="RevPhlo overview, narrated by Dylan" width="1280" height="720">
+        <source src="/media/revphlo-overview.mp4" type="video/mp4" />
+        <track kind="captions" src="/media/revphlo-overview.vtt" srcLang="en" label="English" default />
+        Your browser does not support video. <a href="/media/revphlo-overview.mp4">Watch the RevPhlo overview.</a>
+      </video>
+      <div className="video-note">Demo account shown</div>
+    </div>
+  )
+}
+
+function SectionHeader({ eyebrow, title }: { eyebrow?: string; title: React.ReactNode }) {
   return (
     <div className="section-header">
-      <div className="eyebrow">{eyebrow}</div>
+      {eyebrow && <div className="eyebrow">{eyebrow}</div>}
       <h2 className="display display-lg">{title}</h2>
     </div>
   )
 }
 
 function Problem() {
-  const pains = [
-    { n: "01", t: "Hiring is a coin flip", d: "You hire the best talker on the call. Thirty days later you find out they can't close. Then you start over." },
-    { n: "02", t: "New reps ramp on you", d: "The playbook lives in your head. Every new rep pings you for scripts, pricing and what to say when a lead stalls." },
-    { n: "03", t: "Tools don't talk", d: "GHL, Stripe, Fathom, Sheets, Slack. Six tabs to answer 'how did we do this week?' Nobody opens six tabs." },
-    { n: "04", t: "Leads slip through the cracks", d: "A lead fills out your form at 9 PM. Nobody calls until tomorrow. Setters log what they remember, not what happened." },
-    { n: "05", t: "Commission math is a liability", d: "Spreadsheets with formulas three people understand. Mistakes burn trust. Trust is how reps stay." },
-    { n: "06", t: "You don't know what you don't know", d: "Is it the leads, the setter or the closer? Without clean numbers, you're guessing. And guessing is expensive." },
-  ]
   return (
     <section id="problem" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="THE PROBLEM" title={<>Your sales team runs on<br /><em className="italic-neon">duct tape and you.</em></>} />
-        <div className="problem-grid">
-          {pains.map(p => (
-            <div key={p.n} className="pain card reveal">
-              <div className="pain-n">{p.n}</div>
-              <div className="pain-t">{p.t}</div>
-              <div className="pain-d">{p.d}</div>
-            </div>
-          ))}
-        </div>
-        <div className="problem-bottom ink-mute">// you don't need another tool. you need one system.</div>
+        <SectionHeader title={<>You paid for the lead.<br /><em className="italic-neon">Where did the sale go?</em></>} />
+        <p className="visual-section-lead">Leads sit untouched. Booked calls don’t happen. Follow-ups stop too soon. See which part of your sales process needs attention first.</p>
+        <SalesLeakMap />
       </div>
     </section>
   )
@@ -142,332 +106,64 @@ function Problem() {
 
 function HowItWorks() {
   const steps = [
-    { n: "01", t: "Map", time: "DISCOVERY CALL", d: "We get on a call and map how your team works today: who does what, which tools you use, and where deals and data fall through.", out: ["Your team, mapped", "Your tools, listed", "The gaps, ranked"], color: "var(--neon)" },
-    { n: "02", t: "Connect", time: "FIRST 30 DAYS", d: "We connect what you already use to the system and RevPhlo, load your playbooks, trackers, hiring page and commission plan, and get your team logged in. Your team does the hiring, selling, and managing. We show them how to use the system.", out: ["Connected", "The system set up", "Your team shown how to use it"], color: "var(--blue)" },
-    { n: "03", t: "Refine", time: "ONGOING", d: "We don't hand you logins and leave. A shared Slack channel stays open for fixes and changes, all included. Need a new part as you grow? We scope it with you.", out: ["Shared Slack channel", "Fixes and changes included", "New parts scoped as you grow"], color: "var(--amber)" },
+    { n: "01", title: "Connect your sales data.", description: "We map your sales process and connect your tools, bringing leads, calls and collected cash into a shared view." },
+    { n: "02", title: "Train your team.", description: "We bring your scripts and sales assets into the system, adapt our playbooks and train your reps and sales leader." },
+    { n: "03", title: "Improve week by week.", description: "Use the numbers to choose a priority, coach your reps and review the result. We help your team build the habit." },
   ]
   return (
     <section id="how" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="HOW IT WORKS" title={<>Three steps.<br /><span className="ink-mute">One system that grows with you.</span></>} />
-        <div className="how-track">
-          <div className="how-rail" aria-hidden />
-          {steps.map(s => (
-            <div key={s.n} className="how-step reveal" style={{ ["--step-color" as string]: s.color } as React.CSSProperties}>
-              <div className="how-step-marker">
-                <span className="how-step-dot" style={{ background: s.color }} />
-                <span className="mono xs ink-mute">{s.time}</span>
-              </div>
-              <div className="how-step-body card">
-                <div className="how-step-head">
-                  <span className="mono xs ink-mute">PHASE {s.n}</span>
-                  <h3 className="how-step-t">{s.t}</h3>
-                </div>
-                <p className="how-step-d">{s.d}</p>
-                <ul className="how-step-out">
-                  {s.out.map(o => (
-                    <li key={o}><span className="tick" style={{ color: s.color }}>✓</span> {o}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="how-step-body card" style={{ marginTop: 32, ["--step-color" as string]: "var(--neon)" } as React.CSSProperties}>
-          <div className="mono xs ink-mute" style={{ marginBottom: 14 }}>GUARANTEE</div>
-          <h3 className="how-step-t" style={{ marginBottom: 14 }}>The Pays-For-Itself Guarantee</h3>
-          <p className="how-step-d">By day 90, The Sales Team OS finds at least your setup fee in cash you were leaving on the table: unpaid invoices, leads nobody called, no-shows nobody rebooked. If it doesn't, we refund your setup fee.</p>
-          <p className="how-step-d" style={{ marginBottom: 0 }}>And if your numbers haven't clearly moved by day 90, you can walk away from the rest of your term and keep everything we built.</p>
-        </div>
+        <SectionHeader eyebrow="IMPLEMENTATION & SUPPORT INCLUDED" title={<>We install it.<br /><em className="italic-neon">Your team puts it to work.</em></>} />
+        <div className="install-grid">{steps.map((step, i) => <article className="install-card card" key={step.n}>
+          <div className="install-top"><span>{step.n}</span></div>
+          <InstallIllustration step={i as 0 | 1 | 2} />
+          <h3>{step.title}</h3><p>{step.description}</p>
+        </article>)}</div>
+        <div className="support-strip"><span><VisualIcon name="support" />Dedicated Slack support</span><span><VisualIcon name="people" />Weekly group office hours</span><span><VisualIcon name="book" />SOPs & video walkthroughs</span></div>
       </div>
     </section>
   )
 }
 
 function Apps() {
-  const cats: Record<string, { color: string; icon: string }> = {
-    "revphlo": { color: "var(--neon)", icon: "◆" },
-    "hiring-app": { color: "var(--coral)", icon: "◎" },
-    "speed-to-lead": { color: "var(--amber)", icon: "▸" },
-    "ai-call-coaching": { color: "var(--purple)", icon: "◉" },
-    "manager-os": { color: "var(--blue)", icon: "▦" },
-    "setter-eod": { color: "var(--blue)", icon: "⎯" },
-    "qc-dashboard": { color: "var(--amber)", icon: "✓" },
-    "closer-playbook": { color: "var(--purple)", icon: "▣" },
-    "rep-onboarding": { color: "var(--blue)", icon: "⟶" },
-    "commission-tracker": { color: "var(--neon)", icon: "$" },
-  }
   return (
     <section id="apps" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="THE SYSTEM" title={<>Ten parts. One system.<br /><span className="ink-mute">The same one our agency runs.</span></>} />
-        <div className="feat-grid">
-          {ecosystemModules.map(m => {
-            const meta = cats[m.slug] ?? { color: "var(--neon)", icon: "◆" }
-            return (
-              <Link key={m.slug} href={m.href} className="feat card reveal">
-                <div className="feat-top">
-                  <span className="feat-icon" style={{ color: meta.color, borderColor: meta.color }}>{meta.icon}</span>
-                  <span className="mono xs" style={{ color: meta.color, letterSpacing: "0.14em" }}>PART</span>
-                </div>
-                <div className="feat-t">{m.title}</div>
-                <div className="feat-d">{m.summary}</div>
-                <div className="feat-bottom">
-                  <span className="feat-live"><span className="live-dot" /> INCLUDED</span>
-                  <span>{m.href.startsWith("/products/") ? "learn more →" : "see it on a call →"}</span>
-                </div>
-              </Link>
-            )
-          })}
+        <SectionHeader title={<>The numbers.<br /><em className="italic-neon">The tools to improve them.</em></>} />
+        <div className="outcome-grid">
+          <article className="outcome-card"><VisualIcon name="chart" /><h3>See where sales are slipping.</h3><p>Compare reps, lead sources, show rates, close rates and collected cash.</p></article>
+          <article className="outcome-card"><VisualIcon name="book" /><h3>Give reps a process to follow.</h3><p>Playbooks, call coaching, onboarding and daily accountability.</p></article>
+          <article className="outcome-card"><VisualIcon name="support" /><h3>Get help using the system.</h3><p>Hands-on setup, team training, Slack support and weekly office hours.</p></article>
         </div>
+        <div id="preview" className="product-tour-anchor"><ProductScreenTour /></div>
+        <details className="module-details">
+          <summary>View the full toolkit <span aria-hidden="true">+</span></summary>
+          <div className="module-link-grid">{ecosystemModules.map(item => <Link key={item.slug} href={item.href}><span>{item.title}</span><VisualIcon name="arrow" /></Link>)}</div>
+        </details>
       </div>
     </section>
-  )
-}
-
-function DashPreview() {
-  const [tab, setTab] = useState<"pipeline" | "coaching" | "cash" | "health">("cash")
-  const tabs = [
-    { id: "cash", label: "RevPhlo", color: "var(--neon)" },
-    { id: "pipeline", label: "Setter EOD", color: "var(--blue)" },
-    { id: "coaching", label: "Commissions", color: "var(--amber)" },
-    { id: "health", label: "Hiring", color: "var(--coral)" },
-  ] as const
-  return (
-    <section id="preview" className="section">
-      <div className="wrap">
-        <SectionHeader eyebrow="INSIDE THE HUB" title={<>Your team's <em className="italic-neon">command center</em>.<br /><span className="ink-mute">Every number, one workspace.</span></>} />
-        <div className="preview-shell">
-          <div className="preview-chrome">
-            <span className="dot dot-r" /><span className="dot dot-y" /><span className="dot dot-g" />
-            <span className="mono sm ink-mute">yourteam · systemized hub / {tab}</span>
-            <span className="status-dot-inline"><span className="live-dot" /> SAMPLE DATA</span>
-          </div>
-          <div className="preview-tabs">
-            {tabs.map(t => (
-              <button key={t.id} className={`preview-tab ${tab === t.id ? "active" : ""}`} onClick={() => setTab(t.id as typeof tab)} style={{ ["--tab-color" as string]: t.color } as React.CSSProperties}>
-                {t.label}
-              </button>
-            ))}
-          </div>
-          <div className="preview-body">
-            {tab === "coaching" && <CoachingView />}
-            {tab === "pipeline" && <PipelineView />}
-            {tab === "cash" && <CashView />}
-            {tab === "health" && <HealthView />}
-          </div>
-        </div>
-        <div className="mono xs ink-dim" style={{ marginTop: 14 }}>Sample data for illustration. Your workspace shows your own numbers.</div>
-      </div>
-    </section>
-  )
-}
-
-function DashKpi({ title, v, delta, c }: { title: string; v: string; delta: string; c: string }) {
-  return (
-    <div className="dash-kpi">
-      <div className="mono xs ink-mute">{title}</div>
-      <div className="dash-kpi-v">{v}</div>
-      <div className="mono xs" style={{ color: c }}>{delta}</div>
-    </div>
-  )
-}
-
-function CoachingView() {
-  const calls = [
-    { rep: "S. Reyes", dur: "1st–15th", score: 92, flag: "Tier 2 bonus hit", c: "var(--neon)" },
-    { rep: "A. Desai", dur: "1st–15th", score: 74, flag: "Ready to approve", c: "var(--amber)" },
-    { rep: "M. Okafor", dur: "1st–15th", score: 88, flag: "Split with setter", c: "var(--neon)" },
-    { rep: "J. Blake", dur: "1st–15th", score: 58, flag: "Missing payment proof", c: "var(--coral)" },
-  ]
-  return (
-    <div className="dash-view">
-      <div className="dash-kpis">
-        <DashKpi title="PENDING APPROVAL" v="9" delta="this period" c="var(--amber)" />
-        <DashKpi title="APPROVED (MO)" v="$21,480" delta="+8%" c="var(--neon)" />
-        <DashKpi title="DISPUTES" v="0" delta="this period" c="var(--amber)" />
-        <DashKpi title="PAYOUT PERIOD" v="1st–15th" delta="semi-monthly" c="var(--neon)" />
-      </div>
-      <div className="dash-table">
-        <div className="dash-th"><span>REP</span><span>PERIOD</span><span>% OF TARGET</span><span>NOTE</span><span>ACTION</span></div>
-        {calls.map((c, i) => (
-          <div key={i} className="dash-tr">
-            <span className="rep-name"><span className="rep-dot" style={{ background: c.c }} />{c.rep}</span>
-            <span className="mono sm ink-dim">{c.dur}</span>
-            <span className="score-bar"><span className="score-bar-fill" style={{ width: `${c.score}%`, background: c.c }} /><span className="mono xs">{c.score}</span></span>
-            <span className="sm ink-dim">{c.flag}</span>
-            <button className="mini-btn">approve →</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function PipelineView() {
-  const reps = [
-    { n: "M. Okafor", role: "Phone", score: 96, flags: 0, c: "var(--neon)" },
-    { n: "S. Reyes", role: "DM", score: 91, flags: 1, c: "var(--neon)" },
-    { n: "T. Nolan", role: "Phone", score: 88, flags: 2, c: "var(--blue)" },
-    { n: "A. Desai", role: "DM", score: 82, flags: 3, c: "var(--neon)" },
-    { n: "R. Park", role: "Phone", score: 74, flags: 5, c: "var(--blue)" },
-    { n: "J. Blake", role: "DM", score: 68, flags: 7, c: "var(--amber)" },
-  ]
-  return (
-    <div className="dash-view">
-      <div className="dash-kpis">
-        <DashKpi title="DIALS TODAY" v="412" delta="+38" c="var(--neon)" />
-        <DashKpi title="CONVERSATIONS" v="96" delta="+11" c="var(--blue)" />
-        <DashKpi title="BOOKED" v="18" delta="+3" c="var(--amber)" />
-        <DashKpi title="EOD SUBMITTED" v="6 of 7" delta="1 missing" c="var(--neon)" />
-      </div>
-      <div className="dash-table">
-        <div className="dash-th"><span>SETTER</span><span>CHANNEL</span><span>EOD SCORE</span><span>MISSED</span><span>ACTION</span></div>
-        {reps.map(r => (
-          <div key={r.n} className="dash-tr">
-            <span className="rep-name"><span className="rep-dot" style={{ background: r.c }} />{r.n}</span>
-            <span className="mono sm ink-dim">{r.role}</span>
-            <span className="score-bar"><span className="score-bar-fill" style={{ width: `${r.score}%`, background: r.c }} /><span className="mono xs">{r.score}</span></span>
-            <span className="mono sm" style={{ color: r.flags > 4 ? "var(--amber)" : "var(--ink-dim)" }}>{r.flags}</span>
-            <button className="mini-btn">open EOD →</button>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function CashView() {
-  return (
-    <div className="dash-view">
-      <div className="dash-kpis">
-        <DashKpi title="CASH COLLECTED (MTD)" v="$84,600" delta="+12% vs last mo" c="var(--neon)" />
-        <DashKpi title="SHOW RATE" v="68%" delta="+6 pts" c="var(--blue)" />
-        <DashKpi title="CLOSE RATE ON SHOWS" v="31%" delta="+4 pts" c="var(--amber)" />
-        <DashKpi title="CASH PER CALL" v="$1,240" delta="+$180" c="var(--neon)" />
-      </div>
-      <div className="cash-chart">
-        <div className="mono sm ink-mute">30-DAY CASH COLLECTED · $</div>
-        <svg viewBox="0 0 800 180" preserveAspectRatio="none" className="cash-svg">
-          <defs>
-            <linearGradient id="cashFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#9cff4f" stopOpacity=".4" />
-              <stop offset="100%" stopColor="#9cff4f" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          {Array.from({ length: 11 }).map((_, i) => (
-            <line key={i} x1="0" x2="800" y1={i * 18} y2={i * 18} stroke="rgba(255,255,255,0.04)" />
-          ))}
-          <path d="M0,140 L40,130 L80,135 L120,110 L160,115 L200,90 L240,95 L280,75 L320,85 L360,60 L400,70 L440,50 L480,58 L520,40 L560,48 L600,32 L640,38 L680,25 L720,30 L760,18 L800,22 L800,180 L0,180 Z" fill="url(#cashFill)" />
-          <path d="M0,140 L40,130 L80,135 L120,110 L160,115 L200,90 L240,95 L280,75 L320,85 L360,60 L400,70 L440,50 L480,58 L520,40 L560,48 L600,32 L640,38 L680,25 L720,30 L760,18 L800,22" fill="none" stroke="#9cff4f" strokeWidth="2" />
-        </svg>
-      </div>
-    </div>
-  )
-}
-
-function HealthView() {
-  const accts = [
-    { n: "Candidate A", health: 94, mrr: "Closer", status: "SHORTLIST", c: "var(--neon)" },
-    { n: "Candidate B", health: 81, mrr: "Setter", status: "SHORTLIST", c: "var(--neon)" },
-    { n: "Candidate C", health: 62, mrr: "Closer", status: "REVIEW", c: "var(--amber)" },
-    { n: "Candidate D", health: 44, mrr: "Setter", status: "REVIEW", c: "var(--amber)" },
-    { n: "Candidate E", health: 38, mrr: "Closer", status: "PASS", c: "var(--coral)" },
-  ]
-  return (
-    <div className="dash-view">
-      <div className="dash-kpis">
-        <DashKpi title="APPLICANTS" v="64" delta="this month" c="var(--neon)" />
-        <DashKpi title="VIDEO SENT" v="29" delta="step 2" c="var(--amber)" />
-        <DashKpi title="CALL RECORDED" v="12" delta="step 3" c="var(--coral)" />
-        <DashKpi title="SHORTLIST" v="5" delta="ready" c="var(--neon)" />
-      </div>
-      <div className="dash-table">
-        <div className="dash-th"><span>CANDIDATE</span><span>ROLE</span><span>SCORE</span><span>STAGE</span><span>ACTION</span></div>
-        {accts.map(a => (
-          <div key={a.n} className="dash-tr">
-            <span className="rep-name"><span className="rep-dot" style={{ background: a.c }} />{a.n}</span>
-            <span className="mono sm ink-dim">{a.mrr}</span>
-            <span className="score-bar"><span className="score-bar-fill" style={{ width: `${a.health}%`, background: a.c }} /><span className="mono xs">{a.health}</span></span>
-            <span className="mono xs" style={{ color: a.c }}>{a.status}</span>
-            <button className="mini-btn">watch →</button>
-          </div>
-        ))}
-      </div>
-    </div>
   )
 }
 
 function Results() {
   const cases = [
-    {
-      name: "Budgetdog",
-      who: "Brennan Schlagbaum, Founder",
-      headline: "From $400-500K on a good month to back-to-back $1M months.",
-      story: "A good month used to land around $400K to $500K. Average monthly revenue then rose about $100K within 3 to 4 months, and the first $1M month came 8 to 9 months in. After that, they posted back-to-back $1M months.",
-      nums: [
-        { n: "~$100K", l: "Average monthly revenue, up within 3-4 months" },
-        { n: "8-9 months", l: "To the first $1M month" },
-        { n: "19.1% → 9.6%", l: "No-shows cut in half" },
-        { n: "24.7% → 31.7%", l: "Close rate, up" },
-      ],
-    },
-    {
-      name: "Woobie",
-      who: "Cole Tenney, CEO",
-      headline: "$300K to $1.1M a month.",
-      story: "Cold leads were going straight to closers, so calls went to people who were not ready to buy. The system showed where those calls were leaking, and the process was rebuilt around it. Their team did the selling.",
-      nums: [
-        { n: "Within 8 months", l: "First $1M month" },
-        { n: "41.5%", l: "Of booked prospects closed, Aug-Oct 2026" },
-        { n: "25% → 66%", l: "Accurate numbers. Old tracker said 25% show rate. The system measured 66%." },
-      ],
-    },
-    {
-      name: "Infinite Heart Health",
-      who: "",
-      headline: "Show rate doubled in 90 days.",
-      story: "Calls were booking but not showing. The system made the confirmation gap visible, and the process was tightened around it.",
-      nums: [
-        { n: "26% → 55%", l: "Show rate, Jul to Sep 2026" },
-      ],
-    },
-    {
-      name: "The Listings Lab",
-      who: "",
-      headline: "10.7% to 30.8% close rate in 90 days.",
-      story: "Close rate moved from 10.7% to 30.8% in 90 days. Booked-call close rate went from 6% to 19% over those same months.",
-      nums: [
-        { n: "6% → 19%", l: "Tripled booked-call close rate" },
-        { n: "90 days", l: "For the 10.7% to 30.8% close rate" },
-      ],
-    },
+    { name: "Budgetdog", from: "$400–500K", to: "$1M", label: "MONTHLY REVENUE", note: "Back-to-back $1M months", detail: "Agency engagement. Budgetdog grew from $400K–$500K on a good month to back-to-back $1M months. Those months came before RevPhlo’s June 2026 rollout." },
+    { name: "Woobie", from: "$300K", to: "$1.1M", label: "MONTHLY REVENUE", note: "First $1M month within 8 months", detail: "Agency engagement involving changes to qualification and handoffs. RevPhlo also corrected a show-rate measurement from 25% to 66%; that correction was not a performance lift." },
+    { name: "Infinite Heart Health", from: "26%", to: "55%", label: "SHOW RATE", note: "July → September 2026", detail: "Agency engagement. Our team worked with the client on the confirmation process. The result reflects the people and processes involved." },
+    { name: "The Listings Lab", from: "10.7%", to: "30.8%", label: "CLOSE RATE ON HELD CALLS", note: "Over 90 days", detail: "Agency engagement. Close rate on held calls moved from 10.7% to 30.8%; booked-call close rate moved from 6% to 19% over the same period." },
   ]
   return (
     <section id="results" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="RESULTS" title={<>Results from teams<br /><em className="italic-neon">running this system.</em></>} />
-        <p className="results-lead">The exact system behind these numbers.</p>
-        <div className="case-list">
-          {cases.map(item => (
-            <article key={item.name} className="case card">
-              <div className="case-copy">
-                <div className="case-name">{item.name}</div>
-                {item.who ? <div className="case-who">{item.who}</div> : null}
-                <h3 className="case-headline">{item.headline}</h3>
-                <p className="case-story">{item.story}</p>
-              </div>
-              <ul className="case-nums">
-                {item.nums.map(stat => (
-                  <li key={stat.l}>
-                    <span className="case-num">{stat.n}</span>
-                    <span className="case-num-l">{stat.l}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
+        <SectionHeader title={<>Built by people<br /><em className="italic-neon">who run sales teams.</em></>} />
+        <p className="visual-section-lead">These are results from Systemized Sales agency engagements—the operating experience behind RevPhlo’s playbooks.</p>
+        <div className="proof-grid">{cases.map(item => <article key={item.name} className="proof-card card">
+          <div className="proof-card-top"><h3>{item.name}</h3><span className="demo-tag">AGENCY RESULT</span></div>
+          <div className="mono xs ink-mute">{item.label}</div>
+          <div className="proof-change"><span>{item.from}</span><VisualIcon name="arrow" /><strong>{item.to}</strong></div>
+          <p className="proof-note">{item.note}{item.name === "Budgetdog" && <span>Achieved before RevPhlo’s June 2026 rollout.</span>}</p>
+          <details><summary>About this engagement</summary><p>{item.detail}</p></details>
+        </article>)}</div>
       </div>
     </section>
   )
@@ -480,50 +176,33 @@ function Roi({ onBook }: { onBook: () => void }) {
   const closeRateLift = 0.05
   const extraDealsYr = Math.round(reps * calls * 48 * closeRateLift)
   const revenueLift = extraDealsYr * acv
-  const perCloser = reps > 0 ? revenueLift / reps : 0
-  const total = revenueLift
   const fmt = (n: number) => "$" + Math.round(n).toLocaleString()
-  const fmtShort = (n: number) => n >= 1_000_000 ? "$" + (n / 1_000_000).toFixed(2) + "M" : "$" + Math.round(n / 1000) + "k"
 
   return (
     <section id="roi" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="RUN THE MATH" title={<>What's a better close rate <em className="italic-neon">worth to you?</em></>} />
+        <SectionHeader title={<>What could a better close rate <em className="italic-neon">be worth to you?</em></>} />
         <div className="roi-grid">
           <div className="roi-inputs card">
-            <div className="mono xs ink-mute roi-card-label">ENV // INPUTS</div>
+            <div className="mono xs ink-mute roi-card-label">YOUR NUMBERS</div>
             <RoiSlider label="Closers on your team" v={reps} set={setReps} min={1} max={20} step={1} />
             <RoiSlider label="Shows per closer / week" v={calls} set={setCalls} min={2} max={40} step={1} />
-            <RoiSlider label="Average deal" v={acv} set={setAcv} min={500} max={50000} step={500} prefix="$" format={n => n.toLocaleString()} />
+            <RoiSlider label="Average cash collected per new customer" v={acv} set={setAcv} min={500} max={50000} step={500} prefix="$" format={n => n.toLocaleString()} />
           </div>
           <div className="roi-outputs">
             <div className="roi-out card">
               <div className="roi-out-row">
                 <div className="mono xs ink-mute">EXTRA CLOSES / YR</div>
                 <div className="roi-out-v">{extraDealsYr}</div>
-                <div className="mono sm ink-dim">at +5 pts close rate</div>
+                <div className="mono sm ink-dim">at +5 percentage points on held calls</div>
               </div>
             </div>
-            <div className="roi-out card">
-              <div className="roi-out-row">
-                <div className="mono xs ink-mute">CASH FROM THE LIFT</div>
-                <div className="roi-out-v">{fmt(revenueLift)}</div>
-                <div className="mono sm ink-dim">{extraDealsYr} closes × your average deal</div>
-              </div>
-            </div>
-            <div className="roi-out card">
-              <div className="roi-out-row">
-                <div className="mono xs ink-mute">PER CLOSER / YR</div>
-                <div className="roi-out-v">{fmt(perCloser)}</div>
-                <div className="mono sm ink-dim">extra cash each closer brings in</div>
-              </div>
-            </div>
-            <div className="roi-total">
-              <div className="roi-total-label">ANNUAL IMPACT // ILLUSTRATIVE</div>
-              <div className="roi-total-v">{fmtShort(total)}<span className="roi-total-yr">/yr</span></div>
-              <div className="roi-total-bar"><div className="roi-bar-fill" style={{ width: "88%" }} /></div>
-              <div className="mono xs ink-dim">Illustration only, not a promise. It assumes a 5-point lift in close rate. Inside our own agency, 4 of 5 teams we tracked raised close rate within 90 days, by 5 to 20 points. One went down. Your call gives you a real baseline.</div>
-              <button onClick={onBook} className="btn btn-primary roi-btn">Get your real baseline →</button>
+            <div className="roi-total" aria-live="polite">
+              <div className="roi-total-label">ILLUSTRATIVE EXTRA CASH / YEAR</div>
+              <div className="roi-total-v">{fmt(revenueLift)}</div>
+              <div className="roi-formula">{extraDealsYr} extra closes × {fmt(acv)} collected per customer</div>
+              <div className="mono xs ink-dim">Illustration, not a forecast. Assumes 48 selling weeks, the same held-call volume and a 5-percentage-point increase in close rate. Extra closes are rounded to a whole number. Cash is before costs, fees and refunds; it is not profit or RevPhlo ROI.</div>
+              <button onClick={onBook} className="btn btn-primary roi-btn">Talk through your numbers →</button>
             </div>
           </div>
         </div>
@@ -533,14 +212,15 @@ function Roi({ onBook }: { onBook: () => void }) {
 }
 
 function RoiSlider({ label, v, set, min, max, step, prefix = "", format }: { label: string; v: number; set: (n: number) => void; min: number; max: number; step: number; prefix?: string; format?: (n: number) => string }) {
+  const id = useId()
   const display = format ? format(v) : v
   return (
     <div className="roi-slider">
       <div className="roi-slider-top">
-        <label className="roi-slider-label">{label}</label>
+        <label htmlFor={id} className="roi-slider-label">{label}</label>
         <span className="roi-slider-v">{prefix}{display}</span>
       </div>
-      <input type="range" className="roi-range" min={min} max={max} step={step} value={v} onChange={e => set(Number(e.target.value))} />
+      <input id={id} type="range" className="roi-range" min={min} max={max} step={step} value={v} onChange={e => set(Number(e.target.value))} />
     </div>
   )
 }
@@ -551,16 +231,16 @@ function Faq() {
   return (
     <section id="faq" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="FAQ" title={<>Questions we get<br /><span className="ink-mute">on every call.</span></>} />
+        <SectionHeader title={<>Your questions,<br /><em className="italic-neon">answered.</em></>} />
         <div className="faq-list">
           {qs.map((item, i) => (
             <div key={i} className={`faq-item ${open === i ? "open" : ""}`}>
-              <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+              <button className="faq-q" aria-expanded={open === i} aria-controls={`faq-answer-${i}`} onClick={() => setOpen(open === i ? -1 : i)}>
                 <span className="faq-n">{String(i + 1).padStart(2, "0")}</span>
                 <span className="faq-q-t">{item.q}</span>
                 <span className="faq-plus">{open === i ? "−" : "+"}</span>
               </button>
-              <div className="faq-a-wrap"><div className="faq-a">{item.a}</div></div>
+              <div id={`faq-answer-${i}`} className="faq-a-wrap" inert={open !== i}><div className="faq-a">{item.a}</div></div>
             </div>
           ))}
         </div>
@@ -571,20 +251,12 @@ function Faq() {
 
 function Guides() {
   return (
-    <section id="guides" className="section">
+    <section id="guides" className="resources-section">
       <div className="wrap">
-        <div className="section-header">
-          <div className="eyebrow">GUIDES</div>
-          <h2 className="display display-md">Read the system before you book.</h2>
-        </div>
-        <div className="guide-index">
-          {guideNav.map(item => (
-            <Link key={item.path} href={item.path} className="guide-index-card card">
-              <div className="guide-index-t">{item.title}</div>
-              <div className="related-card-cta">READ →</div>
-            </Link>
-          ))}
-        </div>
+        <details className="module-details resource-details">
+          <summary>Resources for sales leaders <span aria-hidden="true">+</span></summary>
+          <div className="guide-index">{guideNav.map(item => <Link key={item.path} href={item.path} className="guide-index-card card"><div className="guide-index-t">{item.title}</div><div className="related-card-cta">Read guide →</div></Link>)}</div>
+        </details>
       </div>
     </section>
   )
@@ -597,14 +269,13 @@ function FinalCta({ onBook }: { onBook: () => void }) {
         <div className="final-card">
           <div className="grid-bg final-bg" aria-hidden />
           <div className="final-inner">
-            <div className="status-dot">NOW BOOKING DISCOVERY CALLS</div>
-            <h2 className="display display-xl final-t">Stop being the constraint.<br /><em className="italic-neon">Install the system.</em></h2>
-            <p className="final-sub">30-minute call. We'll map your team and your tools, show you where everything still runs through you, and tell you exactly what we'd set up. No deck. No pressure.</p>
+            <h2 className="display display-xl final-t">Find the sales<br /><em className="italic-neon">you’re missing.</em></h2>
+            <p className="final-sub">On a 30-minute call, we’ll look at how your team handles leads and booked calls, show you RevPhlo and explain how we’d install it for your business.</p>
             <div className="final-ctas">
-              <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
+              <button onClick={onBook} className="btn btn-primary">Book a demo →</button>
               <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
             </div>
-            <div className="final-meta"><span>◆ The whole system</span><span>◆ Live in 30 days</span><span>◆ Your data stays yours</span><span>◆ Pays for itself in 90 days, or your setup fee back.</span></div>
+            <div className="final-meta"><span>◆ Installed for your team</span><span>◆ Training and playbooks</span><span>◆ Dedicated Slack support</span><span>◆ Weekly office hours</span></div>
           </div>
         </div>
       </div>
@@ -618,7 +289,7 @@ function Footer() {
       <div className="wrap footer-inner">
         <div className="footer-brand">
           <Logo />
-          <div className="mono xs ink-mute">the sales team os</div>
+          <div className="mono xs ink-mute">RevPhlo · The Sales Team OS</div>
         </div>
         <div className="footer-cols">
           <div className="footer-col">
@@ -633,19 +304,19 @@ function Footer() {
               <Link key={m.slug} href={m.href}>{m.title}</Link>
             ))}
           </div>
-          <GuideFooterLinks />
+          <GuideFooterLinks compact />
           <div className="footer-col">
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
-            <a href="#cta">Book a call →</a>
-            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">RevPhlo, included in the OS ↗</a>
+            <a href="#cta">Book a demo →</a>
+            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">Explore RevPhlo ↗</a>
           </div>
         </div>
       </div>
       <div className="wrap footer-bottom">
         <span className="ink-mute">© 2026 SYSTEMIZED SALES AI</span>
         <span className="ink-mute">BUILT FOR HIGH-TICKET SALES TEAMS</span>
-        <span className="status-dot-inline"><span className="live-dot" /> ALL SYSTEMS OPERATIONAL</span>
+        <span className="ink-mute">IMPLEMENTATION · TRAINING · SUPPORT</span>
       </div>
     </footer>
   )
@@ -653,32 +324,25 @@ function Footer() {
 
 export default function SSLanding() {
   const [modalOpen, setModalOpen] = useState(false)
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal")
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in") }),
-      { threshold: 0.1 }
-    )
-    els.forEach(el => io.observe(el))
-    return () => io.disconnect()
-  }, [])
   const openModal = () => setModalOpen(true)
   return (
-    <>
-      <Header onBook={openModal} />
-      <Hero onBook={openModal} />
-      <IsThisYou onBook={openModal} />
-      <Problem />
-      <HowItWorks />
-      <Apps />
-      <DashPreview />
-      <Results />
-      <Roi onBook={openModal} />
-      <Faq />
-      <Guides />
-      <FinalCta onBook={openModal} />
-      <Footer />
-      <AuditModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </>
+    <LazyMotion features={domAnimation} strict>
+      <MotionConfig reducedMotion="user">
+        <div className="visual-landing">
+          <Header onBook={openModal} />
+          <Hero onBook={openModal} />
+          <Problem />
+          <HowItWorks />
+          <Apps />
+          <Results />
+          <Roi onBook={openModal} />
+          <Faq />
+          <FinalCta onBook={openModal} />
+          <Guides />
+          <Footer />
+          <AuditModal open={modalOpen} onClose={() => setModalOpen(false)} />
+        </div>
+      </MotionConfig>
+    </LazyMotion>
   )
 }
