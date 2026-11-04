@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useId, useState } from "react"
 import Link from "next/link"
 import AuditModal from "./AuditModal"
 import IsThisYou from "./IsThisYou"
@@ -41,10 +41,10 @@ function Header({ onBook }: { onBook: () => void }) {
 
 function Hero({ onBook }: { onBook: () => void }) {
   const [typed, setTyped] = useState("")
-  const cmd = "> ss install sales-team-os"
+  const cmd = "> revphlo connect your-sales-team"
   useEffect(() => {
     let i = 0
-    // Shorter than the old command. ~46ms/char keeps the type-out near 1.2s instead of flashing by.
+    // Keep the terminal animation brief and clear.
     const id = setInterval(() => {
       i++
       setTyped(cmd.slice(0, i))
@@ -58,29 +58,29 @@ function Hero({ onBook }: { onBook: () => void }) {
       <div className="hero-glow" aria-hidden />
       <div className="wrap hero-inner">
         <div className="hero-top">
-          <span className="status-dot">ALL SYSTEMS OPERATIONAL</span>
-          <span className="mono ink-mute sm">v4.2 · The Sales Team OS</span>
+          <span className="status-dot">BUILT FOR INBOUND SALES TEAMS</span>
+          <span className="mono ink-mute sm">RevPhlo · The Sales Team OS</span>
         </div>
         <h1 className="display display-xl">
-          One system<br />for your whole<br />sales team.
+          A six-figure month<br />can hide a<br /><em className="italic-neon">sales problem.</em>
         </h1>
         <p className="hero-sub">
-          This is the exact system our agency runs its sales teams on. Your team uses it to hire, ramp, track and pay. We install it, train you on how to use it, and support you in Slack.
+          Find the sales you’re missing and close more of them. RevPhlo connects your sales tracking with the workflows, playbooks, and training your team uses every day. We install it in your business and help your team put it to work—so you know exactly what to do to generate more money.
         </p>
         <div className="hero-terminal-window">
           <div className="twin-top">
             <span className="dot dot-r" /><span className="dot dot-y" /><span className="dot dot-g" />
-            <span className="twin-title">ss-ai · ~/your-sales-team</span>
-            <span className="twin-tag">live</span>
+            <span className="twin-title">revphlo · ~/team</span>
+            <span className="twin-tag">workflow</span>
           </div>
           <div className="twin-body">
-            <div className="twin-line ink-mute">// today: every lead, rep and payout runs through you.</div>
+            <div className="twin-line ink-mute">// illustrative workflow: combine instinct with fact.</div>
             <div className="twin-line">{typed}<span className="caret">▊</span></div>
-            <div className="twin-line ink-dim">  ▸ every lead called in minutes, not tomorrow<span className="twin-tail"><span className="twin-dots-full"> ...... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ new reps ramp on a playbook, not on you<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ every call scored so your manager can coach<span className="twin-tail"><span className="twin-dots-full"> ..... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line ink-dim">  ▸ cash, shows and closes in one live view<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
-            <div className="twin-line"><span className="ok">✓</span> live in 30 days · pays for itself in 90, or your setup fee back</div>
+            <div className="twin-line ink-dim">  ▸ connect leads, bookings, shows and cash<span className="twin-tail"><span className="twin-dots-full"> ...... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ compare performance by rep and source<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ review the calls and follow-ups behind it<span className="twin-tail"><span className="twin-dots-full"> ..... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line ink-dim">  ▸ give your team a clear priority to work on<span className="twin-tail"><span className="twin-dots-full"> ......... </span><span className="twin-dots-short"> .. </span><span className="ok">ok</span></span></div>
+            <div className="twin-line"><span className="ok">✓</span> see what changed, then decide where to focus next</div>
           </div>
         </div>
         <div className="hero-cta-row">
@@ -88,7 +88,7 @@ function Hero({ onBook }: { onBook: () => void }) {
           <a href="#preview" className="btn btn-ghost">See what's inside</a>
         </div>
         <div className="hero-proof">
-          <div className="hero-proof-kicker">The exact system behind these results</div>
+          <div className="hero-proof-kicker">Built by the operators behind these agency results</div>
           <div className="hero-results">
             {siteStats.map(s => (
               <div key={s.label} className="hero-result">
@@ -114,17 +114,18 @@ function SectionHeader({ eyebrow, title }: { eyebrow: string; title: React.React
 
 function Problem() {
   const pains = [
-    { n: "01", t: "Hiring is a coin flip", d: "You hire the best talker on the call. Thirty days later you find out they can't close. Then you start over." },
-    { n: "02", t: "New reps ramp on you", d: "The playbook lives in your head. Every new rep pings you for scripts, pricing and what to say when a lead stalls." },
-    { n: "03", t: "Tools don't talk", d: "GHL, Stripe, Fathom, Sheets, Slack. Six tabs to answer 'how did we do this week?' Nobody opens six tabs." },
-    { n: "04", t: "Leads slip through the cracks", d: "A lead fills out your form at 9 PM. Nobody calls until tomorrow. Setters log what they remember, not what happened." },
-    { n: "05", t: "Commission math is a liability", d: "Spreadsheets with formulas three people understand. Mistakes burn trust. Trust is how reps stay." },
-    { n: "06", t: "You don't know what you don't know", d: "Is it the leads, the setter or the closer? Without clean numbers, you're guessing. And guessing is expensive." },
+    { n: "01", t: "Cash is coming in. The picture is incomplete.", d: "The month looks healthy, but your CRM, rep updates and payment reports tell different stories. You can’t confidently say what is working." },
+    { n: "02", t: "Some leads never get a real chance", d: "A lead comes in, waits for a call, or gets lost between the setter and closer. You paid to create the opportunity. You need to see what happened next." },
+    { n: "03", t: "Booked calls don’t always become conversations", d: "No-shows, cancellations and missed follow-ups quietly cost you sales. A single show-rate number doesn’t tell you where to intervene." },
+    { n: "04", t: "One rep keeps outperforming the others", d: "Is it their calls, their follow-up, or the leads they receive? Understanding the difference gives you something specific to coach and repeat." },
+    { n: "05", t: "The next move becomes a debate", d: "More leads? Better setters? A new script? Everyone has a theory. You need evidence to decide which problem deserves your attention first." },
+    { n: "06", t: "You make a change. Did it help?", d: "Without a reliable baseline and a way to review the result, it’s hard to know whether your decision improved performance or just changed the conversation." },
   ]
   return (
     <section id="problem" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="THE PROBLEM" title={<>Your sales team runs on<br /><em className="italic-neon">duct tape and you.</em></>} />
+        <SectionHeader eyebrow="THE PROBLEM" title={<>Cash is coming in.<br /><em className="italic-neon">What are you missing?</em></>} />
+        <p className="results-lead">Leads are coming in. Calls are getting booked. Your team is collecting cash. You know there’s room to improve. Finding the right place to focus takes a clearer picture.</p>
         <div className="problem-grid">
           {pains.map(p => (
             <div key={p.n} className="pain card reveal">
@@ -134,7 +135,7 @@ function Problem() {
             </div>
           ))}
         </div>
-        <div className="problem-bottom ink-mute">// you don't need another tool. you need one system.</div>
+        <div className="problem-bottom ink-mute">// your instincts, backed by evidence. your team, clear on the next move.</div>
       </div>
     </section>
   )
@@ -142,14 +143,14 @@ function Problem() {
 
 function HowItWorks() {
   const steps = [
-    { n: "01", t: "Map", time: "DISCOVERY CALL", d: "We get on a call and map how your team works today: who does what, which tools you use, and where deals and data fall through.", out: ["Your team, mapped", "Your tools, listed", "The gaps, ranked"], color: "var(--neon)" },
-    { n: "02", t: "Connect", time: "FIRST 30 DAYS", d: "We connect what you already use to the system and RevPhlo, load your playbooks, trackers, hiring page and commission plan, and get your team logged in. Your team does the hiring, selling, and managing. We show them how to use the system.", out: ["Connected", "The system set up", "Your team shown how to use it"], color: "var(--blue)" },
-    { n: "03", t: "Refine", time: "ONGOING", d: "We don't hand you logins and leave. A shared Slack channel stays open for fixes and changes, all included. Need a new part as you grow? We scope it with you.", out: ["Shared Slack channel", "Fixes and changes included", "New parts scoped as you grow"], color: "var(--amber)" },
+    { n: "01", t: "Understand", time: "YOUR STARTING POINT", d: "We map your funnel, your team, your tools and the decisions you’re struggling to make. Together, we identify gaps in tracking and process and agree on what the implementation needs to address.", out: ["Your sales process, mapped", "Reporting gaps identified", "Implementation scope agreed"], color: "var(--neon)" },
+    { n: "02", t: "Install & train", time: "IMPLEMENTATION", d: "We connect your tools, migrate your sales assets and adapt our proven workflows to your business. We help correct weak processes and train your owner, sales leader and reps to use the system.", out: ["Connected tracking and workflows", "Playbooks, SOPs and walkthroughs", "Your team trained on the system"], color: "var(--blue)" },
+    { n: "03", t: "Put it to work", time: "ONGOING GUIDANCE", d: "Your team uses the numbers to investigate missed opportunities, choose a priority and follow through. Dedicated Slack support and weekly office hours help you use RevPhlo and work through questions as they come up.", out: ["Dedicated Slack support", "Weekly group office hours", "Review the impact of your decisions"], color: "var(--amber)" },
   ]
   return (
     <section id="how" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="HOW IT WORKS" title={<>Three steps.<br /><span className="ink-mute">One system that grows with you.</span></>} />
+        <SectionHeader eyebrow="HOW IT WORKS" title={<>Three steps.<br /><span className="ink-mute">From a clearer picture to a better next move.</span></>} />
         <div className="how-track">
           <div className="how-rail" aria-hidden />
           {steps.map(s => (
@@ -174,10 +175,10 @@ function HowItWorks() {
           ))}
         </div>
         <div className="how-step-body card" style={{ marginTop: 32, ["--step-color" as string]: "var(--neon)" } as React.CSSProperties}>
-          <div className="mono xs ink-mute" style={{ marginBottom: 14 }}>GUARANTEE</div>
-          <h3 className="how-step-t" style={{ marginBottom: 14 }}>The Pays-For-Itself Guarantee</h3>
-          <p className="how-step-d">By day 90, The Sales Team OS finds at least your setup fee in cash you were leaving on the table: unpaid invoices, leads nobody called, no-shows nobody rebooked. If it doesn't, we refund your setup fee.</p>
-          <p className="how-step-d" style={{ marginBottom: 0 }}>And if your numbers haven't clearly moved by day 90, you can walk away from the rest of your term and keep everything we built.</p>
+          <div className="mono xs ink-mute" style={{ marginBottom: 14 }}>IMPLEMENTATION + SUPPORT</div>
+          <h3 className="how-step-t" style={{ marginBottom: 14 }}>Installed in your business. Put to work by your team.</h3>
+          <p className="how-step-d">You get the tracking, workflows and operating knowledge together. We help your team understand the numbers, use the playbooks and build the habits that turn a missed opportunity into action.</p>
+          <p className="how-step-d" style={{ marginBottom: 0 }}>Your team owns the selling and day-to-day management. We provide implementation, training, documentation, Slack support and weekly office hours to help them use the system well.</p>
         </div>
       </div>
     </section>
@@ -200,7 +201,7 @@ function Apps() {
   return (
     <section id="apps" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="THE SYSTEM" title={<>Ten parts. One system.<br /><span className="ink-mute">The same one our agency runs.</span></>} />
+        <SectionHeader eyebrow="THE SYSTEM" title={<>Visibility. Execution. Guidance.<br /><span className="ink-mute">Connected in RevPhlo.</span></>} />
         <div className="feat-grid">
           {ecosystemModules.map(m => {
             const meta = cats[m.slug] ?? { color: "var(--neon)", icon: "◆" }
@@ -228,7 +229,7 @@ function Apps() {
 function DashPreview() {
   const [tab, setTab] = useState<"pipeline" | "coaching" | "cash" | "health">("cash")
   const tabs = [
-    { id: "cash", label: "RevPhlo", color: "var(--neon)" },
+    { id: "cash", label: "Sales Reporting", color: "var(--neon)" },
     { id: "pipeline", label: "Setter EOD", color: "var(--blue)" },
     { id: "coaching", label: "Commissions", color: "var(--amber)" },
     { id: "health", label: "Hiring", color: "var(--coral)" },
@@ -236,11 +237,11 @@ function DashPreview() {
   return (
     <section id="preview" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="INSIDE THE HUB" title={<>Your team's <em className="italic-neon">command center</em>.<br /><span className="ink-mute">Every number, one workspace.</span></>} />
+        <SectionHeader eyebrow="INSIDE REVPHLO" title={<>See the numbers.<br /><em className="italic-neon">Know where to look next.</em></>} />
         <div className="preview-shell">
           <div className="preview-chrome">
             <span className="dot dot-r" /><span className="dot dot-y" /><span className="dot dot-g" />
-            <span className="mono sm ink-mute">yourteam · systemized hub / {tab}</span>
+            <span className="mono sm ink-mute">yourteam · revphlo / {tabs.find(t => t.id === tab)?.label}</span>
             <span className="status-dot-inline"><span className="live-dot" /> SAMPLE DATA</span>
           </div>
           <div className="preview-tabs">
@@ -404,7 +405,7 @@ function Results() {
       name: "Budgetdog",
       who: "Brennan Schlagbaum, Founder",
       headline: "From $400-500K on a good month to back-to-back $1M months.",
-      story: "A good month used to land around $400K to $500K. Average monthly revenue then rose about $100K within 3 to 4 months, and the first $1M month came 8 to 9 months in. After that, they posted back-to-back $1M months.",
+      story: "During our agency engagement, Budgetdog grew from $400K–$500K on a good month to back-to-back $1M months. Those million-dollar months came before RevPhlo was implemented in June 2026. This is the operating experience behind the offer.",
       nums: [
         { n: "~$100K", l: "Average monthly revenue, up within 3-4 months" },
         { n: "8-9 months", l: "To the first $1M month" },
@@ -416,7 +417,7 @@ function Results() {
       name: "Woobie",
       who: "Cole Tenney, CEO",
       headline: "$300K to $1.1M a month.",
-      story: "Cold leads were going straight to closers, so calls went to people who were not ready to buy. The system showed where those calls were leaking, and the process was rebuilt around it. Their team did the selling.",
+      story: "Our agency team helped rebuild the sales process around better lead qualification and handoffs. RevPhlo also exposed a measurement problem: the old tracker reported a 25% show rate; the measured rate was 66%. That was a reporting correction.",
       nums: [
         { n: "Within 8 months", l: "First $1M month" },
         { n: "41.5%", l: "Of booked prospects closed, Aug-Oct 2026" },
@@ -427,7 +428,7 @@ function Results() {
       name: "Infinite Heart Health",
       who: "",
       headline: "Show rate doubled in 90 days.",
-      story: "Calls were booking but not showing. The system made the confirmation gap visible, and the process was tightened around it.",
+      story: "During our agency work, the team tightened its confirmation process and improved show rate from July to September 2026. The result reflects the work of the people and processes involved.",
       nums: [
         { n: "26% → 55%", l: "Show rate, Jul to Sep 2026" },
       ],
@@ -436,7 +437,7 @@ function Results() {
       name: "The Listings Lab",
       who: "",
       headline: "10.7% to 30.8% close rate in 90 days.",
-      story: "Close rate moved from 10.7% to 30.8% in 90 days. Booked-call close rate went from 6% to 19% over those same months.",
+      story: "During our agency engagement, close rate on held calls moved from 10.7% to 30.8% in 90 days. Booked-call close rate went from 6% to 19% over those same months.",
       nums: [
         { n: "6% → 19%", l: "Tripled booked-call close rate" },
         { n: "90 days", l: "For the 10.7% to 30.8% close rate" },
@@ -446,8 +447,8 @@ function Results() {
   return (
     <section id="results" className="section">
       <div className="wrap">
-        <SectionHeader eyebrow="RESULTS" title={<>Results from teams<br /><em className="italic-neon">running this system.</em></>} />
-        <p className="results-lead">The exact system behind these numbers.</p>
+        <SectionHeader eyebrow="THE EXPERIENCE BEHIND REVPHLO" title={<>Experience earned<br /><em className="italic-neon">running real sales teams.</em></>} />
+        <p className="results-lead">These are results from Systemized Sales agency engagements, where our team worked on sales operations with the client. They show the experience behind RevPhlo’s workflows and playbooks. They are not results from purchasing the standalone system alone.</p>
         <div className="case-list">
           {cases.map(item => (
             <article key={item.name} className="case card">
@@ -494,36 +495,36 @@ function Roi({ onBook }: { onBook: () => void }) {
             <div className="mono xs ink-mute roi-card-label">ENV // INPUTS</div>
             <RoiSlider label="Closers on your team" v={reps} set={setReps} min={1} max={20} step={1} />
             <RoiSlider label="Shows per closer / week" v={calls} set={setCalls} min={2} max={40} step={1} />
-            <RoiSlider label="Average deal" v={acv} set={setAcv} min={500} max={50000} step={500} prefix="$" format={n => n.toLocaleString()} />
+            <RoiSlider label="Average cash collected per new customer" v={acv} set={setAcv} min={500} max={50000} step={500} prefix="$" format={n => n.toLocaleString()} />
           </div>
           <div className="roi-outputs">
             <div className="roi-out card">
               <div className="roi-out-row">
                 <div className="mono xs ink-mute">EXTRA CLOSES / YR</div>
                 <div className="roi-out-v">{extraDealsYr}</div>
-                <div className="mono sm ink-dim">at +5 pts close rate</div>
+                <div className="mono sm ink-dim">at +5 percentage points on held calls</div>
               </div>
             </div>
             <div className="roi-out card">
               <div className="roi-out-row">
-                <div className="mono xs ink-mute">CASH FROM THE LIFT</div>
+                <div className="mono xs ink-mute">ILLUSTRATIVE EXTRA CASH</div>
                 <div className="roi-out-v">{fmt(revenueLift)}</div>
-                <div className="mono sm ink-dim">{extraDealsYr} closes × your average deal</div>
+                <div className="mono sm ink-dim">{extraDealsYr} closes × cash per new customer</div>
               </div>
             </div>
             <div className="roi-out card">
               <div className="roi-out-row">
                 <div className="mono xs ink-mute">PER CLOSER / YR</div>
                 <div className="roi-out-v">{fmt(perCloser)}</div>
-                <div className="mono sm ink-dim">extra cash each closer brings in</div>
+                <div className="mono sm ink-dim">illustrative extra cash, before costs</div>
               </div>
             </div>
             <div className="roi-total">
               <div className="roi-total-label">ANNUAL IMPACT // ILLUSTRATIVE</div>
               <div className="roi-total-v">{fmtShort(total)}<span className="roi-total-yr">/yr</span></div>
-              <div className="roi-total-bar"><div className="roi-bar-fill" style={{ width: "88%" }} /></div>
-              <div className="mono xs ink-dim">Illustration only, not a promise. It assumes a 5-point lift in close rate. Inside our own agency, 4 of 5 teams we tracked raised close rate within 90 days, by 5 to 20 points. One went down. Your call gives you a real baseline.</div>
-              <button onClick={onBook} className="btn btn-primary roi-btn">Get your real baseline →</button>
+              <div className="roi-total-bar" aria-hidden="true"><div className="roi-bar-fill" style={{ width: "88%" }} /></div>
+              <div className="mono xs ink-dim">Illustration, not a forecast. Assumes 48 selling weeks, the same held-call volume and a 5-percentage-point increase in close rate. Extra closes are rounded to a whole number. Cash is before costs, fees and refunds; it is not profit or RevPhlo ROI.</div>
+              <button onClick={onBook} className="btn btn-primary roi-btn">Talk through your opportunity →</button>
             </div>
           </div>
         </div>
@@ -533,14 +534,15 @@ function Roi({ onBook }: { onBook: () => void }) {
 }
 
 function RoiSlider({ label, v, set, min, max, step, prefix = "", format }: { label: string; v: number; set: (n: number) => void; min: number; max: number; step: number; prefix?: string; format?: (n: number) => string }) {
+  const id = useId()
   const display = format ? format(v) : v
   return (
     <div className="roi-slider">
       <div className="roi-slider-top">
-        <label className="roi-slider-label">{label}</label>
+        <label htmlFor={id} className="roi-slider-label">{label}</label>
         <span className="roi-slider-v">{prefix}{display}</span>
       </div>
-      <input type="range" className="roi-range" min={min} max={max} step={step} value={v} onChange={e => set(Number(e.target.value))} />
+      <input id={id} type="range" className="roi-range" min={min} max={max} step={step} value={v} onChange={e => set(Number(e.target.value))} />
     </div>
   )
 }
@@ -555,12 +557,12 @@ function Faq() {
         <div className="faq-list">
           {qs.map((item, i) => (
             <div key={i} className={`faq-item ${open === i ? "open" : ""}`}>
-              <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+              <button className="faq-q" aria-expanded={open === i} aria-controls={`faq-answer-${i}`} onClick={() => setOpen(open === i ? -1 : i)}>
                 <span className="faq-n">{String(i + 1).padStart(2, "0")}</span>
                 <span className="faq-q-t">{item.q}</span>
                 <span className="faq-plus">{open === i ? "−" : "+"}</span>
               </button>
-              <div className="faq-a-wrap"><div className="faq-a">{item.a}</div></div>
+              <div id={`faq-answer-${i}`} className="faq-a-wrap" inert={open !== i}><div className="faq-a">{item.a}</div></div>
             </div>
           ))}
         </div>
@@ -575,7 +577,7 @@ function Guides() {
       <div className="wrap">
         <div className="section-header">
           <div className="eyebrow">GUIDES</div>
-          <h2 className="display display-md">Read the system before you book.</h2>
+          <h2 className="display display-md">Explore the processes behind better performance.</h2>
         </div>
         <div className="guide-index">
           {guideNav.map(item => (
@@ -598,13 +600,13 @@ function FinalCta({ onBook }: { onBook: () => void }) {
           <div className="grid-bg final-bg" aria-hidden />
           <div className="final-inner">
             <div className="status-dot">NOW BOOKING DISCOVERY CALLS</div>
-            <h2 className="display display-xl final-t">Stop being the constraint.<br /><em className="italic-neon">Install the system.</em></h2>
-            <p className="final-sub">30-minute call. We'll map your team and your tools, show you where everything still runs through you, and tell you exactly what we'd set up. No deck. No pressure.</p>
+            <h2 className="display display-xl final-t">Find the sales<br /><em className="italic-neon">you’re missing.</em></h2>
+            <p className="final-sub">In 30 minutes, we’ll talk through your sales process, show you how RevPhlo works and map what an implementation could look like for your team. You’ll leave clear on whether it fits and what comes next.</p>
             <div className="final-ctas">
               <button onClick={onBook} className="btn btn-primary">Book a 30-min call →</button>
               <a href="mailto:sales@systemizedsales.ai" className="btn btn-ghost">sales@systemizedsales.ai</a>
             </div>
-            <div className="final-meta"><span>◆ The whole system</span><span>◆ Live in 30 days</span><span>◆ Your data stays yours</span><span>◆ Pays for itself in 90 days, or your setup fee back.</span></div>
+            <div className="final-meta"><span>◆ Installed for your team</span><span>◆ Training and playbooks</span><span>◆ Dedicated Slack support</span><span>◆ Weekly office hours</span></div>
           </div>
         </div>
       </div>
@@ -618,7 +620,7 @@ function Footer() {
       <div className="wrap footer-inner">
         <div className="footer-brand">
           <Logo />
-          <div className="mono xs ink-mute">the sales team os</div>
+          <div className="mono xs ink-mute">RevPhlo · The Sales Team OS</div>
         </div>
         <div className="footer-cols">
           <div className="footer-col">
@@ -638,7 +640,7 @@ function Footer() {
             <div className="eyebrow">CONTACT</div>
             <a href="mailto:sales@systemizedsales.ai">sales@systemizedsales.ai</a>
             <a href="#cta">Book a call →</a>
-            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">RevPhlo, included in the OS ↗</a>
+            <a href="https://www.revphlo.com" target="_blank" rel="noopener noreferrer">Explore RevPhlo ↗</a>
           </div>
         </div>
       </div>

@@ -2,12 +2,12 @@ import { guides } from "@/lib/guides"
 import { ecosystemModules, faqs, publicProductModules, siteUrl } from "@/lib/site-data"
 
 const description =
-  "The Sales Team OS is a system Systemized Sales installs for high-ticket sales teams that already have reps. We install it, train the owner, manager, and team on how to use it, and support them in Slack. We do not hire, train, coach, ramp, or manage their reps. Their team does the hiring, the selling, and the managing."
+  "RevPhlo combines sales tracking, workflows, playbooks and training for established high-ticket businesses with setters and closers working inbound marketing leads. Systemized Sales installs it, connects the tools, migrates relevant assets and trains the owner, leader and reps to use it. Dedicated Slack support and weekly group office hours support ongoing use. The client’s team owns selling and day-to-day management."
 
 const results = [
   "Woobie: $300K to $1.1M a month. First $1M month within 8 months.",
   "Budgetdog: back-to-back $1M months, from $400-500K on a good month. No-shows cut in half, 19.1% to 9.6%. Close rate up from 24.7% to 31.7%.",
-  "The Listings Lab ran this system. Close rate 10.7% to 30.8% in 90 days. Tripled close rate, from 6% to 19%.",
+  "The Listings Lab, during our agency engagement: Close rate 10.7% to 30.8% in 90 days. Booked-call close rate rose from 6% to 19%.",
   "Infinite Heart Health: show rate doubled in 90 days, from 26% to 55%.",
 ]
 
@@ -15,13 +15,13 @@ export function buildLlmsTxt() {
   const parts = ecosystemModules
     .map(part => `- [${part.title}](${siteUrl}${part.href}): ${part.summary}`)
     .join("\n")
-  return `# Sales Team OS
+  return `# RevPhlo — The Sales Team OS
 
 > ${description}
 
 ## Who it is for
 
-- Path A: a founder who already runs the reps, with no dedicated sales manager. Everything still runs through the founder.
+- Path A: a founder who already runs the reps, with no dedicated sales manager. The owner wants evidence to understand missed sales and decide where to focus.
 - Path B: a sales team that already has a manager.
 
 ## The 10 parts
@@ -32,7 +32,7 @@ ${parts}
 
 ${results.map(line => `- ${line}`).join("\n")}
 
-These are results from running this system. They are not a promise that every business gets the same result.
+These are results from Systemized Sales agency engagements involving people, processes and tools, rather than results from buying the standalone RevPhlo offer. Budgetdog’s back-to-back million-dollar months preceded its June 2026 RevPhlo implementation. Woobie’s 25% to 66% show-rate change was a measurement correction, not a performance lift. Results are not guaranteed.
 
 ## Guides
 

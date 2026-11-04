@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises"
 import { join } from "node:path"
 
 export const ogSize = { width: 1200, height: 630 }
-export const ogAlt = "Systemized Sales AI — One system for your whole sales team."
+export const ogAlt = "RevPhlo — A six-figure month can hide a sales problem."
 
 export async function renderOgImage() {
   const [logo, display, mono] = await Promise.all([
@@ -78,7 +78,7 @@ export async function renderOgImage() {
               color: "#f5f5f3",
             }}
           >
-            One system
+            A six-figure
           </div>
           <div
             style={{
@@ -91,7 +91,7 @@ export async function renderOgImage() {
               color: "#f5f5f3",
             }}
           >
-            for your whole
+            month can hide
           </div>
           <div
             style={{
@@ -104,7 +104,7 @@ export async function renderOgImage() {
               color: "#f5f5f3",
             }}
           >
-            sales team.
+            a sales problem.
           </div>
           <div
             style={{
@@ -116,7 +116,7 @@ export async function renderOgImage() {
               color: "#9cff4f",
             }}
           >
-            The Sales Team OS
+            RevPhlo · The Sales Team OS
           </div>
         </div>
 
@@ -131,7 +131,7 @@ export async function renderOgImage() {
             color: "#78786f",
           }}
         >
-          <div style={{ display: "flex" }}>Hire · Ramp · Track · Pay</div>
+          <div style={{ display: "flex" }}>Track · Understand · Improve</div>
           <div style={{ display: "flex", color: "#9cff4f" }}>systemizedsales.ai</div>
         </div>
       </div>

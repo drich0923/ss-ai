@@ -2,19 +2,19 @@ import type { Metadata } from "next"
 import SSLanding from "@/components/SSLanding"
 import { faqs, siteUrl } from "@/lib/site-data"
 
-const title = "Sales Team Operating System for High-Ticket Teams"
+const title = "RevPhlo — The Sales Team OS"
 const description =
-  "The Sales Team OS is the system our agency runs its sales teams on. Your team uses it to hire, ramp, track, and pay. We install it, show your team how to use it, and support you in Slack."
+  "A six-figure month can hide a sales problem. RevPhlo connects sales tracking, workflows, playbooks and training to help your team find missed sales and close more of them."
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} | Sales Team OS` },
+  title: { absolute: title },
   description,
   alternates: { canonical: siteUrl },
   openGraph: {
     title,
     description,
     url: siteUrl,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Systemized Sales AI — One system for your whole sales team." }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "RevPhlo — A six-figure month can hide a sales problem." }],
   },
   twitter: {
     card: "summary_large_image",
@@ -30,7 +30,7 @@ const homeJsonLd = {
     {
       "@type": "Service",
       "@id": `${siteUrl}/#service`,
-      name: "Sales Team OS",
+      name: "RevPhlo — The Sales Team OS",
       serviceType: "Sales team operating system",
       description,
       url: siteUrl,
