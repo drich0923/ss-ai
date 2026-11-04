@@ -699,27 +699,8 @@ body {
 .visual-hero .hero-result:last-child { border-right: 0; }
 .visual-hero .hero-result .stat-n { font-size: clamp(20px, 1.9vw, 27px); font-weight: 500; }
 .visual-hero .stat-label { font-size: 9px; letter-spacing: .07em; line-height: 1.6; max-width: 310px; }
-.hero-product { position: relative; min-width: 0; padding-top: 30px; }
-.hero-product-halo { position: absolute; inset: -70px -100px; background: radial-gradient(ellipse, rgba(156,255,79,.09), transparent 68%); pointer-events: none; }
-.product-stack { position: relative; aspect-ratio: 16/10; margin-right: 24px; }
-.stack-window { position: absolute; inset: 0 0 auto; border: 1px solid var(--line-bright); border-radius: 10px; background: #101113; overflow: hidden; box-shadow: 0 24px 48px -16px #000a; transform-origin: center bottom; }
-.stack-window img { display: block; width: 100%; height: auto; }
-.stack-depth-1 { filter: brightness(.7); }
-.stack-depth-2 { filter: brightness(.45); }
 .stack-chrome { height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 14px; color: #c1c1bc; background: #151617; border-bottom: 1px solid var(--line-strong); font: 10px var(--f-mono); }
 .stack-dots { font-size: 7px; color: #595c58; letter-spacing: 2px; }
-.stack-insight { position: relative; display: flex; align-items: center; gap: 12px; background: #11170e; border: 1px solid #354729; border-radius: 10px; padding: 16px; margin: -6px 0 20px 24px; box-shadow: 0 16px 40px #0005; }
-.insight-icon { width: 38px; height: 38px; display: grid; place-items: center; color: var(--neon); background: #9cff4f13; border-radius: 8px; }
-.stack-insight strong { display: block; font: 500 16px var(--f-display); margin-top: 4px; }
-.stack-insight .xs { font-size: 8px; letter-spacing: .08em; }
-.insight-check { margin-left: auto; color: var(--neon); }
-.insight-check .visual-icon { width: 18px; }
-.stack-selector { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; }
-.stack-selector button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: #a6a69e; font: 10px var(--f-mono); padding: 8px; cursor: pointer; }
-.stack-selector button span { width: 4px; height: 4px; border-radius: 50%; background: #4c4c46; }
-.stack-selector button.is-on { color: var(--ink); background: #ffffff07; border-color: var(--line); }
-.stack-selector button.is-on span { background: var(--neon); }
-.stack-footnote { text-align: center; font-size: 10px; color: var(--ink-mute); margin-top: 7px; }
 .visual-landing .overview-section { padding: 56px 0 68px; }
 .overview-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 58px; }
 .overview-player { border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; min-width: 0; background: #0c0d0c; }
@@ -803,7 +784,6 @@ body {
 .screen-caption h3 { font: 500 22px var(--f-display); letter-spacing: -.02em; }
 .screen-caption p { font-size: 13px; color: var(--ink-mute); margin-top: 5px; }
 .screen-browser { margin: 0 20px 20px; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; }
-.screen-browser .stack-chrome > span:last-child { margin-left: auto; font-size: 8px; color: #8c9185; }
 .screen-image { position: relative; aspect-ratio: 16/9; background: #090b0a; }
 .screen-image > div { position: absolute; inset: 0; }
 .screen-image img { display: block; width: 100%; height: auto; }
@@ -845,8 +825,6 @@ body {
   .visual-hero .hero-cta-row .btn { padding: 13px 16px; font-size: 12px; }
   .hero-watch { font-size: 12px; }
   .overview-grid { gap: 36px; }
-  .stack-insight { margin-left: 0; }
-  .stack-insight strong { font-size: 14px; }
   .install-card { padding: 20px; }
   .tool-link { width: 10px; }
   .tool-tile, .tool-hub { width: 35px; height: 38px; }
@@ -859,9 +837,6 @@ body {
   .hero-split { grid-template-columns: 1fr; gap: 60px; }
   .visual-hero h1 { font-size: clamp(44px, 8.5vw, 68px); }
   .visual-hero .hero-sub { max-width: 530px; }
-  .hero-product { max-width: 600px; width: 100%; margin: auto; padding-top: 0; }
-  .hero-product .product-stack { margin-right: 30px; }
-  .hero-product .stack-insight { margin: -8px 0 20px 32px; }
   .visual-hero .hero-proof { margin-top: 40px; }
   .visual-hero .hero-results { gap: 20px; }
   .overview-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -901,13 +876,6 @@ body {
   .hero-split { gap: 62px; }
   .stack-chrome { font-size: 8px; height: 28px; padding: 0 9px; gap: 9px; }
   .stack-dots { font-size: 5px; }
-  .hero-product .stack-insight { padding: 12px; margin-left: 12px; margin-top: 0; }
-  .stack-insight strong { font-size: 13px; }
-  .insight-icon { width: 30px; height: 30px; }
-  .insight-icon .visual-icon { width: 20px; }
-  .insight-check { display: none; }
-  .stack-selector { gap: 0; }
-  .stack-selector button { font-size: 9px; padding: 8px 6px; }
   .visual-hero .hero-results { grid-template-columns: 1fr; gap: 18px; }
   .visual-hero .hero-result { padding: 0 0 16px; border-right: 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1.15fr; gap: 16px; align-items: center; }
   .visual-hero .hero-result:last-child { border-bottom: 0; padding-bottom: 0; }
@@ -953,7 +921,6 @@ body {
   .screen-caption p { font-size: 12px; }
   .screen-caption > .demo-tag { display: none; }
   .screen-browser { margin: 0 8px 8px; border-radius: 4px; }
-  .screen-browser .stack-chrome > span:last-child { display: none; }
   .module-link-grid { grid-template-columns: 1fr; }
   .module-details > summary { font-size: 12px; }
   .proof-grid { grid-template-columns: 1fr; }
@@ -967,4 +934,71 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .visual-landing *, .visual-landing *::before, .visual-landing *::after { animation: none !important; transition: none !important; }
+}
+
+/* A readable sales example introduces the offer before the detailed product tour. */
+.opportunity-example { justify-self: end; width: 100%; max-width: 520px; border: 1px solid #ffffff20; border-radius: 16px; background: linear-gradient(145deg, #141812 0%, #0c0e0b 60%); box-shadow: 0 24px 70px #0006, 0 0 60px #9cff4f07; overflow: hidden; }
+.example-heading { padding: 26px 28px 0; }
+.example-context { color: #aeb5a7; font: 12px var(--f-body); line-height: 1.4; }
+.example-heading h2 { font: 500 clamp(24px, 2.1vw, 30px)/1.15 var(--f-display); letter-spacing: -.035em; margin-top: 10px; }
+.example-journey { display: flex; align-items: center; gap: 8px; padding: 25px 28px 28px; border-bottom: 1px solid var(--line-strong); }
+.journey-step { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--ink-dim); font-size: 11px; }
+.journey-icon { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #ffffff24; border-radius: 12px; color: #cbd3c5; background: #1a1e17; }
+.journey-icon .visual-icon { width: 22px; height: 22px; }
+.journey-missed { color: var(--amber); }
+.journey-missed .journey-icon { color: var(--amber); font: 500 25px var(--f-display); background: #2a2111; border-color: #ffb43a60; }
+.journey-followup { color: var(--neon); }
+.journey-followup .journey-icon { color: var(--neon); border-color: #9cff4f60; background: #192712; }
+.journey-link { color: #636c5b; margin-top: -24px; }
+.journey-link .visual-icon { width: 24px; height: 24px; }
+.journey-link-next { color: #9cff4f88; }
+.example-help { padding: 23px 28px 25px; }
+.example-brand { display: flex; align-items: center; gap: 10px; }
+.example-brand strong { font-size: 14px; font-weight: 500; }
+.example-brand-mark { display: grid; place-items: center; color: var(--neon); }
+.example-brand-mark .visual-icon { width: 20px; height: 20px; }
+.example-help ul { list-style: none; display: grid; gap: 15px; margin-top: 20px; }
+.example-help li { display: flex; align-items: center; gap: 13px; font-size: 13px; color: #ccd2c6; line-height: 1.45; }
+.example-help li .visual-icon { width: 18px; height: 18px; color: #90ae7c; }
+.example-benefit { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 17px 28px; background: #9cff4f0b; border-top: 1px solid #9cff4f24; color: var(--neon); font-size: 13px; }
+.example-benefit .visual-icon { width: 17px; height: 17px; }
+.overview-player .visual-card-top { color: var(--ink-dim); font-size: 13px; }
+.overview-player .visual-card-top > .visual-icon { width: 15px; height: 15px; color: var(--neon); }
+.overview-copy .display { margin-top: 0; }
+.screen-data-note { margin: -5px 20px 16px; font-size: 11px; color: #91968b; }
+.leak-detail h3 { margin-top: 0; }
+.visual-landing .leak-detail { min-height: 140px; }
+.leak-detail p { max-width: 710px; line-height: 1.6; align-items: flex-start; }
+.leak-detail p .visual-icon { margin-top: 3px; }
+.visual-landing .final-t { margin-top: 0; }
+.resources-section { padding: 0 0 35px; scroll-margin-top: 105px; }
+.resource-details { margin-top: 0; }
+.resource-details > summary { font-size: 14px; padding: 18px 0; }
+.resource-details .guide-index { margin: 10px 0 24px; }
+@media (max-width: 850px) {
+  .opportunity-example { justify-self: center; max-width: 600px; }
+  .example-heading h2 { font-size: 30px; }
+  .example-journey { padding-top: 30px; }
+}
+@media (max-width: 600px) {
+  .hero-split { gap: 35px; }
+  .example-heading { padding: 23px 22px 0; }
+  .example-heading h2 { font-size: 26px; }
+  .example-context { font-size: 11px; }
+  .example-journey { padding: 25px 18px; gap: 5px; }
+  .journey-step { font-size: 10px; }
+  .journey-icon { width: 42px; height: 42px; }
+  .journey-link .visual-icon { width: 20px; }
+  .example-help { padding: 22px; }
+  .example-help li { font-size: 12px; gap: 10px; }
+  .example-help ul { gap: 16px; }
+  .example-benefit { padding: 16px 22px; font-size: 12px; }
+  .overview-player .visual-card-top { font-size: 12px; }
+  .screen-data-note { font-size: 10px; margin: 3px 12px 14px; }
+  .outcome-card { padding-top: 23px; }
+  .outcome-card:first-child { padding-top: 0; }
+  .outcome-card h3 { margin-top: 0; }
+  .visual-landing .leak-detail { min-height: 200px; }
+  .leak-map .visual-card-top { align-items: flex-start; }
+  .resources-section { padding-bottom: 20px; }
 }

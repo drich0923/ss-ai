@@ -598,7 +598,7 @@ export function publicProductModules() {
 export const faqs = [
   {
     q: "What is RevPhlo?",
-    a: "RevPhlo combines sales tracking with the workflows, playbooks and training your team uses to improve performance. We install the system in your business, connect your tools and help your team use it to understand where sales are being missed, choose what to work on and review the impact."
+    a: "A sales system for businesses with setters and closers. It brings reporting, playbooks, call coaching and daily team processes together. We install it in your business, connect your tools and train your team to use it."
   },
   {
     q: "Who is it for?",
@@ -606,7 +606,7 @@ export const faqs = [
   },
   {
     q: "Will you run our sales team?",
-    a: "Your owner or sales leader stays responsible for managing the team, and your reps do the selling. We provide implementation, training on the system, playbooks, documentation, Slack support and weekly group office hours to help you put it to work."
+    a: "You or your sales manager lead the team. Your reps handle calls and follow-up. We install the system and provide training, playbooks, Slack support and weekly group office hours."
   },
   {
     q: "What’s included?",
@@ -626,7 +626,7 @@ export const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "There is an implementation fee and an ongoing monthly fee. On the call, we confirm fit, walk through the scope and explain the investment before you decide. The first step is understanding your team and what you need the system to do."
+    a: "There is an implementation fee and an ongoing monthly fee. We explain the scope and investment on your demo before you decide."
   },
   {
     q: "Who owns our data, and what if our process changes?",

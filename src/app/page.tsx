@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import SSLanding from "@/components/SSLanding"
 import { faqs, siteUrl } from "@/lib/site-data"
 
-const title = "RevPhlo — The Sales Team OS"
+const title = "RevPhlo — Find the sales your team is missing"
 const description =
-  "A six-figure month can hide a sales problem. RevPhlo connects sales tracking, workflows, playbooks and training to help your team find missed sales and close more of them."
+  "Sales tracking, playbooks and coaching tools for high-ticket teams. We install the system, connect your tools and train your setters and closers to use it."
 
 export const metadata: Metadata = {
   title: { absolute: title },

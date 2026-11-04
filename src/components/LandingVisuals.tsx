@@ -23,52 +23,47 @@ export function VisualIcon({ name, className = "" }: { name: VisualIconName; cla
 }
 
 export const landingScreens = [
-  { id: "reporting", label: "Reporting", src: "/media/revphlo-analytics.webp", alt: "RevPhlo demo dashboard with collected cash, close rate, show rate and source reporting.", title: "One view of sales performance.", description: "Connect activity, outcomes and collected cash.", icon: "chart" },
-  { id: "team", label: "Team performance", src: "/media/revphlo-team.webp", alt: "RevPhlo demo comparison of closers by calls, shows, closes and collected cash.", title: "See the differences between reps.", description: "Compare results, then investigate the calls behind them.", icon: "people" },
-  { id: "coaching", label: "Call coaching", src: "/media/revphlo-coaching.webp", alt: "RevPhlo demo call coaching review queue, scores and coaching tools.", title: "Turn a number into something to coach.", description: "Review calls and give the rep a specific next move.", icon: "call" },
-  { id: "playbook", label: "Playbooks", src: "/media/revphlo-playbook.webp", alt: "RevPhlo demo closer playbook with the team's sales script.", title: "Give the team a process to follow.", description: "Scripts, SOPs and training in the same workspace.", icon: "book" },
-  { id: "manager", label: "Manager workspace", src: "/media/revphlo-manager.webp", alt: "RevPhlo demo manager workspace with KPIs, a performance follow-up and worklist.", title: "Keep the next priority in view.", description: "Make the work visible, then review what changed.", icon: "target" },
+  { id: "reporting", label: "Reporting", src: "/media/revphlo-analytics.webp", alt: "RevPhlo demo dashboard with collected cash, close rate, show rate and source reporting.", title: "See what’s happening in your sales team.", description: "Track calls, show rates, close rates and collected cash in one place.", icon: "chart" },
+  { id: "team", label: "Team performance", src: "/media/revphlo-team.webp", alt: "RevPhlo demo comparison of closers by calls, shows, closes and collected cash.", title: "See who needs coaching—and why.", description: "Compare rep performance before deciding what to change.", icon: "people" },
+  { id: "coaching", label: "Call coaching", src: "/media/revphlo-coaching.webp", alt: "RevPhlo demo call coaching review queue, scores and coaching tools.", title: "Coach the calls behind the numbers.", description: "Review scored sales calls, then give reps specific feedback.", icon: "call" },
+  { id: "playbook", label: "Playbooks", src: "/media/revphlo-playbook.webp", alt: "RevPhlo demo closer playbook with the team's sales script.", title: "Give every rep a process to follow.", description: "Keep scripts, follow-up guidance and training easy to find.", icon: "book" },
+  { id: "manager", label: "Manager workspace", src: "/media/revphlo-manager.webp", alt: "RevPhlo demo manager workspace with KPIs, a performance follow-up and worklist.", title: "Keep your sales leader focused.", description: "Bring performance, coaching and the week’s priorities into a shared workspace.", icon: "target" },
 ] as const
 
-// Original Motion implementation of the layered-card pattern explored in Componentry.
-export function HeroProductStack() {
-  const [active, setActive] = useState(0)
+export function SalesOpportunityExample() {
   const reduced = useReducedMotion()
-  const shots = [landingScreens[4], landingScreens[0], landingScreens[3]]
-  const selected = shots[active]
   return (
-    <div className="hero-product">
-      <div className="hero-product-halo" aria-hidden="true" />
-      <div className="product-stack">
-        {shots.map((shot, index) => {
-          const depth = (index - active + shots.length) % shots.length
-          return (
-            <m.div key={shot.id} className={`stack-window stack-depth-${depth}`} style={{ zIndex: 3 - depth }} initial={false}
-              animate={{ y: depth * -22, x: depth * 14, rotate: depth === 0 ? 0 : depth === 1 ? 3 : -3, scale: 1 - depth * 0.025 }}
-              transition={reduced ? { duration: 0 } : { type: "spring", stiffness: 210, damping: 28 }} aria-hidden={depth > 0}>
-              <div className="stack-chrome"><span className="stack-dots" aria-hidden="true">● ● ●</span><span>RevPhlo / {shot.label}</span></div>
-              <Image src={shot.src} alt={depth === 0 ? shot.alt : ""} width={1920} height={1080} priority={depth === 0} loading="eager" sizes="(max-width: 850px) 90vw, 520px" />
-            </m.div>
-          )
-        })}
+    <div className="opportunity-example">
+      <div className="example-heading">
+        <span className="example-context">One place sales slip away</span>
+        <h2>A missed call can still<br />become a sale.</h2>
       </div>
-      <div className="stack-insight">
-        <span className="insight-icon"><VisualIcon name="target" /></span>
-        <div><span className="mono xs ink-mute">FROM INSTINCT TO ACTION</span><strong>See it. Work on it. Measure it.</strong></div>
-        <span className="insight-check"><VisualIcon name="check" /></span>
+      <div className="example-journey" aria-label="A prospect books a call, misses it, and needs follow-up from your team.">
+        <div className="journey-step"><span className="journey-icon"><VisualIcon name="call" /></span><span>Call booked</span></div>
+        <span className="journey-link" aria-hidden="true"><VisualIcon name="arrow" /></span>
+        <div className="journey-step journey-missed"><span className="journey-icon">!</span><span>No-show</span></div>
+        <span className="journey-link journey-link-next" aria-hidden="true"><VisualIcon name="arrow" /></span>
+        <div className="journey-step journey-followup"><span className="journey-icon"><VisualIcon name="people" /></span><span>Follow-up</span></div>
       </div>
-      <div className="stack-selector" aria-label="Product screen previews">
-        {shots.map((shot, i) => <button key={shot.id} onClick={() => setActive(i)} aria-pressed={active === i} aria-label={`Show ${shot.label} preview`} className={active === i ? "is-on" : ""}><span />{shot.label}</button>)}
+      <div className="example-help">
+        <div className="example-brand"><span className="example-brand-mark"><VisualIcon name="connect" /></span><strong>How RevPhlo helps</strong></div>
+        <ul>
+          <li><VisualIcon name="chart" /><span>See no-shows by rep and lead source.</span></li>
+          <li><VisualIcon name="book" /><span>Give setters a clear rebooking process.</span></li>
+          <li><VisualIcon name="check" /><span>See whether more booked calls happen.</span></li>
+        </ul>
       </div>
-      <p className="stack-footnote">{selected.label} · Illustrative demo data</p>
+      <m.div className="example-benefit" initial={false} whileHover={reduced ? {} : { y: -2 }} transition={{ duration: 0.18 }}>
+        Get more from the leads you already have.<VisualIcon name="arrow" />
+      </m.div>
     </div>
   )
 }
 
 const leaks = [
-  { id: "leads", label: "Unworked leads", stage: 1, question: "The lead came in. Did anyone reach them?", action: "Review response time and follow-up ownership.", icon: "call" },
-  { id: "shows", label: "No-shows", stage: 3, question: "The call was booked. Why didn’t it happen?", action: "Review confirmations, cancellations and rebooking.", icon: "people" },
-  { id: "followup", label: "Missed follow-ups", stage: 4, question: "The call went well. What happened next?", action: "Review lost-deal reasons and the next follow-up.", icon: "target" },
+  { id: "leads", label: "Unworked leads", stage: 1, question: "Are new leads actually getting a call?", action: "See response times and activity. Give each lead an owner and a follow-up process.", icon: "call" },
+  { id: "shows", label: "No-shows", stage: 3, question: "Which booked calls are we losing?", action: "Compare no-shows by rep and source. Give setters a clear confirmation and rebooking process.", icon: "people" },
+  { id: "followup", label: "Missed follow-ups", stage: 4, question: "Which prospects need another conversation?", action: "Review lost-deal reasons and make the next follow-up part of your team’s daily work.", icon: "target" },
 ] as const
 
 export function SalesLeakMap() {
@@ -80,7 +75,7 @@ export function SalesLeakMap() {
   const stages = ["Lead", "Contact", "Booking", "Held call", "Sale"]
   return (
     <div className="leak-map card">
-      <div className="visual-card-top"><span className="mono xs ink-mute">FOLLOW THE OPPORTUNITY</span><span className="demo-tag">ILLUSTRATIVE WORKFLOW</span></div>
+      <div className="visual-card-top"><span className="example-context">Where do your opportunities get lost?</span><span className="demo-tag">EXAMPLE SALES PROCESS</span></div>
       <div className="leak-tabs" role="tablist" aria-label="Explore missed sales">
         {leaks.map((item, i) => <button key={item.id} ref={node => { buttons.current[i] = node }} id={`${base}-${item.id}`} role="tab" aria-selected={active === i} aria-controls={`${base}-panel`} tabIndex={active === i ? 0 : -1} className={active === i ? "is-on" : ""} onClick={() => setActive(i)} onKeyDown={event => {
           if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return
@@ -98,9 +93,9 @@ export function SalesLeakMap() {
       </div>
       <div id={`${base}-panel`} role="tabpanel" aria-labelledby={`${base}-${leak.id}`} className="leak-detail" tabIndex={0}>
         <AnimatePresence mode="wait" initial={false}><m.div key={leak.id} initial={{ opacity: 0, y: reduced ? 0 : 7 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.15 }}>
-          <span className="mono xs ink-mute">THE QUESTION WORTH ASKING</span><h3>{leak.question}</h3><p><VisualIcon name="arrow" />{leak.action}</p>
+          <h3>{leak.question}</h3><p><VisualIcon name="arrow" />{leak.action}</p>
         </m.div></AnimatePresence>
-        <div className="leak-outcome"><span className="live-dot" />Find the gap.<br /><strong>Give the team a next move.</strong></div>
+        <div className="leak-outcome">Better follow-up.<br /><strong>More chances to close.</strong></div>
       </div>
     </div>
   )
@@ -123,15 +118,16 @@ export function ProductScreenTour() {
         }}><VisualIcon name={item.icon} /><span>{item.label}</span>{active === i && <m.span className="screen-tab-line" initial={{ scaleX: reduced ? 1 : 0 }} animate={{ scaleX: 1 }} transition={{ duration: reduced ? 0 : 0.25 }} />}</button>)}
       </div>
       <div id={`${base}-panel`} className="screen-panel" role="tabpanel" aria-labelledby={`${base}-${screen.id}`} tabIndex={0}>
-        <div className="screen-caption"><div><h3>{screen.title}</h3><p>{screen.description}</p></div><span className="demo-tag">DEMO WORKSPACE</span></div>
+        <div className="screen-caption"><div><h3>{screen.title}</h3><p>{screen.description}</p></div><span className="demo-tag">DEMO ACCOUNT</span></div>
         <div className="screen-browser">
-          <div className="stack-chrome"><span className="stack-dots" aria-hidden="true">● ● ●</span><span>RevPhlo / {screen.label}</span><span className="mono xs">ILLUSTRATIVE DATA</span></div>
+          <div className="stack-chrome"><span className="stack-dots" aria-hidden="true">● ● ●</span><span>RevPhlo / {screen.label}</span></div>
           <div className="screen-image">
             <AnimatePresence mode="wait" initial={false}><m.div key={screen.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.16 }}>
               <Image src={screen.src} alt={screen.alt} width={1920} height={1080} sizes="(max-width: 720px) 95vw, 1176px" />
             </m.div></AnimatePresence>
           </div>
         </div>
+        <p className="screen-data-note">Demo account shown. Figures are illustrative.</p>
       </div>
     </div>
   )
